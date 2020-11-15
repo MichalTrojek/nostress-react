@@ -38,12 +38,13 @@ const NavigationMenu = ({ menuItems }) => {
         {menuItems.map((item, index) => {
           return (
             <NavigationMenuItemLink
+              key={index}
               to={item.href.replace('/', '')}
               spy={true}
               smooth={true}
               offset={-80}
             >
-              <NavigationMenuItem key={index}>
+              <NavigationMenuItem>
                 {item.name.toLocaleUpperCase()}
               </NavigationMenuItem>
             </NavigationMenuItemLink>

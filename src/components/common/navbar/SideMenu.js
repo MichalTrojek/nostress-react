@@ -48,13 +48,14 @@ const SideMenu = ({ menuItems, open, setOpen }) => {
         {menuItems.map((item, index) => {
           return (
             <SideMenuLink
+              key={index}
               to={item.href.replace('/', '')}
               spy={true}
               smooth={true}
               offset={-80}
               onClick={() => setOpen(!open)}
             >
-              <SideMenuItem key={index}>{item.name}</SideMenuItem>
+              <SideMenuItem>{item.name}</SideMenuItem>
             </SideMenuLink>
           );
         })}
