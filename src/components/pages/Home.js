@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import PageLayout from '../common/PageLayout';
-import Header from '../common/header/Header';
+import Hero from '../common/hero/Hero';
 import Menu from '../common/menu/Menu';
 
 const Home = () => {
   return (
     <PageLayout>
-      <Header />
+      <Hero />
       <Menu />
     </PageLayout>
   );

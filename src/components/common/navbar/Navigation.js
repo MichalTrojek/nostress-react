@@ -26,7 +26,7 @@ const NavigationBackground = styled.header`
 `;
 
 const NavigationWrapper = styled.div`
-  max-width: 120rem;
+  max-width: var(--max-width);
   min-height: 8rem;
   margin: 0 auto;
   padding: 1rem;

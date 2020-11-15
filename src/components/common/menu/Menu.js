@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const MenuStyled = styled.section`
   background-color: blue;
   height: 100vh;
+  max-width: var(--max-width);
   //padding: 8rem;
 `;
 

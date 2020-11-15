@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Navigation from '../common/navbar/Navigation';
 
 const Content = styled.main`
-  max-width: 120rem;
+  max-width: var(--max-width);
   margin: 8rem auto 0 auto;
   box-sizing: border-box;
   background-color: red;
