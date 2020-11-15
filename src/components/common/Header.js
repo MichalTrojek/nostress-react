@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import logo from '../../img/logo.png';
 
 import Burger from './Burger';
-import SideMenu from './SideMenu';
+import SideMenuStyled from './SideMenu';
 import NavigationMenuList from './NavigationMenu';
 
 const MENU_ITEMS = [
@@ -43,7 +43,7 @@ const Header = () => {
         <NavigationMenuList menuItems={MENU_ITEMS} />
         <Burger open={open} setOpen={setOpen} />
       </HeaderWrapper>
-      <SideMenu open={open} menuItems={MENU_ITEMS} />
+      <SideMenuStyled open={open} menuItems={MENU_ITEMS} />
     </div>
   );
 };
