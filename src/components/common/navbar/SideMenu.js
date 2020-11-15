@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
 
 const SideMenuStyled = styled.nav`
   display: flex;
@@ -29,10 +29,6 @@ const SideMenuItem = styled.li`
   &:hover {
     background-color: var(--color-tertiary);
   }
-
-  &:hover .sidemenuLink {
-    color: black;
-  }
 `;
 
 const SideMenuLink = styled(Link)`
@@ -40,20 +36,27 @@ const SideMenuLink = styled(Link)`
   color: var(--color-primary);
   text-transform: uppercase;
   text-decoration: none;
+  &:hover {
+    color: black;
+  }
 `;
 
-const SideMenu = ({ menuItems, open }) => {
+const SideMenu = ({ menuItems, open, setOpen }) => {
   return (
     <SideMenuStyled open={open}>
       <ul>
         {menuItems.map((item, index) => {
           return (
-            <SideMenuItem key={index}>
-              <SideMenuLink className="sidemenuLink" to={item.href}>
-                {' '}
-                {item.name}
-              </SideMenuLink>
-            </SideMenuItem>
+            <SideMenuLink
+              className="sidemenuLink"
+              to={item.href.replace('/', '')}
+              spy={true}
+              smooth={true}
+              offset={-80}
+              onClick={() => setOpen(!open)}
+            >
+              <SideMenuItem key={index}>{item.name}</SideMenuItem>
+            </SideMenuLink>
           );
         })}
       </ul>

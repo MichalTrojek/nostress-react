@@ -57,7 +57,7 @@ const Navigation = () => {
         </NavigationWrapper>
       </NavigationBackground>
 
-      <SideMenuStyled open={open} menuItems={MENU_ITEMS} />
+      <SideMenuStyled open={open} setOpen={setOpen} menuItems={MENU_ITEMS} />
     </>
   );
 };
