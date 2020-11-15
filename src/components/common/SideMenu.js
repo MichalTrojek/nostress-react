@@ -38,7 +38,6 @@ const SideMenuLink = styled(Link)`
   font-size: 2rem;
   color: var(--color-primary);
   text-transform: uppercase;
-
   text-decoration: none;
 `;
 
