@@ -7,8 +7,9 @@ const SideMenuStyled = styled.nav`
   justify-content: flex-start;
   background: var(--color-secondary);
   height: 100vh;
+  width: 100vw;
   text-align: left;
-  padding: 2rem;
+  padding: 2rem 1rem 2rem 2rem;
   right: 0;
   transition: transform 0.3s ease-in-out;
   transform: translateX(-100%);
@@ -42,7 +43,6 @@ const SideMenuLink = styled(Link)`
 `;
 
 const SideMenu = ({ menuItems, open }) => {
-  console.log(menuItems);
   return (
     <SideMenuStyled open={open}>
       <ul>
