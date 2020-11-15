@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const SideMenuStyled = styled.nav`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
   background: var(--color-secondary);
   height: 100vh;
   width: 100vw;
