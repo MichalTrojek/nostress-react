@@ -30,7 +30,7 @@ const NavigationWrapper = styled.div`
   min-height: 8rem;
   margin: 0 auto;
   padding: 1rem;
-  padding-right: 2rem;
+  padding-right: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

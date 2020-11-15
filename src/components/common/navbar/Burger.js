@@ -22,13 +22,13 @@ const BurgerButton = styled.button`
 
   span {
     width: 3rem;
-    height: 0.25rem;
+    height: 0.3rem;
     background: ${({ open }) =>
       open ? 'var(--color-tertiary);' : 'var(--color-primary);'};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
-    transform-origin: 0.54rem;
+    transform-origin: 0.5rem;
 
     :first-child {
       transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
@@ -36,6 +36,7 @@ const BurgerButton = styled.button`
 
     :nth-child(2) {
       opacity: ${({ open }) => (open ? '0' : '1')};
+      margin: 0.1rem 0;
     }
 
     :nth-child(3) {
