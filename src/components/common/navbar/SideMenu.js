@@ -48,7 +48,6 @@ const SideMenu = ({ menuItems, open, setOpen }) => {
         {menuItems.map((item, index) => {
           return (
             <SideMenuLink
-              className="sidemenuLink"
               to={item.href.replace('/', '')}
               spy={true}
               smooth={true}

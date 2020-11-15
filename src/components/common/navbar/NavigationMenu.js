@@ -38,7 +38,6 @@ const NavigationMenu = ({ menuItems }) => {
         {menuItems.map((item, index) => {
           return (
             <NavigationMenuItemLink
-              className="navigatiomMenuItemLink"
               to={item.href.replace('/', '')}
               spy={true}
               smooth={true}
