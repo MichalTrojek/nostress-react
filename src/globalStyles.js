@@ -31,6 +31,8 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 62.25%
     }
 
+  
+
     body {
         > * {
         font-family: var(--font-primary);
