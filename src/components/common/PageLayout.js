@@ -6,7 +6,6 @@ const Content = styled.main`
   max-width: var(--max-width);
   margin: 8rem auto 0 auto;
   box-sizing: border-box;
-  background-color: red;
 
   h1,
   h2,
