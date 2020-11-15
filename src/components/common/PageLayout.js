@@ -11,10 +11,28 @@ const Content = styled.main`
   h1,
   h2,
   h3,
-  h4,
-  h5,
-  h6 {
-    //font family
+  h4 {
+    font-family: var(--font-primary);
+    color: var(--color-primary);
+  }
+
+  h1 {
+    font-size: 6.4rem;
+    font-weight: 900;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 2.4rem;
+    font-weight: 500;
+  }
+
+  h4 {
+    font-size: 1.6rem;
+    font-weight: 500;
   }
 `;
 
