@@ -20,16 +20,15 @@ const NavigationMenuItem = styled.li`
   &:hover {
     background-color: var(--color-tertiary);
   }
-
-  &:hover .navigatiomMenuItemLink {
-    color: black;
-  }
 `;
 
 const NavigationMenuItemLink = styled(Link)`
   font-weight: bold;
   text-decoration: none;
   color: var(--color-primary);
+  &:hover {
+    color: black;
+  }
 `;
 
 const NavigationMenu = ({ menuItems }) => {
@@ -38,17 +37,17 @@ const NavigationMenu = ({ menuItems }) => {
       <NavigationMenuList>
         {menuItems.map((item, index) => {
           return (
-            <NavigationMenuItem key={index}>
-              <NavigationMenuItemLink
-                className="navigatiomMenuItemLink"
-                to={item.href.replace('/', '')}
-                spy={true}
-                smooth={true}
-                offset={-80}
-              >
+            <NavigationMenuItemLink
+              className="navigatiomMenuItemLink"
+              to={item.href.replace('/', '')}
+              spy={true}
+              smooth={true}
+              offset={-80}
+            >
+              <NavigationMenuItem key={index}>
                 {item.name.toLocaleUpperCase()}
-              </NavigationMenuItemLink>
-            </NavigationMenuItem>
+              </NavigationMenuItem>
+            </NavigationMenuItemLink>
           );
         })}
       </NavigationMenuList>
