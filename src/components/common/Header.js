@@ -1,54 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+
 import logo from '../../img/logo.png';
+
+import Burger from './Burger';
+import SideMenu from './SideMenu';
+import NavigationMenuList from './NavigationMenu';
 
 const HeaderWrapper = styled.header`
   max-width: 120rem;
   margin: 0 auto;
   padding: 1rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background: black;
-  @media only screen and (min-width: 884px) {
-    justify-content: space-between;
-  }
 `;
 
-const menuItems = [
+const MENU_ITEMS = [
   { name: 'Domů', href: '/' },
   { name: 'Týdenní menu', href: '/' },
   { name: 'Objednat jídlo', href: '/' },
   { name: 'Novinky', href: '/' },
   { name: 'Kontakt', href: '/' },
 ];
-
-const NavigationMenu = styled.ul`
-  display: none;
-  grid-template-columns: repeat(5, max-content);
-  column-gap: 1rem;
-  list-style-type: none;
-
-  @media only screen and (min-width: 884px) {
-    display: grid;
-  }
-`;
-
-const NavigationMenuItem = styled.li`
-  padding: 1rem;
-  border-radius: 0.5rem;
-  text-align: center;
-  cursor: pointer;
-  &:hover {
-    background-color: var(--color-tertiary);
-  }
-`;
-
-const NavigationMenuItemLink = styled(Link)`
-  text-decoration: none;
-  color: var(--color-primary);
-`;
 
 const NavigationLogo = styled.img`
   height: 5rem;
@@ -59,29 +34,16 @@ const NavigationLogo = styled.img`
   }
 `;
 
-const renderMenu = () => {
-  return <NavigationMenu>{renderMenuItems()}</NavigationMenu>;
-};
-
-const renderMenuItems = () => {
-  return menuItems.map((item) => {
-    return (
-      <NavigationMenuItem>
-        <NavigationMenuItemLink to={item.href}>
-          {item.name.toLocaleUpperCase()}
-        </NavigationMenuItemLink>
-      </NavigationMenuItem>
-    );
-  });
-};
-
 const Header = () => {
+  const [open, setOpen] = useState(false);
   return (
     <div>
-      <HeaderWrapper>
+      <HeaderWrapper className="header">
         <NavigationLogo src={logo} alt="No Stress Logo" />
-        {renderMenu()}
+        <NavigationMenuList menuItems={MENU_ITEMS} />
+        <Burger open={open} setOpen={setOpen} />
       </HeaderWrapper>
+      <SideMenu open={open} />
     </div>
   );
 };
