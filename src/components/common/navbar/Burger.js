@@ -21,14 +21,14 @@ const BurgerButton = styled.button`
   }
 
   span {
-    width: 2rem;
+    width: 3rem;
     height: 0.25rem;
     background: ${({ open }) =>
       open ? 'var(--color-tertiary);' : 'var(--color-primary);'};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
-    transform-origin: 1px;
+    transform-origin: 0.54rem;
 
     :first-child {
       transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
