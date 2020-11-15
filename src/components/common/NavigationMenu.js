@@ -20,9 +20,14 @@ const NavigationMenuItem = styled.li`
   &:hover {
     background-color: var(--color-tertiary);
   }
+
+  &:hover .navigatiomMenuItemLink {
+    color: black;
+  }
 `;
 
 const NavigationMenuItemLink = styled(Link)`
+  font-weight: bold;
   text-decoration: none;
   color: var(--color-primary);
 `;
@@ -30,10 +35,13 @@ const NavigationMenuItemLink = styled(Link)`
 const NavigationMenu = ({ menuItems }) => {
   return (
     <NavigationMenuList>
-      {menuItems.map((item) => {
+      {menuItems.map((item, index) => {
         return (
-          <NavigationMenuItem>
-            <NavigationMenuItemLink to={item.href}>
+          <NavigationMenuItem key={index}>
+            <NavigationMenuItemLink
+              className="navigatiomMenuItemLink"
+              to={item.href}
+            >
               {item.name.toLocaleUpperCase()}
             </NavigationMenuItemLink>
           </NavigationMenuItem>

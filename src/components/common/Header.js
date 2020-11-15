@@ -7,6 +7,14 @@ import Burger from './Burger';
 import SideMenu from './SideMenu';
 import NavigationMenuList from './NavigationMenu';
 
+const MENU_ITEMS = [
+  { name: 'Domů', href: '/' },
+  { name: 'Týdenní menu', href: '/' },
+  { name: 'Objednat jídlo', href: '/' },
+  { name: 'Novinky', href: '/' },
+  { name: 'Kontakt', href: '/' },
+];
+
 const HeaderWrapper = styled.header`
   max-width: 120rem;
   margin: 0 auto;
@@ -16,14 +24,6 @@ const HeaderWrapper = styled.header`
   align-items: center;
   background: black;
 `;
-
-const MENU_ITEMS = [
-  { name: 'Domů', href: '/' },
-  { name: 'Týdenní menu', href: '/' },
-  { name: 'Objednat jídlo', href: '/' },
-  { name: 'Novinky', href: '/' },
-  { name: 'Kontakt', href: '/' },
-];
 
 const NavigationLogo = styled.img`
   height: 5rem;
@@ -43,7 +43,7 @@ const Header = () => {
         <NavigationMenuList menuItems={MENU_ITEMS} />
         <Burger open={open} setOpen={setOpen} />
       </HeaderWrapper>
-      <SideMenu open={open} />
+      <SideMenu open={open} menuItems={MENU_ITEMS} />
     </div>
   );
 };

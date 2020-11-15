@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-secondary: #000000;
         --color-tertiary: #f2c48c;
         --color-quaternary: #6f6150;
+        
     }
 
     

@@ -16,10 +16,11 @@ const BurgerButton = styled.button`
     outline: none;
   }
 
-  div {
+  span {
     width: 2rem;
     height: 0.25rem;
-    background: ${({ open }) => (open ? 'gray' : 'white')};
+    background: ${({ open }) =>
+      open ? 'var(--color-tertiary);' : 'var(--color-primary);'};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
@@ -42,9 +43,9 @@ const BurgerButton = styled.button`
 const Burger = ({ open, setOpen }) => {
   return (
     <BurgerButton open={open} onClick={() => setOpen(!open)}>
-      <div />
-      <div />
-      <div />
+      <span />
+      <span />
+      <span />
     </BurgerButton>
   );
 };

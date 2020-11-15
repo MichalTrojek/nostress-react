@@ -1,61 +1,63 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const StyledMenu = styled.nav`
+const SideMenuStyled = styled.nav`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background: blue;
+  justify-content: flex-start;
+  background: var(--color-secondary);
   height: 100vh;
   text-align: left;
   padding: 2rem;
-  position: absolute;
-
-  left: 0;
+  right: 0;
   transition: transform 0.3s ease-in-out;
-
   transform: translateX(-100%);
-
-  a {
-    font-size: 2rem;
-    text-transform: uppercase;
-    padding: 2rem 0;
-    font-weight: bold;
-    letter-spacing: 0.5rem;
-    color: black;
-    text-decoration: none;
-    transition: color 0.3s linear;
-
-    &:hover {
-      color: green;
-    }
-  }
-
-  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
+  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+  position: fixed;
+  overflow-x: hidden;
 `;
 
-const SideMenu = ({ open }) => {
-  //  top: ${document.querySelector('.header').clientHeight};
+const SideMenuItem = styled.li`
+  padding: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.5rem;
+  list-style-type: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--color-tertiary);
+  }
+
+  &:hover .sidemenuLink {
+    color: black;
+  }
+`;
+
+const SideMenuLink = styled(Link)`
+  font-size: 2rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+
+  text-decoration: none;
+`;
+
+const SideMenu = ({ menuItems, open }) => {
+  console.log(menuItems);
   return (
-    <StyledMenu open={open}>
-      <a href="/">
-        <span role="img" aria-label="about us">
-          &#x1f481;&#x1f3fb;&#x200d;&#x2642;&#xfe0f;
-        </span>
-        About us
-      </a>
-      <a href="/">
-        <span role="img" aria-label="price">
-          &#x1f4b8;
-        </span>
-        Pricing
-      </a>
-      <a href="/">
-        <span role="img" aria-label="contact">
-          &#x1f4e9;
-        </span>
-        Contact
-      </a>
-    </StyledMenu>
+    <SideMenuStyled open={open}>
+      <ul>
+        {menuItems.map((item, index) => {
+          return (
+            <SideMenuItem key={index}>
+              <SideMenuLink className="sidemenuLink" to={item.href}>
+                {' '}
+                {item.name}
+              </SideMenuLink>
+            </SideMenuItem>
+          );
+        })}
+      </ul>
+    </SideMenuStyled>
   );
 };
 export default SideMenu;
