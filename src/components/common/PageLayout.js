@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from './Header';
+import Header from '../common/navbar/Header';
 
 const Content = styled.main`
   max-width: 800px;

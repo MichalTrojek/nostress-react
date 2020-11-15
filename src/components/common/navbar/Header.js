@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import logo from '../../img/logo.png';
+import logo from '../../../img/logo.png';
 
 import Burger from './Burger';
 import SideMenuStyled from './SideMenu';
