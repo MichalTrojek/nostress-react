@@ -34,20 +34,22 @@ const NavigationMenuItemLink = styled(Link)`
 
 const NavigationMenu = ({ menuItems }) => {
   return (
-    <NavigationMenuList>
-      {menuItems.map((item, index) => {
-        return (
-          <NavigationMenuItem key={index}>
-            <NavigationMenuItemLink
-              className="navigatiomMenuItemLink"
-              to={item.href}
-            >
-              {item.name.toLocaleUpperCase()}
-            </NavigationMenuItemLink>
-          </NavigationMenuItem>
-        );
-      })}
-    </NavigationMenuList>
+    <nav>
+      <NavigationMenuList>
+        {menuItems.map((item, index) => {
+          return (
+            <NavigationMenuItem key={index}>
+              <NavigationMenuItemLink
+                className="navigatiomMenuItemLink"
+                to={item.href}
+              >
+                {item.name.toLocaleUpperCase()}
+              </NavigationMenuItemLink>
+            </NavigationMenuItem>
+          );
+        })}
+      </NavigationMenuList>
+    </nav>
   );
 };
 

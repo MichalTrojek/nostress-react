@@ -15,6 +15,7 @@ const SideMenuStyled = styled.nav`
   transform: translateX(-100%);
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
   position: fixed;
+  top: 70px;
   overflow-x: hidden;
 `;
 

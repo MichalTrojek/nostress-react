@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import Navigation from '../common/navbar/Navigation';
 
 const Content = styled.main`
-  max-width: 800px;
-  margin: 80px auto 0 auto;
-  padding: 0 16px;
+  max-width: 120rem;
+  margin: 8rem auto 0 auto;
   box-sizing: border-box;
+  background-color: red;
 
   h1,
   h2,

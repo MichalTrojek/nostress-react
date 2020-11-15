@@ -15,14 +15,25 @@ const MENU_ITEMS = [
   { name: 'Kontakt', href: '/' },
 ];
 
-const NavigationWrapper = styled.header`
+const NavigationBackground = styled.header`
+  background-color: black;
+  width: 100vw;
+  height: 8rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+`;
+
+const NavigationWrapper = styled.div`
   max-width: 120rem;
+  min-height: 8rem;
   margin: 0 auto;
   padding: 1rem;
+  padding-left: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: black;
 `;
 
 const NavigationLogo = styled.img`
@@ -37,14 +48,17 @@ const NavigationLogo = styled.img`
 const Navigation = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div>
-      <NavigationWrapper className="header">
-        <NavigationLogo src={logo} alt="No Stress Logo" />
-        <NavigationMenuList menuItems={MENU_ITEMS} />
-        <Burger open={open} setOpen={setOpen} />
-      </NavigationWrapper>
+    <>
+      <NavigationBackground>
+        <NavigationWrapper className="navigation">
+          <NavigationLogo src={logo} alt="No Stress Logo" />
+          <NavigationMenuList menuItems={MENU_ITEMS} />
+          <Burger open={open} setOpen={setOpen} />
+        </NavigationWrapper>
+      </NavigationBackground>
+
       <SideMenuStyled open={open} menuItems={MENU_ITEMS} />
-    </div>
+    </>
   );
 };
 
