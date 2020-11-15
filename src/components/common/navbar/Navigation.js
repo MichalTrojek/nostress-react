@@ -15,7 +15,7 @@ const MENU_ITEMS = [
   { name: 'Kontakt', href: '/' },
 ];
 
-const HeaderWrapper = styled.header`
+const NavigationWrapper = styled.header`
   max-width: 120rem;
   margin: 0 auto;
   padding: 1rem;
@@ -34,18 +34,18 @@ const NavigationLogo = styled.img`
   }
 `;
 
-const Header = () => {
+const Navigation = () => {
   const [open, setOpen] = useState(false);
   return (
     <div>
-      <HeaderWrapper className="header">
+      <NavigationWrapper className="header">
         <NavigationLogo src={logo} alt="No Stress Logo" />
         <NavigationMenuList menuItems={MENU_ITEMS} />
         <Burger open={open} setOpen={setOpen} />
-      </HeaderWrapper>
+      </NavigationWrapper>
       <SideMenuStyled open={open} menuItems={MENU_ITEMS} />
     </div>
   );
 };
 
-export default Header;
+export default Navigation;

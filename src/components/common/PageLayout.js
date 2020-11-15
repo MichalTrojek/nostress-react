@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../common/navbar/Header';
+import Navigation from '../common/navbar/Navigation';
 
 const Content = styled.main`
   max-width: 800px;
@@ -39,7 +39,7 @@ const Content = styled.main`
 export default function PageLayout({ children }) {
   return (
     <>
-      <Header />
+      <Navigation />
       <Content>{children}</Content>
     </>
   );
