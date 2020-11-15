@@ -8,11 +8,11 @@ import SideMenuStyled from './SideMenu';
 import NavigationMenuList from './NavigationMenu';
 
 const MENU_ITEMS = [
-  { name: 'Domů', href: '/' },
-  { name: 'Týdenní menu', href: '/' },
-  { name: 'Objednat jídlo', href: '/' },
-  { name: 'Novinky', href: '/' },
-  { name: 'Kontakt', href: '/' },
+  { name: 'Domů', href: '/home' },
+  { name: 'Týdenní menu', href: '/menu' },
+  { name: 'Objednat jídlo', href: '/order' },
+  { name: 'Novinky', href: '/news' },
+  { name: 'Kontakt', href: '/contact' },
 ];
 
 const NavigationBackground = styled.header`

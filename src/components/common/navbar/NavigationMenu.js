@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
 
 const NavigationMenuList = styled.ul`
   display: none;
@@ -41,7 +41,10 @@ const NavigationMenu = ({ menuItems }) => {
             <NavigationMenuItem key={index}>
               <NavigationMenuItemLink
                 className="navigatiomMenuItemLink"
-                to={item.href}
+                to={item.href.replace('/', '')}
+                spy={true}
+                smooth={true}
+                offset={-80}
               >
                 {item.name.toLocaleUpperCase()}
               </NavigationMenuItemLink>
