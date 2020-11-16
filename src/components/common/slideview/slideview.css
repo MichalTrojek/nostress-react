@@ -19,7 +19,8 @@
 
 .button__bar li button {
   border: none;
-  background: #a53692;
+  background-color: var(--color-tertiary);
+
   color: transparent;
   cursor: pointer;
   display: block;
@@ -29,17 +30,11 @@
 }
 
 .button__bar li.slick-active button {
-  background-color: rgb(8, 255, 140);
+  background-color: var(--color-quaternary);
 }
 
 .button__bar li button:hover,
 .button__bar li button:focus {
-  background: rgba(247, 34, 34, 0.8);
+  background: var(--color-quaternary);
   outline: 0;
-}
-
-.slick-slide img {
-  border: 5px solid #fff;
-  display: block;
-  margin: auto;
 }

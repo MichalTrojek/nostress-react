@@ -12,14 +12,14 @@ const SlideViewWrapper = styled.div`
 const Page = styled.div`
   max-width: inherit;
   height: 80vh;
-  color: red;
+  color: var(--color-primary);
 `;
 
 class SlideView extends React.Component {
   render() {
     const settings = {
       dots: true,
-      infinite: true,
+      infinite: false,
       speed: 500,
       slidesToShow: 1,
       slidesToSrroll: 1,
