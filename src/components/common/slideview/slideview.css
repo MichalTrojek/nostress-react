@@ -2,10 +2,10 @@
   display: inline-block;
   vertical-align: middle;
   margin: auto;
-  padding: 0;
+  padding: 0.5rem;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 40px;
-  width: 70px;
+  width: max-content;
   text-align: center;
 }
 
@@ -19,8 +19,7 @@
 
 .button__bar li button {
   border: none;
-  background-color: var(--color-tertiary);
-
+  background-color: var(--color-primary);
   color: transparent;
   cursor: pointer;
   display: block;
@@ -30,11 +29,5 @@
 }
 
 .button__bar li.slick-active button {
-  background-color: var(--color-quaternary);
-}
-
-.button__bar li button:hover,
-.button__bar li button:focus {
-  background: var(--color-quaternary);
-  outline: 0;
+  background-color: var(--color-tertiary);
 }
