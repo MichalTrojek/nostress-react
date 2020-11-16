@@ -23,6 +23,7 @@ const NavigationBackground = styled.header`
   top: 0;
   left: 0;
   right: 0;
+  z-index: 9999999999999;
 `;
 
 const NavigationWrapper = styled.div`

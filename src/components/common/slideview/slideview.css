@@ -7,6 +7,12 @@
   border-radius: 40px;
   width: max-content;
   text-align: center;
+  z-index: 0;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
 }
 
 .button__bar li {

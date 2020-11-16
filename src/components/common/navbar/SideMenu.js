@@ -17,6 +17,7 @@ const SideMenuStyled = styled.nav`
   position: fixed;
   top: 70px;
   overflow-x: hidden;
+  z-index: 5;
 `;
 
 const SideMenuItem = styled.li`
