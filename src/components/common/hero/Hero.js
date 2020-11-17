@@ -47,7 +47,7 @@ const data = [
 ];
 const Hero = () => {
   return (
-    <HeroBackground>
+    <HeroBackground id="home">
       <HeroWrapper>
         <SlideView items={data} />
       </HeroWrapper>
