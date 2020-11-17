@@ -18,7 +18,7 @@ const MENU_ITEMS = [
 const NavigationBackground = styled.header`
   background-color: black;
   width: 100vw;
-  height: 8rem;
+  min-height: 8rem;
   position: fixed;
   top: 0;
   left: 0;

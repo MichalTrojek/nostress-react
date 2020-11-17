@@ -40,6 +40,8 @@ const SideMenuLink = styled(Link)`
   &:hover {
     color: black;
   }
+  display: flex;
+  flex-direction: column;
 `;
 
 const SideMenu = ({ menuItems, open, setOpen }) => {

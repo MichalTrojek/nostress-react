@@ -5,17 +5,15 @@ import StyledButton from '../button/Button';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './slideview.css';
-import { useRouteMatch } from 'react-router-dom';
+
+import Page from './Page';
 const SlideViewWrapper = styled.div`
   max-width: var(--max-width);
   margin: 0 auto;
 `;
 
-const Page = styled.div`
-  max-width: inherit;
-  height: 85vh;
-  color: var(--color-primary);
-  padding: 2rem;
+const SliderSyled = styled(Slider)`
+  max-height: fit-content;
 `;
 
 class SlideView extends React.Component {
@@ -37,19 +35,21 @@ class SlideView extends React.Component {
     };
 
     return (
-      <SlideViewWrapper>
-        <Slider {...settings}>
-          {this.props.items.map((item, index) => {
-            return (
-              <Page key={index}>
-                <h1>{item.header}</h1>
-                <p>{item.content}</p>
-                <StyledButton text={item.button} />
-              </Page>
-            );
-          })}
-        </Slider>
-      </SlideViewWrapper>
+      <>
+        <SlideViewWrapper>
+          <SliderSyled {...settings}>
+            {this.props.items.map((item, index) => {
+              return (
+                <Page key={index}>
+                  <h1>{item.header}</h1>
+                  <p>{item.content}</p>
+                  <StyledButton text={item.button} />
+                </Page>
+              );
+            })}
+          </SliderSyled>
+        </SlideViewWrapper>
+      </>
     );
   }
 }

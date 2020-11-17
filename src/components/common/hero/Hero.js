@@ -6,9 +6,17 @@ const HeroBackground = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
     url(${backgroundImage});
   background-repeat: no-repeat;
-  //background-size: cover;
-  background-position: top;
-  height: 100vh;
+  background-position: top center;
+  height: calc(100vh - 8rem);
+
+  @media only screen and (min-width: 768px) {
+    background-position: bottom;
+    background-size: cover;
+  }
+
+  @media only screen and (min-width: 1021px) {
+    height: calc(100vh - 16rem);
+  }
 `;
 
 const HeroWrapper = styled.section`
@@ -21,7 +29,7 @@ const data = [
   {
     header: 'Spuštíme rozvoz a výdejní okénko',
     content:
-      'Myslíme stále na Vás a o nabídku našich skvělých pokrmů Vás nechceme ochudit ani v době nouzového stavu a uzavřených restaurací.',
+      'Myslíme stále na Vás a o nabídku našich skvělých pokrmů Vás nechceme ochudit ani v době nouzového stavu a uzavřených restaurací.Myslíme stále na Vás a o nabídku našich skvělých pokrmů Vás nechceme ochudit ani v době nouzového stavu a uzavřených restaurací.',
     button: 'OBJEDNAT',
   },
   {

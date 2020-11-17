@@ -23,3 +23,7 @@ function App() {
 }
 
 export default App;
+
+// @media only screen and (min-width: 884px) {
+//   display: none;
+// }

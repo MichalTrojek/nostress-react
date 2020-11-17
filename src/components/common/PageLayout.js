@@ -6,7 +6,7 @@ const Content = styled.main`
   margin: 8rem auto 0 auto;
   box-sizing: border-box;
 
-  /* h1,
+  h1,
   h2,
   h3,
   h4 {
@@ -31,7 +31,7 @@ const Content = styled.main`
   h4 {
     font-size: 1.6rem;
     font-weight: 500;
-  } */
+  }
 `;
 
 export default function PageLayout({ children }) {
