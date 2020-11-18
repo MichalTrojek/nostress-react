@@ -2,13 +2,14 @@ import React, { useRef, useState } from 'react';
 import Button from '../common/button/Button';
 import { Form, FormGroup } from './FormStyles';
 import { useAuth } from '../../contexts/AuthContext';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 export default function Login() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState('');
+  const history = useHistory();
 
   const { login } = useAuth();
 
@@ -19,9 +20,9 @@ export default function Login() {
       setError('');
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      // history.push('/');
+      history.push('/login/dashboard');
     } catch {
-      setError('Failed to create an account');
+      setError('Failed to login');
     }
 
     setLoading(false);
@@ -42,6 +43,7 @@ export default function Login() {
         <p>
           Need an account? <Link to="/signup">Sign Up</Link>
         </p>
+        {error && error}
       </Form>
     </>
   );
