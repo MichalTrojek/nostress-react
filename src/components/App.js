@@ -1,24 +1,27 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { GlobalStyle } from '../globalStyles';
-import Login from '../components/pages/Login';
-import Home from '../components/pages/Home';
 
+import { AuthProvider } from '../contexts/AuthContext';
+
+import Home from './pages/HomePage';
+import SignupPage from './pages/SignupPage';
+import LoginPage from './pages/LoginPage';
+import DashboardPage from './pages/DashboardPage';
 function App() {
   return (
-    <div className="App">
+    <>
       <GlobalStyle />
-
       <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-        </Switch>
+        <AuthProvider>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/signup" component={SignupPage} />
+            <Route exact path="/login" component={LoginPage} />
+            <Route path="/login/dashboard" component={DashboardPage} />
+          </Switch>
+        </AuthProvider>
       </Router>
-    </div>
+    </>
   );
 }
 

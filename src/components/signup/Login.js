@@ -2,27 +2,23 @@ import React, { useRef, useState } from 'react';
 import Button from '../common/button/Button';
 import { Form, FormGroup } from './FormStyles';
 import { useAuth } from '../../contexts/AuthContext';
+import { Link } from 'react-router-dom';
 
-export default function Signup() {
+export default function Login() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const passwordConfirmRef = useRef(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState('');
 
-  const { signup } = useAuth();
+  const { login } = useAuth();
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError('Passwords do not match');
-    }
-
     try {
       setError('');
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
+      await login(emailRef.current.value, passwordRef.current.value);
       // history.push('/');
     } catch {
       setError('Failed to create an account');
@@ -42,15 +38,10 @@ export default function Signup() {
           <label htmlFor="">Password</label>
           <input type="password" ref={passwordRef} required />
         </FormGroup>
-        <FormGroup className="form-group" id="password-confirm">
-          <label htmlFor="">Password Confirmation</label>
-          <input type="password" ref={passwordConfirmRef} required />
-        </FormGroup>
-        <Button disabled={loading} type="submit" text="Sign Up"></Button>
+        <Button disabled={loading} type="submit" text="Log in" />
         <p>
-          Already have an account? <Link to="/signup">Log In</Link>
+          Need an account? <Link to="/signup">Sign Up</Link>
         </p>
-        {error && <p>{error}</p>}
       </Form>
     </>
   );

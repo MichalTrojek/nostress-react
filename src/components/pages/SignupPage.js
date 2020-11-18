@@ -2,7 +2,7 @@ import React from 'react';
 import PageLayout from '../common/PageLayout';
 import Signup from '../signup/Signup';
 
-const Login = () => {
+const SignupPage = () => {
   return (
     <PageLayout>
       <Signup />
@@ -10,4 +10,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignupPage;
