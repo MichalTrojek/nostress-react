@@ -12,13 +12,8 @@ const SlideViewWrapper = styled.div`
   margin: 0 auto;
 `;
 
-const SliderSyled = styled(Slider)`
-  max-height: fit-content;
-`;
-
-const Test = styled.div`
-  background-color: red;
-  min-height: calc(100vh - 12rem);
+const SliderStyled = styled(Slider)`
+  padding: 2rem;
 `;
 
 class SlideView extends React.Component {
@@ -42,7 +37,7 @@ class SlideView extends React.Component {
     return (
       <>
         <SlideViewWrapper>
-          <SliderSyled {...settings}>
+          <SliderStyled {...settings}>
             {this.props.items.map((item, index) => {
               return (
                 <Page key={index}>
@@ -52,9 +47,7 @@ class SlideView extends React.Component {
                 </Page>
               );
             })}
-            {/* <Test>test</Test>
-            <Test>test2</Test> */}
-          </SliderSyled>
+          </SliderStyled>
         </SlideViewWrapper>
       </>
     );

@@ -3,8 +3,6 @@ import styled from 'styled-components';
 const Page = styled.div`
   color: var(--color-primary);
   padding: 2rem;
-  min-height: calc(100vh - 13rem);
-
   display: grid !important;
   grid-template-rows: max-content max-content max-content 1fr;
   grid-row-gap: 3rem;
@@ -37,7 +35,7 @@ const Page = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    padding: 8rem;
+    padding-top: 8rem;
     grid-row-gap: 8rem;
     h1 {
       font-size: 4rem;
@@ -48,7 +46,7 @@ const Page = styled.div`
   }
 
   @media only screen and (min-width: 1024px) {
-    padding: 16rem 16rem 0rem 16rem;
+    padding-top: 16rem;
     grid-row-gap: 10rem;
     h1 {
       font-size: 6.4rem;

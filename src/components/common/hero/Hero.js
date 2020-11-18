@@ -5,18 +5,11 @@ import SlideView from '../slideview/SlideView';
 const HeroBackground = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
     url(${backgroundImage});
-  background-repeat: no-repeat;
-  background-position: top center;
-  height: calc(100vh - 8rem);
 
-  @media only screen and (min-width: 768px) {
-    background-position: bottom;
-    background-size: cover;
-  }
+  background-size: cover;
+  background-position: center center;
 
-  @media only screen and (min-width: 1021px) {
-    height: calc(100vh - 16rem);
-  }
+  //background-attachment: fixed;
 `;
 
 const HeroWrapper = styled.section`
