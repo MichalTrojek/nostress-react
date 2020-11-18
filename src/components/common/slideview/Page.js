@@ -11,6 +11,10 @@ const Page = styled.div`
     font-size: 2.2rem;
   }
 
+  p {
+    hyphens: auto;
+  }
+
   @media only screen and (min-width: 375px) {
     padding-top: 6rem;
 
