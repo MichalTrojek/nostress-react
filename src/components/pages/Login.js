@@ -1,8 +1,13 @@
 import React from 'react';
 import PageLayout from '../common/PageLayout';
+import Signup from '../signup/Signup';
 
 const Login = () => {
-  return <PageLayout>Login</PageLayout>;
+  return (
+    <PageLayout>
+      <Signup />
+    </PageLayout>
+  );
 };
 
 export default Login;

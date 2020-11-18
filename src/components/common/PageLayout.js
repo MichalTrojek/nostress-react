@@ -38,7 +38,6 @@ export default function PageLayout({ children }) {
   return (
     <>
       <Navigation />
-
       <Content>{children}</Content>
     </>
   );
