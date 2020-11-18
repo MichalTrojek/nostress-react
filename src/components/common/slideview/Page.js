@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const Page = styled.div`
-  max-width: inherit;
   color: var(--color-primary);
   padding: 2rem;
+  min-height: calc(100vh - 13rem);
 
   display: grid !important;
   grid-template-rows: max-content max-content max-content 1fr;

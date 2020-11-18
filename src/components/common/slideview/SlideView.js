@@ -16,6 +16,11 @@ const SliderSyled = styled(Slider)`
   max-height: fit-content;
 `;
 
+const Test = styled.div`
+  background-color: red;
+  min-height: calc(100vh - 12rem);
+`;
+
 class SlideView extends React.Component {
   constructor(props) {
     super(props);
@@ -47,6 +52,8 @@ class SlideView extends React.Component {
                 </Page>
               );
             })}
+            {/* <Test>test</Test>
+            <Test>test2</Test> */}
           </SliderSyled>
         </SlideViewWrapper>
       </>
