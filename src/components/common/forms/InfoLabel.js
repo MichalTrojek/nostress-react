@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 const StyledInfoLabel = styled.div`
   border-color: var(--color-tertiary);
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 0.5rem;
   padding: 1rem;
   width: 100%;

@@ -23,7 +23,7 @@ export default function Login() {
       await login(emailRef.current.value, passwordRef.current.value);
       history.push('/dashboard');
     } catch {
-      setError('Failed to login');
+      setError('Nepodařilo se přihlásit');
     }
 
     setLoading(false);

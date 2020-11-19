@@ -12,7 +12,6 @@ export const Form = styled.form`
   Button {
     align-self: stretch;
     font-size: 2rem;
-    padding-bottom: 2rem;
   }
 `;
 
