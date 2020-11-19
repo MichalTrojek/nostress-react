@@ -17,21 +17,20 @@ export const Form = styled.form`
 `;
 
 export const FormGroup = styled.div`
+  --form-group-form-size: 2rem;
   display: flex;
   flex-direction: column;
   width: 100%;
-  font-size: 1.6rem;
-
   label {
     color: transparent;
-    font-size: 2rem;
+    font-size: var(--form-group-form-size);
     transition: all 0.2s;
-    pointer-events: none;
     transform: translateY(-4.1rem) translateX(1rem);
+    pointer-events: none;
   }
 
   input {
-    font-size: 2rem;
+    font-size: var(--form-group-form-size);
     align-self: stretch;
     border-radius: 4px;
     border-bottom: 0.5rem solid transparent;

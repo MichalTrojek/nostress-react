@@ -3,6 +3,7 @@ import Button from '../button/Button';
 import { Form, FormGroup } from '../FormStyles';
 import { useAuth } from '../../../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 
 export default function Login() {
   const emailRef = useRef(null);
@@ -10,7 +11,6 @@ export default function Login() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState('');
   const history = useHistory();
-
   const { login } = useAuth();
 
   async function handleSubmit(e) {
@@ -28,33 +28,48 @@ export default function Login() {
     setLoading(false);
   }
 
+  const LoginBackground = styled.div`
+    background-color: black;
+    height: 100vh;
+  `;
+  const LoginWrapper = styled.section`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  `;
+
   return (
     <>
-      <Form action="" onSubmit={handleSubmit}>
-        <FormGroup className="form-group" id="email">
-          <input
-            id="email"
-            placeholder="Email"
-            type="email"
-            ref={emailRef}
-            required
-          />
-          <label htmlFor="email">Email</label>
-        </FormGroup>
-        <FormGroup className="form-group" id="password">
-          <input
-            id="password"
-            placeholder="Heslo"
-            type="password"
-            ref={passwordRef}
-            required
-          />
-          <label htmlFor="password">Heslo</label>
-        </FormGroup>
-        <Button disabled={loading} type="submit" text="Přihlásít" />
+      <LoginBackground>
+        <LoginWrapper>
+          <Form action="" onSubmit={handleSubmit}>
+            <FormGroup className="form-group" id="email">
+              <input
+                id="email"
+                placeholder="Email"
+                type="email"
+                ref={emailRef}
+                required
+              />
+              <label htmlFor="email">Email</label>
+            </FormGroup>
+            <FormGroup className="form-group" id="password">
+              <input
+                id="password"
+                placeholder="Heslo"
+                type="password"
+                ref={passwordRef}
+                required
+              />
+              <label htmlFor="password">Heslo</label>
+            </FormGroup>
+            <Button disabled={loading} type="submit" text="Přihlásít" />
 
-        {error && error}
-      </Form>
+            {error && error}
+          </Form>
+        </LoginWrapper>
+      </LoginBackground>
     </>
   );
 }
