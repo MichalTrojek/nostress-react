@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
-import Button from '../common/button/Button';
-import { Form, FormGroup } from './FormStyles';
-import { useAuth } from '../../contexts/AuthContext';
+import Button from '../button/Button';
+import { Form, FormGroup } from '../FormStyles';
+import { useAuth } from '../../../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
 
 export default function Login() {

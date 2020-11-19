@@ -4,7 +4,6 @@ import { GlobalStyle } from '../globalStyles';
 import { AuthProvider } from '../contexts/AuthContext';
 
 import Home from './pages/HomePage';
-import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import PrivateRoute from '../components/common/PrivateRoute';
@@ -16,7 +15,6 @@ function App() {
         <AuthProvider>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/login" component={LoginPage} />
             <PrivateRoute exact path="/dashboard" component={DashboardPage} />
           </Switch>
