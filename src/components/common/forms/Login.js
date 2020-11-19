@@ -1,9 +1,10 @@
 import React, { useRef, useState } from 'react';
 import Button from '../button/Button';
-import { Form, FormGroup } from '../FormStyles';
+import { Form, FormGroup } from './FormStyles';
 import { useAuth } from '../../../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import InfoLabel from './InfoLabel';
 
 export default function Login() {
   const emailRef = useRef(null);
@@ -46,6 +47,7 @@ export default function Login() {
           <Form action="" onSubmit={handleSubmit}>
             <FormGroup className="form-group" id="email">
               <input
+                autoComplete="off"
                 id="email"
                 placeholder="Email"
                 type="email"
@@ -65,8 +67,7 @@ export default function Login() {
               <label htmlFor="password">Heslo</label>
             </FormGroup>
             <Button disabled={loading} type="submit" text="Přihlásít" />
-
-            {error && error}
+            {error && <InfoLabel text={error} />}
           </Form>
         </LoginWrapper>
       </LoginBackground>

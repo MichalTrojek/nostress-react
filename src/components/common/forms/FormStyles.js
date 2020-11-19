@@ -3,8 +3,7 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-around;
+  align-items: center;
   background: transparent;
   width: max-content;
   padding: 3rem;
@@ -13,6 +12,7 @@ export const Form = styled.form`
   Button {
     align-self: stretch;
     font-size: 2rem;
+    padding-bottom: 2rem;
   }
 `;
 

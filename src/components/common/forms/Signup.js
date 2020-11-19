@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import Button from '../button/Button';
-import { Form, FormGroup } from '../FormStyles';
+import { Form, FormGroup } from './FormStyles';
 import { useAuth } from '../../../contexts/AuthContext';
 
 export default function Signup() {
