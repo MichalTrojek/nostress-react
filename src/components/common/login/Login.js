@@ -32,17 +32,27 @@ export default function Login() {
     <>
       <Form action="" onSubmit={handleSubmit}>
         <FormGroup className="form-group" id="email">
-          <label htmlFor="">Email</label>
-          <input type="email" ref={emailRef} required />
+          <input
+            id="email"
+            placeholder="Email"
+            type="email"
+            ref={emailRef}
+            required
+          />
+          <label htmlFor="email">Email</label>
         </FormGroup>
         <FormGroup className="form-group" id="password">
-          <label htmlFor="">Password</label>
-          <input type="password" ref={passwordRef} required />
+          <input
+            id="password"
+            placeholder="Heslo"
+            type="password"
+            ref={passwordRef}
+            required
+          />
+          <label htmlFor="password">Heslo</label>
         </FormGroup>
-        <Button disabled={loading} type="submit" text="Log in" />
-        <p>
-          Need an account? <Link to="/signup">Sign Up</Link>
-        </p>
+        <Button disabled={loading} type="submit" text="Přihlásít" />
+
         {error && error}
       </Form>
     </>
