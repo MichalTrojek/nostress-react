@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Navigation from '../common/navbar/Navigation';
+import { useAuth } from '../../contexts/AuthContext';
 
 const Content = styled.main`
   margin: 8rem auto 0 auto;
@@ -35,9 +36,12 @@ const Content = styled.main`
 `;
 
 export default function PageLayout({ children }) {
+  const { currentUser } = useAuth();
+  console.log(currentUser);
+
   return (
     <>
-      <Navigation />
+      {!currentUser && <Navigation />}
       <Content>{children}</Content>
     </>
   );
