@@ -3,7 +3,8 @@ import PageLayout from '../common/PageLayout';
 import Button from '../common/button/Button';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
-
+import Editor from '../common/editor/Editor';
+import styled from 'styled-components';
 const DashboardPage = () => {
   const [error, setError] = useState('');
   const { currentUser, logout } = useAuth();
@@ -19,15 +20,21 @@ const DashboardPage = () => {
     }
   }
 
+  const DashboardBackground = styled.section`
+    background-color: grey;
+    height: 100vh;
+    max-width: 120rem;
+    padding: 5rem;
+  `;
+
   return (
     <PageLayout>
-      <h1 style={{ color: 'red' }}>Dashboard</h1>
-      <Button onClick={handleLogOut} text="log out" />
-      <Link to="/login/update-profile">
-        <Button onClick={handleLogOut} text="Update Profile" />
-      </Link>
-      {error && error}
-      <strong>Email: </strong> {currentUser.email}
+      <DashboardBackground>
+        <h1 style={{ color: 'red' }}>Dashboard {currentUser.email}</h1>
+        <Button onClick={handleLogOut} text="log out" />
+
+        <Editor />
+      </DashboardBackground>
     </PageLayout>
   );
 };
