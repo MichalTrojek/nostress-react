@@ -15,12 +15,8 @@ const Content = styled.main`
   }
 
   h1 {
-    font-size: 3.75rem;
+    font-size: 2.2rem;
     font-weight: 900;
-
-    @media only screen and (min-width: 375px) {
-      font-size: 3rem;
-    }
 
     @media only screen and (min-width: 411px) {
       font-size: 2.7rem;
