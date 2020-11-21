@@ -21,18 +21,17 @@ const DashboardPage = () => {
   }
 
   const DashboardBackground = styled.section`
-    background-color: grey;
+    background-color: black;
     height: 100vh;
-    max-width: 120rem;
+
     padding: 5rem;
   `;
 
   return (
     <PageLayout>
       <DashboardBackground>
-        <h1 style={{ color: 'red' }}>Dashboard {currentUser.email}</h1>
         <Button onClick={handleLogOut} text="log out" />
-
+        <h1>Vytvoř novinku</h1>
         <Editor />
       </DashboardBackground>
     </PageLayout>
