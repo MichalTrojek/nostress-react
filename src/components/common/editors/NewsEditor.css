@@ -1,0 +1,14 @@
+.quill {
+  color: black;
+  background: whitesmoke;
+}
+
+.ql-picker-options {
+  background-color: lightgray !important;
+}
+
+.ql-editor {
+  background: white;
+  min-height: 10rem;
+  border-radius: 0.4px;
+}

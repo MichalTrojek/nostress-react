@@ -3,7 +3,7 @@ import PageLayout from '../common/PageLayout';
 import Button from '../common/button/Button';
 import { useAuth } from '../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
-import Editor from '../common/editor/Editor';
+import NewsEditor from '../common/editors/NewsEditor';
 import styled from 'styled-components';
 
 const DashboardBackground = styled.section`
@@ -22,8 +22,6 @@ const DashboardPage = () => {
   const { currentUser, logout } = useAuth();
   const history = useHistory();
 
-  const [value, setValue] = useState('');
-
   async function handleLogOut() {
     setError('');
     try {
@@ -34,18 +32,12 @@ const DashboardPage = () => {
     }
   }
 
-  const handleCreateNews = (e) => {
-    e.preventDefault();
-    console.log(value);
-  };
-
   return (
     <PageLayout>
       <DashboardBackground>
         <DashboardWrapper>
           <Button onClick={handleLogOut} text="log out" />
-          <h1>Vytvoř novinku</h1>
-          <Editor />
+          <NewsEditor />
         </DashboardWrapper>
       </DashboardBackground>
     </PageLayout>
