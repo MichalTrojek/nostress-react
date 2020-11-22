@@ -36,7 +36,7 @@ const DashboardPage = () => {
     <PageLayout>
       <DashboardBackground>
         <DashboardWrapper>
-          <Button onClick={handleLogOut} text="log out" />
+          <Button onClick={handleLogOut} text="Odhlasit se" />
           <NewsEditor />
         </DashboardWrapper>
       </DashboardBackground>
