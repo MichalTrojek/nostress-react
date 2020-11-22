@@ -5,17 +5,7 @@ import { useAuth } from '../../../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import InfoLabel from './InfoLabel';
-import Input from './Input';
-const LoginBackground = styled.div`
-  background-color: black;
-  height: 100vh;
-`;
-const LoginWrapper = styled.section`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
+
 export default function Login() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -39,16 +29,42 @@ export default function Login() {
     setLoading(false);
   }
 
+  const LoginBackground = styled.div`
+    background-color: black;
+    height: 100vh;
+  `;
+  const LoginWrapper = styled.section`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  `;
+
   return (
     <>
       <LoginBackground>
         <LoginWrapper>
           <Form action="" onSubmit={handleSubmit}>
             <FormGroup className="form-group" id="email">
-              <Input type="email" text="Email" />
+              <input
+                autoComplete="off"
+                id="email"
+                placeholder="Email"
+                type="email"
+                ref={emailRef}
+                required
+              />
+              <label htmlFor="email">Email</label>
             </FormGroup>
             <FormGroup className="form-group" id="password">
-              <Input type="password" text="Heslo" />
+              <input
+                id="password"
+                placeholder="Heslo"
+                type="password"
+                ref={passwordRef}
+                required
+              />
+              <label htmlFor="password">Heslo</label>
             </FormGroup>
             <Button disabled={loading} type="submit" text="Přihlásít" />
             {error && <InfoLabel text={error} />}
