@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Navigation from '../common/navbar/Navigation';
 
 const Content = styled.main`
-  margin: 8rem auto 0 auto;
   box-sizing: border-box;
 
   h1,
@@ -49,7 +48,6 @@ const Content = styled.main`
 export default function PageLayout({ children }) {
   return (
     <>
-      <Navigation />
       <Content>{children}</Content>
     </>
   );
