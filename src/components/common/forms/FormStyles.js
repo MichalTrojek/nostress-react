@@ -32,12 +32,16 @@ export const FormGroup = styled.div`
     font-size: var(--form-group-form-size);
     align-self: stretch;
     border-radius: 4px;
-    border-bottom: 0.5rem solid transparent;
 
-    padding: 1rem;
+    --input-border-width: 0.7rem;
+    border-bottom: var(--input-border-width) solid transparent;
+    border-top: var(--input-border-width) solid transparent;
+
+    padding: 0.5rem;
 
     &:focus {
       border-color: var(--color-tertiary);
+      border-top-color: transparent;
     }
 
     &:not(:placeholder-shown) + label {

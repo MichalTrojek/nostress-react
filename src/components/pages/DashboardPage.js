@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PageLayout from '../common/PageLayout';
 import Button from '../common/button/Button';
 import { useAuth } from '../../contexts/AuthContext';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Editor from '../common/editor/Editor';
 import styled from 'styled-components';
 
@@ -45,12 +45,7 @@ const DashboardPage = () => {
         <DashboardWrapper>
           <Button onClick={handleLogOut} text="log out" />
           <h1>Vytvoř novinku</h1>
-          <Editor value={value} onChange={setValue} />
-          <Button
-            onClick={handleCreateNews}
-            onChange={setValue}
-            text="Vytvořit novinku"
-          />
+          <Editor />
         </DashboardWrapper>
       </DashboardBackground>
     </PageLayout>
