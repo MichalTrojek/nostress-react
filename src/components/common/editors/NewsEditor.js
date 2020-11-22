@@ -5,9 +5,11 @@ import styled from 'styled-components';
 import Button from '../button/Button';
 import './NewsEditor.css';
 const EditorContainer = styled.div`
-  display: grid;
-  grid-template-rows: max-content max-content;
-  grid-gap: 5rem;
+  display: flex;
+  flex-direction: column;
+  & button {
+    margin-top: 2rem;
+  }
 `;
 const modules = {
   toolbar: [[{ header: 1 }], ['bold'], [{ color: ['#ffffff', '#f2c48c'] }]],
@@ -31,7 +33,6 @@ const Editor = () => {
       <EditorContainer>
         <h1>Editor novinek</h1>
         <ReactQuill
-          theme="snow"
           modules={modules}
           formats={formats}
           onChange={getContent}
