@@ -7,6 +7,14 @@
   background-color: lightgray !important;
 }
 
+.ql-toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.ql-toolbar span > button {
+  margin: 0;
+}
 .ql-editor {
   background: white;
   min-height: 10rem;
