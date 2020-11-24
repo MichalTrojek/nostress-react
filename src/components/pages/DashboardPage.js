@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PageLayout from '../common/PageLayout';
-import Button from '../common/button/Button';
+import Button from '../common/Button';
 import { useAuth } from '../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
 import NewsEditor from '../common/editors/NewsEditor';

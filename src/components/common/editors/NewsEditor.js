@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import styled from 'styled-components';
-import Button from '../button/Button';
+import Button from '../Button';
 import './NewsEditor.css';
 
 const EditorContainer = styled.div`

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import Button from '../button/Button';
+import Button from '../Button';
 import { Form, FormGroup } from './FormStyles';
 import { useAuth } from '../../../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
