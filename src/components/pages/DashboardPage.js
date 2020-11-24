@@ -3,7 +3,7 @@ import PageLayout from '../common/PageLayout';
 import Button from '../common/Button';
 import { useAuth } from '../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
-import NewsEditor from '../common/editors/NewsEditor';
+import NewsEditor from '../common/NewsEditor';
 import styled from 'styled-components';
 
 const DashboardBackground = styled.section`
