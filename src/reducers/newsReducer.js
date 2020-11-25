@@ -1,13 +1,18 @@
+import { CREATE_NEWS, FETCH_NEWS } from '../actions/types';
+
 const INITIAL_STATE = {
   allNews: [],
 };
 
 const newsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'FETCH_ALL_NEWS':
+    case FETCH_NEWS:
       return state.allNews;
-    case 'CREATE_NEWS':
-      return state.allNews;
+    case CREATE_NEWS:
+      console.log(state.allNews.length);
+      console.log('action payload in newsReducer ' + action.payload);
+      state.allNews.push(action.payload);
+      return { ...state, ...state.allNews };
     default:
       return state;
   }
@@ -15,13 +20,4 @@ const newsReducer = (state = INITIAL_STATE, action) => {
 
 export default newsReducer;
 
-// const newsReducer = (state = INITIAL_STATE, action) => {
-//   switch (action.type) {
-//     // case SIGN_IN:
-//     //   return { ...state, isSignedIn: true, userId: action.payload };
-//     // case SIGN_OUT:
-//     //   return { ...state, isSignedIn: false, userId: null };
-//     default:
-//       return state;
-//   }
-// };
+//

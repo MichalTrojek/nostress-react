@@ -5,6 +5,9 @@ import styled from 'styled-components';
 import Button from '../Button';
 import './NewsEditor.css';
 
+import { connect } from 'react-redux';
+import { createNews } from '../../../actions';
+
 const EditorContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,7 +22,7 @@ const modules = {
 
 const formats = ['header', 'bold', 'color'];
 
-const Editor = () => {
+const Editor = (props) => {
   const [value, setValue] = useState('');
 
   function getContent(content, delta, source, editor) {
@@ -27,7 +30,8 @@ const Editor = () => {
   }
 
   function handleClick() {
-    console.log(value);
+    console.log('clicked in NewsEditor ' + value);
+    props.createNews(value);
   }
 
   return (
@@ -46,4 +50,8 @@ const Editor = () => {
   );
 };
 
-export default Editor;
+const mapStateToProps = (state, ownProps) => {
+  return {};
+};
+
+export default connect(null, { createNews })(Editor);
