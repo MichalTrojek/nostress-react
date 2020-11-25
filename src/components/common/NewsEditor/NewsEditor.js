@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import styled from 'styled-components';
@@ -6,7 +6,7 @@ import Button from '../Button';
 import './NewsEditor.css';
 
 import { connect } from 'react-redux';
-import { createNews } from '../../../actions';
+import { createNews, fetchNews } from '../../../actions';
 
 const EditorContainer = styled.div`
   display: flex;
@@ -17,21 +17,25 @@ const EditorContainer = styled.div`
 `;
 
 const modules = {
-  toolbar: [[{ header: 1 }], ['bold'], [{ color: ['#ffffff', '#f2c48c'] }]],
+  toolbar: [[{ header: 1 }], ['bold'], [{ color: ['black', '#f2c48c'] }]],
 };
 
 const formats = ['header', 'bold', 'color'];
 
-const Editor = (props) => {
+const Editor = ({ allNews, createNews }) => {
   const [value, setValue] = useState('');
+  const [news, setNews] = useState([]);
+  useEffect(() => {
+    setNews(allNews);
+  }, []);
 
   function getContent(content, delta, source, editor) {
     setValue(content);
   }
 
   function handleClick() {
-    console.log('clicked in NewsEditor ' + value);
-    props.createNews(value);
+    createNews(value);
+    news.push(value);
   }
 
   return (
@@ -46,12 +50,16 @@ const Editor = (props) => {
         />
         <Button onClick={handleClick} text="Vytvořit novinku"></Button>
       </EditorContainer>
+      {news.map((item) => {
+        return <h1>{item}</h1>;
+      })}
     </>
   );
 };
 
 const mapStateToProps = (state, ownProps) => {
-  return {};
+  const { allNews } = state;
+  return { allNews };
 };
 
-export default connect(null, { createNews })(Editor);
+export default connect(mapStateToProps, { createNews, fetchNews })(Editor);

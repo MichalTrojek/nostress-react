@@ -5,7 +5,7 @@ import logo from '../../../img/logo.png';
 
 import Burger from './Burger';
 import SideMenuStyled from './SideMenu';
-import NavigationMenuList from './NavigationMenu';
+import NavigationMenu from './NavigationMenu';
 
 const MENU_ITEMS = [
   { name: 'Domů', href: '/home' },
@@ -53,7 +53,7 @@ const Navigation = () => {
       <NavigationBackground>
         <NavigationWrapper className="navigation">
           <NavigationLogo src={logo} alt="No Stress Logo" />
-          <NavigationMenuList menuItems={MENU_ITEMS} />
+          <NavigationMenu menuItems={MENU_ITEMS} />
           <Burger open={open} setOpen={setOpen} />
         </NavigationWrapper>
       </NavigationBackground>

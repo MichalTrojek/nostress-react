@@ -1,18 +1,12 @@
 import { CREATE_NEWS, FETCH_NEWS } from '../actions/types';
 
-const INITIAL_STATE = {
-  allNews: [],
-};
-
-const newsReducer = (state = INITIAL_STATE, action) => {
+const newsReducer = (state = ['test1', 'test2'], action) => {
   switch (action.type) {
     case FETCH_NEWS:
-      return state.allNews;
+      return state;
     case CREATE_NEWS:
-      console.log(state.allNews.length);
-      console.log('action payload in newsReducer ' + action.payload);
-      state.allNews.push(action.payload);
-      return { ...state, ...state.allNews };
+      state.push(action.payload);
+      return [...state];
     default:
       return state;
   }
