@@ -13,5 +13,3 @@ const newsReducer = (state = ['test1', 'test2'], action) => {
 };
 
 export default newsReducer;
-
-//

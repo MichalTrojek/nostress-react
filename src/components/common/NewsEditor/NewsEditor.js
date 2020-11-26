@@ -4,6 +4,7 @@ import 'react-quill/dist/quill.snow.css';
 import styled from 'styled-components';
 import Button from '../Button';
 import './NewsEditor.css';
+import { db } from '../../../firebase';
 
 import { connect } from 'react-redux';
 import { createNews, fetchNews } from '../../../actions';
@@ -34,8 +35,19 @@ const Editor = ({ allNews, createNews }) => {
   }
 
   function handleClick() {
-    createNews(value);
-    news.push(value);
+    // createNews(value);
+    // news.push(value);
+    console.log('clicked');
+    db.collection('news')
+      .add({
+        content: value,
+      })
+      .then(function (docRef) {
+        console.log('Document written with ID: ', docRef.id);
+      })
+      .catch(function (error) {
+        console.error('Error adding document: ', error);
+      });
   }
 
   return (
