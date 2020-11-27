@@ -38,12 +38,16 @@ export default function Login() {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: 1px solid var(--color-tertiary);
+    padding: 1rem;
+    text-align: center;
   `;
 
   return (
     <>
       <LoginBackground>
         <LoginWrapper>
+          <h1>login</h1>
           <Form action="" onSubmit={handleSubmit}>
             <FormGroup className="form-group" id="email">
               <input

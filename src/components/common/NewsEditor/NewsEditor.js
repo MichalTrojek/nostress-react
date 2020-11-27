@@ -17,13 +17,13 @@ const EditorContainer = styled.div`
 `;
 
 const modules = {
-  toolbar: [[{ header: 1 }], ['bold'], [{ color: ['black', '#f2c48c'] }]],
+  toolbar: [['bold'], [{ color: ['black', '#f2c48c'] }]],
 };
 
-const formats = ['header', 'bold', 'color'];
+const formats = ['bold', 'color'];
 
 const Editor = ({ allNews, createNews }) => {
-  const [value, setValue] = useState(new Delta());
+  const [value, setValue] = useState();
   const [news, setNews] = useState([]);
 
   function getContent(content, delta, source, editor) {
@@ -42,7 +42,7 @@ const Editor = ({ allNews, createNews }) => {
           modules={modules}
           formats={formats}
           onChange={getContent}
-          placeholder="Vložte nadpis a text k novince. Velikost fontu se nastaví sama podle obrazovky uživatele."
+          placeholder="Vložte text k novince."
         />
         <Button onClick={handleClick} text="Vytvořit novinku"></Button>
       </EditorContainer>
