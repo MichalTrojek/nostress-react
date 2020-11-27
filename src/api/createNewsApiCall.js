@@ -1,9 +1,10 @@
 import { db } from '../firebase';
 
-function createNewsApiCall(value) {
+function createNewsApiCall(heading, content) {
   db.collection('news')
     .add({
-      content: value,
+      heading: heading,
+      content: JSON.stringify(content),
     })
     .then((docRef) => {
       console.log(`Document written with ID: ${docRef.id}`);
