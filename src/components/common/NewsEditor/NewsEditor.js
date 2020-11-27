@@ -6,6 +6,7 @@ import Button from '../Button';
 import './NewsEditor.css';
 import { connect } from 'react-redux';
 import createNews from '../../../actions/createNews';
+import Delta from 'quill-delta';
 
 const EditorContainer = styled.div`
   display: flex;
@@ -22,15 +23,15 @@ const modules = {
 const formats = ['header', 'bold', 'color'];
 
 const Editor = ({ allNews, createNews }) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(new Delta());
   const [news, setNews] = useState([]);
 
   function getContent(content, delta, source, editor) {
-    setValue(content);
+    setValue(editor.getContents());
   }
 
   function handleClick() {
-    createNews(value);
+    createNews(JSON.stringify(value));
   }
 
   return (
