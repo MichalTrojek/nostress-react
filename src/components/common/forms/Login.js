@@ -38,8 +38,14 @@ export default function Login() {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid var(--color-tertiary);
+    border: none;
     padding: 1rem;
+    h1 {
+      font-size: 5rem;
+    }
+    @media only screen and (min-width: 414px) {
+      border: 1px solid var(--color-tertiary);
+    }
   `;
 
   return (

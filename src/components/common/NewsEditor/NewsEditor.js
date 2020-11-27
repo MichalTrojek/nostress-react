@@ -38,6 +38,7 @@ const Editor = ({ allNews, createNews }) => {
     <>
       <EditorContainer>
         <h1>Editor novinek</h1>
+
         <ReactQuill
           modules={modules}
           formats={formats}
