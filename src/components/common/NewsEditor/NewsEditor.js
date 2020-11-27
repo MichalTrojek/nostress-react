@@ -24,9 +24,6 @@ const formats = ['header', 'bold', 'color'];
 const Editor = ({ allNews, createNews }) => {
   const [value, setValue] = useState('');
   const [news, setNews] = useState([]);
-  // useEffect(() => {
-  //   setNews(allNews);
-  // }, []);
 
   function getContent(content, delta, source, editor) {
     setValue(content);
