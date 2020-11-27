@@ -35,19 +35,8 @@ const Editor = ({ allNews, createNews }) => {
   }
 
   function handleClick() {
-    // createNews(value);
-    // news.push(value);
-    console.log('clicked');
-    db.collection('news')
-      .add({
-        content: value,
-      })
-      .then(function (docRef) {
-        console.log('Document written with ID: ', docRef.id);
-      })
-      .catch(function (error) {
-        console.error('Error adding document: ', error);
-      });
+    createNews(value);
+    news.push(value);
   }
 
   return (
