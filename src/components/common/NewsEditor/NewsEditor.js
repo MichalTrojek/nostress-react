@@ -4,10 +4,8 @@ import 'react-quill/dist/quill.snow.css';
 import styled from 'styled-components';
 import Button from '../Button';
 import './NewsEditor.css';
-import { db } from '../../../firebase';
-
 import { connect } from 'react-redux';
-import { createNews, fetchNews } from '../../../actions';
+import createNews from '../../../actions/createNews';
 
 const EditorContainer = styled.div`
   display: flex;
@@ -26,9 +24,9 @@ const formats = ['header', 'bold', 'color'];
 const Editor = ({ allNews, createNews }) => {
   const [value, setValue] = useState('');
   const [news, setNews] = useState([]);
-  useEffect(() => {
-    setNews(allNews);
-  }, []);
+  // useEffect(() => {
+  //   setNews(allNews);
+  // }, []);
 
   function getContent(content, delta, source, editor) {
     setValue(content);
@@ -36,7 +34,6 @@ const Editor = ({ allNews, createNews }) => {
 
   function handleClick() {
     createNews(value);
-    news.push(value);
   }
 
   return (
@@ -63,4 +60,4 @@ const mapStateToProps = (state, ownProps) => {
   return { allNews };
 };
 
-export default connect(mapStateToProps, { createNews, fetchNews })(Editor);
+export default connect(mapStateToProps, { createNews })(Editor);

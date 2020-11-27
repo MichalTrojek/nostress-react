@@ -1,16 +1,18 @@
 import { db } from '../firebase';
 
-export function createNewsApiCall(value) {
+function createNewsApiCall(value) {
   db.collection('news')
     .add({
       content: value,
     })
     .then((docRef) => {
-      console.log(`docRef: ${docRef.id}`);
+      console.log(`Document written with ID: ${docRef.id}`);
     })
-    .then((error) => {
+    .catch((error) => {
       console.log(
         `Error while calling createNewsApiCall() in createNews: ${error}`
       );
     });
 }
+
+export default createNewsApiCall;
