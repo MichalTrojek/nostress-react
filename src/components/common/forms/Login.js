@@ -40,14 +40,13 @@ export default function Login() {
     transform: translate(-50%, -50%);
     border: 1px solid var(--color-tertiary);
     padding: 1rem;
-    text-align: center;
   `;
 
   return (
     <>
       <LoginBackground>
         <LoginWrapper>
-          <h1>login</h1>
+          <h1 style={{ textAlign: 'center' }}>login</h1>
           <Form action="" onSubmit={handleSubmit}>
             <FormGroup className="form-group" id="email">
               <input
