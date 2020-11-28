@@ -41,9 +41,6 @@ const Editor = ({ allNews, createNews, fetchNews }) => {
 
   useEffect(() => {
     fetchNews();
-    console.log(allNews);
-    setNews(allNews);
-    console.log(news);
   }, []);
 
   function getContent(content, delta, source, editor) {
@@ -61,8 +58,6 @@ const Editor = ({ allNews, createNews, fetchNews }) => {
     }
 
     createNews(heading, content);
-
-    // fetchNews();
   }
 
   return (
@@ -99,7 +94,6 @@ const Editor = ({ allNews, createNews, fetchNews }) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  console.log('state', state);
   const { allNews } = state;
   return { allNews };
 };

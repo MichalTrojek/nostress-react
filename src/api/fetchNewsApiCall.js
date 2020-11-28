@@ -1,16 +1,18 @@
-import { isCompositeComponent } from 'react-dom/test-utils';
 import { db } from '../firebase';
 
 function fetchNewsApiCall() {
-  let docs = [];
-  db.collection('news')
+  const promise = db
+    .collection('news')
     .get()
-    .then(function (querySnapshot) {
-      querySnapshot.forEach((doc) => {
-        docs.push(doc.data());
+    .then((snapshot) => {
+      const data = [];
+      snapshot.forEach((doc) => {
+        data.push(doc.data());
       });
+      return data;
     });
-  return docs;
+
+  return promise;
 }
 
 export default fetchNewsApiCall;

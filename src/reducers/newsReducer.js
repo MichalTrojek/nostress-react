@@ -3,13 +3,10 @@ import { CREATE_NEWS, FETCH_NEWS } from '../actions/types';
 const newsReducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_NEWS:
-      console.log('action ', action);
-      console.log('action payload ', action.payload);
-      console.log('type of ', typeof action.payload);
-      // console.log(JSON.parse(action));
+      console.log('in reducer', action);
       return [...state, ...action.payload];
     case CREATE_NEWS:
-      return [...state, action.payload];
+      return state;
     default:
       return state;
   }
