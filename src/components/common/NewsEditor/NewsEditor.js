@@ -28,22 +28,36 @@ const EditorContainer = styled.div`
   }
 `;
 
+const DisplayedNews = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+const News = styled.div`
+  padding: 2rem;
+
+  h1 {
+    font-size: 2rem;
+  }
+`;
+
 const modules = {
   toolbar: [['bold'], [{ color: ['black', '#f2c48c'] }]],
 };
 
 const formats = ['bold', 'color'];
 
-const Editor = ({ allNews, createNews, fetchNews }) => {
+const Editor = ({ news, createNews, fetchNews }) => {
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState();
 
   useEffect(() => {
-    fetchNews();
-  }, []);
+    if (news.length === 0) {
+      fetchNews();
+    }
+  });
 
   function getContent(content, delta, source, editor) {
-    // setContent(editor.getContents());
     setContent(content);
   }
   function getHeading(event) {
@@ -53,10 +67,8 @@ const Editor = ({ allNews, createNews, fetchNews }) => {
   function handleSubmit(e) {
     e.preventDefault();
     if (heading.length === 0 || content === undefined) {
-      //TODO add notification that says content must be included;
       return;
     }
-
     createNews(heading, content);
   }
 
@@ -86,16 +98,25 @@ const Editor = ({ allNews, createNews, fetchNews }) => {
           <Button type="submit" text="Vytvořit novinku"></Button>
         </form>
       </EditorContainer>
-      {allNews.map((item, index) => {
-        return <h1 key={index}>{item.heading}</h1>;
-      })}
+      <DisplayedNews>
+        {news.map((item, index) => {
+          return (
+            <News>
+              <h1 key={index}>{item.heading}</h1>
+              <div
+                dangerouslySetInnerHTML={{ __html: JSON.parse(item.content) }}
+              ></div>
+            </News>
+          );
+        })}
+      </DisplayedNews>
     </>
   );
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const { allNews } = state;
-  return { allNews };
+  const { news } = state;
+  return { news };
 };
 
 export default connect(mapStateToProps, { createNews, fetchNews })(Editor);

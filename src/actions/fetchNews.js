@@ -1,6 +1,5 @@
 import { FETCH_NEWS } from './types';
 import fetchNewsApiCall from '../api/fetchNewsApiCall';
-import { db } from '../firebase';
 
 const fetchNews = () => {
   return async (dispatch, getState) => {
