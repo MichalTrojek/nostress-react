@@ -37,14 +37,14 @@ const formats = ['bold', 'color'];
 const Editor = ({ allNews, createNews, fetchNews }) => {
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState();
-  const [news, setNews] = useState([]);
 
   useEffect(() => {
     fetchNews();
   }, []);
 
   function getContent(content, delta, source, editor) {
-    setContent(editor.getContents());
+    // setContent(editor.getContents());
+    setContent(content);
   }
   function getHeading(event) {
     setHeading(event.target.value);
@@ -86,8 +86,8 @@ const Editor = ({ allNews, createNews, fetchNews }) => {
           <Button type="submit" text="Vytvořit novinku"></Button>
         </form>
       </EditorContainer>
-      {news.map((item) => {
-        return <h1>{item}</h1>;
+      {allNews.map((item, index) => {
+        return <h1 key={index}>{item.heading}</h1>;
       })}
     </>
   );

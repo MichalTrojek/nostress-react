@@ -6,7 +6,7 @@ const newsReducer = (state = [], action) => {
       console.log('in reducer', action);
       return [...state, ...action.payload];
     case CREATE_NEWS:
-      return state;
+      return [...state, action.payload];
     default:
       return state;
   }
