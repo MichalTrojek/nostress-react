@@ -39,6 +39,15 @@ const News = styled.div`
   h1 {
     font-size: 2rem;
   }
+
+  .buttons {
+    display: flex;
+  }
+
+  button:first-child {
+    margin-right: 1rem;
+    width: 12rem;
+  }
 `;
 
 const modules = {
@@ -55,7 +64,7 @@ const Editor = ({ news, createNews, fetchNews }) => {
     if (news.length === 0) {
       fetchNews();
     }
-  });
+  }, []);
 
   function getContent(content, delta, source, editor) {
     setContent(content);
@@ -70,6 +79,14 @@ const Editor = ({ news, createNews, fetchNews }) => {
       return;
     }
     createNews(heading, content);
+  }
+
+  function handleDelete() {
+    console.log('delete');
+  }
+
+  function handleEdit() {
+    console.log('edit');
   }
 
   return (
@@ -98,14 +115,16 @@ const Editor = ({ news, createNews, fetchNews }) => {
           <Button type="submit" text="Vytvořit novinku"></Button>
         </form>
       </EditorContainer>
+
       <DisplayedNews>
         {news.map((item, index) => {
           return (
-            <News>
-              <h1 key={index}>{item.heading}</h1>
-              <div
-                dangerouslySetInnerHTML={{ __html: JSON.parse(item.content) }}
-              ></div>
+            <News key={index}>
+              <h1>{item.heading}</h1>
+              <div className="buttons">
+                <Button onClick={handleEdit} text="Editovat"></Button>
+                <Button onClick={handleDelete} text="Smazat"></Button>
+              </div>
             </News>
           );
         })}
