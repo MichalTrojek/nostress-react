@@ -1,4 +1,5 @@
 import NewsEditor from '../common/NewsEditor';
+import NewsList from '../common/NewsList';
 import styled from 'styled-components';
 
 const NewsPageBackground = styled.div`
@@ -16,6 +17,7 @@ const NewsPage = () => {
     <NewsPageBackground>
       <NewsPageWrapper>
         <NewsEditor />
+        <NewsList />
       </NewsPageWrapper>
     </NewsPageBackground>
   );

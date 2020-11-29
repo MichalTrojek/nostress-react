@@ -5,7 +5,6 @@ import { FormGroup } from '../forms/FormStyles';
 import Button from '../Button';
 
 import createNews from '../../../actions/createNews';
-import fetchNews from '../../../actions/fetchNews';
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -28,43 +27,15 @@ const EditorContainer = styled.div`
   }
 `;
 
-const DisplayedNews = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-const News = styled.div`
-  padding: 2rem;
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  .buttons {
-    display: flex;
-  }
-
-  button:first-child {
-    margin-right: 1rem;
-    width: 12rem;
-  }
-`;
-
 const modules = {
   toolbar: [['bold'], [{ color: ['black', '#f2c48c'] }]],
 };
 
 const formats = ['bold', 'color'];
 
-const Editor = ({ news, createNews, fetchNews }) => {
+const Editor = ({ createNews }) => {
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState();
-
-  useEffect(() => {
-    if (news.length === 0) {
-      fetchNews();
-    }
-  }, []);
 
   function getContent(content, delta, source, editor) {
     setContent(content);
@@ -79,14 +50,6 @@ const Editor = ({ news, createNews, fetchNews }) => {
       return;
     }
     createNews(heading, content);
-  }
-
-  function handleDelete() {
-    console.log('delete');
-  }
-
-  function handleEdit() {
-    console.log('edit');
   }
 
   return (
@@ -115,27 +78,8 @@ const Editor = ({ news, createNews, fetchNews }) => {
           <Button type="submit" text="Vytvořit novinku"></Button>
         </form>
       </EditorContainer>
-
-      <DisplayedNews>
-        {news.map((item, index) => {
-          return (
-            <News key={index}>
-              <h1>{item.heading}</h1>
-              <div className="buttons">
-                <Button onClick={handleEdit} text="Editovat"></Button>
-                <Button onClick={handleDelete} text="Smazat"></Button>
-              </div>
-            </News>
-          );
-        })}
-      </DisplayedNews>
     </>
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
-  const { news } = state;
-  return { news };
-};
-
-export default connect(mapStateToProps, { createNews, fetchNews })(Editor);
+export default connect(null, { createNews })(Editor);
