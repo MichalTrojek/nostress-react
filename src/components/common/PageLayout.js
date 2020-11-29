@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navigation from '../common/navbar/Navigation';
 
 const Content = styled.main`
   box-sizing: border-box;

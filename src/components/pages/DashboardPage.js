@@ -8,13 +8,25 @@ import styled from 'styled-components';
 
 const DashboardBackground = styled.section`
   background-color: black;
-  height: 100vh;
   padding: 1rem;
 `;
 
 const DashboardWrapper = styled.div`
   max-width: var(--max-width);
+  height: 100vh;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  max-width: 40rem;
+
+  Button {
+    padding: 3rem;
+    @media only screen and (min-width: 375px) {
+      padding: 4rem;
+      font-size: 1.8rem;
+    }
+  }
 `;
 
 const DashboardPage = () => {
@@ -37,7 +49,10 @@ const DashboardPage = () => {
       <DashboardBackground>
         <DashboardWrapper>
           <Button onClick={handleLogOut} text="Odhlasit se" />
-          <NewsEditor />
+          <Button onClick={() => history.push('/news')} text="Přidat novinky" />
+          <Button onClick={handleLogOut} text="Upravit hlavní menu" />
+          <Button onClick={handleLogOut} text="Upravit napojové menu" />
+          <Button onClick={handleLogOut} text="Přidat kartu novinek" />
         </DashboardWrapper>
       </DashboardBackground>
     </PageLayout>
