@@ -8,17 +8,19 @@ import styled from 'styled-components';
 const DisplayedNews = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   flex-wrap: wrap;
   padding: 2rem 0;
 `;
 
 const News = styled.div`
-  padding: 2rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
   border: 1px solid var(--color-tertiary);
 
   h1 {
     font-size: 2rem;
-    padding: 1rem 0;
+    padding-bottom: 1rem;
   }
 
   .buttons {
