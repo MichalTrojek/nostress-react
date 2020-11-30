@@ -1,5 +1,6 @@
 import Button from '../Button';
 import fetchNews from '../../../actions/fetchNews';
+import deleteNews from '../../../actions/deleteNews';
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -27,15 +28,15 @@ const News = styled.div`
   }
 `;
 
-const NewsList = ({ news, fetchNews }) => {
+const NewsList = ({ news, fetchNews, deleteNews }) => {
   useEffect(() => {
     if (news.length === 0) {
       fetchNews();
     }
   }, []);
 
-  function handleDelete() {
-    console.log('delete');
+  function handleDelete(id) {
+    deleteNews(id);
   }
 
   function handleEdit() {
@@ -50,7 +51,10 @@ const NewsList = ({ news, fetchNews }) => {
             <h1>{item.heading}</h1>
             <div className="buttons">
               <Button onClick={handleEdit} text="Editovat"></Button>
-              <Button onClick={handleDelete} text="Smazat"></Button>
+              <Button
+                onClick={() => handleDelete(item.id)}
+                text="Smazat"
+              ></Button>
             </div>
           </News>
         );
@@ -64,4 +68,4 @@ const mapStateToProps = (state, ownProps) => {
   return { news };
 };
 
-export default connect(mapStateToProps, { fetchNews })(NewsList);
+export default connect(mapStateToProps, { fetchNews, deleteNews })(NewsList);
