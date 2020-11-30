@@ -7,7 +7,11 @@ function fetchNewsApiCall() {
     .then((snapshot) => {
       const data = [];
       snapshot.forEach((doc) => {
-        data.push(doc.data());
+        data.push({
+          id: doc.id,
+          heading: doc.data().heading,
+          content: doc.data().content,
+        });
       });
       return data;
     });

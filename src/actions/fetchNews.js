@@ -7,6 +7,7 @@ const fetchNews = () => {
 
     data = data.map((item) => {
       return {
+        id: item.id,
         heading: item.heading,
         content: JSON.parse(item.content),
       };

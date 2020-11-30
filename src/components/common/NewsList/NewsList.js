@@ -9,6 +9,7 @@ const DisplayedNews = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
 `;
+
 const News = styled.div`
   padding: 2rem;
 
