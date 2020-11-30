@@ -37,6 +37,7 @@ const formats = ['bold', 'color'];
 const Editor = ({ createNews }) => {
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
+  const [buttonText, setButtonText] = useState('');
 
   function getContent(content, delta, source, editor) {
     setContent(content);
@@ -45,12 +46,19 @@ const Editor = ({ createNews }) => {
     setHeading(event.target.value);
   }
 
+  function getButtonText(event) {
+    setButtonText(event.target.value);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     if (heading.length === 0 || content === 0) {
       return;
     }
-    createNews(heading, content);
+    createNews(heading, content, buttonText);
+    setHeading('');
+    setContent('');
+    setButtonText('');
   }
 
   return (
@@ -58,7 +66,7 @@ const Editor = ({ createNews }) => {
       <EditorContainer>
         <h1>Editor novinek</h1>
         <form onSubmit={handleSubmit}>
-          <FormGroup className="form-group" id="password">
+          <FormGroup className="form-group">
             <input
               id="heading"
               onChange={getHeading}
@@ -69,13 +77,25 @@ const Editor = ({ createNews }) => {
             />
             <label htmlFor="heading">Nadpis</label>
           </FormGroup>
+          <FormGroup className="form-group">
+            <input
+              id="button"
+              onChange={getButtonText}
+              value={buttonText}
+              placeholder="Text tlačítka"
+              type="Text"
+            />
+            <label htmlFor="heading">Text tlačítka</label>
+          </FormGroup>
+
           <ReactQuill
             modules={modules}
             formats={formats}
-            defaultValue={content}
+            value={content}
             onChange={getContent}
             placeholder="Vložte text k novince."
           />
+
           <Button type="submit" text="Vytvořit novinku"></Button>
         </form>
       </EditorContainer>

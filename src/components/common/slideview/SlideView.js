@@ -41,8 +41,12 @@ class SlideView extends React.Component {
             {this.props.items.map((item, index) => {
               return (
                 <Page key={index}>
-                  <h1>{item.header}</h1>
-                  <p>{item.content}</p>
+                  <h1>{item.heading}</h1>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: item.content,
+                    }}
+                  ></div>
                   <StyledButton text={item.button} />
                 </Page>
               );

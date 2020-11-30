@@ -10,7 +10,8 @@ function fetchNewsApiCall() {
         data.push({
           id: doc.id,
           heading: doc.data().heading,
-          content: doc.data().content,
+          content: JSON.parse(doc.data().content),
+          button: doc.data().button,
         });
       });
       return data;
