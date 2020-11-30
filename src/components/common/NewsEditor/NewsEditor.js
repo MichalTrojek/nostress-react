@@ -23,7 +23,7 @@ const EditorContainer = styled.div`
   }
 
   h1 {
-    padding: 4rem 0;
+    padding-bottom: 2rem;
     font-size: 3rem;
   }
 `;
