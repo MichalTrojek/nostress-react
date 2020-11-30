@@ -1,13 +1,15 @@
 import { db } from '../firebase';
 
 function createNewsApiCall(heading, content) {
-  db.collection('news')
+  return db
+    .collection('news')
     .add({
       heading: heading,
       content: JSON.stringify(content),
     })
     .then((docRef) => {
       console.log(`Document written with ID: ${docRef.id}`);
+      return docRef.id;
     })
     .catch((error) => {
       console.log(

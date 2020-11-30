@@ -7,9 +7,6 @@ const newsReducer = (state = [], action) => {
     case CREATE_NEWS:
       return [...state, action.payload];
     case DELETE_NEWS:
-      // console.log(state);
-      // state = state.filter((item) => item.id !== action.payload);
-      // console.log(state);
       return state.filter((item) => item.id !== action.payload);
     default:
       return state;

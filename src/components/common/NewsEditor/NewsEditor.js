@@ -35,7 +35,7 @@ const formats = ['bold', 'color'];
 
 const Editor = ({ createNews }) => {
   const [heading, setHeading] = useState('');
-  const [content, setContent] = useState();
+  const [content, setContent] = useState('');
 
   function getContent(content, delta, source, editor) {
     setContent(content);
@@ -46,7 +46,7 @@ const Editor = ({ createNews }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (heading.length === 0 || content === undefined) {
+    if (heading.length === 0 || content === 0) {
       return;
     }
     createNews(heading, content);
