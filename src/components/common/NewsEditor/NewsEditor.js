@@ -56,6 +56,10 @@ const Editor = ({ createNews }) => {
       return;
     }
     createNews(heading, content, buttonText);
+    clearInputs();
+  }
+
+  function clearInputs() {
     setHeading('');
     setContent('');
     setButtonText('');
