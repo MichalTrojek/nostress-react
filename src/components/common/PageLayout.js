@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Content = styled.main`
   box-sizing: border-box;
+  margin-top: 6rem;
 
   h1,
   h2,
