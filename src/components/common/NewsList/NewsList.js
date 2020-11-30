@@ -9,13 +9,16 @@ const DisplayedNews = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 2rem 0;
 `;
 
 const News = styled.div`
   padding: 2rem;
+  border: 1px solid var(--color-tertiary);
 
   h1 {
     font-size: 2rem;
+    padding: 1rem 0;
   }
 
   .buttons {
@@ -44,22 +47,25 @@ const NewsList = ({ news, fetchNews, deleteNews }) => {
   }
 
   return (
-    <DisplayedNews>
-      {news.map((item, index) => {
-        return (
-          <News key={index}>
-            <h1>{item.heading}</h1>
-            <div className="buttons">
-              <Button onClick={handleEdit} text="Editovat"></Button>
-              <Button
-                onClick={() => handleDelete(item.id)}
-                text="Smazat"
-              ></Button>
-            </div>
-          </News>
-        );
-      })}
-    </DisplayedNews>
+    <>
+      <h1>Novinky</h1>
+      <DisplayedNews>
+        {news.map((item, index) => {
+          return (
+            <News key={index}>
+              <h1>{item.heading}</h1>
+              <div className="buttons">
+                <Button onClick={handleEdit} text="Editovat"></Button>
+                <Button
+                  onClick={() => handleDelete(item.id)}
+                  text="Smazat"
+                ></Button>
+              </div>
+            </News>
+          );
+        })}
+      </DisplayedNews>
+    </>
   );
 };
 
