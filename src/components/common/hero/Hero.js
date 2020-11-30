@@ -24,7 +24,9 @@ const HeroWrapper = styled.section`
 
 const Hero = ({ news, fetchNews }) => {
   useEffect(() => {
-    fetchNews();
+    if (news.length === 0) {
+      fetchNews();
+    }
   }, []);
   return (
     <HeroBackground id="home">
