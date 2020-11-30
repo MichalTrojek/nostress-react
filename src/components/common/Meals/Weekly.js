@@ -6,6 +6,7 @@ const WeeklyDateContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: stretch;
+  padding: 1rem 0;
 `;
 const Weekly = () => {
   const weeklyData = {
@@ -16,7 +17,7 @@ const Weekly = () => {
   return (
     <>
       <h1>Týdenní menu</h1>
-      <p>{weeklyData.text}</p>
+      <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
       <WeeklyDateContainer>
         <WeeklyDate />
         <Button text="OBJEDNAT" />

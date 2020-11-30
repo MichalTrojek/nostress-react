@@ -10,6 +10,7 @@ const MenuWrapper = styled.div`
 `;
 const MenuStyled = styled.section`
   height: 100vh;
+  padding: 1rem;
 
   //padding: 8rem;
 `;
