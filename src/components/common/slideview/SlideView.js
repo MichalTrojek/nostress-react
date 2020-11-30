@@ -13,7 +13,10 @@ const SlideViewWrapper = styled.div`
 `;
 
 const SliderStyled = styled(Slider)`
-  padding: 2rem;
+  padding-bottom: 2rem;
+  .slider__content {
+    hyphens: auto;
+  }
 `;
 
 class SlideView extends React.Component {
@@ -43,6 +46,7 @@ class SlideView extends React.Component {
                 <Page key={index}>
                   <h1>{item.heading}</h1>
                   <div
+                    class="slider__content"
                     dangerouslySetInnerHTML={{
                       __html: item.content,
                     }}
