@@ -9,14 +9,17 @@ import SlideView from '../slideview/SlideView';
 const HeroBackground = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
     url(${backgroundImage});
-
   background-size: cover;
   background-position: center center;
+
+  //background-attachment: fixed;
 `;
 
 const HeroWrapper = styled.section`
   max-width: var(--max-width);
   min-height: 8rem;
+  padding-top: 8rem;
+
   margin: 0 auto;
 `;
 

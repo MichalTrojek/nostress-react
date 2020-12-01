@@ -7,14 +7,13 @@ import 'slick-carousel/slick/slick-theme.css';
 import './slideview.css';
 
 import Page from './Page';
+
 const SlideViewWrapper = styled.div`
   max-width: var(--max-width);
   margin: 0 auto;
 `;
 
-const SliderStyled = styled(Slider)`
-  hyphens: auto;
-`;
+const SliderStyled = styled(Slider)``;
 
 class SlideView extends React.Component {
   constructor(props) {

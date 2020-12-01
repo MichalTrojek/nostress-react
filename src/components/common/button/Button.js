@@ -4,7 +4,7 @@ const StyledButton = styled.button`
   color: var(--color-secondary);
   background-color: var(--color-tertiary);
   padding: 1rem 2rem 1rem 2rem;
-  border-radius: 0.3rem;
+  border-radius: 10px;
   letter-spacing: 0.3rem;
   white-space: nowrap;
   text-transform: uppercase;
@@ -25,6 +25,26 @@ const StyledButton = styled.button`
   }
   &:active {
     transform: translateY(0.2rem);
+  }
+
+  @media only screen and (min-width: 320px) {
+    font-size: 1.3rem;
+  }
+
+  @media only screen and (min-width: 360px) {
+    font-size: 1.5rem;
+  }
+
+  @media only screen and (min-width: 411px) {
+    font-size: 1.6rem;
+  }
+
+  @media only screen and (min-width: 768px) {
+    font-size: 1.8rem;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 1.9rem;
   }
 `;
 

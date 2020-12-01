@@ -3,21 +3,22 @@ import styled from 'styled-components';
 const Page = styled.div`
   color: var(--color-primary);
   padding: 1rem;
-  /* display: grid !important;
-  grid-template-rows: max-content max-content max-content 1fr;
-  grid-row-gap: 4rem; */
-
   display: flex !important;
   flex-direction: column;
   justify-content: space-around;
-
+  height: 80vh;
   p {
     hyphens: auto;
   }
-  height: 80vh;
 
-  @media only screen and (min-width: 411px) {
-    height: 75vh;
+  @media only screen and (min-width: 768px) {
+    padding: 1rem 2rem;
+    height: 70vh;
+
+    button {
+      align-self: center;
+      padding: 4rem;
+    }
   }
 `;
 
