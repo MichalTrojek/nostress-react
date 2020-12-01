@@ -28,7 +28,7 @@ const MealList = (props) => {
 
   function renderList() {
     return props.items.map((item, index) => {
-      return <li key={index}> {item.text}</li>;
+      return <li key={item.id}> {item.text}</li>;
     });
   }
 
