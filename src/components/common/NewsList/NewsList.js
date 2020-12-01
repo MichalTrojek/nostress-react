@@ -1,7 +1,7 @@
 import Button from '../Button';
 import fetchNews from '../../../actions/fetchNews';
 import deleteNews from '../../../actions/deleteNews';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
@@ -35,14 +35,14 @@ const NewsList = ({ news, fetchNews, deleteNews }) => {
     if (news.length === 0) {
       fetchNews();
     }
-  }, []);
+  }, [fetchNews, news.length]);
 
   function handleDelete(id) {
     deleteNews(id);
   }
 
-  function handleEdit() {
-    console.log('edit');
+  function handleEdit(id) {
+    const selectedNews = news.filter((item) => item.id === id);
   }
 
   return (
@@ -54,7 +54,10 @@ const NewsList = ({ news, fetchNews, deleteNews }) => {
             <News key={index}>
               <h1>{item.heading}</h1>
               <div className="buttons">
-                <Button onClick={handleEdit} text="Editovat"></Button>
+                <Button
+                  onClick={() => handleEdit(item.id)}
+                  text="Editovat"
+                ></Button>
                 <Button
                   onClick={() => handleDelete(item.id)}
                   text="Smazat"
