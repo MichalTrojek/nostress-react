@@ -1,8 +1,12 @@
 import Button from '../Button';
 import styled from 'styled-components';
 import Label from '../Label';
-const WeeklyDateContainer = styled.div`
+import MealsList from '../MealsList';
+import Row from '../Row';
+
+const MealsDateContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   padding: 1rem 0;
@@ -27,7 +31,7 @@ const WeeklyDateContainer = styled.div`
     font-size: 1.9rem;
   }
 `;
-const Weekly = () => {
+const Meals = () => {
   const weeklyData = {
     text:
       'Polední Menu se sklada z hlavního chodu a polévky a je možné si ho objednat předem k vyzvednutí na restauraci nebo rozvozem k Vám domů. Jídlo Vám rádi dovezeme domů vždy čerstvé. Objednejte si1',
@@ -37,24 +41,24 @@ const Weekly = () => {
     <>
       <h1>Týdenní menu</h1>
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
-      <WeeklyDateContainer>
-        <Label text={getDateText()} />
-        <Button text="OBJEDNAT" />
-      </WeeklyDateContainer>
+      <MealsDateContainer>
+        <Row>
+          <Label text={getDateText()} />
+          <Button text="OBJEDNAT" />
+        </Row>
+        <MealsList />
+      </MealsDateContainer>
     </>
   );
 };
 
 function getDateText() {
   const curr = new Date();
-
   const first = curr.getDate() - curr.getDay() + 1;
   const last = first + 4;
-
   const monday = new Date(curr.setDate(first)).toLocaleDateString().slice(0, 7);
   const friday = new Date(curr.setDate(last)).toLocaleDateString();
-
   return `${monday} - ${friday}`;
 }
 
-export default Weekly;
+export default Meals;
