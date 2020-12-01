@@ -1,2 +1,2 @@
-import Weekly from './Weekly';
-export default Weekly;
+import Meals from './Meals';
+export default Meals;
