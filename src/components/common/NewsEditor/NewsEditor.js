@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { FormGroup } from '../forms/FormStyles';
+import { FormGroup } from '../Forms/FormStyles';
 import Button from '../Button';
 
 import createNews from '../../../actions/createNews';

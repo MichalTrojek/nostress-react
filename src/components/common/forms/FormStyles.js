@@ -20,6 +20,7 @@ export const FormGroup = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+
   label {
     color: transparent;
     font-size: var(--form-group-form-size);

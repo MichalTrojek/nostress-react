@@ -2,9 +2,28 @@ import React, { useRef, useState } from 'react';
 import Button from '../Button';
 import { Form, FormGroup } from './FormStyles';
 import { useAuth } from '../../../contexts/AuthContext';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import InfoLabel from './InfoLabel';
+
+const LoginBackground = styled.div`
+  background-color: black;
+  height: 100vh;
+`;
+const LoginWrapper = styled.section`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  padding: 1rem;
+  h1 {
+    font-size: 5rem;
+  }
+  @media only screen and (min-width: 414px) {
+    border: 1px solid var(--color-tertiary);
+  }
+`;
 
 export default function Login() {
   const emailRef = useRef(null);
@@ -29,25 +48,6 @@ export default function Login() {
     setLoading(false);
   }
 
-  const LoginBackground = styled.div`
-    background-color: black;
-    height: 100vh;
-  `;
-  const LoginWrapper = styled.section`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: none;
-    padding: 1rem;
-    h1 {
-      font-size: 5rem;
-    }
-    @media only screen and (min-width: 414px) {
-      border: 1px solid var(--color-tertiary);
-    }
-  `;
-
   return (
     <>
       <LoginBackground>
@@ -56,7 +56,7 @@ export default function Login() {
           <Form action="" onSubmit={handleSubmit}>
             <FormGroup className="form-group" id="email">
               <input
-                autoComplete="off"
+                autoComplete="on"
                 id="email"
                 placeholder="Email"
                 type="email"
@@ -67,6 +67,7 @@ export default function Login() {
             </FormGroup>
             <FormGroup className="form-group" id="password">
               <input
+                autoComplete="on"
                 id="password"
                 placeholder="Heslo"
                 type="password"
