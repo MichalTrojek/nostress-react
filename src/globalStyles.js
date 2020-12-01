@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
 
     :root {
-        --font-primary: 'Oswald', sans-serif;
+      
         --color-primary: #ffffff;
         --color-secondary: #000000;
         --color-tertiary: #f2c48c;
@@ -35,12 +35,13 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         > * {
-        font-family: var(--font-primary);
+        font-family: 'Merriweather', serif;
         font-weight: 300;
         line-height: 1.6;
         font-size: 1.6rem;
         color: var(--color-primary);
         text-rendering: optimizeLegibility;
+       
         } 
     }
 `;

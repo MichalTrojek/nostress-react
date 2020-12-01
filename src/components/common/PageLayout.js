@@ -9,7 +9,6 @@ const Content = styled.main`
   h2,
   h3,
   h4 {
-    font-family: var(--font-primary);
     color: var(--color-primary);
   }
 
