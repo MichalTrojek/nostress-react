@@ -14,7 +14,9 @@ export const GlobalStyle = createGlobalStyle`
         
     }
 
-    
+      /* @media only screen and (min-width: 411px) {
+      font-size: 2.7rem;
+    } */
 
     *,
     *::before,
@@ -28,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html{
-        font-size: 62.25%
+        font-size: 62.25%;
     }
 
   
@@ -36,11 +38,11 @@ export const GlobalStyle = createGlobalStyle`
     body {
         > * {
         font-family: 'Merriweather', serif;
-        font-weight: 300;
-        line-height: 1.6;
-        font-size: 1.6rem;
         color: var(--color-primary);
         text-rendering: optimizeLegibility;
+
+
+        
        
         } 
     }

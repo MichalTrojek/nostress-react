@@ -4,7 +4,6 @@ const StyledButton = styled.button`
   color: var(--color-secondary);
   background-color: var(--color-tertiary);
   padding: 1rem 2rem 1rem 2rem;
-  font-weight: bold;
   border-radius: 0.3rem;
   letter-spacing: 0.3rem;
   white-space: nowrap;
@@ -14,6 +13,9 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  font-weight: bold;
+
   &:focus {
     text-decoration: none;
   }

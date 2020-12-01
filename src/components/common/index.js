@@ -1,2 +1,1 @@
 import './PageLayout';
-import './PageLayout';

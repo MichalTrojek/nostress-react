@@ -13,10 +13,7 @@ const SlideViewWrapper = styled.div`
 `;
 
 const SliderStyled = styled(Slider)`
-  padding-bottom: 2rem;
-  p {
-    hyphens: auto;
-  }
+  hyphens: auto;
 `;
 
 class SlideView extends React.Component {

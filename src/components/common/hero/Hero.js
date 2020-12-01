@@ -12,8 +12,6 @@ const HeroBackground = styled.div`
 
   background-size: cover;
   background-position: center center;
-
-  //background-attachment: fixed;
 `;
 
 const HeroWrapper = styled.section`

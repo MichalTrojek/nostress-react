@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Content = styled.main`
   box-sizing: border-box;
-  margin-top: 6rem;
+  margin-top: 8rem;
 
   h1,
   h2,
@@ -12,35 +12,34 @@ const Content = styled.main`
     color: var(--color-primary);
   }
 
-  h1 {
-    font-size: 2.2rem;
-    font-weight: 900;
-
-    @media only screen and (min-width: 411px) {
-      font-size: 2.7rem;
+  @media only screen and (min-width: 320px) {
+    h1 {
+      font-size: 1.8rem;
     }
 
-    @media only screen and (min-width: 768px) {
-      font-size: 4rem;
-    }
-
-    @media only screen and (min-width: 1024px) {
-      font-size: 6.4rem;
+    p {
+      font-size: 1.3rem;
     }
   }
 
-  h2 {
-    font-size: 3.2rem;
-    font-weight: 700;
-  }
-  h3 {
-    font-size: 2.4rem;
-    font-weight: 500;
+  @media only screen and (min-width: 360px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
   }
 
-  h4 {
-    font-size: 1.6rem;
-    font-weight: 500;
+  @media only screen and (min-width: 411px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
   }
 `;
 
