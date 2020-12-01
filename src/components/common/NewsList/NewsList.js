@@ -8,7 +8,7 @@ import styled from 'styled-components';
 const DisplayedNews = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   padding: 2rem 0;
 `;
@@ -19,15 +19,14 @@ const News = styled.div`
   border: 1px solid var(--color-tertiary);
   text-align: center;
   .buttons {
-    padding-top: 2rem;
+    margin-top: 1rem;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    width: 100%;
+    justify-content: space-between;
   }
 
   button:first-child {
     margin-right: 1rem;
-    width: 13rem;
   }
 `;
 
