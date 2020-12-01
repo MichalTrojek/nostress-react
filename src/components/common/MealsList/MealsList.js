@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import menuIcon from '../../../img/menu-icon.png';
 
 const StyledMenu = styled.div`
   margin-top: 1rem;
@@ -13,6 +12,7 @@ const StyledMenu = styled.div`
   }
 
   ol {
+    padding-top: 1rem;
     list-style-position: inside;
   }
 `;
@@ -26,20 +26,20 @@ const MealList = (props) => {
     return header;
   }
 
+  function renderList() {
+    return props.items.map((item, index) => {
+      return <li key={index}> {item.text}</li>;
+    });
+  }
+
   return (
     <>
       <StyledMenu>
         <div className="menu-row">
           <h1>{renderHeader()} </h1>
-          <img src={menuIcon} alt="menu-icon" />
+          <img src={props.icon} alt="menu-icon" />
         </div>
-        <ol>
-          <li>test</li>
-          <li>test</li>
-          <li>test</li>
-          <li>test</li>
-          <li>test</li>
-        </ol>
+        <ol>{renderList()}</ol>
       </StyledMenu>
     </>
   );
