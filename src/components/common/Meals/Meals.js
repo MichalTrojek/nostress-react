@@ -7,8 +7,6 @@ import Row from '../Row';
 const MealsDateContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
   padding: 1rem 0;
 
   @media only screen and (min-width: 320px) {
@@ -46,7 +44,7 @@ const Meals = () => {
           <Label text={getDateText()} />
           <Button text="OBJEDNAT" />
         </Row>
-        <MealsList />
+        <MealsList header="Menu" info="sleva" />
       </MealsDateContainer>
     </>
   );
