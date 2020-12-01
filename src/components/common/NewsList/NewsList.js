@@ -15,21 +15,19 @@ const DisplayedNews = styled.div`
 
 const News = styled.div`
   margin-bottom: 1rem;
-  padding: 1rem;
+  padding: 2rem;
   border: 1px solid var(--color-tertiary);
-
-  h1 {
-    font-size: 2rem;
-    padding-bottom: 1rem;
-  }
-
+  text-align: center;
   .buttons {
+    padding-top: 2rem;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 
   button:first-child {
     margin-right: 1rem;
-    width: 12rem;
+    width: 13rem;
   }
 `;
 
@@ -50,7 +48,7 @@ const NewsList = ({ news, fetchNews, deleteNews }) => {
 
   return (
     <>
-      <h1>Novinky</h1>
+      <h1>Seznam novinek</h1>
       <DisplayedNews>
         {news.map((item, index) => {
           return (
