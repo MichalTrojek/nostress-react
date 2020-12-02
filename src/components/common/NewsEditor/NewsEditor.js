@@ -53,7 +53,7 @@ const Editor = ({ createNews, selectedNewsToEdit }) => {
   return (
     <>
       <EditorContainer>
-        <h1>Editor novinek</h1>
+        <h1 style={{ paddingBottom: '5rem' }}>Editor novinek</h1>
         <form onSubmit={handleSubmit}>
           <FormGroup className="form-group">
             <input
