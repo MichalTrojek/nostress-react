@@ -40,39 +40,14 @@ const Editor = ({ createNews, selectedNewsToEdit }) => {
   const [buttonText, setButtonText] = useState('');
 
   useEffect(() => {
-    setNewsToEdit();
+    insertTextToInputFields();
   }, [selectedNewsToEdit]);
-  function setNewsToEdit() {
+
+  function insertTextToInputFields() {
     const { heading, content, button } = selectedNewsToEdit[0];
     setHeading(heading);
     setContent(content);
     setButtonText(button);
-  }
-
-  function getContent(content, delta, source, editor) {
-    setContent(content);
-  }
-  function getHeading(event) {
-    setHeading(event.target.value);
-  }
-
-  function getButtonText(event) {
-    setButtonText(event.target.value);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (heading.length === 0 || content === 0) {
-      return;
-    }
-    createNews(heading, content, buttonText);
-    clearInputs();
-  }
-
-  function clearInputs() {
-    setHeading('');
-    setContent('');
-    setButtonText('');
   }
 
   return (
@@ -115,6 +90,32 @@ const Editor = ({ createNews, selectedNewsToEdit }) => {
       </EditorContainer>
     </>
   );
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (heading.length === 0 || content === 0) {
+      return;
+    }
+    createNews(heading, content, buttonText);
+    clearInputs();
+  }
+
+  function clearInputs() {
+    setHeading('');
+    setContent('');
+    setButtonText('');
+  }
+  function getHeading(event) {
+    setHeading(event.target.value);
+  }
+
+  function getButtonText(event) {
+    setButtonText(event.target.value);
+  }
+
+  function getContent(content, delta, source, editor) {
+    setContent(content);
+  }
 };
 
 function mapStateToProps(state, prevState) {
