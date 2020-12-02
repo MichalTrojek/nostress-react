@@ -125,6 +125,7 @@ const Editor = ({
     }
 
     if (isEditModeEnabled) {
+      setIsEditModeEnabled(false);
       const { id } = selectedNewsToEdit[0];
       editNews(id, heading, content, buttonText);
     } else {
