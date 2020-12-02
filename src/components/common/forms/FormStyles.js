@@ -33,7 +33,7 @@ export const FormGroup = styled.div`
     font-size: var(--form-group-form-size);
     align-self: stretch;
     border-radius: 4px;
-
+    margin-bottom: 1rem;
     --input-border-width: 0.7rem;
     border-bottom: var(--input-border-width) solid transparent;
     border-top: var(--input-border-width) solid transparent;
@@ -46,7 +46,7 @@ export const FormGroup = styled.div`
     }
 
     &:not(:placeholder-shown) + label {
-      transform: translateY(-7.6rem);
+      transform: translateY(-8.3rem);
       color: var(--color-tertiary);
     }
   }
