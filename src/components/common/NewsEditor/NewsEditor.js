@@ -103,8 +103,8 @@ const Editor = ({
   function renderEditButtons() {
     return isEditModeEnabled ? (
       <div>
-        <Button type="submit" text="Editovat" />
-        <Button onClick={cancelEdit} text="Zrušit Editovani" />
+        <Button type="submit" text="změnit" />
+        <Button onClick={cancelEdit} text="Zrušit editování" />
       </div>
     ) : (
       <Button type="submit" text="Vytvořit novinku" />
