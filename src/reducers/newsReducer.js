@@ -14,8 +14,6 @@ const newsReducer = (state = [], action) => {
     case DELETE_NEWS:
       return state.filter((item) => item.id !== action.payload);
     case EDIT_NEWS:
-      console.log('called reduce');
-      console.log(action.payload);
       state = state.filter((item) => item.id !== action.payload.id);
       return [...state, action.payload];
     default:

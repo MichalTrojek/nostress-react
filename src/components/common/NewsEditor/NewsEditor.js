@@ -56,8 +56,12 @@ const Editor = ({
     function insertTextToInputFields() {
       const { heading, content, button } = selectedNewsToEdit[0];
       setHeading(heading);
-      setContent(content);
+      setContent(replaceWhiteWithBlackColor(content));
       setButtonText(button);
+    }
+
+    function replaceWhiteWithBlackColor(text) {
+      return text.replaceAll('white', 'black');
     }
   }, [selectedNewsToEdit]);
 
@@ -127,11 +131,15 @@ const Editor = ({
     if (isEditModeEnabled) {
       setIsEditModeEnabled(false);
       const { id } = selectedNewsToEdit[0];
-      editNews(id, heading, content, buttonText);
+      editNews(id, heading, replaceBlackWithWhiteColor(content), buttonText);
     } else {
-      createNews(heading, content, buttonText);
+      createNews(heading, replaceBlackWithWhiteColor(content), buttonText);
     }
     clearInputs();
+  }
+
+  function replaceBlackWithWhiteColor(text) {
+    return text.replaceAll('black', 'white');
   }
 
   function clearInputs() {
