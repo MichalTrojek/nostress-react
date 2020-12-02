@@ -1,6 +1,7 @@
 import Button from '../Button';
 import fetchNews from '../../../actions/fetchNews';
 import deleteNews from '../../../actions/deleteNews';
+import setSelectedNewsToEdit from '../../../actions/news/setSelectedNewsToEdit';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -30,7 +31,7 @@ const News = styled.div`
   }
 `;
 
-const NewsList = ({ news, fetchNews, deleteNews }) => {
+const NewsList = ({ news, fetchNews, deleteNews, setSelectedNewsToEdit }) => {
   useEffect(() => {
     if (news.length === 0) {
       fetchNews();
@@ -43,6 +44,7 @@ const NewsList = ({ news, fetchNews, deleteNews }) => {
 
   function handleEdit(id) {
     const selectedNews = news.filter((item) => item.id === id);
+    setSelectedNewsToEdit(selectedNews);
   }
 
   return (
@@ -76,4 +78,8 @@ const mapStateToProps = (state, ownProps) => {
   return { news };
 };
 
-export default connect(mapStateToProps, { fetchNews, deleteNews })(NewsList);
+export default connect(mapStateToProps, {
+  fetchNews,
+  deleteNews,
+  setSelectedNewsToEdit,
+})(NewsList);
