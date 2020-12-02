@@ -6,6 +6,8 @@ import Button from '../Button';
 
 import createNews from '../../../actions/createNews';
 
+import emptySelectedNewsToEdit from '../../../actions/news/emptySelectedNewsToEdit';
+
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import styled from 'styled-components';
@@ -34,16 +36,25 @@ const modules = {
 
 const formats = ['bold', 'color'];
 
-const Editor = ({ createNews, selectedNewsToEdit }) => {
+const Editor = ({
+  createNews,
+  selectedNewsToEdit,
+  emptySelectedNewsToEdit,
+}) => {
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
   const [buttonText, setButtonText] = useState('');
+  const [isEditModeEnabled, setIsEditModeEnabled] = useState(false);
 
   useEffect(() => {
-    insertTextToInputFields();
+    if (selectedNewsToEdit.length !== 0) {
+      setIsEditModeEnabled(true);
+      insertTextToInputFields();
+    }
   }, [selectedNewsToEdit]);
 
   function insertTextToInputFields() {
+    console.log(selectedNewsToEdit);
     const { heading, content, button } = selectedNewsToEdit[0];
     setHeading(heading);
     setContent(content);
@@ -84,12 +95,28 @@ const Editor = ({ createNews, selectedNewsToEdit }) => {
             onChange={getContent}
             placeholder="Vložte text k novince."
           />
-
-          <Button type="submit" text="Vytvořit novinku"></Button>
+          {renderEditButtons()}
         </form>
       </EditorContainer>
     </>
   );
+
+  function renderEditButtons() {
+    return isEditModeEnabled ? (
+      <div>
+        <Button type="submit" text="Editovat" />
+        <Button onClick={cancelEdit} text="Zrušit Editovani" />
+      </div>
+    ) : (
+      <Button type="submit" text="Vytvořit novinku" />
+    );
+  }
+
+  function cancelEdit() {
+    setIsEditModeEnabled(false);
+    clearInputs();
+    emptySelectedNewsToEdit();
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -125,4 +152,7 @@ function mapStateToProps(state, prevState) {
   };
 }
 
-export default connect(mapStateToProps, { createNews })(Editor);
+export default connect(mapStateToProps, {
+  createNews,
+  emptySelectedNewsToEdit,
+})(Editor);
