@@ -5,6 +5,7 @@ import { FormGroup } from '../Forms/FormStyles';
 import Button from '../Button';
 
 import createNews from '../../../actions/createNews';
+import editNews from '../../../actions/news/editNews';
 
 import emptySelectedNewsToEdit from '../../../actions/news/emptySelectedNewsToEdit';
 
@@ -38,6 +39,7 @@ const formats = ['bold', 'color'];
 
 const Editor = ({
   createNews,
+  editNews,
   selectedNewsToEdit,
   emptySelectedNewsToEdit,
 }) => {
@@ -51,14 +53,14 @@ const Editor = ({
       setIsEditModeEnabled(true);
       insertTextToInputFields();
     }
-  }, [selectedNewsToEdit]);
 
-  function insertTextToInputFields() {
-    const { heading, content, button } = selectedNewsToEdit[0];
-    setHeading(heading);
-    setContent(content);
-    setButtonText(button);
-  }
+    function insertTextToInputFields() {
+      const { heading, content, button } = selectedNewsToEdit[0];
+      setHeading(heading);
+      setContent(content);
+      setButtonText(button);
+    }
+  }, [selectedNewsToEdit]);
 
   return (
     <>
@@ -103,15 +105,25 @@ const Editor = ({
   function renderEditButtons() {
     return isEditModeEnabled ? (
       <div>
-        <Button type="submit" text="změnit" />
-        <Button onClick={cancelEdit} text="Zrušit editování" />
+        <Button onClick={handleEdit} text="změnit" />
+        <Button onClick={handleCancelEdit} text="Zrušit editování " />
       </div>
     ) : (
       <Button type="submit" text="Vytvořit novinku" />
     );
   }
 
-  function cancelEdit() {
+  function handleEdit() {
+    const { id } = selectedNewsToEdit;
+    editNews({
+      id: id,
+      heading: heading,
+      content: content,
+      button: buttonText,
+    });
+  }
+
+  function handleCancelEdit() {
     setIsEditModeEnabled(false);
     clearInputs();
     emptySelectedNewsToEdit();
@@ -154,4 +166,5 @@ function mapStateToProps(state, prevState) {
 export default connect(mapStateToProps, {
   createNews,
   emptySelectedNewsToEdit,
+  editNews,
 })(Editor);
