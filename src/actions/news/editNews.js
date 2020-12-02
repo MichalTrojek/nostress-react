@@ -4,6 +4,7 @@ import editNewsApiCall from '../../api/news/editNewsApiCall';
 const editNews = (id, heading, newsContent, buttonText) => {
   return (dispatch, getState) => {
     editNewsApiCall(id, heading, newsContent, buttonText);
+
     dispatch({
       type: EDIT_NEWS,
       payload: {

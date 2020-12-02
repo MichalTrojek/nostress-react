@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { FormGroup } from '../Forms/FormStyles';
 import Button from '../Button';
 
-import createNews from '../../../actions/createNews';
-import editNews from '../../../actions/news/editNews';
+import ReactQuill from 'react-quill';
 
+import editNews from '../../../actions/news/editNews';
+import createNews from '../../../actions/createNews';
 import emptySelectedNewsToEdit from '../../../actions/news/emptySelectedNewsToEdit';
 
-import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import styled from 'styled-components';
-
 import './NewsEditor.css';
 
 const EditorContainer = styled.div`
@@ -105,22 +104,12 @@ const Editor = ({
   function renderEditButtons() {
     return isEditModeEnabled ? (
       <div>
-        <Button onClick={handleEdit} text="změnit" />
+        <Button type="submit" text="změnit" />
         <Button onClick={handleCancelEdit} text="Zrušit editování " />
       </div>
     ) : (
       <Button type="submit" text="Vytvořit novinku" />
     );
-  }
-
-  function handleEdit() {
-    const { id } = selectedNewsToEdit;
-    editNews({
-      id: id,
-      heading: heading,
-      content: content,
-      button: buttonText,
-    });
   }
 
   function handleCancelEdit() {
@@ -134,7 +123,13 @@ const Editor = ({
     if (heading.length === 0 || content === 0) {
       return;
     }
-    createNews(heading, content, buttonText);
+
+    if (isEditModeEnabled) {
+      const { id } = selectedNewsToEdit[0];
+      editNews(id, heading, content, buttonText);
+    } else {
+      createNews(heading, content, buttonText);
+    }
     clearInputs();
   }
 

@@ -66,6 +66,7 @@ const NewsList = ({ news, fetchNews, deleteNews, setSelectedNewsToEdit }) => {
   function handleEdit(id) {
     const selectedNews = news.filter((item) => item.id === id);
     setSelectedNewsToEdit(selectedNews);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function handleDelete(id) {

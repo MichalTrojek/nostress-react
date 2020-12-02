@@ -1,11 +1,12 @@
 import { db } from '../../firebase';
 
-function editNewsApiCall(id, heading, content, buttonText) {
+function editNewsApiCall(id, heading, newsContent, buttonText) {
+  console.log('editNewsApiCall', heading);
   db.collection('news')
     .doc(id)
     .set({
       heading: heading,
-      content: content,
+      content: JSON.stringify(newsContent),
       button: buttonText,
     })
     .then(() => {
