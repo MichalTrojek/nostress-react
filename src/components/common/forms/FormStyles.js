@@ -46,7 +46,7 @@ export const FormGroup = styled.div`
     }
 
     &:not(:placeholder-shown) + label {
-      transform: translateY(-8.3rem);
+      transform: translateY(-8.4rem);
       color: var(--color-tertiary);
     }
   }
