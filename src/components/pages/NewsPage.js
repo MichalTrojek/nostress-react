@@ -1,6 +1,7 @@
 import NewsEditor from '../common/NewsEditor';
 import NewsList from '../common/NewsList';
 import styled from 'styled-components';
+import { useState } from 'react';
 
 const NewsPageBackground = styled.div`
   background-color: black;
@@ -13,11 +14,16 @@ const NewsPageWrapper = styled.section`
 `;
 
 const NewsPage = () => {
+  const [isEditModeEnabled, setIsEditModeEnabled] = useState(false);
+
   return (
     <NewsPageBackground>
       <NewsPageWrapper>
-        <NewsEditor />
-        <NewsList />
+        <NewsEditor
+          isEditModeEnabled={isEditModeEnabled}
+          setIsEditModeEnabled={setIsEditModeEnabled}
+        />
+        <NewsList isEditModeEnabled={isEditModeEnabled} />
       </NewsPageWrapper>
     </NewsPageBackground>
   );

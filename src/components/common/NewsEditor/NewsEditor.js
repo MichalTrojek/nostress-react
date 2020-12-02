@@ -41,11 +41,13 @@ const Editor = ({
   editNews,
   selectedNewsToEdit,
   emptySelectedNewsToEdit,
+  setIsEditModeEnabled,
+  isEditModeEnabled,
 }) => {
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
   const [buttonText, setButtonText] = useState('');
-  const [isEditModeEnabled, setIsEditModeEnabled] = useState(false);
+  // const [isEditModeEnabled, setIsEditModeEnabled] = useState(false);
 
   useEffect(() => {
     if (selectedNewsToEdit.length !== 0) {

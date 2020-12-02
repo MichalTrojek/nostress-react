@@ -31,7 +31,13 @@ const News = styled.div`
   }
 `;
 
-const NewsList = ({ news, fetchNews, deleteNews, setSelectedNewsToEdit }) => {
+const NewsList = ({
+  news,
+  fetchNews,
+  deleteNews,
+  setSelectedNewsToEdit,
+  isEditModeEnabled,
+}) => {
   useEffect(() => {
     if (news.length === 0) {
       fetchNews();
@@ -70,7 +76,9 @@ const NewsList = ({ news, fetchNews, deleteNews, setSelectedNewsToEdit }) => {
   }
 
   function handleDelete(id) {
-    deleteNews(id);
+    if (!isEditModeEnabled) {
+      deleteNews(id);
+    }
   }
 };
 
