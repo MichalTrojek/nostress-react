@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import { FormGroup } from '../Forms/FormStyles';
@@ -34,10 +34,20 @@ const modules = {
 
 const formats = ['bold', 'color'];
 
-const Editor = ({ createNews }) => {
+const Editor = ({ createNews, selectedNewsToEdit }) => {
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
   const [buttonText, setButtonText] = useState('');
+
+  useEffect(() => {
+    setNewsToEdit();
+  }, [selectedNewsToEdit]);
+  function setNewsToEdit() {
+    const { heading, content, button } = selectedNewsToEdit[0];
+    setHeading(heading);
+    setContent(content);
+    setButtonText(button);
+  }
 
   function getContent(content, delta, source, editor) {
     setContent(content);
@@ -107,4 +117,11 @@ const Editor = ({ createNews }) => {
   );
 };
 
-export default connect(null, { createNews })(Editor);
+function mapStateToProps(state, prevState) {
+  const { selectedNewsToEdit } = state;
+  return {
+    selectedNewsToEdit,
+  };
+}
+
+export default connect(mapStateToProps, { createNews })(Editor);
