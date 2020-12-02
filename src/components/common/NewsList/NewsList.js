@@ -38,15 +38,6 @@ const NewsList = ({ news, fetchNews, deleteNews, setSelectedNewsToEdit }) => {
     }
   }, [fetchNews, news.length]);
 
-  function handleDelete(id) {
-    deleteNews(id);
-  }
-
-  function handleEdit(id) {
-    const selectedNews = news.filter((item) => item.id === id);
-    setSelectedNewsToEdit(selectedNews);
-  }
-
   return (
     <>
       <h1>Seznam novinek</h1>
@@ -71,6 +62,15 @@ const NewsList = ({ news, fetchNews, deleteNews, setSelectedNewsToEdit }) => {
       </DisplayedNews>
     </>
   );
+
+  function handleEdit(id) {
+    const selectedNews = news.filter((item) => item.id === id);
+    setSelectedNewsToEdit(selectedNews);
+  }
+
+  function handleDelete(id) {
+    deleteNews(id);
+  }
 };
 
 const mapStateToProps = (state, ownProps) => {

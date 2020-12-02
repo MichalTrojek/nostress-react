@@ -54,7 +54,6 @@ const Editor = ({
   }, [selectedNewsToEdit]);
 
   function insertTextToInputFields() {
-    console.log(selectedNewsToEdit);
     const { heading, content, button } = selectedNewsToEdit[0];
     setHeading(heading);
     setContent(content);
