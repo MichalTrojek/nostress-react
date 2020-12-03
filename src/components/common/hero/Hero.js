@@ -18,7 +18,7 @@ const HeroWrapper = styled.section`
   max-width: var(--max-width);
   min-height: 8rem;
   padding-top: 8rem;
-
+  padding-bottom: 3rem;
   margin: 0 auto;
 `;
 
