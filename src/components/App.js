@@ -9,6 +9,9 @@ import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import NewsPage from './pages/NewsPage';
 
+import { ToastContainer, Zoom } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   return (
     <>
@@ -23,6 +26,11 @@ function App() {
           </Switch>
         </AuthProvider>
       </Router>
+      <ToastContainer
+        autoClose={2000}
+        transition={Zoom}
+        style={{ fontSize: '1.6rem' }}
+      />
     </>
   );
 }

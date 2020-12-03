@@ -1,5 +1,10 @@
 import { CREATE_NEWS } from '../types';
 import createNewsApiCall from '../../api/news/createNewsApiCall';
+import {
+  showWarningToast,
+  showErrorToast,
+  showSuccessToast,
+} from '../../notifications/toast';
 
 const createNews = (heading, newsContent, buttonText) => {
   return async (dispatch, getState) => {
@@ -14,6 +19,9 @@ const createNews = (heading, newsContent, buttonText) => {
           button: buttonText,
         },
       });
+      showSuccessToast('Novinka byla uspešně uložena.');
+    } else {
+      showErrorToast('Novinku se nepodařilo uložit.');
     }
   };
 };
