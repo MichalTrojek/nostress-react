@@ -16,7 +16,7 @@ const NavBarMenuItem = styled.li`
   padding: 1rem;
   border-radius: 0.5rem;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 2.1rem;
   cursor: pointer;
   &:hover {
     background-color: var(--color-tertiary);

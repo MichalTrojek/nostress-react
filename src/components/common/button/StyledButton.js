@@ -27,23 +27,23 @@ const StyledButton = styled.button`
   }
 
   @media only screen and (min-width: 320px) {
-    font-size: 1.3rem;
-  }
-
-  @media only screen and (min-width: 360px) {
     font-size: 1.5rem;
   }
 
+  @media only screen and (min-width: 360px) {
+    font-size: 1.7rem;
+  }
+
   @media only screen and (min-width: 411px) {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
   }
 
   @media only screen and (min-width: 768px) {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
   @media only screen and (min-width: 1024px) {
-    font-size: 1.9rem;
+    font-size: 2.5rem;
   }
 `;
 

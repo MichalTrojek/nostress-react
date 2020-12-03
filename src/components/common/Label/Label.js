@@ -10,7 +10,9 @@ const StyledDate = styled.div`
 const WeeklyDate = (props) => {
   return (
     <>
-      <StyledDate>{props.text}</StyledDate>
+      <StyledDate>
+        <p>{props.text}</p>
+      </StyledDate>
     </>
   );
 };

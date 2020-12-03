@@ -14,51 +14,56 @@ const Content = styled.main`
 
   @media only screen and (min-width: 320px) {
     h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
 
-    p {
-      font-size: 1.3rem;
+    p,
+    li {
+      font-size: 1.5rem;
     }
   }
 
   @media only screen and (min-width: 360px) {
     h1 {
-      font-size: 2rem;
+      font-size: 2.6rem;
     }
 
-    p {
-      font-size: 1.5rem;
+    p,
+    li {
+      font-size: 1.7rem;
     }
   }
 
   @media only screen and (min-width: 411px) {
     h1 {
-      font-size: 2.6rem;
+      font-size: 2.8rem;
     }
 
-    p {
-      font-size: 1.6rem;
+    p,
+    li {
+      font-size: 1.9rem;
     }
   }
 
   @media only screen and (min-width: 768px) {
     h1 {
-      font-size: 3.6rem;
+      font-size: 4rem;
     }
 
-    p {
-      font-size: 1.8rem;
+    p,
+    li {
+      font-size: 2.2rem;
     }
   }
 
   @media only screen and (min-width: 1024px) {
     h1 {
-      font-size: 5rem;
+      font-size: 7rem;
     }
 
-    p {
-      font-size: 1.9rem;
+    p,
+    li {
+      font-size: 2.5rem;
     }
   }
 `;

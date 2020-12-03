@@ -37,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         > * {
-        font-family: 'Merriweather', serif;
+        font-family: 'Open Sans Condensed', sans-serif;
         color: var(--color-primary);
         text-rendering: optimizeLegibility;
 
