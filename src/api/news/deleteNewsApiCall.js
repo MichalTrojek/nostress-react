@@ -1,14 +1,17 @@
 import { db } from '../../firebase';
 
 function deleteNewsApiCalls(id) {
-  db.collection('news')
+  return db
+    .collection('news')
     .doc(id)
     .delete()
     .then(() => {
       console.log(`Documnet with id ${id} was successfully deleted!`);
+      return true;
     })
     .catch((error) => {
-      console.log(`Error removing document with id ${id}`);
+      console.log(`Error removing document with id ${id}. Error: ${error}`);
+      return false;
     });
 }
 
