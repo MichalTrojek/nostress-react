@@ -36,14 +36,78 @@ const MealsDateContainer = styled.div`
 `;
 
 const Meals = ({ fetchMeals, meals }) => {
-  useEffect(() => {
-    fetchMeals();
-  }, [fetchMeals]);
+  // useEffect(() => {
+  //   fetchMeals();
+  // }, [fetchMeals]);
 
   const weeklyData = {
     text:
       'Polední Menu se sklada z hlavního chodu a polévky a je možné si ho objednat předem k vyzvednutí na restauraci nebo rozvozem k Vám domů. Jídlo Vám rádi dovezeme domů vždy čerstvé. Objednejte si1',
   };
+
+  const mealsData = [
+    {
+      id: 1,
+      name: 'Smažený sýr, hranolky, tatarka',
+      price: '99',
+      alergens: '1,3,7,10',
+    },
+    {
+      id: 2,
+      name: 'Kuřecí roláda s bramborovou kaší',
+      price: '99',
+      alergens: '7',
+    },
+    {
+      id: 3,
+      name: 'Smažený vepřový řízek, domácí bramborový salát s majonézou',
+      price: '109',
+      alergens: '1, 3, 7, 10',
+    },
+    {
+      id: 4,
+      name: 'Vepřová plec se smetanovým špenátem a bramborovými šiškami',
+      price: '109',
+      alergens: '1, 7, 12',
+    },
+    {
+      id: 5,
+      name: 'Hovězí váleček na žampionech, rýže',
+      price: '119',
+      alergens: '1',
+    },
+    {
+      id: 6,
+      name: 'Obalovaný hejk s česnekovou omáčkou a bramborovou kaší',
+      price: '119',
+      alergens: '1, 3,4,7',
+    },
+    { id: 7, name: 'Flamendr, bramboráčky', price: '119', alergens: '1' },
+    {
+      id: 8,
+      name: 'Steak z krkovice s bylinkovým máslem, hranolkami a tatarkou',
+      price: '129',
+      alergens: '7, 10',
+    },
+    {
+      id: 9,
+      name: 'alát s krůtími prsy, sypané parmazánem, bagetka',
+      price: '129',
+      alergens: '1, 4, 7',
+    },
+    {
+      id: 10,
+      name: 'Burger s vepřovým trhaným, volksým okem, hranolky',
+      price: '129',
+      alergens: '1, 3, 7, 10',
+    },
+    {
+      id: 11,
+      name: 'Hovězí líčka s kořenovou zeleninou a bramborovou kaší',
+      price: '139',
+      alergens: '1, 7, 9',
+    },
+  ];
 
   return (
     <>
@@ -54,7 +118,12 @@ const Meals = ({ fetchMeals, meals }) => {
           <Label text={getDateText()} />
           <Button text="OBJEDNAT" />
         </Row>
-        <MealsList header="Menu" info="sleva" icon={menuIcon} items={meals} />
+        <MealsList
+          header="Menu"
+          info="sleva"
+          icon={menuIcon}
+          items={mealsData}
+        />
       </MealsDateContainer>
     </>
   );

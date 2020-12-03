@@ -28,7 +28,15 @@ const MealList = (props) => {
 
   function renderList() {
     return props.items.map((item, index) => {
-      return <li key={item.id}> {item.text}</li>;
+      return (
+        <li key={item.id}>
+          {`${item.name}`}{' '}
+          <span style={{ color: 'var(--color-tertiary)' }}>
+            {`${item.price},-`}{' '}
+          </span>{' '}
+          <span style={{ whiteSpace: 'nowrap' }}>{`(${item.alergens})`}</span>
+        </li>
+      );
     });
   }
 
