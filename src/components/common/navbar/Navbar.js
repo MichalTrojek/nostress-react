@@ -5,7 +5,7 @@ import logo from '../../../img/logo.png';
 
 import Burger from '../Burger';
 import SideMenuStyled from '../SideMenu';
-import NavigationMenu from '../NavigationMenu';
+import NavBarMenu from '../NavBarMenu';
 
 const MENU_ITEMS = [
   { name: 'Domů', href: '/home' },
@@ -15,7 +15,7 @@ const MENU_ITEMS = [
   { name: 'Kontakt', href: '/contact' },
 ];
 
-const NavigationBackground = styled.header`
+const NavBarBackground = styled.header`
   background-color: black;
   width: 100vw;
   min-height: 8rem;
@@ -50,13 +50,13 @@ const NavBar = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <NavigationBackground>
+      <NavBarBackground>
         <NavBarWrapper className="navigation">
           <NavBarLogo src={logo} alt="No Stress Logo" />
-          <NavigationMenu menuItems={MENU_ITEMS} />
+          <NavBarMenu menuItems={MENU_ITEMS} />
           <Burger open={open} setOpen={setOpen} />
         </NavBarWrapper>
-      </NavigationBackground>
+      </NavBarBackground>
 
       <SideMenuStyled open={open} setOpen={setOpen} menuItems={MENU_ITEMS} />
     </>

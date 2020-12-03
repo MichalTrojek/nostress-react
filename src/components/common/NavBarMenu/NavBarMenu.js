@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 
-const NavigationMenuList = styled.ul`
+const NavBarMenuList = styled.ul`
   display: none;
   grid-template-columns: repeat(5, max-content);
   column-gap: 1rem;
@@ -12,7 +12,7 @@ const NavigationMenuList = styled.ul`
   }
 `;
 
-const NavigationMenuItem = styled.li`
+const NavBarMenuItem = styled.li`
   padding: 1rem;
   border-radius: 0.5rem;
   text-align: center;
@@ -23,7 +23,7 @@ const NavigationMenuItem = styled.li`
   }
 `;
 
-const NavigationMenuItemLink = styled(Link)`
+const NavBarMenuItemList = styled(Link)`
   font-weight: bold;
   text-decoration: none;
   color: var(--color-primary);
@@ -32,28 +32,26 @@ const NavigationMenuItemLink = styled(Link)`
   }
 `;
 
-const NavigationMenu = ({ menuItems }) => {
+const NavBarMenu = ({ menuItems }) => {
   return (
     <nav>
-      <NavigationMenuList>
+      <NavBarMenuList>
         {menuItems.map((item, index) => {
           return (
-            <NavigationMenuItemLink
+            <NavBarMenuItemList
               key={index}
               to={item.href.replace('/', '')}
               spy={true}
               smooth={true}
               offset={-80}
             >
-              <NavigationMenuItem>
-                {item.name.toLocaleUpperCase()}
-              </NavigationMenuItem>
-            </NavigationMenuItemLink>
+              <NavBarMenuItem>{item.name.toLocaleUpperCase()}</NavBarMenuItem>
+            </NavBarMenuItemList>
           );
         })}
-      </NavigationMenuList>
+      </NavBarMenuList>
     </nav>
   );
 };
 
-export default NavigationMenu;
+export default NavBarMenu;
