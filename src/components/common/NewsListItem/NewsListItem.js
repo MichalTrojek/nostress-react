@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { useState, useEffect } from 'react';
 
 import { showWarningToast } from '../../../notifications/toast';
 import Button from '../Button';
@@ -10,7 +11,8 @@ import setSelectedNewsToEdit from '../../../actions/news/setSelectedNewsToEdit';
 const StyledNewsListItem = styled.div`
   margin-bottom: 1rem;
   padding: 2rem;
-  border: 1px solid var(--color-tertiary);
+  border: 1px solid
+    ${(props) => (props.isSelected ? 'white' : 'var(--color-tertiary)')};
   text-align: center;
   .buttons {
     margin-top: 1rem;
@@ -31,8 +33,16 @@ const NewsListItem = ({
   isEditModeEnabled,
   setSelectedNewsToEdit,
 }) => {
+  const [isSelected, setIsSelected] = useState(false);
+
+  useEffect(() => {
+    if (!isEditModeEnabled && isSelected) {
+      setIsSelected(false);
+    }
+  }, [isEditModeEnabled]);
+
   return (
-    <StyledNewsListItem>
+    <StyledNewsListItem isSelected={isSelected}>
       <h1>{item.heading}</h1>
       <div className="buttons">
         <Button onClick={() => handleEdit(item.id)} text="Editovat"></Button>
@@ -44,6 +54,7 @@ const NewsListItem = ({
   function handleEdit(id) {
     const selectedNews = news.filter((item) => item.id === id);
     setSelectedNewsToEdit(selectedNews);
+    setIsSelected(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
