@@ -16,7 +16,7 @@ const SlideViewPage = styled.div`
     height: 70vh;
 
     button {
-      align-self: center;
+      align-self: flex-end;
       padding: 4rem;
     }
   }
