@@ -13,7 +13,8 @@ const StyledMenu = styled.div`
 
   ol {
     padding-top: 1rem;
-    list-style-position: inside;
+    padding-left: 1rem;
+    list-style-position: outside;
   }
 `;
 
