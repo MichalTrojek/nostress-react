@@ -7,6 +7,7 @@ import Button from '../Button';
 import fetchNews from '../../../actions/news/fetchNews';
 import deleteNews from '../../../actions/news/deleteNews';
 import setSelectedNewsToEdit from '../../../actions/news/setSelectedNewsToEdit';
+import { showWarningToast } from '../../../notifications/toast';
 
 const DisplayedNews = styled.div`
   display: flex;
@@ -80,6 +81,8 @@ const NewsList = ({
   function handleDelete(id) {
     if (!isEditModeEnabled) {
       deleteNews(id);
+    } else {
+      showWarningToast('Nelze mazat během editování.');
     }
   }
 };
