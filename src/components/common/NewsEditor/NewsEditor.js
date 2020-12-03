@@ -47,7 +47,6 @@ const Editor = ({
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
   const [buttonText, setButtonText] = useState('');
-  // const [isEditModeEnabled, setIsEditModeEnabled] = useState(false);
 
   useEffect(() => {
     if (selectedNewsToEdit.length !== 0) {
@@ -65,7 +64,7 @@ const Editor = ({
     function replaceWhiteWithBlackColor(text) {
       return text.replaceAll('white', 'black');
     }
-  }, [selectedNewsToEdit]);
+  }, [selectedNewsToEdit, setIsEditModeEnabled]);
 
   return (
     <>
