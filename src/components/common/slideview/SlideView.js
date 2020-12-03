@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './slideview.css';
 
-import SlideViewPage from './SlideViewPage';
+import SlideViewPage from '../SlideViewPage';
 
 const SlideViewWrapper = styled.div`
   max-width: var(--max-width);
