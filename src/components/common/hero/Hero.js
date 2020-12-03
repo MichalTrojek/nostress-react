@@ -27,7 +27,7 @@ const Hero = ({ news, fetchNews }) => {
     if (news.length === 0) {
       fetchNews();
     }
-  }, []);
+  }, [fetchNews, news.length]);
   return (
     <HeroBackground id="home">
       <HeroWrapper>
