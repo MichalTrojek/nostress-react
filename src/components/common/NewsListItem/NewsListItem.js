@@ -7,6 +7,7 @@ import Button from '../Button';
 
 import deleteNews from '../../../actions/news/deleteNews';
 import setSelectedNewsToEdit from '../../../actions/news/setSelectedNewsToEdit';
+import emptySelectedNewsToEdit from '../../../actions/news/emptySelectedNewsToEdit';
 
 const StyledNewsListItem = styled.div`
   margin-bottom: 1rem;
@@ -32,14 +33,21 @@ const NewsListItem = ({
   deleteNews,
   isEditModeEnabled,
   setSelectedNewsToEdit,
+  selectedNewsToEdit,
 }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
-    if (!isEditModeEnabled && isSelected) {
-      setIsSelected(false);
+    if (isSelected && selectedNewsToEdit[0]) {
+      if (selectedNewsToEdit[0].id !== item.id) {
+        setIsSelected(false);
+      }
+    } else {
+      if (!isEditModeEnabled) {
+        setIsSelected(false);
+      }
     }
-  }, [isEditModeEnabled]);
+  }, [selectedNewsToEdit]);
 
   return (
     <StyledNewsListItem isSelected={isSelected}>
@@ -67,6 +75,14 @@ const NewsListItem = ({
   }
 };
 
-export default connect(null, { deleteNews, setSelectedNewsToEdit })(
-  NewsListItem
-);
+function mapStateToProps(state, prevState) {
+  const { selectedNewsToEdit } = state;
+  return {
+    selectedNewsToEdit,
+  };
+}
+export default connect(mapStateToProps, {
+  deleteNews,
+  setSelectedNewsToEdit,
+  emptySelectedNewsToEdit,
+})(NewsListItem);

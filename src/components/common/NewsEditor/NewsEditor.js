@@ -130,9 +130,9 @@ const Editor = ({
     }
 
     if (isEditModeEnabled) {
-      setIsEditModeEnabled(false);
       const { id } = selectedNewsToEdit[0];
       editNews(id, heading, replaceBlackWithWhiteColor(content), buttonText);
+      setIsEditModeEnabled(false);
     } else {
       createNews(heading, replaceBlackWithWhiteColor(content), buttonText);
     }
