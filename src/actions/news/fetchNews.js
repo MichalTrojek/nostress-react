@@ -1,5 +1,5 @@
-import { FETCH_NEWS } from './types';
-import fetchNewsApiCall from '../api/fetchNewsApiCall';
+import { FETCH_NEWS } from '../types';
+import fetchNewsApiCall from '../../api/news/fetchNewsApiCall';
 
 const fetchNews = () => {
   return async (dispatch, getState) => {

@@ -1,5 +1,5 @@
-import { FETCH_MEALS } from './types';
-import fetchMealsApiCall from '../api/fetchMealsApiCall';
+import { FETCH_MEALS } from '../types';
+import fetchMealsApiCall from '../../api/meals/fetchMealsApiCall';
 
 const fetchMeals = () => {
   return async (dispatch, getState) => {

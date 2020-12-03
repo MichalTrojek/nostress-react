@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
 
-import fetchNews from '../../../actions/fetchNews';
+import fetchNews from '../../../actions/news/fetchNews';
+
 import { connect } from 'react-redux';
 import backgroundImage from '../../../img/hero.png';
 import SlideView from '../slideview/SlideView';

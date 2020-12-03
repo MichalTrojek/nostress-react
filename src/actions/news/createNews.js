@@ -1,5 +1,5 @@
-import { CREATE_NEWS } from './types';
-import createNewsApiCall from '../api/createNewsApiCall';
+import { CREATE_NEWS } from '../types';
+import createNewsApiCall from '../../api/news/createNewsApiCall';
 
 const createNews = (heading, newsContent, buttonText) => {
   return async (dispatch, getState) => {

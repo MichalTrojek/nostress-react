@@ -1,10 +1,12 @@
-import Button from '../Button';
-import fetchNews from '../../../actions/fetchNews';
-import deleteNews from '../../../actions/deleteNews';
-import setSelectedNewsToEdit from '../../../actions/news/setSelectedNewsToEdit';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+
+import Button from '../Button';
+
+import fetchNews from '../../../actions/news/fetchNews';
+import deleteNews from '../../../actions/news/deleteNews';
+import setSelectedNewsToEdit from '../../../actions/news/setSelectedNewsToEdit';
 
 const DisplayedNews = styled.div`
   display: flex;

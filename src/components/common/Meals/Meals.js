@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import fetchMeals from '../../../actions/fetchMeals';
+import fetchMeals from '../../../actions/meals/fetchMeals';
 
 import Button from '../Button';
 import styled from 'styled-components';

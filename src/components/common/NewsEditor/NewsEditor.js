@@ -8,7 +8,7 @@ import Button from '../Button';
 import ReactQuill from 'react-quill';
 
 import editNews from '../../../actions/news/editNews';
-import createNews from '../../../actions/createNews';
+import createNews from '../../../actions/news/createNews';
 import emptySelectedNewsToEdit from '../../../actions/news/emptySelectedNewsToEdit';
 
 import 'react-quill/dist/quill.snow.css';

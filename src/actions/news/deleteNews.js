@@ -1,5 +1,5 @@
-import { DELETE_NEWS } from './types';
-import deleteNewsApiCalls from '../api/deleteNewsApiCall';
+import { DELETE_NEWS } from '../types';
+import deleteNewsApiCalls from '../../api/news/deleteNewsApiCall';
 
 const deleteNews = (id) => {
   deleteNewsApiCalls(id);

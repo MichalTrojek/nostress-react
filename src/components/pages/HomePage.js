@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import PageLayout from '../common/PageLayout';
-import Hero from '../common/hero/Hero';
+import Hero from '../common/Hero/';
 import Menu from '../common/menu/Menu';
 import Navigation from '../common/navbar/Navigation';
 

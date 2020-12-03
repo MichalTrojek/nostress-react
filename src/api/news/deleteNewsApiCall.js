@@ -1,4 +1,4 @@
-import { db } from '../firebase';
+import { db } from '../../firebase';
 
 function deleteNewsApiCalls(id) {
   db.collection('news')
