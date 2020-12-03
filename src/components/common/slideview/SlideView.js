@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './slideview.css';
 
-import Page from './Page';
+import SlideViewPage from './SlideViewPage';
 
 const SlideViewWrapper = styled.div`
   max-width: var(--max-width);
@@ -39,7 +39,7 @@ class SlideView extends React.Component {
           <SliderStyled {...settings}>
             {this.props.items.map((item, index) => {
               return (
-                <Page key={index}>
+                <SlideViewPage key={index}>
                   <h1>{item.heading}</h1>
                   <div
                     dangerouslySetInnerHTML={{
@@ -47,7 +47,7 @@ class SlideView extends React.Component {
                     }}
                   ></div>
                   <StyledButton text={item.button} />
-                </Page>
+                </SlideViewPage>
               );
             })}
           </SliderStyled>

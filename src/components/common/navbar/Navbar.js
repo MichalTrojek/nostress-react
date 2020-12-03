@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import logo from '../../../img/logo.png';
 
 import Burger from '../Burger';
-import SideMenuStyled from './SideMenu';
-import NavigationMenu from './NavigationMenu';
+import SideMenuStyled from '../SideMenu';
+import NavigationMenu from '../NavigationMenu';
 
 const MENU_ITEMS = [
   { name: 'Domů', href: '/home' },
@@ -26,7 +26,7 @@ const NavigationBackground = styled.header`
   z-index: 9999999999999;
 `;
 
-const NavigationWrapper = styled.div`
+const NavBarWrapper = styled.div`
   max-width: var(--max-width);
   min-height: 8rem;
   margin: 0 auto;
@@ -37,7 +37,7 @@ const NavigationWrapper = styled.div`
   align-items: center;
 `;
 
-const NavigationLogo = styled.img`
+const NavBarLogo = styled.img`
   height: 5rem;
   max-width: 100%;
   transition: height 1s;
@@ -46,16 +46,16 @@ const NavigationLogo = styled.img`
   }
 `;
 
-const Navigation = () => {
+const NavBar = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
       <NavigationBackground>
-        <NavigationWrapper className="navigation">
-          <NavigationLogo src={logo} alt="No Stress Logo" />
+        <NavBarWrapper className="navigation">
+          <NavBarLogo src={logo} alt="No Stress Logo" />
           <NavigationMenu menuItems={MENU_ITEMS} />
           <Burger open={open} setOpen={setOpen} />
-        </NavigationWrapper>
+        </NavBarWrapper>
       </NavigationBackground>
 
       <SideMenuStyled open={open} setOpen={setOpen} menuItems={MENU_ITEMS} />
@@ -63,4 +63,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default NavBar;

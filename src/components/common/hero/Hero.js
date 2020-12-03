@@ -5,7 +5,7 @@ import fetchNews from '../../../actions/news/fetchNews';
 
 import { connect } from 'react-redux';
 import backgroundImage from '../../../img/hero.png';
-import SlideView from '../slideview/SlideView';
+import SlideView from '../SlideView';
 
 const HeroBackground = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),

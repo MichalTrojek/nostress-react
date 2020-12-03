@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Page = styled.div`
+const SlideViewPage = styled.div`
   color: var(--color-primary);
   padding: 1rem;
   display: flex !important;
@@ -22,4 +22,4 @@ const Page = styled.div`
   }
 `;
 
-export default Page;
+export default SlideViewPage;
