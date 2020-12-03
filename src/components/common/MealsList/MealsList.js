@@ -13,7 +13,19 @@ const StyledMenu = styled.div`
 
   ol {
     padding-top: 1rem;
-    padding-left: 1rem;
+    padding-left: 1.4rem;
+
+    @media only screen and (min-width: 375px) {
+      padding-left: 1.8rem;
+    }
+
+    @media only screen and (min-width: 414px) {
+      padding-left: 2rem;
+    }
+
+    @media only screen and (min-width: 768px) {
+      padding-left: 2.5rem;
+    }
     list-style-position: outside;
   }
 `;

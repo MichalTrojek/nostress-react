@@ -109,6 +109,21 @@ const Meals = ({ fetchMeals, meals }) => {
     },
   ];
 
+  const childData = [
+    {
+      id: 1,
+      name: 'Kuřecí stripsy, hranolky',
+      price: '79',
+      alergens: '1, 3, 7',
+    },
+    {
+      id: 2,
+      name: 'Kuřecí burger, čedar, okurek, kečup, hranolky',
+      price: '79',
+      alergens: '1, 7',
+    },
+  ];
+
   return (
     <>
       <h1>Týdenní menu</h1>
@@ -123,6 +138,12 @@ const Meals = ({ fetchMeals, meals }) => {
           info="sleva"
           icon={menuIcon}
           items={mealsData}
+        />
+        <MealsList
+          header="Dětské menu"
+          info="sleva"
+          icon={menuIcon}
+          items={childData}
         />
       </MealsDateContainer>
     </>

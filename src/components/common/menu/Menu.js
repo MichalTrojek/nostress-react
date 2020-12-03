@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Weekly from '../Meals';
+import Meals from '../Meals';
 
 const MenuBackground = styled.div`
   background-color: black;
@@ -17,7 +17,7 @@ const Menu = () => {
     <MenuBackground>
       <MenuWrapper>
         <MenuStyled id="menu">
-          <Weekly></Weekly>
+          <Meals></Meals>
         </MenuStyled>
       </MenuWrapper>
     </MenuBackground>
