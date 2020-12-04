@@ -51,7 +51,7 @@ const NewsListItem = ({
 
   return (
     <StyledNewsListItem isSelected={isSelected}>
-      <h1>{item.heading}</h1>
+      <h2>{item.heading}</h2>
       <div className="buttons">
         <Button onClick={() => handleEdit(item.id)} text="Editovat"></Button>
         <Button onClick={() => handleDelete(item.id)} text="Smazat"></Button>
