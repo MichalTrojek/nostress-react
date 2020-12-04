@@ -1,34 +1,5 @@
-import styled from 'styled-components';
-
-const StyledMenu = styled.div`
-  margin-top: 1rem;
-  padding: 1rem;
-  border: 1px solid var(--color-primary);
-
-  .menu-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  ol {
-    padding-top: 1rem;
-    padding-left: 1.4rem;
-
-    @media only screen and (min-width: 375px) {
-      padding-left: 1.8rem;
-    }
-
-    @media only screen and (min-width: 414px) {
-      padding-left: 2rem;
-    }
-
-    @media only screen and (min-width: 768px) {
-      padding-left: 2.5rem;
-    }
-    list-style-position: outside;
-  }
-`;
+import Row from '../Row';
+import StyledMealsMenu from '../StyledMealsMenu';
 
 const MealList = (props) => {
   function renderHeader() {
@@ -55,13 +26,13 @@ const MealList = (props) => {
 
   return (
     <>
-      <StyledMenu>
-        <div className="menu-row">
+      <StyledMealsMenu>
+        <Row className="menu-row">
           <h1>{renderHeader()} </h1>
           <img src={props.icon} alt="menu-icon" />
-        </div>
+        </Row>
         <ol>{renderList()}</ol>
-      </StyledMenu>
+      </StyledMealsMenu>
     </>
   );
 };

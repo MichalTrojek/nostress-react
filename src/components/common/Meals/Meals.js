@@ -6,6 +6,7 @@ import Button from '../Button';
 import styled from 'styled-components';
 import Label from '../Label';
 import MealsList from '../MealsList';
+import SoupsList from '../SoupsList';
 import Row from '../Row';
 import menuIcon from '../../../img/menu-icon.png';
 
@@ -113,6 +114,8 @@ const Meals = ({ fetchMeals, meals }) => {
         icon={menuIcon}
         items={childData}
       />
+
+      <SoupsList />
     </>
   );
 };
