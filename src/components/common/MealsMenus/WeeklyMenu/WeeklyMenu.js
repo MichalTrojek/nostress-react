@@ -103,7 +103,7 @@ const WeeklyMenu = ({ fetchMeals, meals }) => {
   ];
 
   return (
-    <MealsMenuContainer>
+    <MealsMenuContainer id="menu">
       <h1>Týdenní menu 11:00 – 16:00</h1>
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
       <Row>
