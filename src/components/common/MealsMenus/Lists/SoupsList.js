@@ -1,6 +1,6 @@
-import menuIcon from '../../../img/soups-logo.png';
-import Row from '../Row';
-import StyledMealsMenu from '../StyledMealsMenu';
+import menuIcon from '../../../../img/soups-logo.png';
+import Row from '../../Row';
+import ListStyled from './ListStyled';
 import styled from 'styled-components';
 
 const SoupRow = styled.div`
@@ -26,7 +26,7 @@ const SoupsList = () => {
 
   return (
     <>
-      <StyledMealsMenu>
+      <ListStyled>
         <Row>
           <h2>Polévka k menu zdarma *</h2>
           <img src={menuIcon} alt="menu-icon" />
@@ -36,7 +36,7 @@ const SoupsList = () => {
           * Cena samostatné polévky
           <span style={{ color: 'var(--color-tertiary)' }}> 39,-</span>
         </p>
-      </StyledMealsMenu>
+      </ListStyled>
     </>
   );
 

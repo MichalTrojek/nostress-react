@@ -1,43 +1,19 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import fetchMeals from '../../../actions/meals/fetchMeals';
+import fetchMeals from '../../../../actions/meals/fetchMeals';
 
-import Button from '../Button';
-import styled from 'styled-components';
-import Label from '../Label';
-import MealsList from '../MealsList';
-import SoupsList from '../SoupsList';
-import Row from '../Row';
-import menuIcon from '../../../img/menu-icon.png';
+import Button from '../../Button';
+import Label from '../../Label';
+import MealsList from '../Lists/MealsList';
+import SoupsList from '../Lists/SoupsList';
+import Row from '../../Row';
+import menuIcon from '../../../../img/menu-icon.png';
 import InfoBox from '../InfoBox';
 
-const MealsMenuContent = styled.div`
-  display: flex;
-  flex-direction: column;
+import MealsMenuContainer from '../MealsMenuContainer';
+import MealsMenuContent from '../MealsMenuContent';
 
-  @media only screen and (min-width: 1024px) {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-  }
-
-  .leftside {
-    grid-column: 1 / span 7;
-  }
-
-  .rightside {
-    grid-column: 8 /-1;
-    display: grid;
-    grid-template-rows: max-content 1fr;
-  }
-`;
-
-const MealsStyled = styled.section`
-  display: grid;
-
-  row-gap: 2rem;
-`;
-
-const Meals = ({ fetchMeals, meals }) => {
+const WeeklyMenu = ({ fetchMeals, meals }) => {
   // useEffect(() => {
   //   fetchMeals();
   // }, [fetchMeals]);
@@ -127,7 +103,7 @@ const Meals = ({ fetchMeals, meals }) => {
   ];
 
   return (
-    <MealsStyled>
+    <MealsMenuContainer>
       <h1>Týdenní menu</h1>
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
       <Row>
@@ -154,7 +130,7 @@ const Meals = ({ fetchMeals, meals }) => {
           <InfoBox />
         </div>
       </MealsMenuContent>
-    </MealsStyled>
+    </MealsMenuContainer>
   );
 };
 
@@ -173,4 +149,4 @@ function mapStateToProps(state, prevState) {
     meals,
   };
 }
-export default connect(mapStateToProps, { fetchMeals })(Meals);
+export default connect(mapStateToProps, { fetchMeals })(WeeklyMenu);

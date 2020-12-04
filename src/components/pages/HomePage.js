@@ -1,15 +1,16 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PageLayout from '../common/PageLayout';
-import Hero from '../common/Hero/';
-import MealsMenu from '../common/MealsMenu';
+
 import Navbar from '../common/Navbar/';
+import Hero from '../common/Hero/';
+import MealsMenus from '../common/MealsMenus';
 
 const Home = () => {
   return (
     <PageLayout>
       <Navbar />
       <Hero />
-      <MealsMenu />
+      <MealsMenus />
     </PageLayout>
   );
 };

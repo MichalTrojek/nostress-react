@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledMealsMenu = styled.div`
+const StyledList = styled.div`
   padding: 1rem;
   border: 1px solid var(--color-primary);
 
@@ -26,4 +26,4 @@ const StyledMealsMenu = styled.div`
   }
 `;
 
-export default StyledMealsMenu;
+export default StyledList;

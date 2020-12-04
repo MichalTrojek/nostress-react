@@ -1,16 +1,16 @@
-import Row from '../Row';
-import StyledMealsMenu from '../StyledMealsMenu';
+import Row from '../../Row';
+import ListStyled from './ListStyled';
 
 const MealList = (props) => {
   return (
     <>
-      <StyledMealsMenu>
+      <ListStyled>
         <Row className="menu-row">
           <h2>{renderHeader()} </h2>
           <img src={props.icon} alt="menu-icon" />
         </Row>
         <ol>{renderList()}</ol>
-      </StyledMealsMenu>
+      </ListStyled>
     </>
   );
 
