@@ -14,10 +14,10 @@ const MealList = (props) => {
     return props.items.map((item, index) => {
       return (
         <li key={item.id}>
-          {`${item.name}`}{' '}
+          {`${item.name}`}
           <span style={{ color: 'var(--color-tertiary)' }}>
-            {`${item.price},-`}{' '}
-          </span>{' '}
+            {`${item.price},-`}
+          </span>
           <span style={{ whiteSpace: 'nowrap' }}>{`(${item.alergens})`}</span>
         </li>
       );
