@@ -2,6 +2,18 @@ import Row from '../Row';
 import StyledMealsMenu from '../StyledMealsMenu';
 
 const MealList = (props) => {
+  return (
+    <>
+      <StyledMealsMenu>
+        <Row className="menu-row">
+          <h1>{renderHeader()} </h1>
+          <img src={props.icon} alt="menu-icon" />
+        </Row>
+        <ol>{renderList()}</ol>
+      </StyledMealsMenu>
+    </>
+  );
+
   function renderHeader() {
     let header;
     props.info
@@ -23,18 +35,6 @@ const MealList = (props) => {
       );
     });
   }
-
-  return (
-    <>
-      <StyledMealsMenu>
-        <Row className="menu-row">
-          <h1>{renderHeader()} </h1>
-          <img src={props.icon} alt="menu-icon" />
-        </Row>
-        <ol>{renderList()}</ol>
-      </StyledMealsMenu>
-    </>
-  );
 };
 
 export default MealList;
