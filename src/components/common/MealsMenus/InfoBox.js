@@ -16,15 +16,30 @@ const InfoBoxBorder = styled.div`
     left: 0.4rem;
     bottom: 0;
   }
+
+  a,
+  a:link,
+  a:active {
+    color: var(--color-tertiary);
+    text-decoration: none;
+  }
 `;
 
-const InfoBox = () => {
+const InfoBox = ({ time, text }) => {
   return (
     <>
       <InfoBoxBorder>
         <p>Výdej s sebou nebo rozvoz</p>
-        <p>11:00 - 16:00</p>
+        <p>{time}</p>
+        <p>{text}</p>
         <p className="notice">*Seznam alergenů na vyžádání u obsluhy.</p>
+        <p>
+          Více informací na našem{' '}
+          <a href="https://www.facebook.com/NoStressCafeRestaurant/">
+            {' '}
+            facebooku
+          </a>
+        </p>
       </InfoBoxBorder>
     </>
   );

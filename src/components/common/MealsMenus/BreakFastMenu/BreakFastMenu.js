@@ -75,7 +75,7 @@ const BreakFastMenu = ({ fetchMeals, meals }) => {
           />
         </div>
         <div className="rightside">
-          <InfoBox />
+          <InfoBox time="11:00 – 16:00" text="V sobotu speciální menu" />
         </div>
       </MealsMenuContent>
     </MealsMenuContainer>

@@ -127,7 +127,7 @@ const WeeklyMenu = ({ fetchMeals, meals }) => {
         </div>
         <div className="rightside">
           <SoupsList />
-          <InfoBox />
+          <InfoBox time="8:00 – 10:30" text="" />
         </div>
       </MealsMenuContent>
     </MealsMenuContainer>
