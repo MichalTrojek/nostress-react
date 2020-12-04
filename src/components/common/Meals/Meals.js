@@ -9,7 +9,7 @@ import MealsList from '../MealsList';
 import SoupsList from '../SoupsList';
 import Row from '../Row';
 import menuIcon from '../../../img/menu-icon.png';
-
+import InfoBox from '../InfoBox';
 const Meals = ({ fetchMeals, meals }) => {
   // useEffect(() => {
   //   fetchMeals();
@@ -114,8 +114,8 @@ const Meals = ({ fetchMeals, meals }) => {
         icon={menuIcon}
         items={childData}
       />
-
       <SoupsList />
+      <InfoBox />
     </>
   );
 };
