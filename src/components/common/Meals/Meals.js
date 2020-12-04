@@ -26,6 +26,9 @@ const MealsMenuContent = styled.div`
 
   .rightside {
     grid-column: 8 /-1;
+
+    display: grid;
+    grid-template-rows: max-content 1fr;
   }
 `;
 
