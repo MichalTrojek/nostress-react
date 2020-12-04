@@ -18,12 +18,7 @@ const SoupRow = styled.div`
 const SoupsList = () => {
   const soupsData = [
     { id: 1, day: 'Pondělí', name: 'Čočková', alergens: '1, 9' },
-    {
-      id: 1,
-      day: 'Úterý',
-      name: 'Vývar s játrovými knedlíčky',
-      alergens: '9',
-    },
+    { id: 1, day: 'Úterý', name: 'Vývar s játrovými knedlíčky', alergens: '9' },
     { id: 1, day: 'Středa', name: 'Dýňové pyré', alergens: '1, 7' },
     { id: 1, day: 'Čtvrtek', name: 'Gulášová', alergens: '1, 9' },
     { id: 1, day: 'Pátek', name: 'Kulajda', alergens: '1, 7' },
