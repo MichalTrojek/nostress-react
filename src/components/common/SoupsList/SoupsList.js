@@ -6,13 +6,15 @@ import styled from 'styled-components';
 const SoupRow = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  .day {
+    grid-column: 1 / span 1;
+  }
+
+  .name {
+    grid-column: 2 / -1;
+  }
 `;
-const SoupCol1 = styled.div`
-  grid-column: 1 / span 1;
-`;
-const SoupCol2 = styled.div`
-  grid-column: 2 / -1;
-`;
+
 const SoupsList = () => {
   const soupsData = [
     { id: 1, day: 'Pondělí', name: 'Čočková', alergens: '1, 9' },
@@ -45,16 +47,14 @@ const SoupsList = () => {
 
   function renderListOfSoups() {
     return soupsData.map((item, index) => {
-      const text = `${item.day}  ${item.name} (${item.alergens})`;
-
       return (
         <li key={index}>
           <p>
             <SoupRow>
-              <SoupCol1>{item.day}</SoupCol1>
-              <SoupCol2>
+              <div className="day">{item.day}</div>
+              <div className="name">
                 {item.name} ({item.alergens})
-              </SoupCol2>
+              </div>
             </SoupRow>
           </p>
         </li>
