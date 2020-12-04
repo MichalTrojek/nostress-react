@@ -55,8 +55,6 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 2rem;
     }
 
- 
-
     p,
     li {
       font-size: 1.5rem;
@@ -67,6 +65,10 @@ export const GlobalStyle = createGlobalStyle`
     h1 {
       font-size: 2.6rem;
     }
+    h2 {
+      font-size: 1.8rem;
+    }
+
 
     p,
     li {
@@ -79,6 +81,11 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 2.8rem;
     }
 
+    h2 {
+      font-size: 2rem;
+    }
+
+
     p,
     li {
       font-size: 1.9rem;
@@ -88,6 +95,10 @@ export const GlobalStyle = createGlobalStyle`
   @media only screen and (min-width: 768px) {
     h1 {
       font-size: 4rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
     }
 
     p,
@@ -107,7 +118,7 @@ export const GlobalStyle = createGlobalStyle`
 
     p,
     li {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
     }
   }
 

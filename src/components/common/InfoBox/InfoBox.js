@@ -4,7 +4,7 @@ const InfoBoxBorder = styled.div`
   padding: 5rem 0;
 
   @media only screen and (min-width: 1024px) {
-    padding: 12.5rem 0;
+    padding: 12.3rem 0;
   }
 
   display: flex;
