@@ -6,7 +6,14 @@ const MealList = (props) => {
     <>
       <ListStyled>
         <Row className="menu-row">
-          <h2>{renderHeader()} </h2>
+          <h2>
+            {props.header}{' '}
+            <span
+              style={{ color: 'var(--color-tertiary)', padding: '0 .3rem' }}
+            >
+              {renderInfo()}
+            </span>{' '}
+          </h2>
           <img src={props.icon} alt="menu-icon" />
         </Row>
         <ol>{renderList()}</ol>
@@ -14,12 +21,8 @@ const MealList = (props) => {
     </>
   );
 
-  function renderHeader() {
-    let header;
-    props.info
-      ? (header = `${props.header} - ${props.info}`)
-      : (header = props.header);
-    return header;
+  function renderInfo() {
+    return props.info ? `${props.info}` : '';
   }
 
   function renderList() {

@@ -112,15 +112,10 @@ const WeeklyMenu = ({ fetchMeals, meals }) => {
       </Row>
       <MealsMenuContent>
         <div className="leftside">
-          <MealsList
-            header="Menu"
-            info="sleva"
-            icon={menuIcon}
-            items={mealsData}
-          />
+          <MealsList header="Menu" info="" icon={menuIcon} items={mealsData} />
           <MealsList
             header="Dětské menu"
-            info="sleva"
+            info=""
             icon={menuIcon}
             items={childData}
           />

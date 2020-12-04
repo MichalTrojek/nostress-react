@@ -27,7 +27,7 @@ const BreakFastMenu = ({ fetchMeals, meals }) => {
     {
       id: 1,
       name: 'Toust se slaninou, volským okem, zapečený čedarem',
-      price: '979',
+      price: '79',
       alergens: '1,3,10',
     },
     {
