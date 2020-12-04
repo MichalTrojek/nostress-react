@@ -74,7 +74,7 @@ const BreakFastMenu = ({ fetchMeals, meals }) => {
             items={mealsData}
           />
         </div>
-        <div className="rightside">
+        <div className="rightside-breakfast">
           <InfoBox time="11:00 – 16:00" text="V sobotu speciální menu" />
         </div>
       </MealsMenuContent>
