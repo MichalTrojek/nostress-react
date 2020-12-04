@@ -44,14 +44,12 @@ const SoupsList = () => {
     return soupsData.map((item, index) => {
       return (
         <li key={index}>
-          <p>
-            <SoupRow>
-              <div className="day">{item.day}</div>
-              <div className="name">
-                {item.name} ({item.alergens})
-              </div>
-            </SoupRow>
-          </p>
+          <SoupRow>
+            <div className="day">{item.day}</div>
+            <div className="name">
+              {item.name} ({item.alergens})
+            </div>
+          </SoupRow>
         </li>
       );
     });
