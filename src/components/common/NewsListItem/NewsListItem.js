@@ -10,6 +10,11 @@ import setSelectedNewsToEdit from '../../../actions/news/setSelectedNewsToEdit';
 import emptySelectedNewsToEdit from '../../../actions/news/emptySelectedNewsToEdit';
 
 const StyledNewsListItem = styled.div`
+  width: 33rem;
+  @media only screen and (min-width: 768px) {
+    width: 43rem;
+  }
+
   margin-bottom: 1rem;
   padding: 2rem;
   border: 1px solid
