@@ -26,10 +26,15 @@ const MealsMenuContent = styled.div`
 
   .rightside {
     grid-column: 8 /-1;
-
     display: grid;
     grid-template-rows: max-content 1fr;
   }
+`;
+
+const MealsStyled = styled.section`
+  display: grid;
+
+  row-gap: 2rem;
 `;
 
 const Meals = ({ fetchMeals, meals }) => {
@@ -122,7 +127,7 @@ const Meals = ({ fetchMeals, meals }) => {
   ];
 
   return (
-    <>
+    <MealsStyled>
       <h1>Týdenní menu</h1>
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
       <Row>
@@ -149,7 +154,7 @@ const Meals = ({ fetchMeals, meals }) => {
           <InfoBox />
         </div>
       </MealsMenuContent>
-    </>
+    </MealsStyled>
   );
 };
 
