@@ -11,7 +11,7 @@ const SoupRow = styled.div`
   }
 
   .name {
-    grid-column: 2 / -1;
+    grid-column: 3 / -1;
   }
 `;
 
@@ -28,7 +28,7 @@ const SoupsList = () => {
     <>
       <StyledMealsMenu>
         <Row>
-          <h1>Polévka k menu zdarma *</h1>
+          <h2>Polévka k menu zdarma *</h2>
           <img src={menuIcon} alt="menu-icon" />
         </Row>
         <ul>{renderListOfSoups()}</ul>

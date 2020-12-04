@@ -10,6 +10,25 @@ import SoupsList from '../SoupsList';
 import Row from '../Row';
 import menuIcon from '../../../img/menu-icon.png';
 import InfoBox from '../InfoBox';
+
+const MealsMenuContent = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .leftside {
+    grid-column: 1 / span 7;
+  }
+
+  .rightside {
+    grid-column: 8 /-1;
+  }
+`;
+
 const Meals = ({ fetchMeals, meals }) => {
   // useEffect(() => {
   //   fetchMeals();
@@ -107,15 +126,26 @@ const Meals = ({ fetchMeals, meals }) => {
         <Label text={getDateText()} />
         <Button text="OBJEDNAT" />
       </Row>
-      <MealsList header="Menu" info="sleva" icon={menuIcon} items={mealsData} />
-      <MealsList
-        header="Dětské menu"
-        info="sleva"
-        icon={menuIcon}
-        items={childData}
-      />
-      <SoupsList />
-      <InfoBox />
+      <MealsMenuContent>
+        <div className="leftside">
+          <MealsList
+            header="Menu"
+            info="sleva"
+            icon={menuIcon}
+            items={mealsData}
+          />
+          <MealsList
+            header="Dětské menu"
+            info="sleva"
+            icon={menuIcon}
+            items={childData}
+          />
+        </div>
+        <div className="rightside">
+          <SoupsList />
+          <InfoBox />
+        </div>
+      </MealsMenuContent>
     </>
   );
 };

@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-quaternary: #6f6150;
 
 
-        --max-width: 120rem;
+        --max-width: 140rem;
         
     }
 
@@ -55,6 +55,8 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 2rem;
     }
 
+ 
+
     p,
     li {
       font-size: 1.5rem;
@@ -98,6 +100,10 @@ export const GlobalStyle = createGlobalStyle`
     h1 {
       font-size: 7rem;
     }
+    h2 {
+      font-size: 3rem;
+    }
+
 
     p,
     li {

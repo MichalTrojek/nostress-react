@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
 const InfoBoxBorder = styled.div`
-  margin-top: 1rem;
-  padding: 5rem;
+  padding: 5rem 0;
+
+  @media only screen and (min-width: 1024px) {
+    padding: 12.5rem 0;
+  }
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   border: 1px solid var(--color-primary);
   position: relative;
 

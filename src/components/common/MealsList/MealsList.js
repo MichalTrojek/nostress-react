@@ -6,7 +6,7 @@ const MealList = (props) => {
     <>
       <StyledMealsMenu>
         <Row className="menu-row">
-          <h1>{renderHeader()} </h1>
+          <h2>{renderHeader()} </h2>
           <img src={props.icon} alt="menu-icon" />
         </Row>
         <ol>{renderList()}</ol>
