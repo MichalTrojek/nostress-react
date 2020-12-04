@@ -9,32 +9,6 @@ import MealsList from '../MealsList';
 import Row from '../Row';
 import menuIcon from '../../../img/menu-icon.png';
 
-const MealsDateContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 1rem 0;
-
-  @media only screen and (min-width: 320px) {
-    font-size: 1.3rem;
-  }
-
-  @media only screen and (min-width: 360px) {
-    font-size: 1.5rem;
-  }
-
-  @media only screen and (min-width: 411px) {
-    font-size: 1.6rem;
-  }
-
-  @media only screen and (min-width: 768px) {
-    font-size: 1.8rem;
-  }
-
-  @media only screen and (min-width: 1024px) {
-    font-size: 1.9rem;
-  }
-`;
-
 const Meals = ({ fetchMeals, meals }) => {
   // useEffect(() => {
   //   fetchMeals();
@@ -128,24 +102,17 @@ const Meals = ({ fetchMeals, meals }) => {
     <>
       <h1>Týdenní menu</h1>
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
-      <MealsDateContainer>
-        <Row>
-          <Label text={getDateText()} />
-          <Button text="OBJEDNAT" />
-        </Row>
-        <MealsList
-          header="Menu"
-          info="sleva"
-          icon={menuIcon}
-          items={mealsData}
-        />
-        <MealsList
-          header="Dětské menu"
-          info="sleva"
-          icon={menuIcon}
-          items={childData}
-        />
-      </MealsDateContainer>
+      <Row>
+        <Label text={getDateText()} />
+        <Button text="OBJEDNAT" />
+      </Row>
+      <MealsList header="Menu" info="sleva" icon={menuIcon} items={mealsData} />
+      <MealsList
+        header="Dětské menu"
+        info="sleva"
+        icon={menuIcon}
+        items={childData}
+      />
     </>
   );
 };

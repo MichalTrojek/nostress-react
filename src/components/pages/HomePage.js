@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import PageLayout from '../common/PageLayout';
 import Hero from '../common/Hero/';
-import Menu from '../common/Menu';
+import MealsMenu from '../common/MealsMenu';
 import Navbar from '../common/Navbar/';
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
     <PageLayout>
       <Navbar />
       <Hero />
-      <Menu />
+      <MealsMenu />
     </PageLayout>
   );
 };
