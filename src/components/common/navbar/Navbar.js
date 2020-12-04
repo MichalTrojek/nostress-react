@@ -5,7 +5,7 @@ import logo from '../../../img/logo.png';
 
 import Burger from '../Burger';
 import SideMenuStyled from '../SideMenu';
-import NavBarMenu from '../NavBarMenu';
+import NavBarMenu from './NavBarMenu';
 
 const MENU_ITEMS = [
   { name: 'Domů', href: '/home' },
