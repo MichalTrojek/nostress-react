@@ -5,8 +5,7 @@ const StyledMealsMenu = styled.div`
   padding: 1rem;
   border: 1px solid var(--color-primary);
 
-  ol,
-  ul {
+  ol {
     padding-top: 1rem;
     padding-left: 1.4rem;
 
@@ -24,6 +23,7 @@ const StyledMealsMenu = styled.div`
   }
 
   ul {
+    list-style-type: none;
   }
 `;
 
