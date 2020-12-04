@@ -27,7 +27,7 @@ const MealList = (props) => {
       return (
         <li key={item.id}>
           {`${item.name}`}
-          <span style={{ color: 'var(--color-tertiary)' }}>
+          <span style={{ color: 'var(--color-tertiary)', padding: '0 .3rem' }}>
             {`${item.price},-`}
           </span>
           <span style={{ whiteSpace: 'nowrap' }}>{`(${item.alergens})`}</span>
