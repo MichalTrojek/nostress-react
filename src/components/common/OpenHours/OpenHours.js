@@ -19,11 +19,11 @@ const timeTableData = [
   },
   {
     day: 'Pátek',
-    hours: '8:00 – 20:00',
+    hours: '8:00 – 22:00',
   },
   {
     day: 'Sobota',
-    hours: '11:00 – 20:00',
+    hours: '11:00 – 22:00',
   },
   {
     day: 'Neděle',
@@ -32,12 +32,16 @@ const timeTableData = [
 ];
 
 const OpenHoursContainer = styled.div`
-  display: grid;
-  grid-template-rows: max-content;
-  grid-template-columns: max-content max-content;
-  grid-column-gap: 5rem;
+  max-width: 25rem;
+  width: 25rem;
+  font-weight: bold;
   .hours {
     color: var(--color-tertiary);
+  }
+
+  .openhours-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -47,10 +51,10 @@ const OpenHours = () => {
   function renderTimeTable() {
     return timeTableData.map((item, index) => {
       return (
-        <>
+        <div className="openhours-row">
           <p>{item.day}</p>
           <p className="hours">{item.hours}</p>
-        </>
+        </div>
       );
     });
   }
