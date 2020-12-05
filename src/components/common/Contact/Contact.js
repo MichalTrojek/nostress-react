@@ -7,6 +7,11 @@ import Map from './Map';
 const ContactContainer = styled.div`
   display: grid;
   padding-top: 3rem;
+
+  @media only screen and (min-width: 660px) {
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+  }
 `;
 const Contact = () => {
   return (

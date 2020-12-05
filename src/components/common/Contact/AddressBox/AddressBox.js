@@ -4,6 +4,12 @@ import instagram from '../../../../img/instagram.png';
 import logo from '../../../../img/footer-message.png';
 
 const AddressBoxContainer = styled.div`
+  @media only screen and (min-width: 660px) {
+    grid-column: 1 / span 6;
+  }
+`;
+
+const AddressBoxStyled = styled.div`
   border: solid 1px var(--color-primary);
   display: flex;
   flex-direction: column;
@@ -21,6 +27,7 @@ const SocialLinks = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
+
   .facebook,
   .instagram {
     height: 4rem;
@@ -38,12 +45,12 @@ const SocialLinks = styled.div`
 
 const AddressBox = () => {
   return (
-    <div>
-      <AddressBoxContainer>
+    <AddressBoxContainer>
+      <AddressBoxStyled>
         <p className="colored">+420 732 161 372</p>
         <p className="colored">info@nostresscafe.cz</p>
         <p>Jihlavská 7, Troubsko 664 41</p>
-      </AddressBoxContainer>
+      </AddressBoxStyled>
       <SocialLinks>
         <p>Sledujte nás na sociálních sítich</p>
         <a href="https://www.facebook.com/NoStressCafeRestaurant">
@@ -53,7 +60,7 @@ const AddressBox = () => {
           <img className="instagram" src={instagram} alt="instagram" />
         </a>
       </SocialLinks>
-    </div>
+    </AddressBoxContainer>
   );
 };
 

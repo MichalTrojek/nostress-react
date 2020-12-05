@@ -1,8 +1,19 @@
 import styled from 'styled-components';
 
 const MapStyled = styled.div`
-  width: 100%;
+  @media only screen and (min-width: 660px) {
+    grid-column: 7 / -1;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   filter: grayscale(100%);
+
+  embed {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const Map = () => {
