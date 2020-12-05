@@ -24,7 +24,7 @@ const AddressBoxStyled = styled.div`
 
 const SocialLinks = styled.div`
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
   padding: 1rem 0;
 
@@ -32,6 +32,7 @@ const SocialLinks = styled.div`
   .instagram {
     height: 4rem;
     max-width: 100%;
+    padding: 0 0.6rem;
   }
   .facebook:hover,
   .instagram:hover {
