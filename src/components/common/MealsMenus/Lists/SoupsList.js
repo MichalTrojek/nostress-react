@@ -6,6 +6,7 @@ import styled from 'styled-components';
 const SoupRow = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+
   .day {
     grid-column: 1 / span 1;
   }
@@ -32,7 +33,7 @@ const SoupsList = () => {
           <img src={menuIcon} alt="menu-icon" />
         </Row>
         <ul>{renderListOfSoups()}</ul>
-        <p>
+        <p style={{ paddingTop: '1rem' }}>
           * Cena samostatné polévky
           <span style={{ color: 'var(--color-tertiary)' }}> 39,-</span>
         </p>
