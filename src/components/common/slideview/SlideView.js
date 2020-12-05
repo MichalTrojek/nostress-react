@@ -39,7 +39,7 @@ class SlideView extends React.Component {
 
   renderSliderPages() {
     const pages = this.createSliderPages();
-    pages.push(
+    pages.unshift(
       <SlideViewPage key={654646}>
         <h1>Máme znovu otevřeno. Těšíme se na Vás.</h1>
         <OpenHours />
