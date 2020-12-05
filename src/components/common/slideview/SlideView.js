@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
+import OpenHours from '../OpenHours';
 import StyledButton from '../Button/Button';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -20,6 +21,34 @@ class SlideView extends React.Component {
     super(props);
   }
 
+  createSliderPages() {
+    return this.props.items.map((item, index) => {
+      return (
+        <SlideViewPage key={index}>
+          <h1>{item.heading}</h1>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: item.content,
+            }}
+          ></div>
+          <StyledButton text={item.button} />
+        </SlideViewPage>
+      );
+    });
+  }
+
+  renderSliderPages() {
+    const pages = this.createSliderPages();
+    pages.push(
+      <SlideViewPage key={654646}>
+        <h1>Máme znovu otevřeno. Těšíme se na Vás.</h1>
+        <OpenHours />
+        <StyledButton text="Objednat" />
+      </SlideViewPage>
+    );
+    return pages;
+  }
+
   render() {
     const settings = {
       dots: true,
@@ -36,21 +65,7 @@ class SlideView extends React.Component {
     return (
       <>
         <SlideViewWrapper>
-          <SliderStyled {...settings}>
-            {this.props.items.map((item, index) => {
-              return (
-                <SlideViewPage key={index}>
-                  <h1>{item.heading}</h1>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: item.content,
-                    }}
-                  ></div>
-                  <StyledButton text={item.button} />
-                </SlideViewPage>
-              );
-            })}
-          </SliderStyled>
+          <SliderStyled {...settings}>{this.renderSliderPages()}</SliderStyled>
         </SlideViewWrapper>
       </>
     );
