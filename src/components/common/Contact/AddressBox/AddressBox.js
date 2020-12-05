@@ -53,7 +53,7 @@ const AddressBox = () => {
         <p>Jihlavská 7, Troubsko 664 41</p>
       </AddressBoxStyled>
       <SocialLinks>
-        <p>Sledujte nás na sociálních sítich</p>
+        <p>Sledujte nás na sociálních sítich: </p>
         <a href="https://www.facebook.com/NoStressCafeRestaurant">
           <img className="facebook" src={facebook} alt="socialfacebook" />
         </a>
