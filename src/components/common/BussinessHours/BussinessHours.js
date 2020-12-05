@@ -17,7 +17,7 @@ const BussinessHoursWrapper = styled(Wrapper)`
 const BussinessHours = () => {
   return (
     <Background>
-      <BussinessHoursWrapper>
+      <BussinessHoursWrapper id="open">
         <h1>Otevírací doba</h1>
         <OpenHours />
       </BussinessHoursWrapper>

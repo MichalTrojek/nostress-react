@@ -11,6 +11,8 @@ export const GlobalStyle = createGlobalStyle`
 
 
         --max-width: 140rem;
+
+       
         
     }
 

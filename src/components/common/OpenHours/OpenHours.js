@@ -32,8 +32,8 @@ const timeTableData = [
 ];
 
 const OpenHoursContainer = styled.div`
-  max-width: 25rem;
-  width: 25rem;
+  max-width: 27rem;
+  width: 27rem;
   font-weight: bold;
   .hours {
     color: var(--color-tertiary);
@@ -47,11 +47,10 @@ const OpenHoursContainer = styled.div`
 
 const OpenHours = () => {
   return <OpenHoursContainer>{renderTimeTable()}</OpenHoursContainer>;
-
   function renderTimeTable() {
     return timeTableData.map((item, index) => {
       return (
-        <div className="openhours-row">
+        <div key={index} className="openhours-row">
           <p>{item.day}</p>
           <p className="hours">{item.hours}</p>
         </div>

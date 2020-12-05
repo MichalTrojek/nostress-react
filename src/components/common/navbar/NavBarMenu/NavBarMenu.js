@@ -3,11 +3,11 @@ import { Link } from 'react-scroll';
 
 const NavBarMenuList = styled.ul`
   display: none;
-  grid-template-columns: repeat(5, max-content);
+  grid-template-columns: repeat(6, max-content);
   column-gap: 1rem;
   list-style-type: none;
 
-  @media only screen and (min-width: 884px) {
+  @media only screen and (min-width: 996px) {
     display: grid;
   }
 `;
