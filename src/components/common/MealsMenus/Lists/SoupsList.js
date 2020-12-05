@@ -16,6 +16,17 @@ const SoupRow = styled.div`
   }
 `;
 
+const SoupStyledList = styled(ListStyled)`
+  position: relative;
+  padding-bottom: 4rem;
+  padding-left: 2rem;
+  .price {
+    position: absolute;
+    left: 4px;
+    bottom: 0;
+  }
+`;
+
 const SoupsList = () => {
   const soupsData = [
     { id: 1, day: 'Pondělí', name: 'Čočková', alergens: '1, 9' },
@@ -27,17 +38,17 @@ const SoupsList = () => {
 
   return (
     <>
-      <ListStyled>
+      <SoupStyledList>
         <Row>
           <h2>Polévka k menu zdarma *</h2>
           <img src={menuIcon} alt="menu-icon" />
         </Row>
         <ul>{renderListOfSoups()}</ul>
-        <p style={{ paddingTop: '1rem' }}>
-          * Cena samostatné polévky
+        <p className="price">
+          *Cena samostatné polévky
           <span style={{ color: 'var(--color-tertiary)' }}> 39,-</span>
         </p>
-      </ListStyled>
+      </SoupStyledList>
     </>
   );
 
