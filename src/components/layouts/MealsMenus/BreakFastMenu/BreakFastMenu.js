@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import fetchMeals from '../../../../api/meals/fetchMealsApiCall';
@@ -13,6 +14,23 @@ import InfoBox from '../InfoBox';
 
 import MealsMenuContainer from '../MealsMenuContainer';
 import MealsMenuContent from '../MealsMenuContent';
+
+const BreakFastRow = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  Button {
+    margin-top: 1rem;
+  }
+
+  @media only screen and (min-width: 554px) {
+    flex-direction: row;
+    justify-content: space-between;
+    Button {
+      margin-top: 0;
+    }
+  }
+`;
 
 const BreakFastMenu = ({ fetchMeals, meals }) => {
   // useEffect(() => {
@@ -62,10 +80,10 @@ const BreakFastMenu = ({ fetchMeals, meals }) => {
     <MealsMenuContainer>
       <h1>Snídaňové menu 8:00 – 10:30</h1>
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
-      <Row>
+      <BreakFastRow>
         <Label text="KÁVA ZDARMA ke každé snídani" />
-        <Button text="OBJEDNAT" />
-      </Row>
+        <Button text="OBJEDNAT SNÍDANI" />
+      </BreakFastRow>
       <MealsMenuContent>
         <div className="leftside">
           <MealsList
@@ -83,19 +101,11 @@ const BreakFastMenu = ({ fetchMeals, meals }) => {
   );
 };
 
-function getDateText() {
-  const curr = new Date();
-  const first = curr.getDate() - curr.getDay() + 1;
-  const last = first + 4;
-  const monday = new Date(curr.setDate(first)).toLocaleDateString().slice(0, 7);
-  const friday = new Date(curr.setDate(last)).toLocaleDateString();
-  return `${monday} - ${friday}`;
-}
-
 function mapStateToProps(state, prevState) {
   const { meals } = state;
   return {
     meals,
   };
 }
+
 export default connect(mapStateToProps, { fetchMeals })(BreakFastMenu);
