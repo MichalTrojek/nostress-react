@@ -1,5 +1,5 @@
-import menuIcon from '../../../img/soups-logo.png';
-import Row from '../../common/Row';
+import menuIcon from '../../../../img/soups-logo.png';
+import Row from '../../../common/Row';
 import ListStyled from './ListStyled';
 import styled from 'styled-components';
 

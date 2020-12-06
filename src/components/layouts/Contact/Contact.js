@@ -1,6 +1,7 @@
-import Background from '../Background';
-import Wrapper from '../Wrapper';
 import styled from 'styled-components';
+
+import Background from '../../common/Background';
+import Wrapper from '../../common/Wrapper';
 import AddressBox from './AddressBox';
 import Map from './Map';
 

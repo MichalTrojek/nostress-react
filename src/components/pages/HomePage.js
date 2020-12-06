@@ -1,12 +1,12 @@
 import React from 'react';
 import PageLayout from '../PageLayout';
 
-import Navbar from '../common/Navbar/';
-import Hero from '../common/Hero/';
-import MealsMenus from '../MealsMenus';
-import BussinessHours from '../common/BussinessHours';
-import Contact from '../common/Contact';
-import Footer from '../Footer';
+import Navbar from '../layouts/Navbar/';
+import Hero from '../layouts/Hero/';
+import MealsMenus from '../layouts/MealsMenus';
+import BussinessHours from '../layouts/BussinessHours';
+import Contact from '../layouts/Contact';
+import Footer from '../layouts/Footer';
 
 const Home = () => {
   return (

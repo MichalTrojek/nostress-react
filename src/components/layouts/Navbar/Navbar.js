@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import logo from '../../../img/logo.png';
 
-import Burger from '../Burger';
-import SideMenuStyled from '../SideMenu';
+import Burger from '../../common/Burger';
+import SideMenuStyled from '../../common/SideMenu';
 import NavBarMenu from './NavBarMenu';
 
 const MENU_ITEMS = [

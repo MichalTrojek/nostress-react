@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Wrapper from '../common/Wrapper';
+import Wrapper from '../../common/Wrapper';
 
-import productivv from '../../img/productivv.png';
+import productivv from '../../../img/productivv.png';
 
 const FooterBackground = styled.section`
   background-color: var(--color-quaternary);
@@ -23,7 +23,6 @@ const FooterWrapper = styled(Wrapper)`
     justify-content: cetner;
     align-items: center;
     padding-top: 2rem;
-    font-size: 2rem;
   }
 
   .information-1 {
@@ -43,7 +42,7 @@ const Footer = () => {
       <FooterBackground>
         <FooterWrapper>
           <p className="copyright">
-            Copyright &copy; 2019 Mofeer s.r.o | Všechna práva vyhrazena.
+            Copyright &copy; 2020 Mofeer s.r.o | Všechna práva vyhrazena.
             <a className="information-1" href="#">
               Informace o zpracování osobních údajů
             </a>
@@ -51,7 +50,7 @@ const Footer = () => {
           <p className="information-2">
             Podle zákona o evidenci tržeb je prodávající povinen vystavit
             kupujícímu účtenku. Zároveň je povinen zaevidovat přijatou tržbu u
-            správce daně online; v případě technického výpadku pak nejpozději do
+            správce daně online. V případě technického výpadku pak nejpozději do
             48 hodin.
           </p>
           <p class="createdBy">
