@@ -98,7 +98,7 @@ const FoodAndBeverage = () => {
         <p>Připravujeme pro Vás nový jídelní a pápojový lístek</p>
         <h1 className="second-heading">Co u nás vždy máme? </h1>
         <p className="colored">Výbornou kávu</p>
-        <p className="colored">Výbornou kávu</p>
+        <p className="colored">Poličské pivo</p>
         <p className="colored">Kofolu</p>
         <p className="colored">Luxusni snídaně</p>
         <p className="colored">Rozličné týdenní menu</p>

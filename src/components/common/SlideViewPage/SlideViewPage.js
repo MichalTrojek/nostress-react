@@ -13,13 +13,17 @@ const SlideViewPage = styled.div`
 
   @media only screen and (min-width: 768px) {
     padding: 1rem 2rem;
-    height: 70vh;
+    height: 85vh;
 
     button {
       align-self: flex-end;
       padding: 4rem;
     }
   }
+
+  /* @media only screen and (min-width: 1024px) {
+    height: 70vh;
+  } */
 `;
 
 export default SlideViewPage;
