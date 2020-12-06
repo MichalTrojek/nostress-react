@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Slider from 'react-slick';
 import OpenHours from '../OpenHours';
 import StyledButton from '../Button/Button';
@@ -8,13 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import './slideview.css';
 
 import SlideViewPage from '../SlideViewPage';
-
-const SlideViewWrapper = styled.div`
-  max-width: var(--max-width);
-  margin: 0 auto;
-`;
-
-const SliderStyled = styled(Slider)``;
+import Wrapper from '../Wrapper';
 
 class SlideView extends React.Component {
   constructor(props) {
@@ -64,9 +57,9 @@ class SlideView extends React.Component {
 
     return (
       <>
-        <SlideViewWrapper>
-          <SliderStyled {...settings}>{this.renderSliderPages()}</SliderStyled>
-        </SlideViewWrapper>
+        <Wrapper>
+          <Slider {...settings}>{this.renderSliderPages()}</Slider>
+        </Wrapper>
       </>
     );
   }

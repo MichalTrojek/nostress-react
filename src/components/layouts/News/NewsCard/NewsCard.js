@@ -1,12 +1,21 @@
 import styled from 'styled-components';
+
 import image from './../../../../img/healthyfood.jpg';
 
 const NewsContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
+  border-radius: 5px;
+
+  margin-bottom: 3rem;
+
+  margin-left: 1rem;
+  margin-right: 1rem;
 
   img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     max-width: 100%;
     height: auto;
   }

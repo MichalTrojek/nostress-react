@@ -53,7 +53,7 @@ const Footer = () => {
             správce daně online. V případě technického výpadku pak nejpozději do
             48 hodin.
           </p>
-          <p class="createdBy">
+          <p className="createdBy">
             Vytvořil
             <a href="http://productivv.cz/">
               <img
