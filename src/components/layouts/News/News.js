@@ -12,7 +12,7 @@ const NewsBackground = styled.section`
 
 const NewsWrapper = styled(Wrapper)`
   h1 {
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
   }
 `;
 
