@@ -4,9 +4,9 @@ import PageLayout from '../PageLayout';
 import Navbar from '../common/Navbar/';
 import Hero from '../common/Hero/';
 import MealsMenus from '../MealsMenus';
-import Contact from '../common/Contact';
-
 import BussinessHours from '../common/BussinessHours';
+import Contact from '../common/Contact';
+import Footer from '../Footer';
 
 const Home = () => {
   return (
@@ -16,6 +16,7 @@ const Home = () => {
       <MealsMenus />
       <BussinessHours />
       <Contact />
+      <Footer />
     </PageLayout>
   );
 };
