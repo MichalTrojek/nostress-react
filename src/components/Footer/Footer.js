@@ -22,7 +22,7 @@ const FooterWrapper = styled(Wrapper)`
     display: flex;
     justify-content: cetner;
     align-items: center;
-    padding: 2rem 0;
+    padding-top: 2rem;
     font-size: 2rem;
   }
 
