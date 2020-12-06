@@ -35,6 +35,10 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 62.25%;
     }
 
+    html, body{
+      height:100%;
+    }
+
   
 
     body {
@@ -58,7 +62,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     p,
-    li {
+    li,a {
       font-size: 1.5rem;
     }
   }
@@ -73,7 +77,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
     p,
-    li {
+    li,a {
       font-size: 1.7rem;
     }
   }
@@ -89,7 +93,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
     p,
-    li {
+    li,a {
       font-size: 1.9rem;
     }
   }
@@ -104,7 +108,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     p,
-    li {
+    li,a {
       font-size: 2.2rem;
     }
   }
@@ -119,7 +123,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
     p,
-    li {
+    li,a {
       font-size: 2.4rem;
     }
   }
