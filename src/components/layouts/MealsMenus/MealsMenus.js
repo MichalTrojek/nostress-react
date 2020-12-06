@@ -5,6 +5,8 @@ import BreakFastMenu from './BreakFastMenu';
 
 const MealsMenusBackground = styled.div`
   background-color: black;
+
+  padding-bottom: 3rem;
 `;
 
 const MealsMenus = () => {

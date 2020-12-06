@@ -5,7 +5,7 @@ const MealsMenuContainer = styled.section`
   row-gap: 2rem;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 5rem 1rem;
+  padding: 1rem 1rem 3rem 1rem;
 
   img {
     width: 2rem;
