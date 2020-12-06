@@ -5,7 +5,6 @@ import fetchMeals from '../../../../api/meals/fetchMealsApiCall';
 
 import Button from '../../../common/Button';
 import Label from '../../../common/Label';
-import Row from '../../../common/Row';
 
 import MealsList from '../Lists/MealsList';
 
@@ -23,7 +22,7 @@ const BreakFastRow = styled.div`
     margin-top: 1rem;
   }
 
-  @media only screen and (min-width: 554px) {
+  @media only screen and (min-width: 627px) {
     flex-direction: row;
     justify-content: space-between;
     Button {
