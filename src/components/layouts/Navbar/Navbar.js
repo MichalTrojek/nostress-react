@@ -18,7 +18,7 @@ const MENU_ITEMS = [
 ];
 
 const NavBarBackground = styled.header`
-  background-color: black;
+  background: rgba(0, 0, 0, 0.9);
   width: 100vw;
   min-height: 8rem;
   position: fixed;
