@@ -93,7 +93,7 @@ const FoodAndBeverageWrapper = styled(Wrapper)`
 const FoodAndBeverage = () => {
   return (
     <FoodAndBeverageBackground>
-      <FoodAndBeverageWrapper>
+      <FoodAndBeverageWrapper id="food">
         <h1 className="first-heading">Jídelní a nápojový lístek</h1>
         <p>Připravujeme pro Vás nový jídelní a pápojový lístek</p>
         <h1 className="second-heading">Co u nás vždy máme? </h1>

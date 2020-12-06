@@ -12,7 +12,7 @@ const BurgerButton = styled.button`
   padding: 0;
   z-index: 10;
 
-  @media only screen and (min-width: 996px) {
+  @media only screen and (min-width: 1114px) {
     display: none;
   }
 

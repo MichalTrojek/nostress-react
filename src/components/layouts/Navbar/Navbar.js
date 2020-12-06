@@ -12,7 +12,8 @@ const MENU_ITEMS = [
   { name: 'Menu', href: '/menu' },
   { name: 'Objednat jídlo', href: '/order' },
   { name: 'Novinky', href: '/news' },
-  { name: 'Otevirací doba', href: '/open' },
+  { name: 'Jídelní lístek', href: '/food' },
+  { name: 'Otevírací doba', href: '/open' },
   { name: 'Kontakt', href: '/contact' },
 ];
 
