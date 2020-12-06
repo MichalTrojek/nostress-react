@@ -1,5 +1,5 @@
 import React from 'react';
-import PageLayout from '../common/PageLayout';
+import PageLayout from '../PageLayout';
 import Login from '../common/Forms/';
 
 const LoginPage = () => {

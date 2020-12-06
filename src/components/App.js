@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { GlobalStyle } from '../globalStyles';
 
 import { AuthProvider } from '../contexts/AuthContext';
-import PrivateRoute from '../components/common/PrivateRoute';
+import PrivateRoute from './PrivateRoute';
 
 import Home from './pages/HomePage';
 import LoginPage from './pages/LoginPage';

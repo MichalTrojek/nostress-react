@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import fetchMeals from '../../../../actions/meals/fetchMeals';
+import fetchMeals from '../../../actions/meals/fetchMeals';
 
-import Button from '../../Button';
-import Label from '../../Label';
+import Button from '../../common/Button';
+import Label from '../../common/Label';
 import MealsList from '../Lists/MealsList';
 import SoupsList from '../Lists/SoupsList';
-import Row from '../../Row';
-import menuIcon from '../../../../img/menu-icon.png';
+import Row from '../../common/Row';
+import menuIcon from '../../../img/menu-icon.png';
 import InfoBox from '../InfoBox';
 
 import MealsMenuContainer from '../MealsMenuContainer';

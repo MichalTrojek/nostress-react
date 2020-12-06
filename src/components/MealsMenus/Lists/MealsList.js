@@ -1,4 +1,4 @@
-import Row from '../../Row';
+import Row from '../../common/Row';
 import ListStyled from './ListStyled';
 
 const MealList = (props) => {

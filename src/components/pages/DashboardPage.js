@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PageLayout from '../common/PageLayout';
+import PageLayout from '../PageLayout';
 import Button from '../common/Button';
 import { useAuth } from '../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
