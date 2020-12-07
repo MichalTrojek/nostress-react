@@ -5,9 +5,9 @@ import { useState, useEffect } from 'react';
 import { showWarningToast } from '../../../notifications/toast';
 import Button from '../Button';
 
-import deleteNews from '../../../actions/news/deleteNews';
-import setSelectedNewsToEdit from '../../../actions/news/setSelectedNewsToEdit';
-import emptySelectedNewsToEdit from '../../../actions/news/emptySelectedNewsToEdit';
+import deleteNews from '../../../redux/actions/news/deleteNews';
+import setSelectedNewsToEdit from '../../../redux/actions/news/setSelectedNewsToEdit';
+import emptySelectedNewsToEdit from '../../../redux/actions/news/emptySelectedNewsToEdit';
 
 const StyledNewsListItem = styled.div`
   width: 33rem;

@@ -1,6 +1,6 @@
 import { EDIT_NEWS } from '../types';
-import editNewsApiCall from '../../api/news/editNewsApiCall';
-import { showErrorToast, showSuccessToast } from '../../notifications/toast';
+import editNewsApiCall from '../../../api/news/editNewsApiCall';
+import { showErrorToast, showSuccessToast } from '../../../notifications/toast';
 
 const editNews = (id, heading, newsContent, buttonText) => {
   return (dispatch, getState) => {

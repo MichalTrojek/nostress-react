@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
 
-import fetchNews from '../../../actions/news/fetchNews';
+import fetchNews from '../../../redux/actions/news/fetchNews';
 
 import { connect } from 'react-redux';
 import backgroundImage from '../../../img/hero.png';
@@ -23,11 +23,12 @@ const HeroWrapper = styled.section`
 `;
 
 const Hero = ({ news, fetchNews }) => {
-  useEffect(() => {
-    if (news.length === 0) {
-      fetchNews();
-    }
-  }, [fetchNews, news.length]);
+  // useEffect(() => {
+  //   if (news.length === 0) {
+  //     fetchNews();
+  //   }
+  // }, [fetchNews, news.length]);
+
   return (
     <HeroBackground id="home">
       <HeroWrapper>

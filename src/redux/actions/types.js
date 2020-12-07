@@ -7,3 +7,5 @@ export const SELECTED_NEWS = 'SELECTED_NEWS';
 export const EMPTY_SELECTED_NEWS = 'EMPTY_SELECTED_NEWS';
 
 export const FETCH_MEALS = 'FETCH_MEALS';
+
+export const FETCH_DATA = 'FETCH_DATA';

@@ -1,15 +1,15 @@
 import { CREATE_NEWS } from '../types';
-import createNewsApiCall from '../../api/news/createNewsApiCall';
-import { showErrorToast, showSuccessToast } from '../../notifications/toast';
+import createNewsApiCall from '../../../api/news/createNewsApiCall';
+import { showErrorToast, showSuccessToast } from '../../../notifications/toast';
 
 const createNews = (heading, newsContent, buttonText) => {
   return async (dispatch, getState) => {
-    const id = await createNewsApiCall(heading, newsContent, buttonText);
-    if (id) {
+    const success = await createNewsApiCall(heading, newsContent, buttonText);
+    if (success) {
       dispatch({
         type: CREATE_NEWS,
         payload: {
-          id: id,
+          id: success,
           heading: heading,
           content: newsContent,
           button: buttonText,

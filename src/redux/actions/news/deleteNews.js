@@ -1,6 +1,6 @@
 import { DELETE_NEWS } from '../types';
-import deleteNewsApiCalls from '../../api/news/deleteNewsApiCall';
-import { showSuccessToast, showErrorToast } from '../../notifications/toast';
+import deleteNewsApiCalls from '../../../api/news/deleteNewsApiCall';
+import { showSuccessToast, showErrorToast } from '../../../notifications/toast';
 
 const deleteNews = (id) => {
   return async (dispatch, getState) => {
