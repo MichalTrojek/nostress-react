@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import facebook from '../../../../img/facebook.png';
 import instagram from '../../../../img/instagram.png';
-import logo from '../../../../img/footer-message.png';
 
 const AddressBoxContainer = styled.div`
   @media only screen and (min-width: 660px) {
