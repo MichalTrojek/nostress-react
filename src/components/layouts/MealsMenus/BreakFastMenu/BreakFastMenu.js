@@ -31,8 +31,8 @@ const BreakFastRow = styled.div`
   }
 `;
 
-const BreakFastContainer = styled(MealsMenuContainer)`
-  padding-top: 0;
+const BreakFastMenuContainer = styled(MealsMenuContainer)`
+  padding-bottom: 3rem;
 `;
 
 const BreakFastMenu = ({ fetchMeals, meals }) => {
@@ -80,7 +80,7 @@ const BreakFastMenu = ({ fetchMeals, meals }) => {
   ];
 
   return (
-    <BreakFastContainer>
+    <BreakFastMenuContainer>
       <h1>Snídaňové menu 8:00 – 10:30</h1>
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
       <BreakFastRow>
@@ -100,7 +100,7 @@ const BreakFastMenu = ({ fetchMeals, meals }) => {
           <InfoBox time="11:00 – 16:00" text="V sobotu speciální menu" />
         </div>
       </MealsMenuContent>
-    </BreakFastContainer>
+    </BreakFastMenuContainer>
   );
 };
 

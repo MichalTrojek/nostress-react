@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 const MealsMenuContainer = styled.section`
   display: grid;
-  row-gap: 2rem;
+  row-gap: 1rem;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 3rem 1rem 3rem 1rem;
+  padding: 1rem 1rem;
 
   img {
     width: 2rem;

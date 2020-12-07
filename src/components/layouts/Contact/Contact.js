@@ -7,7 +7,7 @@ import Map from './Map';
 
 const ContactContainer = styled.div`
   display: grid;
-  padding: 5rem 0;
+  padding: 1rem 0rem;
 
   @media only screen and (min-width: 660px) {
     grid-template-columns: repeat(12, 1fr);
