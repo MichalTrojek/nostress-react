@@ -26,7 +26,7 @@ const NewsSlider = () => {
       setNumberOfSlidesShown(1);
     } else if (innerWidth >= 540 && innerWidth < 1000) {
       setNumberOfSlidesShown(2);
-    } else if (innerWidth > 1000) {
+    } else if (innerWidth >= 1000) {
       setNumberOfSlidesShown(3);
     }
   }
