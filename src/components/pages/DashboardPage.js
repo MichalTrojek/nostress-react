@@ -49,7 +49,10 @@ const DashboardPage = () => {
         <DashboardWrapper>
           <Button onClick={handleLogOut} text="Odhlasit se" />
           <Button onClick={() => history.push('/news')} text="Přidat novinky" />
-          <Button onClick={handleLogOut} text="Upravit hlavní menu" />
+          <Button
+            onClick={() => history.push('/meals')}
+            text="Upravit hlavní menu"
+          />
           <Button onClick={handleLogOut} text="Upravit napojové menu" />
           <Button onClick={handleLogOut} text="Přidat kartu novinek" />
         </DashboardWrapper>

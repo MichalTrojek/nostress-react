@@ -8,6 +8,7 @@ import Home from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import NewsPage from './pages/NewsPage';
+import MealsPage from './pages/private/MealsPage';
 
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -22,6 +23,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={LoginPage} />
             <PrivateRoute exact path="/dashboard" component={DashboardPage} />
+            <PrivateRoute exact path="/meals" component={MealsPage} />
             <PrivateRoute exact path="/news" component={NewsPage} />
           </Switch>
         </AuthProvider>
