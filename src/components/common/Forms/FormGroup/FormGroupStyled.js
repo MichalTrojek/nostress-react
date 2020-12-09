@@ -22,8 +22,7 @@ const FormGroupStyled = styled.div`
     --input-border-width: 0.7rem;
     border-bottom: var(--input-border-width) solid transparent;
     border-top: var(--input-border-width) solid transparent;
-    padding: 0.5rem;
-    margin-top: 2rem;
+    padding: 0.7rem;
 
     &:focus {
       border-color: var(--color-tertiary);
@@ -31,7 +30,7 @@ const FormGroupStyled = styled.div`
     }
 
     &:not(:placeholder-shown) + label {
-      transform: translateY(-7.6rem);
+      transform: translateY(-7.9rem);
       color: var(--color-tertiary);
     }
   }

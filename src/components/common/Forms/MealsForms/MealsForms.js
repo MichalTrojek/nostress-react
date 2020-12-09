@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Form from '../Form';
-import FormGroup from '../../Forms/FormGroup';
+import FormGroup from '../FormGroup';
 import Button from '../../Button';
 
 const MealsForms = () => {
