@@ -9,7 +9,9 @@ function fetchMealsApiCall() {
       snapshot.forEach((doc) => {
         data.push({
           id: doc.id,
-          text: doc.data().text,
+          name: doc.data().name,
+          alergens: doc.data().alergens,
+          price: doc.data().price,
         });
       });
       return data;

@@ -22,7 +22,7 @@ const MealsForms = ({ createMeal }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (name.length !== 0 && price.length !== 0 && alergens.length !== 0) {
+    if (name.length !== 0 && price.length !== 0) {
       createMeal({ name: name, price: price, alergens: alergens });
     }
   }
