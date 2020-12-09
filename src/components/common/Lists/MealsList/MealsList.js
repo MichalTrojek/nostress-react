@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import ListContainer from '../ListContainer';
-import ListItem from '../ListItem';
+import MealListItem from '../MealsList/MealListItem';
 import fetchMeals from '../../../../redux/actions/meals/fetchMeals';
 
 const MealsList = ({ meals, fetchMeals }) => {
@@ -18,7 +18,7 @@ const MealsList = ({ meals, fetchMeals }) => {
     if (meals.length !== 0) {
       return meals.map((meal) => {
         return (
-          <ListItem
+          <MealListItem
             name={meal.name}
             alergens={meal.alergens}
             price={meal.price}
