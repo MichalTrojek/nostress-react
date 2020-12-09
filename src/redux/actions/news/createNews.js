@@ -4,12 +4,12 @@ import { showErrorToast, showSuccessToast } from '../../../notifications/toast';
 
 const createNews = (heading, newsContent, buttonText) => {
   return async (dispatch, getState) => {
-    const success = await createNewsApiCall(heading, newsContent, buttonText);
-    if (success) {
+    const id = await createNewsApiCall(heading, newsContent, buttonText);
+    if (id) {
       dispatch({
         type: CREATE_NEWS,
         payload: {
-          id: success,
+          id: id,
           heading: heading,
           content: newsContent,
           button: buttonText,

@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
+
 import Form from '../Form';
 import FormGroup from '../FormGroup';
 import Button from '../../Button';
+import createMeal from '../../../../redux/actions/meals/createMeal';
 
-const MealsForms = () => {
+const MealsForms = ({ createMeal }) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [alergens, setAlergens] = useState('');
@@ -19,8 +22,10 @@ const MealsForms = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(`${name}  ${price} ${alergens}`);
+    if (name.length !== 0 && price.length !== 0 && alergens.length !== 0) {
+      createMeal({ name: name, price: price, alergens: alergens });
+    }
   }
 };
 
-export default MealsForms;
+export default connect(null, { createMeal })(MealsForms);
