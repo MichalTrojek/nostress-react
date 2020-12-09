@@ -19,6 +19,7 @@ const MealsList = ({ meals, fetchMeals }) => {
       return meals.map((meal) => {
         return (
           <MealListItem
+            key={meal.id}
             name={meal.name}
             alergens={meal.alergens}
             price={meal.price}

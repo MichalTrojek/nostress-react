@@ -1,8 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import FormGroupStyled from './FormGroupStyled';
+import { connect } from 'react-redux';
 
-const FormGroup = ({ type, placeholder, getValue }) => {
+const FormGroup = ({
+  name,
+  type,
+  placeholder,
+  sendValueToParent,
+  selectedItem,
+}) => {
   const [value, setValue] = useState('');
+
+  useEffect(() => {
+    if (selectedItem) {
+      setValue(selectedItem[name]);
+    } else {
+      setValue('');
+    }
+  }, [selectedItem]);
 
   return (
     <FormGroupStyled>
@@ -20,8 +35,12 @@ const FormGroup = ({ type, placeholder, getValue }) => {
 
   function setValueOnChange(event) {
     setValue(event.target.value);
-    getValue(value);
+    sendValueToParent(value);
   }
 };
-
-export default FormGroup;
+function mapStateToProps(state, ownProps) {
+  return {
+    selectedItem: state.editor.selectedItem,
+  };
+}
+export default connect(mapStateToProps)(FormGroup);

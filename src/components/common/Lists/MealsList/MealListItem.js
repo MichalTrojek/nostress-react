@@ -1,6 +1,18 @@
+import { connect } from 'react-redux';
 import Button from '../../Button';
 import ListItemStyled from '../ListItemStyled';
-const MealListItem = ({ name, alergens, price }) => {
+
+import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
+import toggleEditMode from '../../../../redux/actions/editor/toggleEditMode';
+
+const MealListItem = ({
+  name,
+  alergens,
+  price,
+  isEditModeOn,
+  setSelectedItem,
+  toggleEditMode,
+}) => {
   return (
     <ListItemStyled>
       <div className="content">
@@ -9,11 +21,27 @@ const MealListItem = ({ name, alergens, price }) => {
         <p>Cena: {price},-</p>
       </div>
       <div className="buttons">
-        <Button text="editovat"></Button>
-        <Button text="smazat"></Button>
+        <Button onClick={handleEdit} text="editovat"></Button>
+        <Button onClick={handleDelete} text="smazat"></Button>
       </div>
     </ListItemStyled>
   );
+
+  function handleEdit() {
+    setSelectedItem({ name, alergens, price });
+    toggleEditMode(true);
+  }
+  function handleDelete() {
+    if (!isEditModeOn) {
+      console.log('delete');
+    }
+  }
 };
 
-export default MealListItem;
+function mapStateToProps(state, ownProps) {
+  return { isEditModeOn: state.editor.isEditModeOn };
+}
+
+export default connect(mapStateToProps, { setSelectedItem, toggleEditMode })(
+  MealListItem
+);

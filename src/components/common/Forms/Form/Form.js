@@ -9,6 +9,14 @@ const Form = styled.form`
     align-self: stretch;
     font-size: 2rem;
   }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    Button {
+      margin: 0 1rem;
+    }
+  }
 `;
 
 export default Form;

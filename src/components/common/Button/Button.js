@@ -1,8 +1,8 @@
 import StyledButton from './StyledButton';
 
-const Button = ({ onClick, text, disabled }) => {
+const Button = ({ onClick, text, disabled, type }) => {
   return (
-    <StyledButton disabled={disabled} onClick={onClick}>
+    <StyledButton type={type} disabled={disabled} onClick={onClick}>
       {text}
     </StyledButton>
   );
