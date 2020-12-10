@@ -6,39 +6,67 @@ import FormGroup from '../FormGroup';
 import Button from '../../Button';
 
 import createMeal from '../../../../redux/actions/meals/createMeal';
+import editMeal from '../../../../redux/actions/meals/editMeal';
 import toggleEditMode from '../../../../redux/actions/editor/toggleEditMode';
 import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
 
 const MealsForms = ({
   createMeal,
+  editMeal,
   isEditModeOn,
   toggleEditMode,
   setSelectedItem,
+  selectedItem,
 }) => {
   const [name, setName] = useState('');
   const [alergens, setAlergens] = useState('');
   const [price, setPrice] = useState('');
 
+  useEffect(() => {
+    if (isEditModeOn) {
+      setName(selectedItem.name);
+      setAlergens(selectedItem.alergens);
+      setPrice(selectedItem.price);
+    }
+  }, [isEditModeOn, selectedItem]);
+
   return (
     <Form onSubmit={handleSubmit}>
-      <FormGroup
-        name="name"
-        type="text"
-        placeholder="Název"
-        sendValueToParent={setName}
-      />
-      <FormGroup
-        name="alergens"
-        type="text"
-        placeholder="Alergeny"
-        sendValueToParent={setAlergens}
-      />
-      <FormGroup
-        name="price"
-        type="text"
-        placeholder="Cena"
-        sendValueToParent={setPrice}
-      />
+      <FormGroup>
+        <input
+          type="text"
+          placeholder="Název"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          id="nameInput"
+          required
+        />
+        <label htmlFor="nameInput">Název</label>
+      </FormGroup>
+
+      <FormGroup>
+        <input
+          type="text"
+          placeholder="Alergeny"
+          value={alergens}
+          onChange={(event) => setAlergens(event.target.value)}
+          id="alergenInput"
+        />
+        <label htmlFor="alergenInput">Alergeny</label>
+      </FormGroup>
+
+      <FormGroup>
+        <input
+          type="text"
+          placeholder="Cena"
+          value={price}
+          onChange={(event) => setPrice(event.target.value)}
+          id="priceInput"
+          required
+        />
+        <label htmlFor="priceInput">Cena</label>
+      </FormGroup>
+
       {renderButtons()}
     </Form>
   );
@@ -46,7 +74,13 @@ const MealsForms = ({
   function handleSubmit(event) {
     event.preventDefault();
     if (name.length !== 0 && price.length !== 0) {
-      createMeal({ name: name, price: price, alergens: alergens });
+      if (isEditModeOn) {
+        editMeal(selectedItem.id, name, alergens, price);
+        handleCancel();
+      } else {
+        createMeal(name, alergens, price);
+        clearStates();
+      }
     }
   }
 
@@ -66,6 +100,13 @@ const MealsForms = ({
   function handleCancel() {
     toggleEditMode(false);
     setSelectedItem(null);
+    clearStates();
+  }
+
+  function clearStates() {
+    setName('');
+    setAlergens('');
+    setPrice('');
   }
 };
 
@@ -78,6 +119,7 @@ function mapStateToProps(state, ownProps) {
 
 export default connect(mapStateToProps, {
   createMeal,
+  editMeal,
   toggleEditMode,
   setSelectedItem,
 })(MealsForms);

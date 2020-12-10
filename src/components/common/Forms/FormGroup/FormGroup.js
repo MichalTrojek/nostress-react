@@ -1,46 +1,39 @@
-import { useState, useEffect } from 'react';
-import FormGroupStyled from './FormGroupStyled';
-import { connect } from 'react-redux';
+import styled from 'styled-components';
 
-const FormGroup = ({
-  name,
-  type,
-  placeholder,
-  sendValueToParent,
-  selectedItem,
-}) => {
-  const [value, setValue] = useState('');
+const FormGroup = styled.div`
+  --form-group-form-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
-  useEffect(() => {
-    if (selectedItem) {
-      setValue(selectedItem[name]);
-    } else {
-      setValue('');
-    }
-  }, [selectedItem]);
-
-  return (
-    <FormGroupStyled>
-      <input
-        id="inputComponent"
-        onChange={setValueOnChange}
-        value={value}
-        placeholder={placeholder}
-        type={type}
-        required
-      />
-      <label htmlFor="inputComponent">{placeholder}</label>
-    </FormGroupStyled>
-  );
-
-  function setValueOnChange(event) {
-    setValue(event.target.value);
-    sendValueToParent(value);
+  label {
+    color: transparent;
+    font-size: var(--form-group-form-size);
+    transition: all 0.2s;
+    transform: translateY(-4.1rem) translateX(1rem);
+    pointer-events: none;
+    font-weight: bold;
   }
-};
-function mapStateToProps(state, ownProps) {
-  return {
-    selectedItem: state.editor.selectedItem,
-  };
-}
-export default connect(mapStateToProps)(FormGroup);
+
+  input {
+    font-size: var(--form-group-form-size);
+    align-self: stretch;
+    border-radius: 4px;
+    --input-border-width: 0.7rem;
+    border-bottom: var(--input-border-width) solid transparent;
+    border-top: var(--input-border-width) solid transparent;
+    padding: 0.7rem;
+
+    &:focus {
+      border-color: var(--color-tertiary);
+      border-top-color: transparent;
+    }
+
+    &:not(:placeholder-shown) + label {
+      transform: translateY(-7.9rem);
+      color: var(--color-tertiary);
+    }
+  }
+`;
+
+export default FormGroup;

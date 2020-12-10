@@ -31,6 +31,7 @@ const MealListItem = ({
     setSelectedItem({ name, alergens, price });
     toggleEditMode(true);
   }
+
   function handleDelete() {
     if (!isEditModeOn) {
       console.log('delete');

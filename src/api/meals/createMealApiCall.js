@@ -1,9 +1,9 @@
 import { db } from '../../firebase';
 
-function createMealApiCall(meal) {
+function createMealApiCall(name, alergens, price) {
   return db
     .collection('meals')
-    .add({ name: meal.name, alergens: meal.alergens, price: meal.price })
+    .add({ name: name, alergens: alergens, price: price })
     .then((docRef) => {
       console.log(`Document written with ID: ${docRef.id}`);
       return docRef.id;

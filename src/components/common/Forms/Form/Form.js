@@ -4,8 +4,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   padding-top: 3rem;
-
-  Button {
+  position: relative Button {
     align-self: stretch;
     font-size: 2rem;
   }
