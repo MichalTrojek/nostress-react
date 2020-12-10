@@ -6,7 +6,7 @@ import fetchMeals from '../../../../api/meals/fetchMealsApiCall';
 import Button from '../../../common/Button';
 import Label from '../../../common/Label';
 
-import MealsList from '../Lists/MealsList';
+import MealsList from '../Lists/MenuMealsList';
 
 import menuIcon from '../../../../img/menu-icon.png';
 import InfoBox from '../InfoBox';

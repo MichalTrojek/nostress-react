@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledList = styled.div`
+const MenuList = styled.div`
   padding: 1rem;
   border: 1px solid var(--color-primary);
 
@@ -26,4 +26,4 @@ const StyledList = styled.div`
   }
 `;
 
-export default StyledList;
+export default MenuList;

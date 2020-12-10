@@ -1,32 +1,32 @@
 import Row from '../../../common/Row';
-import ListStyled from './ListStyled';
+import MenuList from './MenuList';
 
-const MealList = (props) => {
+const MenuMealList = ({ header, info, icon, items = [] }) => {
   return (
     <>
-      <ListStyled>
+      <MenuList>
         <Row className="menu-row">
           <h2>
-            {props.header}{' '}
+            {header}
             <span
               style={{ color: 'var(--color-tertiary)', padding: '0 .3rem' }}
             >
               {renderInfo()}
-            </span>{' '}
+            </span>
           </h2>
-          <img src={props.icon} alt="menu-icon" />
+          <img src={icon} alt="menu-icon" />
         </Row>
         <ol>{renderList()}</ol>
-      </ListStyled>
+      </MenuList>
     </>
   );
 
   function renderInfo() {
-    return props.info ? `${props.info}` : '';
+    return info ? `${info}` : '';
   }
 
   function renderList() {
-    return props.items.map((item, index) => {
+    return items.map((item, index) => {
       return (
         <li key={item.id}>
           {`${item.name}`}
@@ -42,4 +42,4 @@ const MealList = (props) => {
   }
 };
 
-export default MealList;
+export default MenuMealList;

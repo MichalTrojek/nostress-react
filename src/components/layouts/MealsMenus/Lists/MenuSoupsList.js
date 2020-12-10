@@ -1,6 +1,6 @@
 import menuIcon from '../../../../img/soups-logo.png';
 import Row from '../../../common/Row';
-import ListStyled from './ListStyled';
+import MenuList from './MenuList';
 import styled from 'styled-components';
 
 const SoupRow = styled.div`
@@ -16,7 +16,7 @@ const SoupRow = styled.div`
   }
 `;
 
-const SoupStyledList = styled(ListStyled)`
+const SoupsMenuList = styled(MenuList)`
   position: relative;
   padding-bottom: 4rem;
   padding-left: 2rem;
@@ -27,7 +27,7 @@ const SoupStyledList = styled(ListStyled)`
   }
 `;
 
-const SoupsList = () => {
+const MenuSoupsList = () => {
   const soupsData = [
     { id: 1, day: 'Pondělí', name: 'Čočková', alergens: '1, 9' },
     { id: 1, day: 'Úterý', name: 'Vývar s játrovými knedlíčky', alergens: '9' },
@@ -38,7 +38,7 @@ const SoupsList = () => {
 
   return (
     <>
-      <SoupStyledList>
+      <SoupsMenuList>
         <Row>
           <h2>Polévka k menu zdarma *</h2>
           <img src={menuIcon} alt="menu-icon" />
@@ -48,7 +48,7 @@ const SoupsList = () => {
           *Cena samostatné polévky
           <span style={{ color: 'var(--color-tertiary)' }}> 39,-</span>
         </p>
-      </SoupStyledList>
+      </SoupsMenuList>
     </>
   );
 
@@ -68,4 +68,4 @@ const SoupsList = () => {
   }
 };
 
-export default SoupsList;
+export default MenuSoupsList;
