@@ -13,3 +13,6 @@ export const EDIT_MEAL = 'EDIT_MEAL';
 
 export const SELECT_ITEM_TO_EDIT = 'SELECT_ITEM_TO_EDIT';
 export const TOGGLE_EDIT_MODE = 'TOGGLE_EDIT_MODE';
+
+export const FETCH_SOUPS = 'FETCH_SOUPS';
+export const EDIT_SOUPS = 'EDIT_SOUPS';
