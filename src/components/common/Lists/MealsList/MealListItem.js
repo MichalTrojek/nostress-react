@@ -8,10 +8,7 @@ import deleteMeal from '../../../../redux/actions/meals/deleteMeal';
 import { showInfoToast } from '../../../../notifications/toast';
 
 const MealListItem = ({
-  id,
-  name,
-  alergens,
-  price,
+  meal,
   isEditModeOn,
   setSelectedItem,
   toggleEditMode,
@@ -20,9 +17,10 @@ const MealListItem = ({
   return (
     <ListItem>
       <div className="content">
-        <p>Název: {name}</p>
-        <p>Alergeny: ({alergens})</p>
-        <p>Cena: {price},-</p>
+        <p>Název: {meal.name}</p>
+        <p>Alergeny: ({meal.alergens})</p>
+        <p>Cena: {meal.price},-</p>
+        {renderIsChildMeal()}
       </div>
       <div className="buttons">
         <Button onClick={handleEdit} text="editovat"></Button>
@@ -31,14 +29,18 @@ const MealListItem = ({
     </ListItem>
   );
 
+  function renderIsChildMeal() {
+    return meal.isChildMeal ? <p>Dětské menu</p> : <p></p>;
+  }
+
   function handleEdit() {
-    setSelectedItem({ id, name, alergens, price });
+    setSelectedItem(meal);
     toggleEditMode(true);
   }
 
   function handleDelete() {
     if (!isEditModeOn) {
-      deleteMeal(id);
+      deleteMeal(meal.id);
     } else {
       showInfoToast('Nelze mazat během editování.');
     }

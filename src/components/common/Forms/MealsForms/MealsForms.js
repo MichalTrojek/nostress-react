@@ -21,14 +21,16 @@ const MealsForms = ({
   const [name, setName] = useState('');
   const [alergens, setAlergens] = useState('');
   const [price, setPrice] = useState('');
+  const [isChildMeal, setIsChildMeal] = useState(false);
 
   useEffect(() => {
+    console.log(isChildMeal);
     if (isEditModeOn) {
       setName(selectedItem.name);
       setAlergens(selectedItem.alergens);
       setPrice(selectedItem.price);
     }
-  }, [isEditModeOn, selectedItem]);
+  }, [isEditModeOn, selectedItem, isChildMeal]);
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -66,6 +68,15 @@ const MealsForms = ({
         />
         <label htmlFor="priceInput">Cena</label>
       </FormGroup>
+      <div className="checkbox">
+        <input
+          id="childmealInput"
+          type="checkbox"
+          onChange={(event) => setIsChildMeal(event.target.checked)}
+          value={isChildMeal}
+        />
+        <label htmlFor="childmealInput">Dětské menu</label>
+      </div>
 
       {renderButtons()}
     </Form>
@@ -74,12 +85,12 @@ const MealsForms = ({
   function handleSubmit(event) {
     event.preventDefault();
     if (name.length !== 0 && price.length !== 0) {
+      let meal = { name, alergens, price, isChildMeal };
       if (isEditModeOn) {
-        console.log(selectedItem.id);
-        editMeal(selectedItem.id, name, alergens, price);
+        editMeal(selectedItem.id, name, alergens, price, isChildMeal);
         handleCancel();
       } else {
-        createMeal(name, alergens, price);
+        createMeal(meal);
         clearStates();
       }
     }

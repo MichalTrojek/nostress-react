@@ -2,18 +2,13 @@ import { CREATE_MEAL } from '../types';
 import { showErrorToast, showSuccessToast } from '../../../notifications/toast';
 import createMealApiCall from '../../../api/meals/createMealApiCall';
 
-function createMeal(name, alergens, price) {
+function createMeal(meal) {
   return async (dispatch, getState) => {
-    const id = await createMealApiCall(name, alergens, price);
+    const id = await createMealApiCall(meal);
     if (id) {
       dispatch({
         type: CREATE_MEAL,
-        payload: {
-          id: id,
-          name: name,
-          alergens: alergens,
-          price: price,
-        },
+        payload: { ...meal, id: id },
       });
       showSuccessToast('Jidlo bylo úspěšně uloženo.');
     } else {

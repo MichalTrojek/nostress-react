@@ -13,6 +13,7 @@ function fetchMealsApiCall() {
           name: doc.data().name,
           alergens: doc.data().alergens,
           price: doc.data().price,
+          isChildMeal: doc.data().isChildMeal,
         });
       });
       return data;

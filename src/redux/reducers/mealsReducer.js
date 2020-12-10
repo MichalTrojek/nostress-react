@@ -8,8 +8,10 @@ import {
 const newsReducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_MEALS:
+      console.log('fetch meals', action.payload);
       return [...state, ...action.payload];
     case CREATE_MEAL:
+      console.log('create meal', action.payload);
       return [...state, action.payload];
     case EDIT_MEAL:
       const newState = state.filter((item) => item.id !== action.payload.id);

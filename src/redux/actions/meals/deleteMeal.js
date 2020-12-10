@@ -4,8 +4,8 @@ import { showErrorToast, showSuccessToast } from '../../../notifications/toast';
 
 function deleteMeal(id) {
   return async (dispatch, getState) => {
-    const succes = await deleteMealApiCall(id);
-    if (succes) {
+    const success = await deleteMealApiCall(id);
+    if (success) {
       showSuccessToast('Jidlo bylo vymazáno');
       dispatch({
         type: DELETE_MEAL,

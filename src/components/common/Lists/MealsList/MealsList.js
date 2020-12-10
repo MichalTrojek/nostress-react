@@ -16,16 +16,8 @@ const MealsList = ({ meals, fetchMeals }) => {
 
   function renderList() {
     if (meals.length !== 0) {
-      return meals.map((meal) => {
-        return (
-          <MealListItem
-            key={meal.id}
-            id={meal.id}
-            name={meal.name}
-            alergens={meal.alergens}
-            price={meal.price}
-          />
-        );
+      return meals.map((meal, index) => {
+        return <MealListItem key={index} meal={meal} />;
       });
     }
   }
