@@ -48,7 +48,7 @@ const NavBarLogo = styled.img`
   }
 `;
 
-const NavBar = () => {
+const PublicNavBar = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -59,10 +59,9 @@ const NavBar = () => {
           <Burger open={open} setOpen={setOpen} />
         </NavBarWrapper>
       </NavBarBackground>
-
       <SideMenuStyled open={open} setOpen={setOpen} menuItems={MENU_ITEMS} />
     </>
   );
 };
 
-export default NavBar;
+export default PublicNavBar;

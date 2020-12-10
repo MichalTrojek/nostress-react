@@ -6,8 +6,9 @@ import PrivateRoute from './PrivateRoute';
 
 import Home from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
-import DashboardPage from './pages/DashboardPage';
-import NewsPage from './pages/NewsPage';
+
+import DashboardPage from './pages/private/DashboardPage';
+import NewsPage from './pages/private/NewsPage';
 import MealsPage from './pages/private/MealsPage';
 
 import { ToastContainer, Zoom } from 'react-toastify';

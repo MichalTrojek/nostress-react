@@ -1,7 +1,7 @@
 import React from 'react';
 import PageLayout from '../PageLayout';
 
-import Navbar from '../layouts/Navbar/';
+import PublicNavBar from '../layouts/PublicNavBar/';
 import Hero from '../layouts/Hero/';
 import MealsMenus from '../layouts/MealsMenus';
 import FoodAndBeverage from '../layouts/FoodAndBeverage';
@@ -13,7 +13,7 @@ import Footer from '../layouts/Footer';
 const Home = () => {
   return (
     <PageLayout>
-      <Navbar />
+      <PublicNavBar />
       <Hero />
       <MealsMenus />
       <FoodAndBeverage />

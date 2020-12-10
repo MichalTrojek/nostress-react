@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import PageLayout from '../PageLayout';
-import Button from '../common/Button';
-import { useAuth } from '../../contexts/AuthContext';
+import PageLayout from '../../PageLayout';
+import Button from '../../common/Button';
+import { useAuth } from '../../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -49,12 +49,11 @@ const DashboardPage = () => {
         <DashboardWrapper>
           <Button onClick={handleLogOut} text="Odhlasit se" />
           <Button onClick={() => history.push('/news')} text="Přidat novinky" />
+          <Button onClick={() => history.push('/meals')} text="Upravit Menu" />
           <Button
-            onClick={() => history.push('/meals')}
-            text="Upravit hlavní menu"
+            onClick={() => history.push('/soups')}
+            text="Upravit menu polívek"
           />
-          <Button onClick={handleLogOut} text="Upravit napojové menu" />
-          <Button onClick={handleLogOut} text="Přidat kartu novinek" />
         </DashboardWrapper>
       </DashboardBackground>
     </PageLayout>
