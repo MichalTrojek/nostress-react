@@ -26,11 +26,11 @@ const MealsForms = ({
   const [isChildMeal, setIsChildMeal] = useState(false);
 
   useEffect(() => {
-    console.log(isChildMeal);
     if (isEditModeOn) {
       setName(selectedItem.name);
       setAlergens(selectedItem.alergens);
       setPrice(selectedItem.price);
+      setIsChildMeal(selectedItem.isChildMeal);
     }
   }, [isEditModeOn, selectedItem, isChildMeal]);
 
@@ -75,7 +75,8 @@ const MealsForms = ({
           id="childmealInput"
           type="checkbox"
           onChange={(event) => setIsChildMeal(event.target.checked)}
-          value={isChildMeal}
+          // value={isChildMeal}
+          checked={isChildMeal}
         />
         <label htmlFor="childmealInput">Pokrm patří do dětského menu</label>
       </Checkbox>
@@ -121,6 +122,7 @@ const MealsForms = ({
     setName('');
     setAlergens('');
     setPrice('');
+    setIsChildMeal(false);
   }
 };
 
