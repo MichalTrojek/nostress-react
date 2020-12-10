@@ -17,10 +17,10 @@ const MealListItem = ({
   return (
     <ListItem>
       <div className="content">
+        {renderIsChildMeal()}
         <p>Název: {meal.name}</p>
         <p>Alergeny: ({meal.alergens})</p>
         <p>Cena: {meal.price},-</p>
-        {renderIsChildMeal()}
       </div>
       <div className="buttons">
         <Button onClick={handleEdit} text="editovat"></Button>
@@ -30,7 +30,11 @@ const MealListItem = ({
   );
 
   function renderIsChildMeal() {
-    return meal.isChildMeal ? <p>Dětské menu</p> : <p></p>;
+    return meal.isChildMeal ? (
+      <p style={{ fontWeight: 'bold' }}>Dětské menu</p>
+    ) : (
+      <p></p>
+    );
   }
 
   function handleEdit() {
