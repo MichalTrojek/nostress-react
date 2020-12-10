@@ -32,7 +32,6 @@ const MealsList = ({ meals, childMeals, fetchMeals }) => {
 
   function renderList() {
     let listOfMeals = showChildMeals ? childMeals : meals;
-    console.log(typeof listOfMeals);
     if (listOfMeals.length !== 0) {
       return listOfMeals.map((meal, index) => {
         return <MealListItem key={index} meal={meal} />;
