@@ -7,7 +7,7 @@ const MealsPage = () => {
   return (
     <Background>
       <Wrapper>
-        <h1>Tvorba menu položek</h1>
+        <h1>Tvorba menu</h1>
         <MealsForms />
         <MealsList />
       </Wrapper>

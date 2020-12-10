@@ -33,13 +33,15 @@ const MealListItem = ({
     return meal.isChildMeal ? (
       <p style={{ fontWeight: 'bold' }}>Dětské menu</p>
     ) : (
-      <p></p>
+      <p style={{ fontWeight: 'bold' }}>Týdenní menu</p>
     );
   }
 
   function handleEdit() {
     setSelectedItem(meal);
     toggleEditMode(true);
+
+    window.scroll({ top: 0, behavior: 'smooth' });
   }
 
   function handleDelete() {
