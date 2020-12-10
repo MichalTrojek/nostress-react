@@ -94,6 +94,15 @@ const SoupsForm = ({ editSoups, fetchSoups }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
+    const soups = {
+      monday: monday,
+      tuesday: tuesday,
+      wednesday: wednesday,
+      thursday: thursday,
+      friday: friday,
+      price: price,
+    };
+    editSoups(soups);
   }
 };
 
