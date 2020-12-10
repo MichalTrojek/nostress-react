@@ -1,6 +1,6 @@
 import React from 'react';
 import PageLayout from '../PageLayout';
-import Login from '../common/Forms/';
+import Login from '../layouts/Login';
 
 const LoginPage = () => {
   return (

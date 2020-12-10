@@ -1,10 +1,11 @@
 import React, { useRef, useState } from 'react';
-import Button from '../Button';
-import { Form, FormGroup } from './FormStyles';
+import Button from '../../common/Button';
+import Form from '../../common/Forms/Form';
+import FormGroup from '../../common/Forms/FormGroup';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import InfoLabel from './InfoLabel';
+import InfoLabel from '../../../components/common/Label/InfoBox';
 
 const LoginBackground = styled.div`
   background-color: black;
@@ -16,7 +17,7 @@ const LoginWrapper = styled.section`
   left: 50%;
   transform: translate(-50%, -50%);
   border: none;
-  padding: 1rem;
+  padding: 3rem;
   h1 {
     font-size: 5rem;
   }
@@ -25,7 +26,7 @@ const LoginWrapper = styled.section`
   }
 `;
 
-export default function Login() {
+const Login = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const [error, setError] = useState('');
@@ -83,4 +84,5 @@ export default function Login() {
       </LoginBackground>
     </>
   );
-}
+};
+export default Login;
