@@ -7,13 +7,13 @@ import fetchMeals from '../../../../redux/actions/meals/fetchMeals';
 
 import Checkbox from '../../Checkbox';
 
-const MealsList = ({ meals, childMeals, fetchMeals }) => {
+const MealsList = ({ meals, childMeals, fetchMeals, dataFetched }) => {
   const [showChildMeals, setShowChildMeals] = useState(false);
   useEffect(() => {
-    if (meals.length === 0) {
+    if (!dataFetched) {
       fetchMeals();
     }
-  }, [fetchMeals, meals.length]);
+  }, [fetchMeals]);
 
   return (
     <ListContainer>
@@ -43,7 +43,7 @@ const MealsList = ({ meals, childMeals, fetchMeals }) => {
 function mapPropsToState(state, prevState) {
   const meals = [];
   const childMeals = [];
-
+  const dataFetched = state.meals > 0;
   state.meals.forEach((meal) => {
     if (meal.isChildMeal) {
       childMeals.push(meal);
@@ -52,6 +52,6 @@ function mapPropsToState(state, prevState) {
     }
   });
 
-  return { meals: meals, childMeals: childMeals };
+  return { meals: meals, childMeals: childMeals, dataFetched: dataFetched };
 }
 export default connect(mapPropsToState, { fetchMeals })(MealsList);
