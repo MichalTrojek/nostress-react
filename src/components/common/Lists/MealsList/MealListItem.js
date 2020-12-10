@@ -4,14 +4,18 @@ import ListItemStyled from '../ListItemStyled';
 
 import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
 import toggleEditMode from '../../../../redux/actions/editor/toggleEditMode';
+import deleteMeal from '../../../../redux/actions/meals/deleteMeal';
+import { showInfoToast } from '../../../../notifications/toast';
 
 const MealListItem = ({
+  id,
   name,
   alergens,
   price,
   isEditModeOn,
   setSelectedItem,
   toggleEditMode,
+  deleteMeal,
 }) => {
   return (
     <ListItemStyled>
@@ -34,7 +38,9 @@ const MealListItem = ({
 
   function handleDelete() {
     if (!isEditModeOn) {
-      console.log('delete');
+      deleteMeal(id);
+    } else {
+      showInfoToast('Nelze mazat během editování.');
     }
   }
 };
@@ -43,6 +49,8 @@ function mapStateToProps(state, ownProps) {
   return { isEditModeOn: state.editor.isEditModeOn };
 }
 
-export default connect(mapStateToProps, { setSelectedItem, toggleEditMode })(
-  MealListItem
-);
+export default connect(mapStateToProps, {
+  setSelectedItem,
+  toggleEditMode,
+  deleteMeal,
+})(MealListItem);
