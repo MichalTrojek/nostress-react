@@ -10,6 +10,8 @@ import editMeal from '../../../../redux/actions/meals/editMeal';
 import toggleEditMode from '../../../../redux/actions/editor/toggleEditMode';
 import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
 
+import Checkbox from '../../Checkbox';
+
 const MealsForms = ({
   createMeal,
   editMeal,
@@ -68,15 +70,15 @@ const MealsForms = ({
         />
         <label htmlFor="priceInput">Cena</label>
       </FormGroup>
-      <div className="checkbox">
+      <Checkbox>
         <input
           id="childmealInput"
           type="checkbox"
           onChange={(event) => setIsChildMeal(event.target.checked)}
           value={isChildMeal}
         />
-        <label htmlFor="childmealInput">Dětské menu</label>
-      </div>
+        <label htmlFor="childmealInput">Pokrm patří do dětského menu</label>
+      </Checkbox>
 
       {renderButtons()}
     </Form>
