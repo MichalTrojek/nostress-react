@@ -75,6 +75,7 @@ const MealsForms = ({
     event.preventDefault();
     if (name.length !== 0 && price.length !== 0) {
       if (isEditModeOn) {
+        console.log(selectedItem.id);
         editMeal(selectedItem.id, name, alergens, price);
         handleCancel();
       } else {

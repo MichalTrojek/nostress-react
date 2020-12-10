@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Button from '../../Button';
-import ListItemStyled from '../ListItemStyled';
+import ListItem from '../ListItem';
 
 import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
 import toggleEditMode from '../../../../redux/actions/editor/toggleEditMode';
@@ -18,7 +18,7 @@ const MealListItem = ({
   deleteMeal,
 }) => {
   return (
-    <ListItemStyled>
+    <ListItem>
       <div className="content">
         <p>Název: {name}</p>
         <p>Alergeny: ({alergens})</p>
@@ -28,11 +28,11 @@ const MealListItem = ({
         <Button onClick={handleEdit} text="editovat"></Button>
         <Button onClick={handleDelete} text="smazat"></Button>
       </div>
-    </ListItemStyled>
+    </ListItem>
   );
 
   function handleEdit() {
-    setSelectedItem({ name, alergens, price });
+    setSelectedItem({ id, name, alergens, price });
     toggleEditMode(true);
   }
 

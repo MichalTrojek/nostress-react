@@ -1,6 +1,7 @@
 import { db } from '../../firebase';
 
 function editMealApiCall(id, name, alergens, price) {
+  console.log(id);
   return db
     .collection('meals')
     .doc(id)

@@ -7,6 +7,7 @@ function fetchMealsApiCall() {
     .then((snapshot) => {
       const data = [];
       snapshot.forEach((doc) => {
+        console.log(doc.id);
         data.push({
           id: doc.id,
           name: doc.data().name,
