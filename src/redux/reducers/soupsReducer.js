@@ -1,12 +1,12 @@
 import { EDIT_SOUPS, FETCH_SOUPS } from '../actions/types';
 
 const initialState = {
-  monday: null,
-  tuesday: null,
-  wednesday: null,
-  thursday: null,
-  friday: null,
-  price: null,
+  monday: '',
+  tuesday: '',
+  wednesday: '',
+  thursday: '',
+  friday: '',
+  price: '',
 };
 
 function soupsReducer(state = initialState, action) {
@@ -14,8 +14,6 @@ function soupsReducer(state = initialState, action) {
     case EDIT_SOUPS:
       return { ...action.payload };
     case FETCH_SOUPS:
-      console.log('fetch soups');
-      console.log(action.payload);
       return { ...action.payload };
     default:
       return state;

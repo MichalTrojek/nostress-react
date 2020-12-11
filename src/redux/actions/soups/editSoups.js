@@ -3,7 +3,7 @@ import editSoupsApiCall from '../../../api/soups/editSoupsApiCall';
 
 function editSoups(soups) {
   return async (dispatch, getState) => {
-    const success = editSoupsApiCall(soups);
+    const success = await editSoupsApiCall(soups);
     if (success) {
       dispatch({
         type: EDIT_SOUPS,

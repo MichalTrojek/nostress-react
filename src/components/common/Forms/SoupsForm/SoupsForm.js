@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Form from '../Form';
@@ -6,15 +6,24 @@ import FormGroup from '../FormGroup';
 import Button from '../../Button';
 
 import editSoups from '../../../../redux/actions/soups/editSoups';
-import fetchSoups from '../../../../redux/actions/soups/fetchSoups';
 
-const SoupsForm = ({ editSoups, fetchSoups }) => {
-  const [monday, setMonday] = useState('');
-  const [tuesday, setTuesday] = useState('');
-  const [wednesday, setWednesday] = useState('');
-  const [thursday, setThursday] = useState('');
-  const [friday, setFriday] = useState('');
-  const [price, setPrice] = useState('');
+const SoupsForm = ({ editSoups, soups }) => {
+  const [monday, setMonday] = useState(soups.monday);
+  const [tuesday, setTuesday] = useState(soups.tuesday);
+  const [wednesday, setWednesday] = useState(soups.wednesday);
+  const [thursday, setThursday] = useState(soups.thursday);
+  const [friday, setFriday] = useState(soups.friday);
+  const [price, setPrice] = useState(soups.price);
+
+  useEffect(() => {
+    setMonday(soups.monday);
+    setTuesday(soups.tuesday);
+    setWednesday(soups.wednesday);
+    setThursday(soups.thursday);
+    setFriday(soups.friday);
+    setPrice(soups.price);
+  }, [soups]);
+
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup>
@@ -87,7 +96,6 @@ const SoupsForm = ({ editSoups, fetchSoups }) => {
         />
         <label htmlFor="priceInput">Jednotná cena</label>
       </FormGroup>
-
       <Button type="submit" text="aktualizovat" />
     </Form>
   );
@@ -106,13 +114,6 @@ const SoupsForm = ({ editSoups, fetchSoups }) => {
   }
 };
 
-function mapStateToProps(state, ownProps) {
-  return {
-    state,
-  };
-}
-
-export default connect(mapStateToProps, {
+export default connect(null, {
   editSoups,
-  fetchSoups,
 })(SoupsForm);
