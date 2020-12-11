@@ -30,11 +30,14 @@ const MealListItem = ({
   );
 
   function renderIsChildMeal() {
-    return meal.isChildMeal ? (
-      <p style={{ fontWeight: 'bold' }}>Dětské menu</p>
-    ) : (
-      <p style={{ fontWeight: 'bold' }}>Týdenní menu</p>
-    );
+    switch (meal.type) {
+      case 'isChildMeal':
+        return <p style={{ fontWeight: 'bold' }}>Dětské menu</p>;
+      case 'isBreakfastMeal':
+        return <p style={{ fontWeight: 'bold' }}>Snídaňové menu</p>;
+      default:
+        return <p style={{ fontWeight: 'bold' }}>Týdenní menu</p>;
+    }
   }
 
   function handleEdit() {

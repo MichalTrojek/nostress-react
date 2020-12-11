@@ -32,33 +32,31 @@ const SoupsMenuList = styled(MenuList)`
   }
 `;
 
-const MenuSoupsList = ({ fetchSoups, fetchedData, soups }) => {
+const MenuSoupsList = ({ fetchSoups, fetchedData, soups = [] }) => {
   useEffect(() => {
     if (!fetchedData) {
       fetchSoups();
     }
   }, []);
   return (
-    <>
-      <SoupsMenuList>
-        <Row>
-          <h2>Polévka k menu zdarma*</h2>
-          <img src={menuIcon} alt="menu-icon" />
-        </Row>
-        {renderDayAndSoup('Pondělí', soups.monday)}
-        {renderDayAndSoup('Úterý', soups.tuesday)}
-        {renderDayAndSoup('Středa', soups.wednesday)}
-        {renderDayAndSoup('Čtvrtek', soups.thursday)}
-        {renderDayAndSoup('Pátek', soups.friday)}
+    <SoupsMenuList>
+      <Row>
+        <h2>Polévka k menu zdarma*</h2>
+        <img src={menuIcon} alt="menu-icon" />
+      </Row>
+      {renderDayAndSoup('Pondělí', soups.monday)}
+      {renderDayAndSoup('Úterý', soups.tuesday)}
+      {renderDayAndSoup('Středa', soups.wednesday)}
+      {renderDayAndSoup('Čtvrtek', soups.thursday)}
+      {renderDayAndSoup('Pátek', soups.friday)}
 
-        <p className="price">
-          *Cena samostatné polévky
-          <span style={{ color: 'var(--color-tertiary)', paddingLeft: '1rem' }}>
-            {soups.price},-
-          </span>
-        </p>
-      </SoupsMenuList>
-    </>
+      <p className="price">
+        *Cena samostatné polévky
+        <span style={{ color: 'var(--color-tertiary)', paddingLeft: '1rem' }}>
+          {soups.price},-
+        </span>
+      </p>
+    </SoupsMenuList>
   );
 
   function renderDayAndSoup(day, name) {

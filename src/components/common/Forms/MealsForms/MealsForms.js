@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import Form from '../Form';
 import FormGroup from '../FormGroup';
@@ -9,8 +10,7 @@ import createMeal from '../../../../redux/actions/meals/createMeal';
 import editMeal from '../../../../redux/actions/meals/editMeal';
 import toggleEditMode from '../../../../redux/actions/editor/toggleEditMode';
 import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
-
-import Checkbox from '../../Checkbox';
+import RadioGroup from '../RadioGroup';
 
 const MealsForms = ({
   createMeal,
@@ -23,16 +23,16 @@ const MealsForms = ({
   const [name, setName] = useState('');
   const [alergens, setAlergens] = useState('');
   const [price, setPrice] = useState('');
-  const [isChildMeal, setIsChildMeal] = useState(false);
+  const [type, setType] = useState('isWeeklyMeal');
 
   useEffect(() => {
     if (isEditModeOn) {
       setName(selectedItem.name);
       setAlergens(selectedItem.alergens);
       setPrice(selectedItem.price);
-      setIsChildMeal(selectedItem.isChildMeal);
+      // setMealType(selectedItem.mealType)
     }
-  }, [isEditModeOn, selectedItem, isChildMeal]);
+  }, [isEditModeOn, selectedItem]);
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -70,17 +70,8 @@ const MealsForms = ({
         />
         <label htmlFor="priceInput">Cena</label>
       </FormGroup>
-      <Checkbox>
-        <input
-          id="childmealInput"
-          type="checkbox"
-          onChange={(event) => setIsChildMeal(event.target.checked)}
-          // value={isChildMeal}
-          checked={isChildMeal}
-        />
-        <label htmlFor="childmealInput">Pokrm patří do dětského menu</label>
-      </Checkbox>
 
+      {renderRadioGroup()}
       {renderButtons()}
     </Form>
   );
@@ -88,9 +79,10 @@ const MealsForms = ({
   function handleSubmit(event) {
     event.preventDefault();
     if (name.length !== 0 && price.length !== 0) {
-      let meal = { name, alergens, price, isChildMeal };
+      let meal = { name, alergens, price, type };
+      console.log(meal);
       if (isEditModeOn) {
-        editMeal(selectedItem.id, name, alergens, price, isChildMeal);
+        editMeal(selectedItem.id, name, alergens, price, type);
         handleCancel();
       } else {
         createMeal(meal);
@@ -112,6 +104,41 @@ const MealsForms = ({
     }
   }
 
+  function renderRadioGroup() {
+    return (
+      <RadioGroup>
+        <label>
+          <input
+            type="radio"
+            value="isWeeklyMeal"
+            name="mealType"
+            defaultChecked={true}
+            onChange={(event) => setType(event.target.value)}
+          />
+          Pokrm patří do týdenního menu
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="isBreakfastMeal"
+            name="mealType"
+            onChange={(event) => setType(event.target.value)}
+          />
+          Pokrm patří do snídaňového menu
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="isChildMeal"
+            name="mealType"
+            onChange={(event) => setType(event.target.value)}
+          />
+          Pokrm patří do dětského menu
+        </label>
+      </RadioGroup>
+    );
+  }
+
   function handleCancel() {
     toggleEditMode(false);
     setSelectedItem(null);
@@ -122,7 +149,7 @@ const MealsForms = ({
     setName('');
     setAlergens('');
     setPrice('');
-    setIsChildMeal(false);
+    // setIsChildMeal(false);
   }
 };
 
