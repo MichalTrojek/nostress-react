@@ -1,18 +1,23 @@
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+
 import menuIcon from '../../../../img/soups-logo.png';
 import Row from '../../../common/Row';
 import MenuList from './MenuList';
 import styled from 'styled-components';
 
+import fetchSoups from '../../../../redux/actions/soups/fetchSoups';
+
 const SoupRow = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(12, 1fr);
 
   .day {
-    grid-column: 1 / span 1;
+    grid-column: 1 / span 4;
   }
 
   .name {
-    grid-column: 3 / -1;
+    grid-column: 5 / -1;
   }
 `;
 
@@ -27,45 +32,52 @@ const SoupsMenuList = styled(MenuList)`
   }
 `;
 
-const MenuSoupsList = () => {
-  const soupsData = [
-    { id: 1, day: 'Pondělí', name: 'Čočková', alergens: '1, 9' },
-    { id: 1, day: 'Úterý', name: 'Vývar s játrovými knedlíčky', alergens: '9' },
-    { id: 1, day: 'Středa', name: 'Dýňové pyré', alergens: '1, 7' },
-    { id: 1, day: 'Čtvrtek', name: 'Gulášová', alergens: '1, 9' },
-    { id: 1, day: 'Pátek', name: 'Kulajda', alergens: '1, 7' },
-  ];
-
+const MenuSoupsList = ({ fetchSoups, fetchedData, soups }) => {
+  useEffect(() => {
+    if (!fetchedData) {
+      fetchSoups();
+    }
+  }, []);
   return (
     <>
       <SoupsMenuList>
         <Row>
-          <h2>Polévka k menu zdarma *</h2>
+          <h2>Polévka k menu zdarma*</h2>
           <img src={menuIcon} alt="menu-icon" />
         </Row>
-        <ul>{renderListOfSoups()}</ul>
+        {renderDayAndSoup('Pondělí', soups.monday)}
+        {renderDayAndSoup('Úterý', soups.tuesday)}
+        {renderDayAndSoup('Středa', soups.wednesday)}
+        {renderDayAndSoup('Čtvrtek', soups.thursday)}
+        {renderDayAndSoup('Pátek', soups.friday)}
+
         <p className="price">
           *Cena samostatné polévky
-          <span style={{ color: 'var(--color-tertiary)' }}> 39,-</span>
+          <span style={{ color: 'var(--color-tertiary)', paddingLeft: '1rem' }}>
+            {soups.price},-
+          </span>
         </p>
       </SoupsMenuList>
     </>
   );
 
-  function renderListOfSoups() {
-    return soupsData.map((item, index) => {
-      return (
-        <li key={index}>
-          <SoupRow>
-            <div className="day">{item.day}</div>
-            <div className="name">
-              {item.name} ({item.alergens})
-            </div>
-          </SoupRow>
-        </li>
-      );
-    });
+  function renderDayAndSoup(day, name) {
+    return (
+      <SoupRow>
+        <p className="day">{day}</p>
+        <p className="name">{name}</p>
+      </SoupRow>
+    );
   }
 };
 
-export default MenuSoupsList;
+function mapStateToProps(state, ownProps) {
+  const soups = state.soups;
+  const dataFetched = state.soups.length > 0;
+  return {
+    soups: soups,
+    dataFetched: dataFetched,
+  };
+}
+
+export default connect(mapStateToProps, { fetchSoups })(MenuSoupsList);
