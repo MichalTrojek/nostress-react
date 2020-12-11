@@ -2,12 +2,12 @@ import { EDIT_MEAL } from '../types';
 import editMealApiCall from '../../../api/meals/editMealApiCall';
 import { showErrorToast, showSuccessToast } from '../../../notifications/toast';
 
-function editMeal(id, name, alergens, price) {
-  console.log(id);
+function editMeal(meal) {
+  console.log(meal);
   return async (dispatch) => {
-    const success = await editMealApiCall(id, name, alergens, price);
+    const success = await editMealApiCall(meal);
     if (success) {
-      dispatch({ type: EDIT_MEAL, payload: { id, name, alergens, price } });
+      dispatch({ type: EDIT_MEAL, payload: meal });
       showSuccessToast('Položka byla upravena.');
     } else {
       showErrorToast('Položka nebyla uložena do databáze');

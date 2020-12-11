@@ -1,7 +1,6 @@
 import { db } from '../../firebase';
 
-function editMealApiCall(id, name, alergens, price) {
-  console.log(id);
+function editMealApiCall({ id, name, alergens, price, type }) {
   return db
     .collection('meals')
     .doc(id)
@@ -9,6 +8,7 @@ function editMealApiCall(id, name, alergens, price) {
       name: name,
       alergens: alergens,
       price: price,
+      type: type,
     })
     .then(() => {
       console.log(`Meal with ID ${id} was successfully updated`);

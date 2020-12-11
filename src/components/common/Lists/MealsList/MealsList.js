@@ -101,9 +101,9 @@ function mapPropsToState(state, prevState) {
   });
 
   return {
-    meals: meals,
-    childMeals: childMeals,
-    breakfast: breakfast,
+    meals: meals.reverse(),
+    childMeals: childMeals.reverse(),
+    breakfast: breakfast.reverse(),
     dataFetched: dataFetched,
   };
 }

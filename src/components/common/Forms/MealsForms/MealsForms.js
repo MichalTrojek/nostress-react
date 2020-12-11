@@ -30,7 +30,7 @@ const MealsForms = ({
       setName(selectedItem.name);
       setAlergens(selectedItem.alergens);
       setPrice(selectedItem.price);
-      // setMealType(selectedItem.mealType)
+      setType(selectedItem.type);
     }
   }, [isEditModeOn, selectedItem]);
 
@@ -80,9 +80,8 @@ const MealsForms = ({
     event.preventDefault();
     if (name.length !== 0 && price.length !== 0) {
       let meal = { name, alergens, price, type };
-      console.log(meal);
       if (isEditModeOn) {
-        editMeal(selectedItem.id, name, alergens, price, type);
+        editMeal({ id: selectedItem.id, name, alergens, price, type });
         handleCancel();
       } else {
         createMeal(meal);
@@ -112,7 +111,7 @@ const MealsForms = ({
             type="radio"
             value="isWeeklyMeal"
             name="mealType"
-            defaultChecked={true}
+            checked={type === 'isWeeklyMeal'}
             onChange={(event) => setType(event.target.value)}
           />
           Pokrm patří do týdenního menu
@@ -122,6 +121,7 @@ const MealsForms = ({
             type="radio"
             value="isBreakfastMeal"
             name="mealType"
+            checked={type === 'isBreakfastMeal'}
             onChange={(event) => setType(event.target.value)}
           />
           Pokrm patří do snídaňového menu
@@ -131,6 +131,7 @@ const MealsForms = ({
             type="radio"
             value="isChildMeal"
             name="mealType"
+            checked={type === 'isChildMeal'}
             onChange={(event) => setType(event.target.value)}
           />
           Pokrm patří do dětského menu
@@ -149,7 +150,7 @@ const MealsForms = ({
     setName('');
     setAlergens('');
     setPrice('');
-    // setIsChildMeal(false);
+    setType('isWeeklyMeal');
   }
 };
 
