@@ -1,7 +1,4 @@
 import styled from 'styled-components';
-import { useEffect } from 'react';
-import { connect } from 'react-redux';
-import fetchMeals from '../../../../api/meals/fetchMealsApiCall';
 
 import Button from '../../../common/Button';
 import Label from '../../../common/Label';
@@ -35,49 +32,11 @@ const BreakFastMenuContainer = styled(MealsMenuContainer)`
   padding-bottom: 3rem;
 `;
 
-const BreakFastMenu = ({ fetchMeals, meals }) => {
-  // useEffect(() => {
-  //   fetchMeals();
-  // }, [fetchMeals]);
-
+const BreakFastMenu = ({ breakfastMeals }) => {
   const weeklyData = {
     text:
       'Nově nabízíme výborné snídaně nebo svačiny za super ceny. K dispozici také na objednání rozvozu až domů nebo „take away“ z výdejního okénka. Objednej si domů nebo do kanceláře čerstvou snídani nebo svačinu!',
   };
-
-  const mealsData = [
-    {
-      id: 1,
-      name: 'Toust se slaninou, volským okem, zapečený čedarem',
-      price: '79',
-      alergens: '1,3,10',
-    },
-    {
-      id: 2,
-      name: 'Quesadilla s vejci, slaninou, zapečená sýrem ',
-      price: '89',
-      alergens: '1, 3, 7',
-    },
-    {
-      id: 3,
-      name:
-        'Sedlácký chléb, pečínkové sádlo se škvarky, plátky pečeného kolínka, sterilovaný okurek, červená cibule',
-      price: '89',
-      alergens: '1',
-    },
-    {
-      id: 4,
-      name: 'Fresh chléb, pomazánka z avokáda, vejce na tvrdo, ředkvičky',
-      price: '89',
-      alergens: '1',
-    },
-    {
-      id: 5,
-      name: 'Bageta s plátky grilované krkovičky, dresing, zelenina ',
-      price: '1',
-      alergens: '1',
-    },
-  ];
 
   return (
     <BreakFastMenuContainer>
@@ -93,7 +52,7 @@ const BreakFastMenu = ({ fetchMeals, meals }) => {
             header="Nabídka"
             info="ZAVÁDĚCÍ CENY"
             icon={menuIcon}
-            items={mealsData}
+            items={breakfastMeals}
           />
         </div>
         <div className="rightside-breakfast">
@@ -104,11 +63,4 @@ const BreakFastMenu = ({ fetchMeals, meals }) => {
   );
 };
 
-function mapStateToProps(state, prevState) {
-  const { meals } = state;
-  return {
-    meals,
-  };
-}
-
-export default connect(mapStateToProps, { fetchMeals })(BreakFastMenu);
+export default BreakFastMenu;

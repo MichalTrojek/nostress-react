@@ -12,7 +12,13 @@ const MealsMenusBackground = styled.div`
   background-color: black;
 `;
 
-const MealsMenus = ({ dataFetched, fetchMeals, meals, childMeals }) => {
+const MealsMenus = ({
+  dataFetched,
+  fetchMeals,
+  meals,
+  childMeals,
+  breakfastMeals,
+}) => {
   useEffect(() => {
     if (!dataFetched) {
       fetchMeals();
@@ -22,7 +28,7 @@ const MealsMenus = ({ dataFetched, fetchMeals, meals, childMeals }) => {
   return (
     <MealsMenusBackground>
       <WeeklyMenu meals={meals} childMeals={childMeals} />
-      <BreakFastMenu />
+      <BreakFastMenu breakfastMeals={breakfastMeals} />
     </MealsMenusBackground>
   );
 };
@@ -30,18 +36,22 @@ const MealsMenus = ({ dataFetched, fetchMeals, meals, childMeals }) => {
 function mapStateToProps(state, ownProps) {
   const meals = [];
   const childMeals = [];
+  const breakfastMeals = [];
   const dataFetched = state.meals.length > 0;
   state.meals.forEach((meal) => {
-    if (meal.isChildMeal) {
+    if (meal.type === 'isWeeklyMeal') {
+      meals.push(meal);
+    } else if (meal.type === 'isChildMeal') {
       childMeals.push(meal);
     } else {
-      meals.push(meal);
+      breakfastMeals.push(meal);
     }
   });
 
   return {
     meals: meals,
     childMeals: childMeals,
+    breakfastMeals: breakfastMeals,
     dataFetched: dataFetched,
   };
 }
