@@ -5,7 +5,7 @@ import fetchNews from '../../../../redux/actions/news/fetchNews';
 
 import { connect } from 'react-redux';
 import backgroundImage from '../../../../img/hero.png';
-import SlideView from '../../../common/SlideView';
+import SliderNews from './SliderNews/SliderNews';
 
 const HeroBackground = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -32,7 +32,7 @@ const Hero = ({ news, fetchNews }) => {
   return (
     <HeroBackground id="home">
       <HeroWrapper>
-        <SlideView items={news} />
+        <SliderNews items={news} />
       </HeroWrapper>
     </HeroBackground>
   );

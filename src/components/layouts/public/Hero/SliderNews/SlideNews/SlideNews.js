@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const SlideViewPage = styled.div`
+const SlideNews = styled.div`
   color: var(--color-primary);
   padding: 1rem;
   display: flex !important;
@@ -20,10 +20,6 @@ const SlideViewPage = styled.div`
       padding: 4rem;
     }
   }
-
-  /* @media only screen and (min-width: 1024px) {
-    height: 70vh;
-  } */
 `;
 
-export default SlideViewPage;
+export default SlideNews;

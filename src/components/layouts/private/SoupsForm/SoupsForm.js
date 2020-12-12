@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import Form from '../Form';
-import FormGroup from '../FormGroup';
-import Button from '../../Button';
+import Form from '../../../common/Forms/Form';
+import FormGroup from '../../../common/Forms/FormGroup';
+import Button from '../../../../components/common/Button';
 
 import editSoups from '../../../../redux/actions/soups/editSoups';
 

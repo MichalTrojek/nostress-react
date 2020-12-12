@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-import ListContainer from '../ListContainer';
-import MealListItem from '../MealsList/MealListItem';
+import ListContainer from '../../../common/Lists/ListContainer';
+import MealListItem from './MealListItem';
 import fetchMeals from '../../../../redux/actions/meals/fetchMeals';
 
-import RadioGroup from '../../Forms/RadioGroup';
+import RadioGroup from '../../../common/Forms/RadioGroup';
 
 const MealsList = ({
   meals,

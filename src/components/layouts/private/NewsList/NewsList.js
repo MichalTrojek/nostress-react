@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import fetchNews from '../../../redux/actions/news/fetchNews';
-import NewsListItem from '../../common/NewsListItem';
+import fetchNews from '../../../../redux/actions/news/fetchNews';
+import NewsListItem from '../../../common/NewsListItem';
 
 const DisplayedNews = styled.div`
   display: flex;

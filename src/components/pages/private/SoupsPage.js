@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Background from '../../common/Background';
 import Wrapper from '../../common/Wrapper';
-import SoupsForm from '../../common/Forms/SoupsForm';
+import SoupsForm from '../../layouts/private/SoupsForm';
 
 import fetchSoups from '../../../redux/actions/soups/fetchSoups';
 

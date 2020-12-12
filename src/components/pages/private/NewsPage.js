@@ -1,5 +1,5 @@
-import NewsEditor from '../../common/NewsEditor';
-import NewsList from '../../common/NewsList';
+import NewsEditor from '../../layouts/private/NewsEditor';
+import NewsList from '../../layouts/private/NewsList';
 import styled from 'styled-components';
 import { useState } from 'react';
 

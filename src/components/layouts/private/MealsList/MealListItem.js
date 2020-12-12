@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import Button from '../../Button';
-import ListItem from '../ListItem';
+import Button from '../../../common/Button';
+import ListItem from '../../../common/Lists/ListItem';
 
 import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
 import toggleEditMode from '../../../../redux/actions/editor/toggleEditMode';
