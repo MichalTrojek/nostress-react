@@ -1,6 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
 
+import { useHistory } from 'react-router-dom';
+
 import OpenHours from '../../../../common/OpenHours';
 import Button from '../../../../common/Button';
 
@@ -12,6 +14,8 @@ import SlideNews from './SlideNews';
 import Wrapper from '../../../../common/Wrapper';
 
 const SliderNews = ({ items }) => {
+  const history = useHistory();
+
   const settings = {
     dots: true,
     infinite: true,
@@ -36,7 +40,9 @@ const SliderNews = ({ items }) => {
       <SlideNews key={654646}>
         <h1>Máme znovu otevřeno. Těšíme se na Vás.</h1>
         <OpenHours />
-        <Button primary>Objednat</Button>
+        <Button onClick={() => history.push('/order')} primary>
+          Objednat
+        </Button>
       </SlideNews>
     );
     return pages;
