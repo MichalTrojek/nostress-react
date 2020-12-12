@@ -94,12 +94,20 @@ const MealsForms = ({
     if (isEditModeOn) {
       return (
         <div className="buttons">
-          <Button type="submit" text="změnit" />
-          <Button type="reset" onClick={handleCancel} text="zrušit" />
+          <Button primary type="submit">
+            změnit
+          </Button>
+          <Button primary type="reset" onClick={handleCancel}>
+            zrušit
+          </Button>
         </div>
       );
     } else {
-      return <Button type="submit" text="Vytvořit"></Button>;
+      return (
+        <Button primary type="submit">
+          Vytvořit
+        </Button>
+      );
     }
   }
 

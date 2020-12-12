@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import fetchNews from '../../../../redux/actions/news/fetchNews';
-import NewsListItem from '../../../common/NewsListItem';
+import NewsListItem from './NewsListItem';
 
 const DisplayedNews = styled.div`
   display: flex;

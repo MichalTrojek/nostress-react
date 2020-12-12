@@ -23,7 +23,7 @@ const WeeklyMenu = ({ meals, childMeals }) => {
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
       <Row>
         <Label text={getDateText()} />
-        <Button text="OBJEDNAT" />
+        <Button primary>OBJEDNAT</Button>
       </Row>
       <MealsMenuContent>
         <div className="leftside">

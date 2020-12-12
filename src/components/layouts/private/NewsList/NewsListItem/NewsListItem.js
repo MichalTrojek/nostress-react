@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 
-import { showWarningToast } from '../../../notifications/toast';
-import Button from '../Button';
+import { showWarningToast } from '../../../../../notifications/toast';
+import Button from '../../../../common/Button';
 
-import deleteNews from '../../../redux/actions/news/deleteNews';
-import setSelectedNewsToEdit from '../../../redux/actions/news/setSelectedNewsToEdit';
-import emptySelectedNewsToEdit from '../../../redux/actions/news/emptySelectedNewsToEdit';
+import deleteNews from '../../../../../redux/actions/news/deleteNews';
+import setSelectedNewsToEdit from '../../../../../redux/actions/news/setSelectedNewsToEdit';
+import emptySelectedNewsToEdit from '../../../../../redux/actions/news/emptySelectedNewsToEdit';
 
 const StyledNewsListItem = styled.div`
   width: 33rem;
@@ -56,10 +56,12 @@ const NewsListItem = ({
 
   return (
     <StyledNewsListItem isSelected={isSelected}>
-      <h2>{item.heading}</h2>
+      <p>{item.heading}</p>
       <div className="buttons">
-        <Button onClick={() => handleEdit(item.id)} text="Editovat"></Button>
-        <Button onClick={() => handleDelete(item.id)} text="Smazat"></Button>
+        <Button primary onClick={() => handleEdit(item.id)}>
+          Editovat
+        </Button>
+        <Button onClick={() => handleDelete(item.id)}>Smazat</Button>
       </div>
     </StyledNewsListItem>
   );

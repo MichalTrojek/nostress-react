@@ -23,11 +23,6 @@ const EditorContainer = styled.div`
     margin-top: 2rem;
     width: 100%;
   }
-
-  h1 {
-    padding-bottom: 2rem;
-    font-size: 3rem;
-  }
 `;
 
 const modules = {
@@ -67,53 +62,53 @@ const Editor = ({
   }, [selectedNewsToEdit, setIsEditModeEnabled]);
 
   return (
-    <>
-      <EditorContainer>
-        <h1 style={{ paddingBottom: '5rem' }}>Editor novinek</h1>
-        <form onSubmit={handleSubmit}>
-          <FormGroup className="form-group">
-            <input
-              id="heading"
-              onChange={getHeading}
-              value={heading}
-              placeholder="Nadpis"
-              type="Text"
-              required
-            />
-            <label htmlFor="heading">Nadpis</label>
-          </FormGroup>
-          <FormGroup className="form-group">
-            <input
-              id="button"
-              onChange={getButtonText}
-              value={buttonText}
-              placeholder="Text tlačítka"
-              type="Text"
-            />
-            <label htmlFor="heading">Text tlačítka</label>
-          </FormGroup>
-
-          <ReactQuill
-            modules={modules}
-            formats={formats}
-            value={content}
-            onChange={getContent}
-            placeholder="Vložte text k novince."
+    <EditorContainer>
+      <h1 style={{ paddingBottom: '5rem' }}>Editor novinek</h1>
+      <form onSubmit={handleSubmit}>
+        <FormGroup className="form-group">
+          <input
+            id="heading"
+            onChange={getHeading}
+            value={heading}
+            placeholder="Nadpis"
+            type="Text"
+            required
           />
-          {renderEditButtons()}
-        </form>
-      </EditorContainer>
-    </>
+          <label htmlFor="heading">Nadpis</label>
+        </FormGroup>
+        <FormGroup className="form-group">
+          <input
+            id="button"
+            onChange={getButtonText}
+            value={buttonText}
+            placeholder="Text tlačítka"
+            type="Text"
+          />
+          <label htmlFor="heading">Text tlačítka</label>
+        </FormGroup>
+
+        <ReactQuill
+          modules={modules}
+          formats={formats}
+          value={content}
+          onChange={getContent}
+          placeholder="Vložte text k novince."
+        />
+        {renderEditButtons()}
+      </form>
+    </EditorContainer>
   );
 
   function renderEditButtons() {
     return isEditModeEnabled ? (
       <div>
-        <Button type="submit" text="změnit" />
-        <Button onClick={handleCancelEdit} text="Zrušit editování " />
+        <Button primary>změnit</Button>
+        <Button primary onClick={handleCancelEdit}>
+          Zrušit editování
+        </Button>
       </div>
     ) : (
-      <Button type="submit" text="Vytvořit novinku" />
+      <Button primary> Vytvořit novinku</Button>
     );
   }
 

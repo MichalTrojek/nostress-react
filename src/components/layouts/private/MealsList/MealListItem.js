@@ -23,8 +23,10 @@ const MealListItem = ({
         <p>Cena: {meal.price},-</p>
       </div>
       <div className="buttons">
-        <Button onClick={handleEdit} text="editovat"></Button>
-        <Button onClick={handleDelete} text="smazat"></Button>
+        <Button primary onClick={handleEdit}>
+          editovat{' '}
+        </Button>
+        <Button onClick={handleDelete}> smazat</Button>
       </div>
     </ListItem>
   );

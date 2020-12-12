@@ -96,7 +96,9 @@ const SoupsForm = ({ editSoups, soups }) => {
         />
         <label htmlFor="priceInput">Jednotná cena</label>
       </FormGroup>
-      <Button type="submit" text="aktualizovat" />
+      <Button primary type="submit">
+        aktualizovat
+      </Button>
     </Form>
   );
 

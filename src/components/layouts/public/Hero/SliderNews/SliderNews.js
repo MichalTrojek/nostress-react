@@ -36,7 +36,7 @@ const SliderNews = ({ items }) => {
       <SlideNews key={654646}>
         <h1>Máme znovu otevřeno. Těšíme se na Vás.</h1>
         <OpenHours />
-        <Button text="Objednat" />
+        <Button primary>Objednat</Button>
       </SlideNews>
     );
     return pages;
@@ -52,7 +52,7 @@ const SliderNews = ({ items }) => {
               __html: item.content,
             }}
           ></div>
-          <Button text={item.button} />
+          <Button primary>{item.button}</Button>
         </SlideNews>
       );
     });

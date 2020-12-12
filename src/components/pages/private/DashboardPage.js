@@ -33,6 +33,27 @@ const DashboardPage = () => {
   const { currentUser, logout } = useAuth();
   const history = useHistory();
 
+  return (
+    <PageLayout>
+      <DashboardBackground>
+        <DashboardWrapper>
+          <Button primary onClick={handleLogOut}>
+            Odhlasit se
+          </Button>
+          <Button primary onClick={() => history.push('/dashboard/news')}>
+            Přidat novinky
+          </Button>
+          <Button primary onClick={() => history.push('/dashboard/meals')}>
+            Upravit Menu
+          </Button>
+          <Button primary onClick={() => history.push('/dashboard/soups')}>
+            Upravit menu polívek
+          </Button>
+        </DashboardWrapper>
+      </DashboardBackground>
+    </PageLayout>
+  );
+
   async function handleLogOut() {
     setError('');
     try {
@@ -42,22 +63,6 @@ const DashboardPage = () => {
       setError('failed to logout');
     }
   }
-
-  return (
-    <PageLayout>
-      <DashboardBackground>
-        <DashboardWrapper>
-          <Button onClick={handleLogOut} text="Odhlasit se" />
-          <Button onClick={() => history.push('/news')} text="Přidat novinky" />
-          <Button onClick={() => history.push('/meals')} text="Upravit Menu" />
-          <Button
-            onClick={() => history.push('/soups')}
-            text="Upravit menu polívek"
-          />
-        </DashboardWrapper>
-      </DashboardBackground>
-    </PageLayout>
-  );
 };
 
 export default DashboardPage;

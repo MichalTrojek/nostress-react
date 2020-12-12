@@ -44,7 +44,7 @@ const BreakFastMenu = ({ breakfastMeals }) => {
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
       <BreakFastRow>
         <Label text="KÁVA ZDARMA ke každé snídani" />
-        <Button text="OBJEDNAT SNÍDANI" />
+        <Button primary> OBJEDNAT SNÍDANI</Button>
       </BreakFastRow>
       <MealsMenuContent>
         <div className="leftside">
