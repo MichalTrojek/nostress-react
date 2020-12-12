@@ -1,14 +1,14 @@
 import React from 'react';
 import PageLayout from '../PageLayout';
 
-import PublicNavBar from '../layouts/PublicNavBar/';
-import Hero from '../layouts/Hero/';
-import MealsMenus from '../layouts/MealsMenus';
-import FoodAndBeverage from '../layouts/FoodAndBeverage';
-import News from '../layouts/News';
-import BussinessHours from '../layouts/BussinessHours';
-import Contact from '../layouts/Contact';
-import Footer from '../layouts/Footer';
+import PublicNavBar from '../layouts/public/PublicNavBar/';
+import Hero from '../layouts/public/Hero/';
+import MealsMenus from '../layouts/public/MealsMenus';
+import FoodAndBeverage from '../layouts/public/FoodAndBeverage';
+import News from '../layouts/public/News';
+import BussinessHours from '../layouts/public/BussinessHours';
+import Contact from '../layouts/public/Contact';
+import Footer from '../layouts/public/Footer';
 
 const Home = () => {
   return (

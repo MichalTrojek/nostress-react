@@ -1,0 +1,33 @@
+import styled from 'styled-components';
+import Wrapper from '../../../common/Wrapper';
+import NewsSlider from './NewsSlider';
+
+import backgroundImg from '../../../../img/news.png';
+
+const NewsBackground = styled.section`
+  background-image: url(${backgroundImg});
+  background-position: center;
+  background-size: cover;
+`;
+
+const NewsWrapper = styled(Wrapper)`
+  h1 {
+    padding-top: 1rem 0;
+  }
+`;
+
+const News = () => {
+  return (
+    <NewsBackground>
+      <NewsWrapper id="news">
+        <h1>Novinky</h1>
+        <NewsSlider />
+      </NewsWrapper>
+    </NewsBackground>
+  );
+};
+
+function getWidth() {
+  return window.innerWidth;
+}
+export default News;

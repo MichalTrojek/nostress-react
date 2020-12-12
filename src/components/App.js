@@ -25,9 +25,9 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={LoginPage} />
             <PrivateRoute exact path="/dashboard" component={DashboardPage} />
-            <PrivateRoute exact path="/meals" component={MealsPage} />
-            <PrivateRoute exact path="/soups" component={SoupsPage} />
-            <PrivateRoute exact path="/news" component={NewsPage} />
+            <PrivateRoute exact path="/dashboard/meals" component={MealsPage} />
+            <PrivateRoute exact path="/dashboard/soups" component={SoupsPage} />
+            <PrivateRoute exact path="/dashboard/news" component={NewsPage} />
           </Switch>
         </AuthProvider>
       </Router>
