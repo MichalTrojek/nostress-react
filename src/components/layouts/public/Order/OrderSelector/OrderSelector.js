@@ -1,5 +1,8 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+
+import selectMenu from '../../../../../redux/actions/orders/selectMenu';
 
 import Button from '../../../../common/Button';
 
@@ -27,8 +30,13 @@ const OrderSelectorContainer = styled.div`
   }
 `;
 
-const OrderSelector = ({ setMenuType }) => {
-  const [isWeeklyMenu, setIsWeeklyMenu] = useState(true);
+const OrderSelector = ({ selectMenu }) => {
+  const [isMainMenu, setIsMainMenu] = useState(true); // true = main menu, false = breakfast menu
+
+  useEffect(() => {
+    selectMenu(isMainMenu);
+  }, [isMainMenu]);
+
   return (
     <OrderSelectorContainer>
       <div className="buttons">
@@ -39,7 +47,7 @@ const OrderSelector = ({ setMenuType }) => {
           Snídaně
         </Button>
       </div>
-      {isWeeklyMenu ? (
+      {isMainMenu ? (
         <h2>Týdenní menu – 11:00 – 16:00</h2>
       ) : (
         <h2>Snídaně – 8:00 – 10:30</h2>
@@ -48,9 +56,8 @@ const OrderSelector = ({ setMenuType }) => {
   );
 
   function handleSelectMenu(bool) {
-    setIsWeeklyMenu(bool);
-    setMenuType(bool);
+    setIsMainMenu(bool);
   }
 };
 
-export default OrderSelector;
+export default connect(null, { selectMenu })(OrderSelector);

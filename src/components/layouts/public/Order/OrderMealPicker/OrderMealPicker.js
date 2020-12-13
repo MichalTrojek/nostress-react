@@ -12,17 +12,17 @@ const OrderMealPickerContainer = styled.div`
   }
 `;
 
-const OrderMealPicker = ({ menu, meals, childMeals, breakfast }) => {
+const OrderMealPicker = ({ menuType, meals, childMeals, breakfast }) => {
   const history = useHistory();
   useEffect(() => {
     if (meals.length === 0) {
       history.push('/');
     }
-  }, []);
+  }, [menuType]);
 
   return (
     <OrderMealPickerContainer>
-      {menu ?? renderBreakfast()}
+      {menuType === 'isWeeklyMenu' ? renderMainMenu() : renderBreakfast()}
     </OrderMealPickerContainer>
   );
 
@@ -30,6 +30,18 @@ const OrderMealPicker = ({ menu, meals, childMeals, breakfast }) => {
     return breakfast.map((meal, index) => {
       return <OrderItem key={index} meal={meal} />;
     });
+  }
+
+  function renderMainMenu() {
+    return (
+      <>
+        <h2>Hlavní menu</h2>
+
+        <h2>Dětké menu</h2>
+
+        <h2>Polevky</h2>
+      </>
+    );
   }
 };
 

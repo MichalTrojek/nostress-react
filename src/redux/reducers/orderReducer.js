@@ -1,6 +1,7 @@
-import { ADD_TO_ORDER, REMOVE_FROM_ORDER } from '../actions/types';
+import { ADD_TO_ORDER, SELECT_MENU } from '../actions/types';
 
 const initializeState = {
+  selectedMenu: true,
   items: [],
 };
 function orderReducer(state = initializeState, action) {
@@ -8,8 +9,8 @@ function orderReducer(state = initializeState, action) {
     case ADD_TO_ORDER:
       console.log(action.payload);
       return { ...state, items: action.payload };
-    case REMOVE_FROM_ORDER:
-      return state;
+    case SELECT_MENU:
+      return { ...state, selectedMenu: action.payload };
     default:
       return state;
   }
