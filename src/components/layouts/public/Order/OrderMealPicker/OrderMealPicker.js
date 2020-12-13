@@ -1,7 +1,16 @@
+import styled from 'styled-components';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import OrderItem from '../OrderItem';
+
+const OrderMealPickerContainer = styled.div`
+  @media only screen and (min-width: 900px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+`;
 
 const OrderMealPicker = ({ menu, meals, childMeals, breakfast }) => {
   const history = useHistory();
@@ -11,7 +20,11 @@ const OrderMealPicker = ({ menu, meals, childMeals, breakfast }) => {
     }
   }, []);
 
-  return <>{menu ?? renderBreakfast()}</>;
+  return (
+    <OrderMealPickerContainer>
+      {menu ?? renderBreakfast()}
+    </OrderMealPickerContainer>
+  );
 
   function renderBreakfast() {
     return breakfast.map((meal, index) => {

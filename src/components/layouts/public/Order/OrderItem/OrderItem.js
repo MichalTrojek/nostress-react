@@ -14,7 +14,13 @@ const OrderItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
   margin-top: 1rem;
-  max-width: 32rem;
+
+  @media only screen and (min-width: 900px) {
+    max-width: 48rem;
+    min-width: 48rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 
   .name {
     grid-row: 1 / span 1;
@@ -137,7 +143,7 @@ const OrderItem = ({ meal, orders, addOrders: addOrdersToState }) => {
   function renderOrderButton() {
     return (
       <Button className="orderAndCancel" primary onClick={startOrdering}>
-        Objednat
+        Přidat
       </Button>
     );
   }
