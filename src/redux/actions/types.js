@@ -16,3 +16,9 @@ export const TOGGLE_EDIT_MODE = 'TOGGLE_EDIT_MODE';
 
 export const FETCH_SOUPS = 'FETCH_SOUPS';
 export const EDIT_SOUPS = 'EDIT_SOUPS';
+
+export const ORDERS_INCREMENT = 'ORDERS_INCREMENT';
+export const ORDERS_DECREMENT = 'ORDERS_DECREMENT';
+
+export const ADD_TO_ORDER = 'ADD_TO_ORDER';
+export const REMOVE_FROM_ORDER = 'REMOVE_FROM_ORDER';

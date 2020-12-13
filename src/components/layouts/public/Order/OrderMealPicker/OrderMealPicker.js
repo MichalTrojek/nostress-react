@@ -15,7 +15,7 @@ const OrderMealPicker = ({ menu, meals, childMeals, breakfast }) => {
 
   function renderBreakfast() {
     return breakfast.map((meal, index) => {
-      return <OrderItem key={index} item={meal} />;
+      return <OrderItem key={index} meal={meal} />;
     });
   }
 };

@@ -1,6 +1,12 @@
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+
 import Button from '../../../../common/Button';
-import { useState } from 'react';
+
+import { connect } from 'react-redux';
+
+import addOrders from '../../../../../redux/actions/orders/addOrdersToState';
+
 const OrderItemContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -8,6 +14,8 @@ const OrderItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
   margin-top: 1rem;
+  max-width: 32rem;
+
   .name {
     grid-row: 1 / span 1;
     grid-column: 1 / -1;
@@ -51,50 +59,98 @@ const OrderItemContainer = styled.div`
   }
 `;
 
-const OrderItem = ({ item }) => {
-  const [isOrdered, setIsOrdered] = useState(0);
+const OrderItem = ({ meal, orders, addOrders: addOrdersToState }) => {
+  const [isOrdered, setIsOrdered] = useState(false);
+  const [amount, setAmount] = useState(1);
+
+  useEffect(() => {
+    if (isOrdered && amount > 0) {
+      addMealToOrders();
+      addOrdersToState(orders);
+    } else {
+      setIsOrdered(false);
+      removeMealFromOrders();
+      setAmount(1);
+    }
+
+    function addMealToOrders() {
+      removeFromOrdersIfExists();
+      orders.push({
+        name: meal.name,
+        price: meal.price,
+        amount: amount,
+      });
+    }
+
+    function removeFromOrdersIfExists() {
+      orders = orders.filter((order) => order.name !== meal.name);
+    }
+
+    function removeMealFromOrders() {
+      removeFromOrdersIfExists();
+      addOrdersToState(orders);
+    }
+  }, [amount, isOrdered]);
 
   return (
     <OrderItemContainer>
-      <p className="name">{item.name}</p>
-      <p className="alergens">Alergeny: ({item.alergens})</p>
-      <p className="price">Cena: {item.price},-</p>
+      <p className="name">{meal.name}</p>
+      <p className="alergens">Alergeny: ({meal.alergens})</p>
+      <p className="price">Cena: {meal.price},-</p>
       {isOrdered ? renderButtons() : renderOrderButton()}
     </OrderItemContainer>
   );
 
-  function renderOrderButton() {
-    return (
-      <Button className="orderAndCancel" primary onClick={addToOrder}>
-        Objednat
-      </Button>
-    );
-  }
-
-  function addToOrder() {
-    setIsOrdered(true);
-  }
-
   function renderButtons() {
     return (
       <>
-        <Button className="orderAndCancel" onClick={removeFromOrder}>
+        <Button className="orderAndCancel" onClick={stopOrdering}>
           zrušit
         </Button>
-        <Button className="increment" primary onClick={addToOrder}>
+        <Button className="increment" primary onClick={() => increase()}>
           +
         </Button>
-        <span className="counter">1</span>
-        <Button className="decrement" primary onClick={addToOrder}>
+        <span className="counter">{amount}</span>
+        <Button className="decrement" primary onClick={() => decrease()}>
           -
         </Button>
       </>
     );
   }
 
-  function removeFromOrder() {
+  function stopOrdering() {
     setIsOrdered(false);
+  }
+
+  function increase() {
+    if (amount <= 200) {
+      setAmount(amount + 1);
+    }
+  }
+
+  function decrease() {
+    if (amount > 0) {
+      setAmount(amount - 1);
+    }
+  }
+
+  function renderOrderButton() {
+    return (
+      <Button className="orderAndCancel" primary onClick={startOrdering}>
+        Objednat
+      </Button>
+    );
+  }
+
+  function startOrdering() {
+    setIsOrdered(true);
   }
 };
 
-export default OrderItem;
+function mapStateToProps(state, ownProps) {
+  return {
+    orders: state.order.items,
+  };
+}
+
+export default connect(mapStateToProps, { addOrders })(OrderItem);
