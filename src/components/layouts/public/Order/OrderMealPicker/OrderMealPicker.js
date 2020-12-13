@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import OrderItem from '../OrderItem';
 
 const OrderMealPicker = ({ menu, meals, childMeals, breakfast }) => {
   const history = useHistory();
@@ -10,16 +11,11 @@ const OrderMealPicker = ({ menu, meals, childMeals, breakfast }) => {
     }
   }, []);
 
-  return (
-    <>
-      <h1>hello </h1>
-      {menu ?? renderBreakfast()}
-    </>
-  );
+  return <>{menu ?? renderBreakfast()}</>;
 
   function renderBreakfast() {
-    return breakfast.map((meal) => {
-      return <p>{meal.name}</p>;
+    return breakfast.map((meal, index) => {
+      return <OrderItem key={index} item={meal} />;
     });
   }
 };
