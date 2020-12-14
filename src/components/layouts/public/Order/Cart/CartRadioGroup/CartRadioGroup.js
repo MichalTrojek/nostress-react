@@ -8,6 +8,8 @@ import RadioGroup from '../../../../../common/Forms/RadioGroup';
 
 const CartRadioGroupContainer = styled(RadioGroup)`
   display: flex;
+  border-top: solid 1px var(--color-tertiary);
+  padding: 0.2rem 0;
 `;
 
 const CartRadioGroup = ({ selectForm }) => {
