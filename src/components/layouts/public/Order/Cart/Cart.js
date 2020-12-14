@@ -5,9 +5,7 @@ import { useEffect, useState } from 'react';
 import CartFooter from './CartFooter';
 import CartHeader from './CartHeader';
 import CartItem from './CartItem';
-import Button from '../../../../common/Button';
-import Form from '../../../../common/Forms/Form';
-import FormGroup from '../../../../common/Forms/FormGroup';
+import CartRadioGroup from './CartRadioGroup';
 
 const CartContainer = styled.div`
   border: 1px solid var(--color-tertiary);
@@ -42,6 +40,7 @@ const Cart = ({ items = [] }) => {
         <p>Celkem kusů: {totalAmount}</p>
         <p className="totalPrice">Celkem: {totalPrice} ,- </p>
       </CartFooter>
+      <CartRadioGroup />
     </CartContainer>
   );
 

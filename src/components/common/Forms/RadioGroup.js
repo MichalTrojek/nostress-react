@@ -15,6 +15,7 @@ const RadioGroup = styled.div`
       width: 2rem;
       height: 2rem;
       margin-right: 1rem;
+      cursor: pointer;
     }
   }
 `;

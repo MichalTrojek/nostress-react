@@ -1,5 +1,6 @@
-import OrderMealPicker from './OrderMealPicker/OrderMealPicker';
 import Cart from './Cart';
+import OrderMealPicker from './OrderMealPicker/OrderMealPicker';
+
 const Order = () => {
   return (
     <>
