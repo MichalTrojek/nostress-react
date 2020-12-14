@@ -6,13 +6,15 @@ import OrderItem from '../OrderItem';
 import resetOrder from '../../../../../redux/actions/orders/resetOrder';
 
 const OrderMealPickerContainer = styled.div`
-  @media only screen and (min-width: 900px) {
+  /* @media only screen and (min-width: 900px) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-    h2 {
-    }
+  } */
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 `;
 

@@ -15,22 +15,37 @@ const OrderItemContainer = styled.div`
   padding: 1rem;
   margin-top: 1rem;
 
-  @media only screen and (min-width: 900px) {
-    max-width: 48rem;
-    min-width: 48rem;
+  @media only screen and (min-width: 768px) {
+    --width: 35rem;
+    max-width: var(--width);
+    min-width: var(--width);
     margin-left: 1rem;
     margin-right: 1rem;
+  }
+
+  @media only screen and (min-width: 900px) {
+    --width: 48rem;
+  }
+
+  @media only screen and (min-width: 1400px) {
+    --width: 32rem;
   }
 
   .name {
     grid-row: 1 / span 1;
     grid-column: 1 / -1;
     font-weight: bold;
+    hyphens: auto;
+   
+}
   }
 
   .alergens {
     grid-row: 2 / span 1;
     grid-column: 1 / span 5;
+    @media only screen and (min-width: 768px) {
+      grid-column: 1 / span 7;
+    }
   }
 
   .price {
@@ -38,6 +53,17 @@ const OrderItemContainer = styled.div`
     grid-column: 10 / -1;
     font-weight: bold;
     color: var(--color-tertiary);
+
+    @media only screen and (min-width: 768px) {
+      grid-column: 9 / -1;
+    }
+
+    @media only screen and (min-width: 900px) {
+      grid-column: 10 / -1;
+    }
+    @media only screen and (min-width: 1400px) {
+      grid-column: 8/ -1;
+    }
   }
 
   .orderAndCancel {
