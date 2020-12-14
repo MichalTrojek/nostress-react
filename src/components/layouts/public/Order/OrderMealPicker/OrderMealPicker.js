@@ -9,7 +9,7 @@ const OrderMealPickerContainer = styled.div`
   @media only screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    /* justify-content: center; */
   }
 `;
 
