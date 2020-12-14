@@ -22,7 +22,7 @@ const OrderItemContainer = styled.div`
     margin-left: 1rem;
     margin-right: 1rem;
   }
-//42
+
   @media only screen and (min-width: 900px) {
     --width: 42rem;
   }

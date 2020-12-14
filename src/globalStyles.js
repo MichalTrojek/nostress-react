@@ -59,7 +59,7 @@ export const GlobalStyle = createGlobalStyle`
       }
 
       p,
-      li,a {
+      li,a, label {
         font-size: 1.5rem;
       }
     }
@@ -74,7 +74,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
       p,
-      li,a {
+      li,a, label {
         font-size: 1.7rem;
       }
     }
@@ -90,7 +90,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
       p,
-      li,a {
+      li,a, label {
         font-size: 1.9rem;
       }
     }
@@ -105,7 +105,7 @@ export const GlobalStyle = createGlobalStyle`
       }
 
       p,
-      li,a {
+      li,a, label {
         font-size: 2.2rem;
       }
     }
@@ -120,7 +120,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
       p,
-      li,a {
+      li,a, label {
         font-size: 2.4rem;
       }
     }
