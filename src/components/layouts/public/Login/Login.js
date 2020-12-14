@@ -77,7 +77,9 @@ const Login = () => {
               />
               <label htmlFor="password">Heslo</label>
             </FormGroup>
-            <Button disabled={loading} type="submit" text="Přihlásít" />
+            <Button type="submit" primary>
+              Přihlásít{' '}
+            </Button>
             {error && <InfoLabel text={error} />}
           </Form>
         </LoginWrapper>
