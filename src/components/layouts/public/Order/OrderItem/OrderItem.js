@@ -5,7 +5,7 @@ import Button from '../../../../common/Button';
 
 import { connect } from 'react-redux';
 
-import addOrders from '../../../../../redux/actions/orders/addOrdersToState';
+import addOrdersToState from '../../../../../redux/actions/orders/addOrdersToState';
 
 const OrderItemContainer = styled.div`
   display: grid;
@@ -65,7 +65,7 @@ const OrderItemContainer = styled.div`
   }
 `;
 
-const OrderItem = ({ meal, orders, addOrders: addOrdersToState }) => {
+const OrderItem = ({ meal, orders, addOrdersToState }) => {
   const [isOrdered, setIsOrdered] = useState(false);
   const [amount, setAmount] = useState(1);
 
@@ -159,4 +159,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps, { addOrders })(OrderItem);
+export default connect(mapStateToProps, { addOrdersToState })(OrderItem);

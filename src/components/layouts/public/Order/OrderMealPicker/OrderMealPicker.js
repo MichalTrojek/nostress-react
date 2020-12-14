@@ -3,68 +3,68 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import OrderItem from '../OrderItem';
+import resetOrder from '../../../../../redux/actions/orders/resetOrder';
 
 const OrderMealPickerContainer = styled.div`
   @media only screen and (min-width: 900px) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+    h2 {
+    }
   }
 `;
 
-const OrderMealPicker = ({ menuType, meals, childMeals, breakfast }) => {
+const OrderMealPicker = ({ meals, childMeals, breakfast }) => {
   const history = useHistory();
   useEffect(() => {
     if (meals.length === 0) {
       history.push('/');
     }
-  }, [menuType]);
+  }, []);
 
   return (
-    <OrderMealPickerContainer>
-      {menuType === 'isWeeklyMenu' ? renderMainMenu() : renderBreakfast()}
-    </OrderMealPickerContainer>
+    <>
+      <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Hlavní menu</h1>
+      <OrderMealPickerContainer>{renderMainMenu()}</OrderMealPickerContainer>
+      <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Dětské menu</h1>
+      <OrderMealPickerContainer>{renderChildMenu()}</OrderMealPickerContainer>
+    </>
   );
 
-  function renderBreakfast() {
-    return breakfast.map((meal, index) => {
+  function renderChildMenu() {
+    return childMeals.map((meal, index) => {
       return <OrderItem key={index} meal={meal} />;
     });
   }
 
   function renderMainMenu() {
-    return (
-      <>
-        <h2>Hlavní menu</h2>
-
-        <h2>Dětké menu</h2>
-
-        <h2>Polevky</h2>
-      </>
-    );
+    return meals.map((meal, index) => {
+      return <OrderItem key={index} meal={meal} />;
+    });
   }
 };
 
 function mapStateToProps(state, ownProps) {
   const meals = [];
   const childMeals = [];
-  const breakfast = [];
+
   state.meals.forEach((meal) => {
     const type = meal.type;
     if (type === 'isChildMeal') {
       childMeals.push(meal);
-    } else if (type === 'isBreakfastMeal') {
-      breakfast.push(meal);
-    } else {
+    } else if (type === 'isWeeklyMeal') {
       meals.push(meal);
     }
   });
 
+  const selectedMenu = state.order.selectedMenu;
+
   return {
     meals: meals.reverse(),
     childMeals: childMeals.reverse(),
-    breakfast: breakfast.reverse(),
   };
 }
 
-export default connect(mapStateToProps, {})(OrderMealPicker);
+export default connect(mapStateToProps, { resetOrder })(OrderMealPicker);
