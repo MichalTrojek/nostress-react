@@ -35,7 +35,8 @@ const Cart = ({ items = [] }) => {
         <p className="name">Název</p>
         <p className="price">Cena/kus</p>
       </CartHeader>
-      {renderItems()}
+
+      {items.length > 0 ? renderItems() : renderEmptyItem()}
       <CartFooter>
         <p>Celkem kusů: {totalAmount}</p>
         <p className="totalPrice">Celkem: {totalPrice} ,- </p>
@@ -54,6 +55,16 @@ const Cart = ({ items = [] }) => {
         </CartItem>
       );
     });
+  }
+
+  function renderEmptyItem() {
+    return (
+      <CartItem>
+        <p className="name">...</p>
+        <p className="amount">...</p>
+        <p className="price">...</p>
+      </CartItem>
+    );
   }
 };
 

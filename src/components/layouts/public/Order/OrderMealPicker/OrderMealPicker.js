@@ -56,8 +56,6 @@ function mapStateToProps(state, ownProps) {
     }
   });
 
-  const selectedMenu = state.order.selectedMenu;
-
   return {
     meals: meals.reverse(),
     childMeals: childMeals.reverse(),
