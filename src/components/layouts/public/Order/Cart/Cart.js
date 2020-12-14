@@ -1,66 +1,17 @@
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
+
+import CartFooter from './CartFooter';
+import CartHeader from './CartHeader';
+import CartItem from './CartItem';
 import Button from '../../../../common/Button';
+import Form from '../../../../common/Forms/Form';
+import FormGroup from '../../../../common/Forms/FormGroup';
 
 const CartContainer = styled.div`
   border: 1px solid var(--color-tertiary);
   Button {
-  }
-`;
-
-const CartItem = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  padding: 1rem;
-
-  .name {
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 9;
-    hyphens: auto;
-  }
-
-  .amount {
-    grid-row: 1 / span 1;
-    grid-column: 1 / span 1;
-  }
-  .price {
-    grid-row: 1 / span 1;
-    grid-column: 12 / span 1;
-  }
-`;
-
-const CartHeader = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  padding: 0.2rem 1rem;
-  border-bottom: 1px solid var(--color-tertiary);
-
-  .name {
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 10;
-  }
-
-  .amount {
-    grid-row: 1 / span 1;
-    grid-column: 1 / span 1;
-  }
-
-  .price {
-    grid-row: 1 / span 1;
-    grid-column: 12 / span 1;
-  }
-`;
-
-const CartFooter = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  padding: 1rem;
-
-  .totalPrice {
-    font-weight: bold;
-    color: var(--color-tertiary);
   }
 `;
 
@@ -91,7 +42,6 @@ const Cart = ({ items = [] }) => {
         <p>Celkem kusů: {totalAmount}</p>
         <p className="totalPrice">Celkem: {totalPrice} ,- </p>
       </CartFooter>
-      <Button primary>Objednat</Button>
     </CartContainer>
   );
 
