@@ -28,6 +28,10 @@ const NewsSlider = () => {
         setNumberOfSlidesShown(3);
       }
     }
+
+    return function cleanup() {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const settings = {
