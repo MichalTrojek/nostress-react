@@ -1,8 +1,8 @@
 import {
   ADD_TO_ORDER,
   SELECT_MENU,
-  RESET_ORDER,
   SELECT_FORM,
+  REMOVE_FROM_ORDER,
 } from '../actions/types';
 
 const initializeState = {
@@ -13,11 +13,18 @@ const initializeState = {
 function orderReducer(state = initializeState, action) {
   switch (action.type) {
     case ADD_TO_ORDER:
-      return { ...state, items: action.payload };
+      const newItems = state.items.filter(
+        (order) => order.name !== action.payload.name
+      );
+      newItems.push(action.payload);
+      return { ...state, items: newItems };
     case SELECT_MENU:
       return { ...state, selectedMenu: action.payload };
-    case RESET_ORDER:
-      return { ...state, items: [] };
+    case REMOVE_FROM_ORDER:
+      return {
+        ...state,
+        items: state.items.filter((item) => item.name !== action.payload.name),
+      };
     case SELECT_FORM:
       return { ...state, selectedForm: action.payload };
     default:

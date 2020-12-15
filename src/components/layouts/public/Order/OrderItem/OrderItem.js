@@ -6,6 +6,7 @@ import Button from '../../../../common/Button';
 import { connect } from 'react-redux';
 
 import addOrdersToState from '../../../../../redux/actions/orders/addOrdersToState';
+import removeOrderFromState from '../../../../../redux/actions/orders/removeOrderFromState';
 
 const OrderItemContainer = styled.div`
   display: grid;
@@ -106,38 +107,25 @@ const OrderItemContainer = styled.div`
   }
 `;
 
-const OrderItem = ({ meal, orders, addOrdersToState }) => {
+const OrderItem = ({ meal, addOrdersToState, removeOrderFromState }) => {
   const [isOrdered, setIsOrdered] = useState(false);
   const [amount, setAmount] = useState(1);
 
   useEffect(() => {
     if (isOrdered && amount > 0) {
-      addMealToOrders();
-      addOrdersToState(orders);
-    } else {
-      setIsOrdered(false);
-      removeMealFromOrders();
-      setAmount(1);
-    }
-
-    function addMealToOrders() {
-      removeFromOrdersIfExists();
-      orders.push({
+      addOrdersToState({
         name: meal.name,
         price: meal.price,
         amount: amount,
       });
+    } else {
+      setIsOrdered(false);
+      removeOrderFromState({
+        name: meal.name,
+      });
+      setAmount(1);
     }
-
-    function removeFromOrdersIfExists() {
-      orders = orders.filter((order) => order.name !== meal.name);
-    }
-
-    function removeMealFromOrders() {
-      removeFromOrdersIfExists();
-      addOrdersToState(orders);
-    }
-  }, [amount, isOrdered]);
+  }, [amount, isOrdered, meal, addOrdersToState, removeOrderFromState]);
 
   return (
     <OrderItemContainer>
@@ -194,10 +182,6 @@ const OrderItem = ({ meal, orders, addOrdersToState }) => {
   }
 };
 
-function mapStateToProps(state, ownProps) {
-  return {
-    orders: state.order.items,
-  };
-}
-
-export default connect(mapStateToProps, { addOrdersToState })(OrderItem);
+export default connect(null, { addOrdersToState, removeOrderFromState })(
+  OrderItem
+);
