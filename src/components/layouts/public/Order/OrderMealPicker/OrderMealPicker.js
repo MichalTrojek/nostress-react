@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import OrderItem from '../OrderItem';
+import OrderItem from './OrderItem';
 import resetOrder from '../../../../../redux/actions/orders/resetOrder';
 
 const OrderMealPickerContainer = styled.div`
@@ -26,6 +26,8 @@ const OrderMealPicker = ({ meals, childMeals, breakfast }) => {
       <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Hlavní menu</h1>
       <OrderMealPickerContainer>{renderMainMenu()}</OrderMealPickerContainer>
       <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Dětské menu</h1>
+      <OrderMealPickerContainer>{renderChildMenu()}</OrderMealPickerContainer>
+      <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Polévky</h1>
       <OrderMealPickerContainer>{renderChildMenu()}</OrderMealPickerContainer>
     </>
   );

@@ -131,7 +131,7 @@ const OrderItem = ({ meal, addOrdersToState, removeOrderFromState }) => {
       });
       setAmount(1);
     }
-  }, [amount, isOrdered, meal]);
+  }, [amount, isOrdered, meal, addOrdersToState, removeOrderFromState]);
 
   return (
     <OrderItemContainer>
