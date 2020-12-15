@@ -16,21 +16,25 @@ const NewsSlider = () => {
   const [numberOfSlidesShown, setNumberOfSlidesShown] = useState(1);
 
   useEffect(() => {
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    function handleResize() {
-      const innerWidth = window.innerWidth;
-      if (innerWidth < 540) {
-        setNumberOfSlidesShown(1);
-      } else if (innerWidth >= 540 && innerWidth < 1000) {
-        setNumberOfSlidesShown(2);
-      } else if (innerWidth >= 1000) {
-        setNumberOfSlidesShown(3);
+    let unmounted = false;
+
+    if (!unmounted) {
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      function handleResize() {
+        const innerWidth = window.innerWidth;
+        if (innerWidth < 540) {
+          setNumberOfSlidesShown(1);
+        } else if (innerWidth >= 540 && innerWidth < 1000) {
+          setNumberOfSlidesShown(2);
+        } else if (innerWidth >= 1000) {
+          setNumberOfSlidesShown(3);
+        }
       }
     }
 
-    return function cleanup() {
-      window.removeEventListener('resize', handleResize);
+    return () => {
+      unmounted = true;
     };
   }, []);
 
