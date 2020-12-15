@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import Button from '../../../../common/Button';
+import Button from '../../../../../common/Button';
 
 import { connect } from 'react-redux';
 
-import addOrdersToState from '../../../../../redux/actions/orders/addOrdersToState';
-import removeOrderFromState from '../../../../../redux/actions/orders/removeOrderFromState';
+import addOrdersToState from '../../../../../../redux/actions/orders/addOrdersToState';
+import removeOrderFromState from '../../../../../../redux/actions/orders/removeOrderFromState';
 
 const OrderItemContainer = styled.div`
   display: grid;
@@ -131,7 +131,7 @@ const OrderItem = ({ meal, addOrdersToState, removeOrderFromState }) => {
       });
       setAmount(1);
     }
-  }, [amount, isOrdered, meal, addOrdersToState, removeOrderFromState]);
+  }, [amount, isOrdered, meal]);
 
   return (
     <OrderItemContainer>
