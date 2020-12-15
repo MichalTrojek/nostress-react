@@ -9,8 +9,6 @@ import CartRadioGroup from './CartRadioGroup';
 
 const CartContainer = styled.div`
   border: 1px solid var(--color-tertiary);
-  Button {
-  }
 `;
 
 const Cart = ({ items = [] }) => {

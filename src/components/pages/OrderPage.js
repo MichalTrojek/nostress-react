@@ -3,7 +3,7 @@ import Wrapper from '../common/Wrapper';
 import Order from '../layouts/public/Order';
 
 const OrderPageBackground = styled.section`
-  background-color: var(--color-quaternary);
+  background-color: black;
   min-height: 100vh;
 `;
 

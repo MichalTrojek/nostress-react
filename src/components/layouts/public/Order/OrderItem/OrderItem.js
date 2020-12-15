@@ -11,7 +11,8 @@ import removeOrderFromState from '../../../../../redux/actions/orders/removeOrde
 const OrderItemContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-row-gap: 1rem;
+  grid-template-rows: 1fr 1fr min-content;
+
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
   margin-top: 1rem;
@@ -38,7 +39,7 @@ const OrderItemContainer = styled.div`
   @media only screen and (min-width: 1200px) {
     --width: 57rem;
   }
-  
+
   @media only screen and (min-width: 1300px) {
     --width: 65rem;
   }
@@ -52,13 +53,17 @@ const OrderItemContainer = styled.div`
     grid-column: 1 / -1;
     font-weight: bold;
     hyphens: auto;
-   
-}
+  }
+
+  .alergens,
+  .price {
+    align-self: center;
   }
 
   .alergens {
     grid-row: 2 / span 1;
     grid-column: 1 / span 5;
+
     @media only screen and (min-width: 768px) {
       grid-column: 1 / span 7;
     }
