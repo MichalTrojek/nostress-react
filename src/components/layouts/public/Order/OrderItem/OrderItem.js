@@ -12,6 +12,7 @@ const OrderItemContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 1fr 1fr min-content;
+  grid-row-gap: 1rem;
 
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
