@@ -27,7 +27,4 @@ const News = () => {
   );
 };
 
-function getWidth() {
-  return window.innerWidth;
-}
 export default News;

@@ -30,7 +30,6 @@ const Login = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState('');
   const history = useHistory();
   const { login } = useAuth();
 
@@ -39,14 +38,12 @@ const Login = () => {
 
     try {
       setError('');
-      setLoading(true);
+
       await login(emailRef.current.value, passwordRef.current.value);
       history.push('/dashboard');
     } catch {
       setError('Nepodařilo se přihlásit');
     }
-
-    setLoading(false);
   }
 
   return (

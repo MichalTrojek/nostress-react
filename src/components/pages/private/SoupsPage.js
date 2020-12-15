@@ -17,7 +17,7 @@ const SoupsPage = ({ fetchSoups, fetchedData, soups }) => {
     if (!fetchedData) {
       fetchSoups();
     }
-  }, []);
+  }, [fetchSoups, fetchedData]);
 
   return (
     <SoupsPageBackground>

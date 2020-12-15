@@ -20,7 +20,7 @@ const MealsList = ({
     if (!dataFetched) {
       fetchMeals();
     }
-  }, [fetchMeals]);
+  }, [fetchMeals, dataFetched]);
 
   return (
     <ListContainer>

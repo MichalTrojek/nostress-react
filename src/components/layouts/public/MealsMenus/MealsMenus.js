@@ -23,7 +23,7 @@ const MealsMenus = ({
     if (!dataFetched) {
       fetchMeals();
     }
-  }, [fetchMeals]);
+  }, [fetchMeals, dataFetched]);
 
   return (
     <MealsMenusBackground>

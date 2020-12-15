@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
 import PageLayout from '../../PageLayout';
 import Button from '../../common/Button';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { showErrorToast } from '../../../notifications/toast';
 
 const DashboardBackground = styled.section`
   background-color: black;
@@ -29,8 +29,7 @@ const DashboardWrapper = styled.div`
 `;
 
 const DashboardPage = () => {
-  const [error, setError] = useState('');
-  const { currentUser, logout } = useAuth();
+  const { logout } = useAuth();
   const history = useHistory();
 
   return (
@@ -55,12 +54,11 @@ const DashboardPage = () => {
   );
 
   async function handleLogOut() {
-    setError('');
     try {
       await logout();
       history.push('/login');
     } catch {
-      setError('failed to logout');
+      showErrorToast('Odhlášení se nezdařilo');
     }
   }
 };

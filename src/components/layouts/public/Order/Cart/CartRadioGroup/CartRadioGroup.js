@@ -19,7 +19,7 @@ const CartRadioGroup = ({ selectForm }) => {
 
   useEffect(() => {
     selectForm(selectedForm);
-  }, [selectedForm]);
+  }, [selectedForm, selectForm]);
 
   return (
     <CartRadioGroupContainer>

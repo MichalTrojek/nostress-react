@@ -43,7 +43,7 @@ const Footer = () => {
         <FooterWrapper>
           <p className="copyright">
             Copyright &copy; 2020 Mofeer s.r.o | Všechna práva vyhrazena.
-            <a className="information-1" href="#">
+            <a className="information-1" href="#/">
               Informace o zpracování osobních údajů
             </a>
           </p>

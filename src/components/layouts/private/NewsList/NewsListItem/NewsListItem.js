@@ -52,7 +52,7 @@ const NewsListItem = ({
         setIsSelected(false);
       }
     }
-  }, [selectedNewsToEdit]);
+  }, [selectedNewsToEdit, isEditModeEnabled, isSelected, item.id]);
 
   return (
     <StyledNewsListItem isSelected={isSelected}>

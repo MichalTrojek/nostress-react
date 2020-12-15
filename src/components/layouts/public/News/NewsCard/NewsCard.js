@@ -45,7 +45,7 @@ const newsData = {
 const NewsCard = () => {
   return (
     <NewsContainer>
-      <img src={image} alt="news image" />
+      <img src={image} alt="obrazek novinky" />
       <div className="content">
         <h2>{newsData.header}</h2>
         <p>{newsData.content}</p>

@@ -19,7 +19,7 @@ const OrderMealPicker = ({ meals, childMeals, breakfast }) => {
     if (meals.length === 0) {
       history.push('/');
     }
-  }, []);
+  }, [history, meals.length]);
 
   return (
     <>

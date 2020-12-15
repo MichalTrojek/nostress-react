@@ -1,4 +1,3 @@
-import { isCompositeComponent } from 'react-dom/test-utils';
 import { db } from '../../firebase';
 
 function editSoupsApiCall({

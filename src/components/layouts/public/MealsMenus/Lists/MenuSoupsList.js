@@ -37,7 +37,7 @@ const MenuSoupsList = ({ fetchSoups, fetchedData, soups = [] }) => {
     if (!fetchedData) {
       fetchSoups();
     }
-  }, []);
+  }, [fetchedData, fetchSoups]);
   return (
     <SoupsMenuList>
       <Row>

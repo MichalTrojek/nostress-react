@@ -18,18 +18,18 @@ const NewsSlider = () => {
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', handleResize);
-  }, [handleResize]);
-
-  function handleResize() {
-    const innerWidth = window.innerWidth;
-    if (innerWidth < 540) {
-      setNumberOfSlidesShown(1);
-    } else if (innerWidth >= 540 && innerWidth < 1000) {
-      setNumberOfSlidesShown(2);
-    } else if (innerWidth >= 1000) {
-      setNumberOfSlidesShown(3);
+    function handleResize() {
+      const innerWidth = window.innerWidth;
+      if (innerWidth < 540) {
+        setNumberOfSlidesShown(1);
+      } else if (innerWidth >= 540 && innerWidth < 1000) {
+        setNumberOfSlidesShown(2);
+      } else if (innerWidth >= 1000) {
+        setNumberOfSlidesShown(3);
+      }
     }
-  }
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
