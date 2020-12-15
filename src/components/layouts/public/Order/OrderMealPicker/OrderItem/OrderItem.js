@@ -113,31 +113,46 @@ const OrderItemContainer = styled.div`
   }
 `;
 
-const OrderItem = ({ meal, addOrdersToState, removeOrderFromState }) => {
+const OrderItem = ({
+  name,
+  alergens,
+  price,
+  addOrdersToState,
+  removeOrderFromState,
+}) => {
   const [isOrdered, setIsOrdered] = useState(false);
   const [amount, setAmount] = useState(1);
 
   useEffect(() => {
     if (isOrdered && amount > 0) {
       addOrdersToState({
-        name: meal.name,
-        price: meal.price,
+        name: name,
+        price: price,
         amount: amount,
       });
-    } else {
+    } else if (!isOrdered || amount === 0) {
       setIsOrdered(false);
       removeOrderFromState({
-        name: meal.name,
+        name: name,
       });
       setAmount(1);
     }
-  }, [amount, isOrdered, meal, addOrdersToState, removeOrderFromState]);
+  }, [
+    amount,
+    isOrdered,
+    addOrdersToState,
+    removeOrderFromState,
+    name,
+    price,
+    alergens,
+  ]);
 
   return (
     <OrderItemContainer>
-      <p className="name">{meal.name}</p>
-      <p className="alergens">Alergeny: ({meal.alergens})</p>
-      <p className="price">Cena: {meal.price},-</p>
+      <p className="name">{name}</p>
+      {alergens ? <p className="alergens">Alergeny: ({alergens})</p> : <p></p>}
+
+      <p className="price">Cena: {price},-</p>
       {isOrdered ? renderButtons() : renderOrderButton()}
     </OrderItemContainer>
   );
