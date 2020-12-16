@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Button from '../../../../common/Button';
+import BreakfastOrderButton from '../../../../common/BreakfastOrderButton';
 import Label from '../../../../common/Label';
 
 import MealsList from '../Lists/MenuMealsList';
@@ -44,7 +44,7 @@ const BreakFastMenu = ({ breakfast }) => {
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
       <BreakFastRow>
         <Label text="KÁVA ZDARMA ke každé snídani" />
-        <Button primary> OBJEDNAT SNÍDANI</Button>
+        <BreakfastOrderButton />
       </BreakFastRow>
       <MealsMenuContent>
         <div className="leftside">

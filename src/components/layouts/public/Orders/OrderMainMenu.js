@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
 
@@ -10,27 +9,8 @@ import OrderItem from './OrderItem';
 import { useHistory } from 'react-router-dom';
 
 import { showInfoToast } from '../../../../notifications/toast';
-
-const OrderContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  Button {
-    margin-top: 1rem;
-  }
-
-  @media only screen and (max-width: 411px) {
-    Button {
-      font-size: 1.3rem;
-    }
-  }
-`;
-
-const MealListContainer = styled.div`
-  @media only screen and (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-  }
-`;
+import OrderContainer from './styles/OrderContainer';
+import MealListContainer from './styles/MealListContainer';
 
 const OrderMainMenu = ({
   meals = [],

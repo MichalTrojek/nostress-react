@@ -1,4 +1,4 @@
-import Button from '../../../../common/Button';
+import OrderButton from '../../../../common/OrderButton';
 import Label from '../../../../common/Label';
 import Row from '../../../../common/Row';
 
@@ -23,7 +23,7 @@ const WeeklyMenu = ({ meals, childMeals }) => {
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
       <Row>
         <Label text={getDateText()} />
-        <Button primary>OBJEDNAT</Button>
+        <OrderButton />
       </Row>
       <MealsMenuContent>
         <div className="leftside">

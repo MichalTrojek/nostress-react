@@ -6,6 +6,7 @@ import PrivateRoute from './PrivateRoute';
 
 import Home from './pages/HomePage';
 import OrderPage from './pages/OrderPage';
+import BreakFastOrderPage from './pages/BreakfastOrderPage';
 import LoginPage from './pages/LoginPage';
 
 import DashboardPage from './pages/private/DashboardPage';
@@ -25,6 +26,11 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/order" component={OrderPage} />
+            <Route
+              exact
+              path="/breakfastOrder"
+              component={BreakFastOrderPage}
+            />
             <Route exact path="/login" component={LoginPage} />
             <PrivateRoute exact path="/dashboard" component={DashboardPage} />
             <PrivateRoute exact path="/dashboard/meals" component={MealsPage} />
