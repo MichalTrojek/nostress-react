@@ -26,7 +26,7 @@ const newsReducer = (state = initialState, action) => {
     case EDIT_MEAL:
       return { ...state, ...action.payload };
     case DELETE_MEAL:
-      return state.filter((item) => item.id !== action.payload);
+      return { ...state, ...action.payload };
     default:
       return state;
   }

@@ -3,8 +3,10 @@ import fetchMealsApiCall from '../../../api/meals/fetchMealsApiCall';
 
 const fetchMeals = () => {
   return async (dispatch, getState) => {
-    let data = await fetchMealsApiCall();
-    dispatch({ type: FETCH_MEALS, payload: sortMeals(data) });
+    if (!getState().menu.dataFetched) {
+      let data = await fetchMealsApiCall();
+      dispatch({ type: FETCH_MEALS, payload: sortMeals(data) });
+    }
   };
 };
 

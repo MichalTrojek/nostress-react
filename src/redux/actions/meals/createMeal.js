@@ -7,6 +7,7 @@ function createMeal(meal) {
     const id = await createMealApiCall(meal);
     if (id) {
       const newMeal = { ...meal, id: id };
+
       dispatch({
         type: CREATE_MEAL,
         payload: addToMenuByType(newMeal, getState),
@@ -29,11 +30,11 @@ function addToMenuByType(newMeal, getState) {
   }
 }
 
-function addMealToMenu(meal, menu, menuType) {
+function addMealToMenu(newMeal, menu, menuType) {
   const returnObject = {};
-  const menuCopy = menu;
-  menuCopy.push(meal);
-  returnObject[menuType] = menuCopy;
+  const copy = menu.map((item) => item);
+  returnObject[menuType] = copy;
+  returnObject[menuType].push(newMeal);
   return returnObject;
 }
 

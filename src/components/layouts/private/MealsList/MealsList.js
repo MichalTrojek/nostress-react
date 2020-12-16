@@ -12,15 +12,12 @@ const MealsList = ({
   childMeals = [],
   breakfast = [],
   fetchMeals,
-  dataFetched = false,
 }) => {
   const [mealType, setMealType] = useState('isWeeklyMeal');
 
   useEffect(() => {
-    if (!dataFetched) {
-      fetchMeals();
-    }
-  }, [fetchMeals, dataFetched]);
+    fetchMeals();
+  }, [fetchMeals]);
 
   return (
     <ListContainer>

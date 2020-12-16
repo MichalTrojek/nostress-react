@@ -51,7 +51,7 @@ const MealListItem = ({
 
   function handleDelete() {
     if (!isEditModeOn) {
-      deleteMeal(meal.id);
+      deleteMeal(meal);
     } else {
       showInfoToast('Nelze mazat během editování.');
     }
