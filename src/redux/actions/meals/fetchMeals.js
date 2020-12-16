@@ -24,10 +24,14 @@ function sortMeals(data) {
     }
   });
 
+  const dataFetched =
+    meals.length > 0 || childMeals.length > 0 || breakfast.length > 0;
+
   return {
     meals: meals,
     childMeals: childMeals,
     breakfast: breakfast,
+    dataFetched: dataFetched,
   };
 }
 

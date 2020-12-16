@@ -85,26 +85,11 @@ const MealsList = ({
 };
 
 function mapPropsToState(state, prevState) {
-  const meals = [];
-  const childMeals = [];
-  const breakfast = [];
-  const dataFetched = state.meals > 0;
-  state.meals.forEach((meal) => {
-    const type = meal.type;
-    if (type === 'isChildMeal') {
-      childMeals.push(meal);
-    } else if (type === 'isBreakfastMeal') {
-      breakfast.push(meal);
-    } else {
-      meals.push(meal);
-    }
-  });
-
   return {
-    meals: meals.reverse(),
-    childMeals: childMeals.reverse(),
-    breakfast: breakfast.reverse(),
-    dataFetched: dataFetched,
+    meals: state.menu.meals,
+    childMeals: state.menu.childMeals,
+    breakfastMeals: state.menu.breakfast,
+    dataFetched: state.menu.dataFetched,
   };
 }
 export default connect(mapPropsToState, { fetchMeals })(MealsList);

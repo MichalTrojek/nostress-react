@@ -9,16 +9,17 @@ const initialState = {
   meals: [],
   childMeals: [],
   breakfast: [],
+  dataFetched: false,
 };
 
 const newsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_MEALS:
       return {
-        ...state,
         meals: action.payload.meals,
         childMeals: action.payload.breakfast,
         breakfast: action.payload.breakfast,
+        dataFetched: action.payload.dataFetched,
       };
     case CREATE_MEAL:
       return [...state, action.payload];
