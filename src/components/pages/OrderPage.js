@@ -11,7 +11,6 @@ const OrderPage = () => {
   return (
     <OrderPageBackground>
       <Wrapper>
-        <h1>Objednávka rozvozu</h1>
         <Order />
       </Wrapper>
     </OrderPageBackground>

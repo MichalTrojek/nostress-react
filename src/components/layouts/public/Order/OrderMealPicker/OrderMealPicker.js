@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import OrderItem from './OrderItem';
 import resetOrder from '../../../../../redux/actions/orders/resetOrder';
+import Button from '../../../../common/Button';
 
 const OrderMealPickerContainer = styled.div`
   @media only screen and (min-width: 768px) {
