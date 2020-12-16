@@ -8,11 +8,11 @@ import fetchMeals from '../../../../redux/actions/meals/fetchMeals';
 import RadioGroup from '../../../common/Forms/RadioGroup';
 
 const MealsList = ({
-  meals,
-  childMeals,
-  breakfast,
+  meals = [],
+  childMeals = [],
+  breakfast = [],
   fetchMeals,
-  dataFetched,
+  dataFetched = false,
 }) => {
   const [mealType, setMealType] = useState('');
 
@@ -88,10 +88,10 @@ const MealsList = ({
 
 function mapStateToProps(state, ownProps) {
   return {
+    dataFetched: state.menu.dataFetched,
     meals: state.menu.meals,
     childMeals: state.menu.childMeals,
     breakfast: state.menu.breakfast,
-    dataFetched: state.menu.dataFetched,
   };
 }
 export default connect(mapStateToProps, { fetchMeals })(MealsList);
