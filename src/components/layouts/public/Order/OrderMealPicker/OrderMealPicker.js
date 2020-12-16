@@ -78,27 +78,15 @@ function selectSoupByDay(day, soups) {
 }
 
 function mapStateToProps(state, ownProps) {
-  const meals = [];
-  const childMeals = [];
   const soups = state.soups;
-
   const soup = {
     name: selectSoupByDay(new Date().getDay(), soups),
     price: soups.price,
   };
 
-  state.meals.forEach((meal) => {
-    const type = meal.type;
-    if (type === 'isChildMeal') {
-      childMeals.push(meal);
-    } else if (type === 'isWeeklyMeal') {
-      meals.push(meal);
-    }
-  });
-
   return {
-    meals: meals.reverse(),
-    childMeals: childMeals.reverse(),
+    meals: state.menu.meals,
+    childMeals: state.menu.childMeals,
     soup: soup,
   };
 }
