@@ -10,7 +10,7 @@ const allReducers = combineReducers({
   editor: editorReducer,
   news: newsReducer,
   selectedNewsToEdit: selectedNewsReducer,
-  meals: mealsReducer,
+  menu: mealsReducer,
   soups: soupsReducer,
   order: orderReducer,
 });

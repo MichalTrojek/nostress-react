@@ -34,24 +34,12 @@ const MealsMenus = ({
 };
 
 function mapStateToProps(state, ownProps) {
-  const meals = [];
-  const childMeals = [];
-  const breakfastMeals = [];
-  const dataFetched = state.meals.length > 0;
-  state.meals.forEach((meal) => {
-    if (meal.type === 'isWeeklyMeal') {
-      meals.push(meal);
-    } else if (meal.type === 'isChildMeal') {
-      childMeals.push(meal);
-    } else {
-      breakfastMeals.push(meal);
-    }
-  });
+  const dataFetched = state.menu.meals > 0;
 
   return {
-    meals: meals,
-    childMeals: childMeals,
-    breakfastMeals: breakfastMeals,
+    meals: state.menu.meals,
+    childMeals: state.menu.childMeals,
+    breakfastMeals: state.menu.breakfast,
     dataFetched: dataFetched,
   };
 }

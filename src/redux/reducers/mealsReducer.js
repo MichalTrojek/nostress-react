@@ -5,10 +5,21 @@ import {
   DELETE_MEAL,
 } from '../actions/types';
 
-const newsReducer = (state = [], action) => {
+const initialState = {
+  meals: [],
+  childMeals: [],
+  breakfast: [],
+};
+
+const newsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_MEALS:
-      return [...state, ...action.payload];
+      return {
+        ...state,
+        meals: action.payload.meals,
+        childMeals: action.payload.breakfast,
+        breakfast: action.payload.breakfast,
+      };
     case CREATE_MEAL:
       return [...state, action.payload];
     case EDIT_MEAL:
