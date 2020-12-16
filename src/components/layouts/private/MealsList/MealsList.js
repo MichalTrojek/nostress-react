@@ -35,12 +35,14 @@ const MealsList = ({
         return renderList(childMeals);
       case 'isBreakfastMeal':
         return renderList(breakfast);
-      default:
+      case 'isWeeklyMeal':
         return renderList(meals);
+      default:
+        return [];
     }
   }
 
-  function renderList(listOfMeals) {
+  function renderList(listOfMeals = []) {
     if (listOfMeals.length !== 0) {
       return listOfMeals.map((meal, index) => {
         return <MealListItem key={index} meal={meal} />;
@@ -84,12 +86,12 @@ const MealsList = ({
   }
 };
 
-function mapPropsToState(state, prevState) {
+function mapStateToProps(state, ownProps) {
   return {
     meals: state.menu.meals,
     childMeals: state.menu.childMeals,
-    breakfastMeals: state.menu.breakfast,
+    breakfast: state.menu.breakfast,
     dataFetched: state.menu.dataFetched,
   };
 }
-export default connect(mapPropsToState, { fetchMeals })(MealsList);
+export default connect(mapStateToProps, { fetchMeals })(MealsList);

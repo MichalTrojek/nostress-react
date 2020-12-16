@@ -17,7 +17,7 @@ const newsReducer = (state = initialState, action) => {
     case FETCH_MEALS:
       return {
         meals: action.payload.meals,
-        childMeals: action.payload.breakfast,
+        childMeals: action.payload.childMeals,
         breakfast: action.payload.breakfast,
         dataFetched: action.payload.dataFetched,
       };

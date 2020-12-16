@@ -32,7 +32,7 @@ const BreakFastMenuContainer = styled(MealsMenuContainer)`
   padding-bottom: 3rem;
 `;
 
-const BreakFastMenu = ({ breakfastMeals }) => {
+const BreakFastMenu = ({ breakfast }) => {
   const weeklyData = {
     text:
       'Nově nabízíme výborné snídaně nebo svačiny za super ceny. K dispozici také na objednání rozvozu až domů nebo „take away“ z výdejního okénka. Objednej si domů nebo do kanceláře čerstvou snídani nebo svačinu!',
@@ -52,7 +52,7 @@ const BreakFastMenu = ({ breakfastMeals }) => {
             header="Nabídka"
             info="ZAVÁDĚCÍ CENY"
             icon={menuIcon}
-            items={breakfastMeals}
+            items={breakfast}
           />
         </div>
         <div className="rightside-breakfast">

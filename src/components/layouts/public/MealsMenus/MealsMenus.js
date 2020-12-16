@@ -17,7 +17,7 @@ const MealsMenus = ({
   fetchMeals,
   meals,
   childMeals,
-  breakfastMeals,
+  breakfast,
 }) => {
   useEffect(() => {
     if (!dataFetched) {
@@ -28,7 +28,7 @@ const MealsMenus = ({
   return (
     <MealsMenusBackground>
       <WeeklyMenu meals={meals} childMeals={childMeals} />
-      <BreakFastMenu breakfastMeals={breakfastMeals} />
+      <BreakFastMenu breakfast={breakfast} />
     </MealsMenusBackground>
   );
 };
@@ -37,7 +37,7 @@ function mapStateToProps(state, ownProps) {
   return {
     meals: state.menu.meals,
     childMeals: state.menu.childMeals,
-    breakfastMeals: state.menu.breakfast,
+    breakfast: state.menu.breakfast,
     dataFetched: state.menu.dataFetched,
   };
 }
