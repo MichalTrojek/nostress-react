@@ -1,13 +1,7 @@
-import {
-  ADD_TO_ORDER,
-  SELECT_MENU,
-  SELECT_FORM,
-  REMOVE_FROM_ORDER,
-} from '../actions/types';
+import { ADD_TO_ORDER, SELECT_FORM, REMOVE_FROM_ORDER } from '../actions/types';
 
 const initializeState = {
-  selectedMenu: true,
-  selectedForm: 'test',
+  selectedForm: '',
   items: [],
 };
 function orderReducer(state = initializeState, action) {
@@ -18,8 +12,6 @@ function orderReducer(state = initializeState, action) {
       );
       newItems.push(action.payload);
       return { ...state, items: newItems };
-    case SELECT_MENU:
-      return { ...state, selectedMenu: action.payload };
     case REMOVE_FROM_ORDER:
       return {
         ...state,

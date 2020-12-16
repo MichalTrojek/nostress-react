@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import Cart from './Cart';
 
@@ -8,6 +8,8 @@ import Button from '../../../common/Button';
 
 import OrderItem from './OrderItem';
 import { useHistory } from 'react-router-dom';
+
+import { showInfoToast } from '../../../../notifications/toast';
 
 const OrderContainer = styled.div`
   display: flex;
@@ -30,13 +32,21 @@ const MealListContainer = styled.div`
   }
 `;
 
-const OrderMainMenu = ({ meals = [], childMeals = [], soup = undefined }) => {
+const OrderMainMenu = ({
+  meals = [],
+  childMeals = [],
+  soup = undefined,
+  items = [],
+}) => {
+  const [isOrderingAllowed, setIsOrderingAllowed] = useState(false);
   const history = useHistory();
   useEffect(() => {
     if (meals.length === 0) {
       history.push('/');
+    } else {
+      setIsOrderingAllowed(items.length > 0);
     }
-  }, [history, meals.length]);
+  }, [history, meals.length, items]);
 
   return (
     <OrderContainer>
@@ -55,7 +65,13 @@ const OrderMainMenu = ({ meals = [], childMeals = [], soup = undefined }) => {
     </OrderContainer>
   );
 
-  function handleOrder() {}
+  function handleOrder() {
+    if (isOrderingAllowed) {
+      history.push('/summary');
+    } else {
+      showInfoToast('Objednávka je prázdná');
+    }
+  }
 
   function renderChildMenu() {
     return childMeals.map((meal, index) => {
@@ -85,7 +101,7 @@ const OrderMainMenu = ({ meals = [], childMeals = [], soup = undefined }) => {
 };
 
 function renderSoup(soup) {
-  return soup ? <OrderItem name={soup.name} price={soup.price} /> : <h1></h1>;
+  return soup ? <OrderItem name={soup.name} price={soup.price} /> : <></>;
 }
 
 function selectSoupByDay(day, soups) {
@@ -116,6 +132,7 @@ function mapStateToProps(state, ownProps) {
     meals: state.menu.meals,
     childMeals: state.menu.childMeals,
     soup: soup,
+    items: state.order.items,
   };
 }
 
