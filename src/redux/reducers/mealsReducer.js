@@ -22,7 +22,7 @@ const newsReducer = (state = initialState, action) => {
         dataFetched: action.payload.dataFetched,
       };
     case CREATE_MEAL:
-      return [...state, action.payload];
+      return { ...state, ...action.payload };
     case EDIT_MEAL:
       return { ...state, ...action.payload };
     case DELETE_MEAL:

@@ -14,7 +14,7 @@ const MealsList = ({
   fetchMeals,
   dataFetched = false,
 }) => {
-  const [mealType, setMealType] = useState('');
+  const [mealType, setMealType] = useState('isWeeklyMeal');
 
   useEffect(() => {
     if (!dataFetched) {

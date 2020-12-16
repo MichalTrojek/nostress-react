@@ -6,15 +6,35 @@ function createMeal(meal) {
   return async (dispatch, getState) => {
     const id = await createMealApiCall(meal);
     if (id) {
+      const newMeal = { ...meal, id: id };
       dispatch({
         type: CREATE_MEAL,
-        payload: { ...meal, id: id },
+        payload: addToMenuByType(newMeal, getState),
       });
       showSuccessToast('Jidlo bylo úspěšně uloženo.');
     } else {
       showErrorToast('Jidlo se nepodařilo uložit.');
     }
   };
+}
+
+function addToMenuByType(newMeal, getState) {
+  switch (newMeal.type) {
+    case 'isChildMeal':
+      return addMealToMenu(newMeal, getState().menu.childMeals, 'childMeals');
+    case 'isWeeklyMeal':
+      return addMealToMenu(newMeal, getState().menu.meals, 'meals');
+    case 'isBreakfastMeal':
+      return addMealToMenu(newMeal, getState().menu.breakfast, 'breakfast');
+  }
+}
+
+function addMealToMenu(meal, menu, menuType) {
+  const returnObject = {};
+  const menuCopy = menu;
+  menuCopy.push(meal);
+  returnObject[menuType] = menuCopy;
+  return returnObject;
 }
 
 export default createMeal;
