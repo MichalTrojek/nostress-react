@@ -7,8 +7,6 @@ import CartHeader from './CartHeader';
 import CartItem from './CartItem';
 import CartRadioGroup from './CartRadioGroup';
 
-import Button from '../../../../common/Button';
-
 const CartContainer = styled.div`
   border: 1px solid var(--color-tertiary);
 `;

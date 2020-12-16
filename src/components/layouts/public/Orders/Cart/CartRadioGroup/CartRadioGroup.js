@@ -6,8 +6,6 @@ import selectForm from '../../../../../../redux/actions/orders/selectForm';
 
 import RadioGroup from '../../../../../common/Forms/RadioGroup';
 
-import Button from '../../../../../common/Button';
-
 const CartRadioGroupContainer = styled(RadioGroup)`
   display: flex;
   border-top: solid 1px var(--color-tertiary);
@@ -50,7 +48,6 @@ const CartRadioGroup = ({ selectForm }) => {
         />
         Doručit na adresu
       </label>
-      {/* <Button primary>Pokračovat k objednávce</Button> */}
     </CartRadioGroupContainer>
   );
 };

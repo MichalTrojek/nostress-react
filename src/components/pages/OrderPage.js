@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Wrapper from '../common/Wrapper';
-import Order from '../layouts/public/Order';
+import OrderMainMenu from '../layouts/public/Orders/OrderMainMenu';
 
 const OrderPageBackground = styled.section`
   background-color: black;
@@ -11,7 +11,7 @@ const OrderPage = () => {
   return (
     <OrderPageBackground>
       <Wrapper>
-        <Order />
+        <OrderMainMenu />
       </Wrapper>
     </OrderPageBackground>
   );

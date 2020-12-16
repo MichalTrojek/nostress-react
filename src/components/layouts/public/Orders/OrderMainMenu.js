@@ -1,19 +1,36 @@
 import styled from 'styled-components';
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import OrderItem from './OrderItem';
-import resetOrder from '../../../../../redux/actions/orders/resetOrder';
-import Button from '../../../../common/Button';
+import { useEffect } from 'react';
 
-const OrderMealPickerContainer = styled.div`
+import Cart from './Cart';
+
+import Button from '../../../common/Button';
+
+import OrderItem from './OrderItem';
+import { useHistory } from 'react-router-dom';
+
+const OrderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  Button {
+    margin-top: 1rem;
+  }
+
+  @media only screen and (max-width: 411px) {
+    Button {
+      font-size: 1.3rem;
+    }
+  }
+`;
+
+const MealListContainer = styled.div`
   @media only screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
   }
 `;
 
-const OrderMealPicker = ({ meals, childMeals, soup }) => {
+const OrderMainMenu = ({ meals = [], childMeals = [], soup = undefined }) => {
   const history = useHistory();
   useEffect(() => {
     if (meals.length === 0) {
@@ -22,17 +39,23 @@ const OrderMealPicker = ({ meals, childMeals, soup }) => {
   }, [history, meals.length]);
 
   return (
-    <>
+    <OrderContainer>
+      <h1>Týdenní menu 11:00 – 16:00</h1>
+      <Cart />
+      <Button className="orderButton" primary onClick={handleOrder}>
+        Pokračovat k objednávce
+      </Button>
+
       <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Hlavní menu</h1>
-      <OrderMealPickerContainer>{renderMainMenu()}</OrderMealPickerContainer>
+      <MealListContainer>{renderMainMenu()}</MealListContainer>
       <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Dětské menu</h1>
-      <OrderMealPickerContainer>{renderChildMenu()}</OrderMealPickerContainer>
+      <MealListContainer>{renderChildMenu()}</MealListContainer>
       <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Polévky</h1>
-      <OrderMealPickerContainer>
-        <OrderItem name={soup.name} price={soup.price} />
-      </OrderMealPickerContainer>
-    </>
+      {renderSoup(soup)}
+    </OrderContainer>
   );
+
+  function handleOrder() {}
 
   function renderChildMenu() {
     return childMeals.map((meal, index) => {
@@ -60,6 +83,10 @@ const OrderMealPicker = ({ meals, childMeals, soup }) => {
     });
   }
 };
+
+function renderSoup(soup) {
+  return soup ? <OrderItem name={soup.name} price={soup.price} /> : <h1></h1>;
+}
 
 function selectSoupByDay(day, soups) {
   switch (day) {
@@ -92,4 +119,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps, { resetOrder })(OrderMealPicker);
+export default connect(mapStateToProps)(OrderMainMenu);
