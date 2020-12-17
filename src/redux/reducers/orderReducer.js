@@ -1,6 +1,12 @@
-import { ADD_TO_ORDER, SELECT_FORM, REMOVE_FROM_ORDER } from '../actions/types';
+import {
+  ADD_TO_ORDER,
+  SELECT_FORM,
+  REMOVE_FROM_ORDER,
+  SET_TOTAL_PRICE,
+} from '../actions/types';
 
 const initializeState = {
+  totalPrice: 0,
   selectedForm: '',
   items: [],
 };
@@ -19,6 +25,8 @@ function orderReducer(state = initializeState, action) {
       };
     case SELECT_FORM:
       return { ...state, selectedForm: action.payload };
+    case SET_TOTAL_PRICE:
+      return { ...state, totalPrice: action.payload };
     default:
       return state;
   }

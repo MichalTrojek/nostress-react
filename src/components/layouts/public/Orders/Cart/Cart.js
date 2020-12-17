@@ -7,12 +7,13 @@ import CartHeader from './CartHeader';
 import CartItem from './CartItem';
 import CartRadioGroup from './CartRadioGroup';
 
+import setTotalPrice from '../../../../../redux/actions/orders/setTotalPrice';
+
 const CartContainer = styled.div`
   border: 1px solid var(--color-tertiary);
 `;
 
-const Cart = ({ items = [] }) => {
-  const [totalPrice, setTotalPrice] = useState(0);
+const Cart = ({ items = [], totalPrice, setTotalPrice }) => {
   const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
@@ -69,7 +70,8 @@ const Cart = ({ items = [] }) => {
 function mapStateToProps(state, ownProps) {
   return {
     items: state.order.items,
+    totalPrice: state.order.totalPrice,
   };
 }
 
-export default connect(mapStateToProps, {})(Cart);
+export default connect(mapStateToProps, { setTotalPrice })(Cart);
