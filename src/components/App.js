@@ -8,6 +8,7 @@ import Home from './pages/HomePage';
 import OrderPage from './pages/OrderPage';
 import BreakFastOrderPage from './pages/BreakfastOrderPage';
 import LoginPage from './pages/LoginPage';
+import SummaryPage from './pages/SummaryPage';
 
 import DashboardPage from './pages/private/DashboardPage';
 import NewsPage from './pages/private/NewsPage';
@@ -31,6 +32,7 @@ function App() {
               path="/breakfastOrder"
               component={BreakFastOrderPage}
             />
+            <Route exact path="/summary" component={SummaryPage} />
             <Route exact path="/login" component={LoginPage} />
             <PrivateRoute exact path="/dashboard" component={DashboardPage} />
             <PrivateRoute exact path="/dashboard/meals" component={MealsPage} />
