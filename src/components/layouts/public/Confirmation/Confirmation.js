@@ -61,20 +61,20 @@ const Confirmation = ({ customerInfo, totalPrice, selectedForm }) => {
     </ConfirmationContainer>
   );
 
-  function renderPickUp() {
-    return (
-      <p className="name">
-        Objednávka na jméno <span>{customerInfo.name}</span>
-        pro Vás bude připravena do 15 minut k vyzvednutí u výdejního okna.
-      </p>
-    );
-  }
-
   function renderDelivery() {
     return (
       <p className="name">
         Objednávka na jméno <span>{customerInfo.name}</span>
         bude doručena na Vámi zadanou adresu.
+      </p>
+    );
+  }
+
+  function renderPickUp() {
+    return (
+      <p className="name">
+        Objednávka na jméno <span>{customerInfo.name}</span>
+        pro Vás bude připravena do 15 minut k vyzvednutí u výdejního okna.
       </p>
     );
   }

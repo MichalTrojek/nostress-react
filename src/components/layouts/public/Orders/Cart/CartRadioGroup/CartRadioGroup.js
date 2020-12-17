@@ -31,7 +31,7 @@ const CartRadioGroup = ({ selectForm }) => {
           checked={selectedForm === DELIVERY_FORM}
           onChange={(event) => setSelectedForm(event.target.value)}
         />
-        Vyzvednu osobně
+        Doručit na adresu
       </label>
 
       <label>
@@ -42,7 +42,7 @@ const CartRadioGroup = ({ selectForm }) => {
           checked={selectedForm === PICKUP_FORM}
           onChange={(event) => setSelectedForm(event.target.value)}
         />
-        Doručit na adresu
+        Vyzvednu osobně
       </label>
     </CartRadioGroupContainer>
   );
