@@ -142,6 +142,7 @@ const Summary = ({ items = [], totalPrice, saveCustomerInfo }) => {
     console.log(name);
     console.log(phoneNumber);
     console.log(email);
+    console.log(text);
   }
 };
 
