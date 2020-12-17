@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import logo from '../../../../img/logo.png';
+import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const ConfirmationContainer = styled.div`
   padding: 1rem;
@@ -30,7 +32,6 @@ const ConfirmationContainer = styled.div`
   }
 
   .payment {
-    text-align: center;
   }
 
   h1 {
@@ -48,6 +49,20 @@ const Logo = styled.img`
 `;
 
 const Confirmation = ({ customerInfo, totalPrice, selectedForm }) => {
+  const history = useHistory();
+
+  useEffect(() => {
+    const unlisten = history.listen((newLocation, action) => {
+      if (action === 'POP') {
+        history.push('/');
+      }
+    });
+
+    return function cleanUp() {
+      unlisten();
+    };
+  }, [history]);
+
   return (
     <ConfirmationContainer>
       <Logo src={logo} alt="No Stress Logo" />
@@ -56,12 +71,12 @@ const Confirmation = ({ customerInfo, totalPrice, selectedForm }) => {
       {selectedForm === 'DELIVERY_FORM' ? renderDelivery() : renderPickUp()}
       <p className="price">
         Při převzetí budete platit <span>{totalPrice},-</span> Kč.{' '}
-        {selectedForm === 'DELIVERY_FORM' ? (
-          <p className="payment">(Lze platit pouze hotově)</p>
-        ) : (
-          <p className="payment">(Lze platit hotově i kartou)</p>
-        )}
       </p>
+      {selectedForm === 'DELIVERY_FORM' ? (
+        <p className="payment">(Lze platit pouze hotově)</p>
+      ) : (
+        <p className="payment">(Lze platit hotově i kartou)</p>
+      )}
     </ConfirmationContainer>
   );
 

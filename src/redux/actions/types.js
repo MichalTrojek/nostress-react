@@ -30,3 +30,5 @@ export const SAVE_CUSTOMER_INFO = 'SAVE_CUSTOMER_INFO';
 export const CREATE_ORDER = 'CREATE_ORDER';
 
 export const SELECT_FORM = 'SELECT_FORM';
+
+export const GET_ALL_ORDERS = 'GET_ALL_ORDERS';
