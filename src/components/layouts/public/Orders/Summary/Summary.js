@@ -45,6 +45,7 @@ const Summary = ({ items = [], totalPrice, saveCustomerInfo }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [text, setText] = useState('');
   const history = useHistory();
 
   useEffect(() => {
@@ -71,10 +72,10 @@ const Summary = ({ items = [], totalPrice, saveCustomerInfo }) => {
             placeholder="Jméno"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            id="mondayInput"
+            id="nameInput"
             required
           />
-          <label htmlFor="mondayInput">Jméno</label>
+          <label htmlFor="nameInput">Jméno</label>
         </FormGroup>
         <FormGroup>
           <input
@@ -82,10 +83,10 @@ const Summary = ({ items = [], totalPrice, saveCustomerInfo }) => {
             placeholder="Email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            id="mondayInput"
+            id="emailInput"
             required
           />
-          <label htmlFor="mondayInput">Email</label>
+          <label htmlFor="emailInput">Email</label>
         </FormGroup>
         <FormGroup>
           <input
@@ -93,11 +94,24 @@ const Summary = ({ items = [], totalPrice, saveCustomerInfo }) => {
             placeholder="Telefon"
             value={phoneNumber}
             onChange={(event) => setPhoneNumber(event.target.value)}
-            id="mondayInput"
+            id="phoneInput"
             required
           />
-          <label htmlFor="mondayInput">Telefon</label>
+          <label htmlFor="phoneInput">Telefon</label>
         </FormGroup>
+        <label htmlFor="textInput">
+          Ostatní informace (Vaše adresa, upřesnění objednávky)
+        </label>
+        <textarea
+          className="textArea"
+          rows="10"
+          placeholder="Vložit text"
+          value={text}
+          onChange={(event) => setText(event.target.value)}
+          id="textInput"
+          required
+        />
+
         <Button primary type="submit">
           objednat
         </Button>

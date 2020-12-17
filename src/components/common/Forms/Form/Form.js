@@ -17,6 +17,13 @@ const Form = styled.form`
       margin: 0 1rem;
     }
   }
+
+  textarea {
+    border-radius: 5px;
+    padding: 1rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export default Form;
