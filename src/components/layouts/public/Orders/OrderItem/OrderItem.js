@@ -19,15 +19,14 @@ const OrderItemContainer = styled.div`
   margin-top: 1rem;
 
   @media only screen and (min-width: 768px) {
-    /* --width: 35rem; */
-    --width: ${(window.innerWidth - 60) / 2}px;
+    --width: 35rem;
     max-width: var(--width);
     min-width: var(--width);
     margin-left: 1rem;
     margin-right: 1rem;
   }
 
-  /* @media only screen and (min-width: 900px) {
+  @media only screen and (min-width: 900px) {
     --width: 42rem;
   }
 
@@ -36,20 +35,14 @@ const OrderItemContainer = styled.div`
   }
   @media only screen and (min-width: 1024px) {
     --width: 48rem;
-  } */
-
-  @media only screen and (min-width: 1200px) {
-    /* --width: 57rem; */
-    --width: ${(window.innerWidth - 80) / 3}px;
   }
-
-  /* @media only screen and (min-width: 1300px) {
+  @media only screen and (min-width: 1300px) {
     --width: 65rem;
-  }*/
-
-  @media only screen and (min-width: 1400px) {
-    --width: ${(window.innerWidth - 734) / 3}px;
   }
+  @media only screen and (min-width: 1300px) {
+    --width: 32rem;
+  }
+
   .name {
     grid-row: 1 / span 1;
     grid-column: 1 / -1;
