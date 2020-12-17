@@ -5,14 +5,13 @@ import Wrapper from '../common/Wrapper';
 
 import Confirmation from '../layouts/public/Confirmation';
 const ConfirmationPageBackground = styled(Background)`
-  min-width: 100vh;
+  min-height: 100vh;
 `;
 
 const ConfirmationPage = () => {
   return (
     <ConfirmationPageBackground>
       <Wrapper>
-        <h1>Potvrzení objednávky</h1>
         <Confirmation />
       </Wrapper>
     </ConfirmationPageBackground>
