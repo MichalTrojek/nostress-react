@@ -40,7 +40,6 @@ const OrderMainMenu = ({
       <MealListContainer>{renderMainMenu()}</MealListContainer>
       <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Dětské menu</h1>
       <MealListContainer>{renderChildMenu()}</MealListContainer>
-      <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Polévky</h1>
       {renderSoup(soup)}
     </OrderContainer>
   );
@@ -81,7 +80,14 @@ const OrderMainMenu = ({
 };
 
 function renderSoup(soup) {
-  return soup ? <OrderItem name={soup.name} price={soup.price} /> : <></>;
+  return soup.name.length > 0 ? (
+    <>
+      <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Polévky</h1>
+      <OrderItem name={soup.name} price={soup.price} />
+    </>
+  ) : (
+    <></>
+  );
 }
 
 function selectSoupByDay(day, soups) {
@@ -93,7 +99,7 @@ function selectSoupByDay(day, soups) {
     case 3:
       return soups.wednesday;
     case 4:
-      return soups.thurday;
+      return soups.thursday;
     case 5:
       return soups.friday;
     default:
