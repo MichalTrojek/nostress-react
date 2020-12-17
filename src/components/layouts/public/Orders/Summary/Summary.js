@@ -123,6 +123,7 @@ const Summary = ({ items = [], totalPrice, saveCustomerInfo }) => {
       name: name,
       phoneNumber: phoneNumber,
       email: email,
+      text: '',
     });
     console.log(name);
     console.log(phoneNumber);

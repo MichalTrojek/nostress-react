@@ -3,12 +3,14 @@ import {
   SELECT_FORM,
   REMOVE_FROM_ORDER,
   SET_TOTAL_PRICE,
+  SAVE_CUSTOMER_INFO,
 } from '../actions/types';
 
 const initializeState = {
   totalPrice: 0,
   selectedForm: '',
   items: [],
+  customerInfo: { name: '', phoneNumber: '', email: '', text: '' },
 };
 function orderReducer(state = initializeState, action) {
   switch (action.type) {
@@ -27,6 +29,8 @@ function orderReducer(state = initializeState, action) {
       return { ...state, selectedForm: action.payload };
     case SET_TOTAL_PRICE:
       return { ...state, totalPrice: action.payload };
+    case SAVE_CUSTOMER_INFO:
+      return { ...state, customerInfo: action.payload };
     default:
       return state;
   }
