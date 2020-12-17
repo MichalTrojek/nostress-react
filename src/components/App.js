@@ -9,6 +9,7 @@ import OrderPage from './pages/OrderPage';
 import BreakFastOrderPage from './pages/BreakfastOrderPage';
 import LoginPage from './pages/LoginPage';
 import SummaryPage from './pages/SummaryPage';
+import ConfirmationPage from './pages/ConfirmationPage';
 
 import DashboardPage from './pages/private/DashboardPage';
 import NewsPage from './pages/private/NewsPage';
@@ -29,9 +30,10 @@ function App() {
             <Route exact path="/order" component={OrderPage} />
             <Route
               exact
-              path="/breakfastOrder"
-              component={BreakFastOrderPage}
+              path="/orderConfirmation"
+              component={ConfirmationPage}
             />
+            <Route exact path="/summary" component={SummaryPage} />
             <Route exact path="/summary" component={SummaryPage} />
             <Route exact path="/login" component={LoginPage} />
             <PrivateRoute exact path="/dashboard" component={DashboardPage} />

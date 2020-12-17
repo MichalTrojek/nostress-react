@@ -143,6 +143,7 @@ const Summary = ({ items = [], totalPrice, saveCustomerInfo, createOrder }) => {
       };
       saveCustomerInfo(order);
       createOrder(order);
+      history.push('/orderConfirmation');
     }
   }
 };
