@@ -5,6 +5,13 @@ import { useState } from 'react';
 const SummaryBox = styled.div`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
+  display: grid;
+  grid-row-gap: 1rem;
+  .totalPrice {
+    color: var(--color-tertiary);
+    font-weight: bold;
+    justify-self: flex-end;
+  }
 `;
 const OrderedBox = styled.div`
   display: grid;
@@ -27,9 +34,7 @@ const OrderedBox = styled.div`
     color: var(--color-tertiary);
   }
 `;
-const Summary = ({ items }) => {
-  const [totalPrice, setTotalPrice] = useState(0);
-
+const Summary = ({ items, totalPrice }) => {
   return (
     <>
       <h1>Souhrn objednávky</h1>
@@ -38,6 +43,7 @@ const Summary = ({ items }) => {
         <p>Email:</p>
         <p>Adressa:</p>
         {renderOrderedItems()}
+        <p className="totalPrice">Cena celkem: {totalPrice},-</p>
       </SummaryBox>
     </>
   );
@@ -58,6 +64,7 @@ const Summary = ({ items }) => {
 function mapStateToProps(state, ownProps) {
   return {
     items: state.order.items,
+    totalPrice: state.order.totalPrice,
   };
 }
 
