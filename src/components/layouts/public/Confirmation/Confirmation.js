@@ -8,6 +8,10 @@ const ConfirmationContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
+  h1 {
+    text-align: center;
+  }
+
   .ready {
     padding: 3rem 0;
   }
