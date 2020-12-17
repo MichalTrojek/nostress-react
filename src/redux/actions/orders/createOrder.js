@@ -11,7 +11,6 @@ function createOrder(order) {
         type: CREATE_ORDER,
         payload: { ...order, id: id },
       });
-      showSuccessToast('Objednávka byla odeslána');
     } else {
       showErrorToast('Objednávku se nepodařilo odeslat');
     }
