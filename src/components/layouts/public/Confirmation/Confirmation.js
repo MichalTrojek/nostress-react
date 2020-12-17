@@ -25,6 +25,10 @@ const ConfirmationContainer = styled.div`
     color: var(--color-tertiary);
   }
 
+  .payment {
+    text-align: center;
+  }
+
   h1 {
     padding: 2rem 0;
   }
@@ -47,7 +51,12 @@ const Confirmation = ({ customerInfo, totalPrice, selectedForm }) => {
       <p className="ready">Vaše objednávka se již připravuje.</p>
       {selectedForm === 'DELIVERY_FORM' ? renderDelivery() : renderPickUp()}
       <p className="price">
-        Při převzetí budete platit <span>{totalPrice},-</span> Kč.
+        Při převzetí budete platit <span>{totalPrice},-</span> Kč.{' '}
+        {selectedForm === 'DELIVERY_FORM' ? (
+          <p className="payment">(Lze platit pouze hotově)</p>
+        ) : (
+          <p className="payment">(Lze platit hotově i kartou)</p>
+        )}
       </p>
     </ConfirmationContainer>
   );
@@ -56,7 +65,7 @@ const Confirmation = ({ customerInfo, totalPrice, selectedForm }) => {
     return (
       <p className="name">
         Objednávka na jméno <span>{customerInfo.name}</span>
-        pro Vás bude připravena do 15 minut k vyzvednutí u výdejního okna..
+        pro Vás bude připravena do 15 minut k vyzvednutí u výdejního okna.
       </p>
     );
   }
