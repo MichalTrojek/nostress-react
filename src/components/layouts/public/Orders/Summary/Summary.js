@@ -8,6 +8,7 @@ import FormGroup from '../../../../common/Forms/FormGroup';
 import Button from '../../../../common/Button';
 
 import saveCustomerInfo from '../../../../../redux/actions/orders/saveCustomerInfo';
+import createOrder from '../../../../../redux/actions/orders/createOrder';
 
 const SummaryBox = styled.div`
   border: 1px solid var(--color-tertiary);
@@ -41,7 +42,7 @@ const OrderedBox = styled.div`
     color: var(--color-tertiary);
   }
 `;
-const Summary = ({ items = [], totalPrice, saveCustomerInfo }) => {
+const Summary = ({ items = [], totalPrice, saveCustomerInfo, createOrder }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -133,16 +134,16 @@ const Summary = ({ items = [], totalPrice, saveCustomerInfo }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    saveCustomerInfo({
-      name: name,
-      phoneNumber: phoneNumber,
-      email: email,
-      text: '',
-    });
-    console.log(name);
-    console.log(phoneNumber);
-    console.log(email);
-    console.log(text);
+    if (items.length > 0) {
+      const order = {
+        name: name,
+        phoneNumber: phoneNumber,
+        email: email,
+        text: text,
+      };
+      saveCustomerInfo(order);
+      createOrder(order);
+    }
   }
 };
 
@@ -153,4 +154,6 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps, { saveCustomerInfo })(Summary);
+export default connect(mapStateToProps, { saveCustomerInfo, createOrder })(
+  Summary
+);
