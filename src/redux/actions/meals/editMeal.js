@@ -14,6 +14,8 @@ const editMenu = (editedMeal, getState) => {
       return editMenuByType(editedMeal, getState().menu.meals, 'meals');
     case 'isBreakfastMeal':
       return editMenuByType(editedMeal, getState().menu.breakfast, 'breakfast');
+    default:
+      return '';
   }
 };
 

@@ -1,15 +1,15 @@
-import { ADD_TO_ORDER } from '../types';
+import { UPDATE_ORDER } from '../types';
 
 function updateOrderToState(order) {
   return async (dispatch, getState) => {
     if (!order.isOrdered || order.amount === 0) {
       dispatch({
-        type: ADD_TO_ORDER,
+        type: UPDATE_ORDER,
         payload: deleteFromItems(order, getState),
       });
     } else {
       dispatch({
-        type: ADD_TO_ORDER,
+        type: UPDATE_ORDER,
         payload: addToItems(order, getState),
       });
     }

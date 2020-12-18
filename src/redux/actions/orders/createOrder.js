@@ -1,5 +1,5 @@
 import { CREATE_ORDER } from '../types';
-import { showSuccessToast, showErrorToast } from '../../../notifications/toast';
+import { showErrorToast } from '../../../notifications/toast';
 import createOrderApiCall from '../../../api/order/createOrderApiCall';
 
 function createOrder(order) {

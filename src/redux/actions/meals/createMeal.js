@@ -27,6 +27,8 @@ function addToMenuByType(newMeal, getState) {
       return addMealToMenu(newMeal, getState().menu.meals, 'meals');
     case 'isBreakfastMeal':
       return addMealToMenu(newMeal, getState().menu.breakfast, 'breakfast');
+    default:
+      return '';
   }
 }
 

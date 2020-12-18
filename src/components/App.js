@@ -6,7 +6,6 @@ import PrivateRoute from './PrivateRoute';
 
 import Home from './pages/HomePage';
 import OrderPage from './pages/OrderPage';
-import BreakFastOrderPage from './pages/BreakfastOrderPage';
 import LoginPage from './pages/LoginPage';
 import SummaryPage from './pages/SummaryPage';
 import ConfirmationPage from './pages/ConfirmationPage';
@@ -33,7 +32,7 @@ function App() {
               path="/orderConfirmation"
               component={ConfirmationPage}
             />
-            <Route exact path="/summary" component={SummaryPage} />
+
             <Route exact path="/summary" component={SummaryPage} />
             <Route exact path="/login" component={LoginPage} />
             <PrivateRoute exact path="/dashboard" component={DashboardPage} />

@@ -1,5 +1,5 @@
 import {
-  ADD_TO_ORDER,
+  UPDATE_ORDER,
   SELECT_FORM,
   SET_TOTAL_PRICE,
   SAVE_CUSTOMER_INFO,
@@ -17,7 +17,7 @@ const initializeState = {
 };
 function orderReducer(state = initializeState, action) {
   switch (action.type) {
-    case ADD_TO_ORDER:
+    case UPDATE_ORDER:
       return { ...state, items: action.payload };
     case SELECT_FORM:
       return { ...state, selectedForm: action.payload };

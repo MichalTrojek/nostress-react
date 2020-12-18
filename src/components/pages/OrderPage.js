@@ -31,7 +31,7 @@ const OrderPage = ({ items, orderingStarted }) => {
     } else {
       setIsOrderingAllowed(items.length > 0);
     }
-  }, [items, orderingStarted.status]);
+  }, [items, orderingStarted.status, history]);
 
   return (
     <OrderPageBackground>

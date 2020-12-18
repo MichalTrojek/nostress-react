@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Form from '../../../../common/Forms/Form';

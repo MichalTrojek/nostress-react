@@ -111,13 +111,15 @@ const OrderItem = ({ name, alergens, price, updateOrderToState, items }) => {
   const [amount, setAmount] = useState(1);
 
   useEffect(() => {
-    const currItem = items.filter((item) => item.name === name);
-    if (currItem[0]) {
-      console.log(currItem[0]);
-      setIsOrdered(true);
-      setAmount(currItem[0].amount);
+    restoreState();
+    function restoreState() {
+      const currItem = items.filter((item) => item.name === name);
+      if (currItem[0]) {
+        setIsOrdered(true);
+        setAmount(currItem[0].amount);
+      }
     }
-  }, []);
+  }, [items, name]);
 
   useEffect(() => {
     updateOrderToState({
