@@ -81,7 +81,6 @@ function mapStateToProps(state, ownProps) {
     meals: state.menu.meals,
     childMeals: state.menu.childMeals,
     soup: soup,
-    items: state.order.items,
   };
 }
 

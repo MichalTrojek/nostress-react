@@ -42,7 +42,13 @@ const OrderedBox = styled.div`
     color: var(--color-tertiary);
   }
 `;
-const Summary = ({ items = [], totalPrice, saveCustomerInfo, createOrder }) => {
+const Summary = ({
+  items = [],
+  totalPrice,
+  saveCustomerInfo,
+  createOrder,
+  hideSummary,
+}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -110,9 +116,21 @@ const Summary = ({ items = [], totalPrice, saveCustomerInfo, createOrder }) => {
         <Button primary type="submit">
           objednat
         </Button>
+        <Button
+          style={{ marginTop: '1rem' }}
+          primary
+          onClick={(e) => handleBackButton(e)}
+        >
+          Zpět
+        </Button>
       </Form>
     </>
   );
+
+  function handleBackButton(e) {
+    e.preventDefault();
+    hideSummary();
+  }
 
   function renderOrderedItems() {
     return items.map((item, index) => {
@@ -144,8 +162,8 @@ const Summary = ({ items = [], totalPrice, saveCustomerInfo, createOrder }) => {
 
 function mapStateToProps(state, ownProps) {
   return {
-    items: state.order.items,
     totalPrice: state.order.totalPrice,
+    items: state.order.items,
   };
 }
 

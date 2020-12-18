@@ -19,16 +19,7 @@ const initializeState = {
 function orderReducer(state = initializeState, action) {
   switch (action.type) {
     case ADD_TO_ORDER:
-      const newItems = state.items.filter(
-        (order) => order.name !== action.payload.name
-      );
-      newItems.push(action.payload);
-      return { ...state, items: newItems };
-    case REMOVE_FROM_ORDER:
-      return {
-        ...state,
-        items: state.items.filter((item) => item.name !== action.payload.name),
-      };
+      return { ...state, items: action.payload };
     case SELECT_FORM:
       return { ...state, selectedForm: action.payload };
     case SET_TOTAL_PRICE:

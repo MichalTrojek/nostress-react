@@ -40,7 +40,10 @@ const OrderPage = ({ items, orderingStarted }) => {
   );
 
   function renderSummary() {
-    return <Summary />;
+    return <Summary hideSummary={hideSummary} />;
+    function hideSummary() {
+      setShowSummary(false);
+    }
   }
 
   function renderMenuPicker() {

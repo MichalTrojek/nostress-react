@@ -4,7 +4,7 @@ import OrderItem from './OrderItem';
 
 import MealListContainer from './styles/MealListContainer';
 
-const OrderBreakfastMenu = ({ breakfast = [], items = [] }) => {
+const OrderBreakfastMenu = ({ breakfast = [] }) => {
   return (
     <>
       <h1>Snídaně</h1>

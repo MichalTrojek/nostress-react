@@ -33,6 +33,8 @@ const deleteMealFromMenu = (mealToDelete, getState) => {
         getState().menu.breakfast,
         'breakfast'
       );
+    default:
+      return '';
   }
 };
 

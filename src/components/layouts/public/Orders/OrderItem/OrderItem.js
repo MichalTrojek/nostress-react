@@ -5,8 +5,7 @@ import Button from '../../../../common/Button';
 
 import { connect } from 'react-redux';
 
-import addOrdersToState from '../../../../../redux/actions/orders/addOrdersToState';
-import removeOrderFromState from '../../../../../redux/actions/orders/removeOrderFromState';
+import updateOrderToState from '../../../../../redux/actions/orders/updateOrderToState';
 
 const OrderItemContainer = styled.div`
   display: grid;
@@ -107,39 +106,18 @@ const OrderItemContainer = styled.div`
   }
 `;
 
-const OrderItem = ({
-  name,
-  alergens,
-  price,
-  addOrdersToState,
-  removeOrderFromState,
-}) => {
+const OrderItem = ({ name, alergens, price, updateOrderToState }) => {
   const [isOrdered, setIsOrdered] = useState(false);
   const [amount, setAmount] = useState(1);
 
   useEffect(() => {
-    if (isOrdered && amount > 0) {
-      addOrdersToState({
-        name: name,
-        price: price,
-        amount: amount,
-      });
-    } else if (!isOrdered || amount === 0) {
-      setIsOrdered(false);
-      removeOrderFromState({
-        name: name,
-      });
-      setAmount(1);
-    }
-  }, [
-    amount,
-    isOrdered,
-    addOrdersToState,
-    removeOrderFromState,
-    name,
-    price,
-    alergens,
-  ]);
+    updateOrderToState({
+      name: name,
+      price: price,
+      amount: amount,
+      isOrdered: isOrdered,
+    });
+  }, [isOrdered, amount]);
 
   return (
     <OrderItemContainer>
@@ -170,6 +148,7 @@ const OrderItem = ({
 
   function stopOrdering() {
     setIsOrdered(false);
+    setAmount(1);
   }
 
   function increase() {
@@ -179,8 +158,10 @@ const OrderItem = ({
   }
 
   function decrease() {
-    if (amount > 0) {
+    if (amount > 1) {
       setAmount(amount - 1);
+    } else {
+      stopOrdering();
     }
   }
 
@@ -197,6 +178,6 @@ const OrderItem = ({
   }
 };
 
-export default connect(null, { addOrdersToState, removeOrderFromState })(
-  OrderItem
-);
+export default connect(null, {
+  updateOrderToState,
+})(OrderItem);
