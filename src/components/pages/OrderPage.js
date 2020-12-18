@@ -31,7 +31,7 @@ const OrderPage = ({ items, orderingStarted }) => {
     } else {
       setIsOrderingAllowed(items.length > 0);
     }
-  }, [items]);
+  }, [items, orderingStarted.status]);
 
   return (
     <OrderPageBackground>
@@ -76,6 +76,7 @@ const OrderPage = ({ items, orderingStarted }) => {
   function handleOrder() {
     if (isOrderingAllowed) {
       setShowSummary(true);
+      localStorage.setItem('items', JSON.stringify(items));
     } else {
       showInfoToast('Objednávka je prázdná');
     }

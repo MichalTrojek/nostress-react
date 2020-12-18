@@ -25,7 +25,7 @@ const Cart = ({ items = [], totalPrice, setTotalPrice }) => {
     });
     setTotalPrice(tempPrice);
     setTotalAmount(tempAmount);
-  }, [items]);
+  }, [items, setTotalPrice]);
 
   return (
     <CartContainer>

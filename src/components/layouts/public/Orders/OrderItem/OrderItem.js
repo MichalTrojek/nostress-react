@@ -106,9 +106,18 @@ const OrderItemContainer = styled.div`
   }
 `;
 
-const OrderItem = ({ name, alergens, price, updateOrderToState }) => {
+const OrderItem = ({ name, alergens, price, updateOrderToState, items }) => {
   const [isOrdered, setIsOrdered] = useState(false);
   const [amount, setAmount] = useState(1);
+
+  useEffect(() => {
+    const currItem = items.filter((item) => item.name === name);
+    if (currItem[0]) {
+      console.log(currItem[0]);
+      setIsOrdered(true);
+      setAmount(currItem[0].amount);
+    }
+  }, []);
 
   useEffect(() => {
     updateOrderToState({
@@ -117,7 +126,7 @@ const OrderItem = ({ name, alergens, price, updateOrderToState }) => {
       amount: amount,
       isOrdered: isOrdered,
     });
-  }, [isOrdered, amount]);
+  }, [amount, isOrdered, price, name, updateOrderToState]);
 
   return (
     <OrderItemContainer>
@@ -178,6 +187,11 @@ const OrderItem = ({ name, alergens, price, updateOrderToState }) => {
   }
 };
 
-export default connect(null, {
+function mapStateToProps(state, ownProps) {
+  return {
+    items: state.order.items,
+  };
+}
+export default connect(mapStateToProps, {
   updateOrderToState,
 })(OrderItem);
