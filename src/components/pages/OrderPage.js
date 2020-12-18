@@ -23,9 +23,14 @@ const OrderPageBackground = styled.section`
 const OrderPage = ({ items, orderingStarted }) => {
   const [isOrderingAllowed, setIsOrderingAllowed] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
-    setIsOrderingAllowed(items.length > 0);
+    if (!orderingStarted.status) {
+      history.push('/');
+    } else {
+      setIsOrderingAllowed(items.length > 0);
+    }
   }, [items]);
 
   return (
