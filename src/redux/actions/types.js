@@ -22,7 +22,7 @@ export const ORDERS_DECREMENT = 'ORDERS_DECREMENT';
 
 export const ADD_TO_ORDER = 'ADD_TO_ORDER';
 export const REMOVE_FROM_ORDER = 'REMOVE_FROM_ORDER';
-export const SELECT_MENU = 'SELECT_MENU';
+
 export const SET_TOTAL_PRICE = 'SET_TOTAL_PRICE';
 
 export const SAVE_CUSTOMER_INFO = 'SAVE_CUSTOMER_INFO';
@@ -32,3 +32,5 @@ export const CREATE_ORDER = 'CREATE_ORDER';
 export const SELECT_FORM = 'SELECT_FORM';
 
 export const GET_ALL_ORDERS = 'GET_ALL_ORDERS';
+
+export const START_ORDERING = 'START_ORDERING';

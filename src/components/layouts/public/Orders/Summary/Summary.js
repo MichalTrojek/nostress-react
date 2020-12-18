@@ -49,12 +49,6 @@ const Summary = ({ items = [], totalPrice, saveCustomerInfo, createOrder }) => {
   const [text, setText] = useState('');
   const history = useHistory();
 
-  useEffect(() => {
-    if (items.length === 0) {
-      history.push('/');
-    }
-  }, [items, history]);
-
   return (
     <>
       <h1>Souhrn objednávky</h1>

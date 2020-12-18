@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import BreakfastOrderButton from '../../../../common/BreakfastOrderButton';
+import Button from '../../../../common/Button';
 import Label from '../../../../common/Label';
 
 import MealsList from '../Lists/MenuMealsList';
@@ -10,6 +10,11 @@ import InfoBox from '../InfoBox';
 
 import MealsMenuContainer from '../MealsMenuContainer';
 import MealsMenuContent from '../MealsMenuContent';
+
+import { useHistory } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import startOrdering from '../../../../../redux/actions/orders/startOrdering';
 
 const BreakFastRow = styled.div`
   display: flex;
@@ -32,7 +37,9 @@ const BreakFastMenuContainer = styled(MealsMenuContainer)`
   padding-bottom: 3rem;
 `;
 
-const BreakFastMenu = ({ breakfast }) => {
+const BreakFastMenu = ({ breakfast, startOrdering }) => {
+  const history = useHistory();
+
   const weeklyData = {
     text:
       'Nově nabízíme výborné snídaně nebo svačiny za super ceny. K dispozici také na objednání rozvozu až domů nebo „take away“ z výdejního okénka. Objednej si domů nebo do kanceláře čerstvou snídani nebo svačinu!',
@@ -44,7 +51,9 @@ const BreakFastMenu = ({ breakfast }) => {
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
       <BreakFastRow>
         <Label text="KÁVA ZDARMA ke každé snídani" />
-        <BreakfastOrderButton />
+        <Button primary onClick={handleStartingOrder}>
+          Objednat snídani
+        </Button>
       </BreakFastRow>
       <MealsMenuContent>
         <div className="leftside">
@@ -61,6 +70,12 @@ const BreakFastMenu = ({ breakfast }) => {
       </MealsMenuContent>
     </BreakFastMenuContainer>
   );
+
+  function handleStartingOrder() {
+    window.scrollTo(0, 0);
+    history.push('/order');
+    startOrdering({ status: true, orderType: 'BreakfastMenu' });
+  }
 };
 
-export default BreakFastMenu;
+export default connect(null, { startOrdering })(BreakFastMenu);

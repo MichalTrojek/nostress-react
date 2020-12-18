@@ -1,4 +1,4 @@
-import OrderButton from '../../../../common/OrderButton';
+import Button from '../../../../common/Button';
 import Label from '../../../../common/Label';
 import Row from '../../../../common/Row';
 
@@ -11,7 +11,14 @@ import InfoBox from '../InfoBox';
 import MealsMenuContainer from '../MealsMenuContainer';
 import MealsMenuContent from '../MealsMenuContent';
 
-const WeeklyMenu = ({ meals, childMeals }) => {
+import { connect } from 'react-redux';
+import startOrdering from '../../../../../redux/actions/orders/startOrdering';
+
+import { useHistory } from 'react-router-dom';
+
+const WeeklyMenu = ({ meals, childMeals, startOrdering }) => {
+  const history = useHistory();
+
   const weeklyData = {
     text:
       'Polední Menu se sklada z hlavního chodu a polévky a je možné si ho objednat předem k vyzvednutí na restauraci nebo rozvozem k Vám domů. Jídlo Vám rádi dovezeme domů vždy čerstvé. Objednejte si1',
@@ -23,7 +30,9 @@ const WeeklyMenu = ({ meals, childMeals }) => {
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
       <Row>
         <Label text={getDateText()} />
-        <OrderButton />
+        <Button primary onClick={handleStartingOrder}>
+          Objednat
+        </Button>
       </Row>
       <MealsMenuContent>
         <div className="leftside">
@@ -42,6 +51,13 @@ const WeeklyMenu = ({ meals, childMeals }) => {
       </MealsMenuContent>
     </MealsMenuContainer>
   );
+
+  function handleStartingOrder() {
+    console.log('clicked');
+    window.scrollTo(0, 0);
+    history.push('/order');
+    startOrdering({ status: true, orderType: 'MainMenu' });
+  }
 };
 
 function getDateText() {
@@ -53,4 +69,4 @@ function getDateText() {
   return `${monday} - ${friday}`;
 }
 
-export default WeeklyMenu;
+export default connect(null, { startOrdering })(WeeklyMenu);
