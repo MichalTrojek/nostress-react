@@ -5,7 +5,6 @@ import FormGroup from '../../../common/Forms/FormGroup';
 import { useAuth } from '../../../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import InfoLabel from '../../../common/Label/InfoBox';
 
 const LoginBackground = styled.div`
   background-color: black;
