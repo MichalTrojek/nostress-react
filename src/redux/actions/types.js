@@ -24,6 +24,7 @@ export const UPDATE_ORDER = 'UPDATE_ORDER';
 export const SET_TOTAL_PRICE = 'SET_TOTAL_PRICE';
 export const SAVE_CUSTOMER_INFO = 'SAVE_CUSTOMER_INFO';
 
+export const FETCH_ORDERS = 'FETCH_ORDERS';
 export const CREATE_ORDER = 'CREATE_ORDER';
 export const SELECT_FORM = 'SELECT_FORM';
 
