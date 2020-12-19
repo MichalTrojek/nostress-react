@@ -57,6 +57,7 @@ const SideMenu = ({ menuItems, open, setOpen, handleLogOut }) => {
             return (
               <SideMenuLink
                 key={index}
+                to=""
                 onClick={() => {
                   setOpen(!open);
                   handleLogOut();
