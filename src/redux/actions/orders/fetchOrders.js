@@ -3,10 +3,10 @@ import { FETCH_ORDERS } from '../types';
 function fetchOrders() {
   return async (dispatch, getState) => {
     const data = '';
-    return {
+    dispatch({
       type: FETCH_ORDERS,
       payload: data,
-    };
+    });
   };
 }
 
