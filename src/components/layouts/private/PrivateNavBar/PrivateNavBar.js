@@ -13,9 +13,9 @@ import PrivateNavBarMenu from './PrivateNavBarMenu';
 
 const MENU_ITEMS = [
   { name: 'Objednávky', href: '/dashboard/orders' },
-  { name: 'Editace Menu', href: '/dashboard/meals' },
-  { name: 'Editace Polivek', href: '/dashboard/soups' },
-  { name: 'Editace Novinek', href: '/dashboard/news' },
+  { name: 'Editor Menu', href: '/dashboard/meals' },
+  { name: 'Editor Polivek', href: '/dashboard/soups' },
+  { name: 'Editor Novinek', href: '/dashboard/news' },
   { name: 'Odhlásit se', href: 'logout' },
 ];
 
