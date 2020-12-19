@@ -4,11 +4,11 @@ import { GlobalStyle } from '../globalStyles';
 import { AuthProvider } from '../contexts/AuthContext';
 import PrivateRoute from './PrivateRoute';
 
-import Home from './pages/HomePage';
-import OrderPage from './pages/OrderPage';
-import LoginPage from './pages/LoginPage';
-import SummaryPage from './pages/SummaryPage';
-import ConfirmationPage from './pages/ConfirmationPage';
+import Home from './pages/public/HomePage';
+import OrderPage from './pages/public/OrderPage';
+import LoginPage from './pages/public/LoginPage';
+import SummaryPage from './pages/public/SummaryPage';
+import ConfirmationPage from './pages/public/ConfirmationPage';
 
 import DashboardPage from './pages/private/DashboardPage';
 import NewsPage from './pages/private/NewsPage';
