@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import { useAuth } from '../../../../contexts/AuthContext';
+import { useHistory } from 'react-router-dom';
+import { showErrorToast } from '../../../../notifications/toast';
+
 import logo from '../../../../img/logo.png';
 
 import Burger from '../../../common/Burger';
 import SideMenuStyled from '../../../common/SideMenu';
-import NavBarMenu from './NavBarMenu';
+import PrivateNavBarMenu from './PrivateNavBarMenu';
 
 const MENU_ITEMS = [
   { name: 'Objednávky', href: '/dashboard/orders' },
   { name: 'Editace Menu', href: '/dashboard/meals' },
   { name: 'Editace Polivek', href: '/dashboard/soups' },
   { name: 'Editace Novinek', href: '/dashboard/news' },
+  { name: 'Odhlásit se', href: 'logout' },
 ];
 
 const NavBarBackground = styled.header`
   background: rgba(0, 0, 0, 0.9);
-  width: 100vw;
   min-height: 8rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999999999999;
 `;
 
 const NavBarWrapper = styled.div`
@@ -45,20 +44,39 @@ const NavBarLogo = styled.img`
   }
 `;
 
-const PublicNavBar = () => {
+const PrivateNavBar = () => {
   const [open, setOpen] = useState(false);
+
+  const { logout } = useAuth();
+  const history = useHistory();
   return (
     <>
       <NavBarBackground>
         <NavBarWrapper className="navigation">
           <NavBarLogo src={logo} alt="No Stress Logo" />
-          <NavBarMenu menuItems={MENU_ITEMS} />
+          <PrivateNavBarMenu
+            menuItems={MENU_ITEMS}
+            handleLogOut={handleLogOut}
+          />
           <Burger open={open} setOpen={setOpen} />
         </NavBarWrapper>
       </NavBarBackground>
-      <SideMenuStyled open={open} setOpen={setOpen} menuItems={MENU_ITEMS} />
+      <SideMenuStyled
+        open={open}
+        setOpen={setOpen}
+        menuItems={MENU_ITEMS}
+        handleLogOut={handleLogOut}
+      />
     </>
   );
+  async function handleLogOut() {
+    try {
+      await logout();
+      history.push('/login');
+    } catch {
+      showErrorToast('Odhlášení se nezdařilo');
+    }
+  }
 };
 
-export default PublicNavBar;
+export default PrivateNavBar;

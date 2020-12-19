@@ -2,7 +2,7 @@ import NewsEditor from '../../layouts/private/NewsEditor';
 import NewsList from '../../layouts/private/NewsList';
 import styled from 'styled-components';
 import { useState } from 'react';
-
+import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 const NewsPageBackground = styled.div`
   background-color: black;
   min-height: 100vh;
@@ -19,6 +19,7 @@ const NewsPage = () => {
   return (
     <NewsPageBackground>
       <NewsPageWrapper>
+        <PrivateNavBar />
         <NewsEditor
           isEditModeEnabled={isEditModeEnabled}
           setIsEditModeEnabled={setIsEditModeEnabled}

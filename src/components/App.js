@@ -35,7 +35,11 @@ function App() {
 
             <Route exact path="/summary" component={SummaryPage} />
             <Route exact path="/login" component={LoginPage} />
-            <PrivateRoute exact path="/dashboard" component={DashboardPage} />
+            <PrivateRoute
+              exact
+              path="/dashboard/orders"
+              component={DashboardPage}
+            />
             <PrivateRoute exact path="/dashboard/meals" component={MealsPage} />
             <PrivateRoute exact path="/dashboard/soups" component={SoupsPage} />
             <PrivateRoute exact path="/dashboard/news" component={NewsPage} />

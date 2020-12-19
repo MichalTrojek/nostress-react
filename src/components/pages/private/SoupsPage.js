@@ -8,6 +8,8 @@ import SoupsForm from '../../layouts/private/SoupsForm';
 
 import fetchSoups from '../../../redux/actions/soups/fetchSoups';
 
+import PrivateNavBar from '../../layouts/private/PrivateNavBar';
+
 const SoupsPageBackground = styled(Background)`
   min-height: 100vh;
 `;
@@ -22,6 +24,7 @@ const SoupsPage = ({ fetchSoups, fetchedData, soups }) => {
   return (
     <SoupsPageBackground>
       <Wrapper>
+        <PrivateNavBar />
         <h1>Tvorba polévkoho menu</h1>
         <SoupsForm soups={soups} />
       </Wrapper>

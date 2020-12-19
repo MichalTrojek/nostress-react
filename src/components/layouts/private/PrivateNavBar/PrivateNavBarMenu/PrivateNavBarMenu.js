@@ -32,26 +32,34 @@ const NavBarMenuItemList = styled(Link)`
   }
 `;
 
-const NavBarMenu = ({ menuItems }) => {
+const PrivateNavBarMenu = ({ menuItems, handleLogOut }) => {
   return (
     <nav>
       <NavBarMenuList>
         {menuItems.map((item, index) => {
-          return (
-            <NavBarMenuItemList
-              key={index}
-              to={item.href}
-              spy={true}
-              smooth={true}
-              offset={-80}
-            >
-              <NavBarMenuItem>{item.name.toLocaleUpperCase()}</NavBarMenuItem>
-            </NavBarMenuItemList>
-          );
+          if (item.href.includes('logout')) {
+            return (
+              <NavBarMenuItemList key={index} to="" onClick={handleLogOut}>
+                <NavBarMenuItem>{item.name.toLocaleUpperCase()}</NavBarMenuItem>
+              </NavBarMenuItemList>
+            );
+          } else {
+            return (
+              <NavBarMenuItemList
+                key={index}
+                to={item.href}
+                spy="true"
+                smooth="true"
+                offset={-80}
+              >
+                <NavBarMenuItem>{item.name.toLocaleUpperCase()}</NavBarMenuItem>
+              </NavBarMenuItemList>
+            );
+          }
         })}
       </NavBarMenuList>
     </nav>
   );
 };
 
-export default NavBarMenu;
+export default PrivateNavBarMenu;

@@ -44,7 +44,7 @@ const SideMenuLink = styled(Link)`
   flex-direction: column;
 `;
 
-const SideMenu = ({ menuItems, open, setOpen }) => {
+const SideMenu = ({ menuItems, open, setOpen, handleLogOut }) => {
   return (
     <SideMenuStyled open={open}>
       <ul>
@@ -52,19 +52,33 @@ const SideMenu = ({ menuItems, open, setOpen }) => {
           const path = item.href.includes('dashboard')
             ? item.href
             : item.href.replace('/', '');
-          console.log(path);
-          return (
-            <SideMenuLink
-              key={index}
-              to={path}
-              spy={true}
-              smooth={true}
-              offset={-80}
-              onClick={() => setOpen(!open)}
-            >
-              <SideMenuItem>{item.name}</SideMenuItem>
-            </SideMenuLink>
-          );
+
+          if (item.href.includes('logout')) {
+            return (
+              <SideMenuLink
+                key={index}
+                onClick={() => {
+                  setOpen(!open);
+                  handleLogOut();
+                }}
+              >
+                <SideMenuItem>{item.name}</SideMenuItem>
+              </SideMenuLink>
+            );
+          } else {
+            return (
+              <SideMenuLink
+                key={index}
+                to={path}
+                spy="true"
+                smooth="true"
+                offset={-80}
+                onClick={() => setOpen(!open)}
+              >
+                <SideMenuItem>{item.name}</SideMenuItem>
+              </SideMenuLink>
+            );
+          }
         })}
       </ul>
     </SideMenuStyled>

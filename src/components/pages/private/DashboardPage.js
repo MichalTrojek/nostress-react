@@ -1,71 +1,25 @@
 import PageLayout from '../../PageLayout';
-import Button from '../../common/Button';
-import { useAuth } from '../../../contexts/AuthContext';
-import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { showErrorToast } from '../../../notifications/toast';
 import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 
-const DashboardBackground = styled.section`
+import Wrapper from '../../common/Wrapper';
+import Background from '../../common/Background';
+
+const DashboardBackground = styled(Background)`
   background-color: black;
-  padding: 1rem;
-`;
-
-const DashboardWrapper = styled.div`
-  max-width: var(--max-width);
-  height: 100vh;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  max-width: 40rem;
-
-  Button {
-    padding: 3rem;
-    @media only screen and (min-width: 375px) {
-      padding: 4rem;
-      font-size: 1.8rem;
-    }
-  }
+  min-height: 100vh;
 `;
 
 const DashboardPage = () => {
-  const { logout } = useAuth();
-  const history = useHistory();
-
   return (
     <PageLayout>
       <DashboardBackground>
-        <DashboardWrapper>
+        <Wrapper>
           <PrivateNavBar />
-        </DashboardWrapper>
+        </Wrapper>
       </DashboardBackground>
     </PageLayout>
   );
-
-  async function handleLogOut() {
-    try {
-      await logout();
-      history.push('/login');
-    } catch {
-      showErrorToast('Odhlášení se nezdařilo');
-    }
-  }
 };
 
 export default DashboardPage;
-
-{
-  /* <Button primary onClick={handleLogOut}>
-Odhlasit se
-</Button>
-<Button primary onClick={() => history.push('/dashboard/news')}>
-Přidat novinky
-</Button>
-<Button primary onClick={() => history.push('/dashboard/meals')}>
-Upravit Menu
-</Button>
-<Button primary onClick={() => history.push('/dashboard/soups')}>
-Upravit menu polívek
-</Button> */
-}
