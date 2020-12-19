@@ -3,17 +3,16 @@ import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import Wrapper from '../common/Wrapper';
-import Button from '../common/Button';
+import Wrapper from '../../common/Wrapper';
+import Button from '../../common/Button';
 
-import Summary from '../layouts/public/Orders/Summary';
+import OrderBreakfastMenu from '../../layouts/public/Orders/OrderBreakfastMenu';
+import OrderContainer from '../../layouts/public/Orders/styles/OrderContainer';
+import OrderMainMenu from '../../layouts/public/Orders/OrderMainMenu';
+import Summary from '../../layouts/public/Orders/Summary';
+import Cart from '../../layouts/public/Orders/Cart';
 
-import OrderMainMenu from '../layouts/public/Orders/OrderMainMenu';
-import OrderBreakfastMenu from '../layouts/public/Orders/OrderBreakfastMenu';
-import Cart from '../layouts/public/Orders/Cart';
-import OrderContainer from '../layouts/public/Orders/styles/OrderContainer';
-
-import { showInfoToast } from '../../notifications/toast';
+import { showInfoToast } from '../../../notifications/toast';
 
 const OrderPageBackground = styled.section`
   background-color: black;
