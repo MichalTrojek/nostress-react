@@ -4,6 +4,7 @@ import { useAuth } from '../../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { showErrorToast } from '../../../notifications/toast';
+import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 
 const DashboardBackground = styled.section`
   background-color: black;
@@ -36,18 +37,7 @@ const DashboardPage = () => {
     <PageLayout>
       <DashboardBackground>
         <DashboardWrapper>
-          <Button primary onClick={handleLogOut}>
-            Odhlasit se
-          </Button>
-          <Button primary onClick={() => history.push('/dashboard/news')}>
-            Přidat novinky
-          </Button>
-          <Button primary onClick={() => history.push('/dashboard/meals')}>
-            Upravit Menu
-          </Button>
-          <Button primary onClick={() => history.push('/dashboard/soups')}>
-            Upravit menu polívek
-          </Button>
+          <PrivateNavBar />
         </DashboardWrapper>
       </DashboardBackground>
     </PageLayout>
@@ -64,3 +54,18 @@ const DashboardPage = () => {
 };
 
 export default DashboardPage;
+
+{
+  /* <Button primary onClick={handleLogOut}>
+Odhlasit se
+</Button>
+<Button primary onClick={() => history.push('/dashboard/news')}>
+Přidat novinky
+</Button>
+<Button primary onClick={() => history.push('/dashboard/meals')}>
+Upravit Menu
+</Button>
+<Button primary onClick={() => history.push('/dashboard/soups')}>
+Upravit menu polívek
+</Button> */
+}

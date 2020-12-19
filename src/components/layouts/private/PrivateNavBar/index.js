@@ -1,2 +1,2 @@
-import PrivateNavbar from './PrivateNavbar';
-export default PrivateNavbar;
+import PrivateNavBar from './PrivateNavBar';
+export default PrivateNavBar;

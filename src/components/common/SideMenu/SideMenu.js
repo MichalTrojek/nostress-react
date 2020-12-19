@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 
 const SideMenuStyled = styled.nav`
   display: flex;
@@ -49,10 +49,14 @@ const SideMenu = ({ menuItems, open, setOpen }) => {
     <SideMenuStyled open={open}>
       <ul>
         {menuItems.map((item, index) => {
+          const path = item.href.includes('dashboard')
+            ? item.href
+            : item.href.replace('/', '');
+          console.log(path);
           return (
             <SideMenuLink
               key={index}
-              to={item.href.replace('/', '')}
+              to={path}
               spy={true}
               smooth={true}
               offset={-80}
