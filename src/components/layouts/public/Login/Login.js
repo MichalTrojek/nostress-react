@@ -77,7 +77,7 @@ const Login = () => {
             <Button type="submit" primary>
               Přihlásít{' '}
             </Button>
-            {error && <InfoLabel text={error} />}
+            <p style={{ textAlign: 'center' }}>{error ? error : ''}</p>
           </Form>
         </LoginWrapper>
       </LoginBackground>
