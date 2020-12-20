@@ -18,6 +18,10 @@ const DashboardBackground = styled(Background)`
 const DashboardPage = ({ fetchOrders }) => {
   useEffect(() => {
     fetchOrders();
+
+    // () => {
+    //   this.unsubscribe();
+    // };
   }, [fetchOrders]);
 
   return (
