@@ -4,19 +4,18 @@ import styled from 'styled-components';
 import PageLayout from '../../PageLayout';
 import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 
+import OrdersContainer from '../../layouts/private/CustomerOrders';
 import Wrapper from '../../common/Wrapper';
 import Background from '../../common/Background';
 
 import { db } from '../../../firebase';
 
-const DashboardBackground = styled(Background)`
+const CustomerOrdersPageBackground = styled(Background)`
   background-color: black;
   min-height: 100vh;
 `;
 
-const OrderItem = styled.div``;
-
-const DashboardPage = () => {
+const CustomerOrdersPage = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -34,22 +33,15 @@ const DashboardPage = () => {
 
   return (
     <PageLayout>
-      <DashboardBackground>
+      <CustomerOrdersPageBackground>
         <Wrapper>
           <PrivateNavBar />
           <h1>Objednávky</h1>
-          {orders.map((item) => {
-            return (
-              <OrderItem>
-                <p>Zákazník: {item.name}</p>
-                <p>Poznámka" {item.text}</p>
-              </OrderItem>
-            );
-          })}
+          <OrdersContainer orders={orders}></OrdersContainer>
         </Wrapper>
-      </DashboardBackground>
+      </CustomerOrdersPageBackground>
     </PageLayout>
   );
 };
 
-export default DashboardPage;
+export default CustomerOrdersPage;
