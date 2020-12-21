@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 
 import PageLayout from '../../PageLayout';
 import PrivateNavBar from '../../layouts/private/PrivateNavBar';
@@ -8,21 +7,28 @@ import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 import Wrapper from '../../common/Wrapper';
 import Background from '../../common/Background';
 
-import fetchOrders from '../../../redux/actions/orders/fetchOrders';
+import { db } from '../../../firebase';
 
 const DashboardBackground = styled(Background)`
   background-color: black;
   min-height: 100vh;
 `;
 
-const DashboardPage = ({ fetchOrders }) => {
-  useEffect(() => {
-    fetchOrders();
+const DashboardPage = () => {
+  const [orders, setOrders] = useState([]);
 
-    // () => {
-    //   this.unsubscribe();
-    // };
-  }, [fetchOrders]);
+  useEffect(() => {
+    const unsubscribe = db.collection('orders').onSnapshot((onSnapshot) => {
+      const orders = [];
+      onSnapshot.forEach((doc) => {
+        orders.push(doc.data());
+      });
+      setOrders(orders);
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   return (
     <PageLayout>
@@ -30,10 +36,13 @@ const DashboardPage = ({ fetchOrders }) => {
         <Wrapper>
           <PrivateNavBar />
           <h1>Objednávky</h1>
+          {orders.map((item) => {
+            return <p>{item.name}</p>;
+          })}
         </Wrapper>
       </DashboardBackground>
     </PageLayout>
   );
 };
 
-export default connect(null, { fetchOrders })(DashboardPage);
+export default DashboardPage;

@@ -5,7 +5,6 @@ import createOrderApiCall from '../../../api/order/createOrderApiCall';
 function createOrder(order) {
   return async (dispatch, getState) => {
     const id = await createOrderApiCall(order);
-    console.log(id);
     if (id) {
       dispatch({
         type: CREATE_ORDER,
