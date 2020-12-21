@@ -48,6 +48,8 @@ const Summary = ({
   saveCustomerInfo,
   createOrder,
   hideSummary,
+  menuType,
+  orderMethod,
 }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -153,6 +155,8 @@ const Summary = ({
         email: email,
         text: text,
         items: items,
+        menuType: menuType,
+        orderMethod: orderMethod,
       };
       saveCustomerInfo(order);
       createOrder(order);
@@ -165,8 +169,8 @@ function mapStateToProps(state, ownProps) {
   return {
     totalPrice: state.order.totalPrice,
     items: state.order.items,
-    menuType: state.order.orderingStarted.orderType,
-    orderMethod: state.order.selectedForm,
+    menuType: state.order.orderingStarted.menuType,
+    orderMethod: state.order.orderMethod,
   };
 }
 
