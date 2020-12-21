@@ -13,9 +13,9 @@ const CartRadioGroupContainer = styled(RadioGroup)`
 `;
 
 const CartRadioGroup = ({ selectForm }) => {
-  const DELIVERY_FORM = 'DELIVERY_FORM';
-  const PICKUP_FORM = 'PICKUP_FORM';
-  const [selectedForm, setSelectedForm] = useState(DELIVERY_FORM);
+  const DELIVERY = 'DELIVERY';
+  const PICKUP = 'PICKUP';
+  const [selectedForm, setSelectedForm] = useState(DELIVERY);
 
   useEffect(() => {
     selectForm(selectedForm);
@@ -26,9 +26,9 @@ const CartRadioGroup = ({ selectForm }) => {
       <label>
         <input
           type="radio"
-          value={DELIVERY_FORM}
+          value={DELIVERY}
           name="deliveryGroup"
-          checked={selectedForm === DELIVERY_FORM}
+          checked={selectedForm === DELIVERY}
           onChange={(event) => setSelectedForm(event.target.value)}
         />
         Doručit na adresu
@@ -37,9 +37,9 @@ const CartRadioGroup = ({ selectForm }) => {
       <label>
         <input
           type="radio"
-          value={PICKUP_FORM}
+          value={PICKUP}
           name="deliveryGroup"
-          checked={selectedForm === PICKUP_FORM}
+          checked={selectedForm === PICKUP}
           onChange={(event) => setSelectedForm(event.target.value)}
         />
         Vyzvednu osobně

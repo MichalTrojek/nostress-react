@@ -14,6 +14,8 @@ const DashboardBackground = styled(Background)`
   min-height: 100vh;
 `;
 
+const OrderItem = styled.div``;
+
 const DashboardPage = () => {
   const [orders, setOrders] = useState([]);
 
@@ -37,7 +39,12 @@ const DashboardPage = () => {
           <PrivateNavBar />
           <h1>Objednávky</h1>
           {orders.map((item) => {
-            return <p>{item.name}</p>;
+            return (
+              <OrderItem>
+                <p>Zákazník: {item.name}</p>
+                <p>Poznámka" {item.text}</p>
+              </OrderItem>
+            );
           })}
         </Wrapper>
       </DashboardBackground>

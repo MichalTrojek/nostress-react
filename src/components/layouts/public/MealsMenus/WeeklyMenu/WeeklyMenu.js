@@ -55,7 +55,7 @@ const WeeklyMenu = ({ meals, childMeals, startOrdering }) => {
   function handleStartingOrder() {
     window.scrollTo(0, 0);
     history.push('/order');
-    startOrdering({ status: true, orderType: 'MainMenu' });
+    startOrdering({ status: true, menuType: 'MainMenu' });
   }
 };
 

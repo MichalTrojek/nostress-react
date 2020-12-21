@@ -74,7 +74,7 @@ const BreakFastMenu = ({ breakfast, startOrdering }) => {
   function handleStartingOrder() {
     window.scrollTo(0, 0);
     history.push('/order');
-    startOrdering({ status: true, orderType: 'BreakfastMenu' });
+    startOrdering({ status: true, menuType: 'BreakfastMenu' });
   }
 };
 

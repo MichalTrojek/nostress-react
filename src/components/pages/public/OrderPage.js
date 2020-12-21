@@ -75,7 +75,6 @@ const OrderPage = ({ items, orderingStarted }) => {
   function handleOrder() {
     if (isOrderingAllowed) {
       setShowSummary(true);
-      localStorage.setItem('items', JSON.stringify(items));
     } else {
       showInfoToast('Objednávka je prázdná');
     }

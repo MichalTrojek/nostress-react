@@ -152,6 +152,7 @@ const Summary = ({
         phoneNumber: phoneNumber,
         email: email,
         text: text,
+        items: items,
       };
       saveCustomerInfo(order);
       createOrder(order);
@@ -164,6 +165,8 @@ function mapStateToProps(state, ownProps) {
   return {
     totalPrice: state.order.totalPrice,
     items: state.order.items,
+    menuType: state.order.orderingStarted.orderType,
+    orderMethod: state.order.selectedForm,
   };
 }
 

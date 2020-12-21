@@ -10,23 +10,23 @@ import {
 const initializeState = {
   id: '',
   totalPrice: 0,
-  selectedForm: '',
+  orderMethod: '',
   items: [],
   customerInfo: { name: '', phoneNumber: '', email: '', text: '' },
-  orderingStarted: { status: false, orderType: '' },
+  orderingStarted: { status: false, menuType: '' },
 };
 function orderReducer(state = initializeState, action) {
   switch (action.type) {
     case UPDATE_ORDER:
       return { ...state, items: action.payload };
     case SELECT_FORM:
-      return { ...state, selectedForm: action.payload };
+      return { ...state, orderMethod: action.payload };
     case SET_TOTAL_PRICE:
       return { ...state, totalPrice: action.payload };
     case SAVE_CUSTOMER_INFO:
       return { ...state, customerInfo: action.payload };
     case CREATE_ORDER:
-      return { ...state, customerInfo: action.payload };
+      return state;
     case START_ORDERING:
       return { ...state, orderingStarted: action.payload };
     default:
