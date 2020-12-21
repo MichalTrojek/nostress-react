@@ -59,13 +59,13 @@ const OrderPage = ({ items, orderingStarted }) => {
   }
 
   function renderHeader() {
-    return orderingStarted.orderType === 'MainMenu'
+    return orderingStarted.menuType === 'MainMenu'
       ? 'Týdenní menu 11:00 – 16:00'
       : 'Snídaňové menu 8:00 – 10:30';
   }
 
   function renderMenu() {
-    return orderingStarted.orderType === 'MainMenu' ? (
+    return orderingStarted.menuType === 'MainMenu' ? (
       <OrderMainMenu />
     ) : (
       <OrderBreakfastMenu />
