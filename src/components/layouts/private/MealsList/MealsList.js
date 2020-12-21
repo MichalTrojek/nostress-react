@@ -20,10 +20,10 @@ const MealsList = ({
   }, [fetchMeals]);
 
   return (
-    <ListContainer>
+    <>
       {renderRadioGroup()}
-      {displayListByMealType(mealType)}
-    </ListContainer>
+      <ListContainer>{displayListByMealType(mealType)}</ListContainer>
+    </>
   );
 
   function displayListByMealType(type) {
@@ -49,7 +49,7 @@ const MealsList = ({
 
   function renderRadioGroup() {
     return (
-      <RadioGroup>
+      <RadioGroup style={{ paddingTop: '1rem' }}>
         <label>
           <input
             type="radio"

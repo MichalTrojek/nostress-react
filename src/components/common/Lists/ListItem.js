@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
-const ListITem = styled.div`
+const ListItem = styled.div`
   border: 1px solid var(--color-tertiary);
-  padding: 2rem;
-  margin-bottom: 1rem;
+  padding: 1rem;
+  margin: 0.2rem;
+
+  @media only screen and (min-width: 1024px) {
+    --width: calc((99% / 2));
+    max-width: var(--width);
+    min-width: var(--width);
+  }
 
   .content {
     padding-bottom: 2rem;
@@ -30,4 +36,4 @@ const ListITem = styled.div`
   }
 `;
 
-export default ListITem;
+export default ListItem;
