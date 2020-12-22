@@ -15,4 +15,6 @@ const app = firebase.initializeApp({
 export const auth = app.auth();
 export const db = app.firestore();
 
+export const increment = firebase.firestore.FieldValue.increment(1);
+
 export default app;
