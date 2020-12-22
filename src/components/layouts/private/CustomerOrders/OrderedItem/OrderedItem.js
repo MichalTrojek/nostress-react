@@ -59,6 +59,7 @@ const OrderedItem = ({ order }) => {
   return (
     <OrderedItemContainer>
       <div className="header">
+        <h2>Objednávka číslo {order.orderNumber}</h2>
         <p>
           {order.name} ({order.email}, {order.phoneNumber})
         </p>

@@ -6,8 +6,6 @@ import Button from '../../../../common/Button';
 import { connect } from 'react-redux';
 
 import updateOrderToState from '../../../../../redux/actions/orders/updateOrderToState';
-import getOrderNumberCall from '../../../../../api/order/getOrderNumberApiCall';
-import getOrderNumberApiCall from '../../../../../api/order/getOrderNumberApiCall';
 
 const OrderItemContainer = styled.div`
   display: grid;
