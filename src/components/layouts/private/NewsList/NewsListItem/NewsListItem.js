@@ -10,24 +10,27 @@ import setSelectedNewsToEdit from '../../../../../redux/actions/news/setSelected
 import emptySelectedNewsToEdit from '../../../../../redux/actions/news/emptySelectedNewsToEdit';
 
 const StyledNewsListItem = styled.div`
-  width: 33rem;
-  @media only screen and (min-width: 768px) {
-    width: 43rem;
-  }
-
-  margin-bottom: 1rem;
   padding: 2rem;
   border: 1px solid
     ${(props) => (props.isSelected ? 'white' : 'var(--color-tertiary)')};
-  text-align: center;
+
+  margin: 0.2rem;
+
+  @media only screen and (min-width: 1024px) {
+    --width: calc((99% / 2));
+    max-width: var(--width);
+    min-width: var(--width);
+  }
+
   .buttons {
     margin-top: 1rem;
     display: flex;
-    width: 100%;
-    justify-content: space-between;
+    Button {
+      width: 50%;
+    }
   }
 
-  button:first-child {
+  Button:first-child {
     margin-right: 1rem;
   }
 `;

@@ -7,10 +7,8 @@ import NewsListItem from './NewsListItem';
 
 const DisplayedNews = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+
   flex-wrap: wrap;
-  padding: 2rem 0;
 `;
 
 const NewsList = ({ news, fetchNews, isEditModeEnabled }) => {
