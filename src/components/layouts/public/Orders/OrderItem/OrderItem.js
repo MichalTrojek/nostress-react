@@ -19,6 +19,9 @@ const OrderItemContainer = styled.div`
 
   margin: 0.2rem;
   width: 100%;
+
+  transition: all 0.2s;
+
   @media only screen and (min-width: 768px) {
     --width: calc((98% / 2));
     max-width: var(--width);
