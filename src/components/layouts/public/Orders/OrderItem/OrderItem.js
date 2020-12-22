@@ -29,6 +29,10 @@ const OrderItemContainer = styled.div`
     --width: calc((99% / 2));
   }
 
+  @media only screen and (min-width: 1209px) {
+    --width: calc((99% / 3));
+  }
+
   .name {
     grid-row: 1 / span 1;
     grid-column: 1 / -1;
