@@ -12,6 +12,7 @@ const MealListItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
   display: grid;
+  grid-template-rows: max-content 1fr;
 
   min-width: 100%;
   margin: 0.2rem;
@@ -25,7 +26,7 @@ const MealListItemContainer = styled.div`
   }
 
   @media only screen and (min-width: 1024px) {
-    --width: calc((99% / 2));
+    --width: calc((98% / 3));
   }
 
   .menuNumber {
@@ -46,6 +47,16 @@ const MealListItemContainer = styled.div`
     }
     Button:first-child {
       margin-right: 1rem;
+    }
+
+    @media only screen and (max-width: 1161px) {
+      flex-direction: column;
+      Button {
+        width: 100%;
+      }
+      Button:last-child {
+        margin-top: 1rem;
+      }
     }
   }
 
