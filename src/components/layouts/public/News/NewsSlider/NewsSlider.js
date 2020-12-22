@@ -27,6 +27,10 @@ const NewsSlider = () => {
         setNumberOfSlidesShown(3);
       }
     }
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const settings = {
