@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import Form from '../../../common/Forms/Form';
 import FormGroup from '../../../common/Forms/FormGroup';
@@ -10,6 +11,27 @@ import editMeal from '../../../../redux/actions/meals/editMeal';
 import toggleEditMode from '../../../../redux/actions/editor/toggleEditMode';
 import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
 import RadioGroup from '../../../common/Forms/RadioGroup';
+
+const MealForm = styled(Form)`
+  @media only screen and (min-width: 1024px) {
+    .inputs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 1rem;
+      .alergens {
+        grid-column: 1 / span 1;
+      }
+
+      .menuNumber {
+        grid-column: 2 / span 1;
+      }
+
+      .price {
+        grid-column: 3 / span 1;
+      }
+    }
+  }
+`;
 
 const MealsForms = ({
   createMeal,
@@ -23,6 +45,7 @@ const MealsForms = ({
   const [alergens, setAlergens] = useState('');
   const [price, setPrice] = useState('');
   const [type, setType] = useState('isWeeklyMeal');
+  const [menuNumber, setMenuNumber] = useState('');
 
   useEffect(() => {
     if (isEditModeOn) {
@@ -30,11 +53,12 @@ const MealsForms = ({
       setAlergens(selectedItem.alergens);
       setPrice(selectedItem.price);
       setType(selectedItem.type);
+      setType(selectedItem.menuNumber);
     }
   }, [isEditModeOn, selectedItem]);
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <MealForm onSubmit={handleSubmit}>
       <FormGroup>
         <input
           type="text"
@@ -46,41 +70,59 @@ const MealsForms = ({
         />
         <label htmlFor="nameInput">Název</label>
       </FormGroup>
+      <div className="inputs">
+        <FormGroup className="alergens">
+          <input
+            type="text"
+            placeholder="Alergeny"
+            value={alergens}
+            onChange={(event) => setAlergens(event.target.value)}
+            id="alergenInput"
+          />
+          <label htmlFor="alergenInput">Alergeny</label>
+        </FormGroup>
 
-      <FormGroup>
-        <input
-          type="text"
-          placeholder="Alergeny"
-          value={alergens}
-          onChange={(event) => setAlergens(event.target.value)}
-          id="alergenInput"
-        />
-        <label htmlFor="alergenInput">Alergeny</label>
-      </FormGroup>
+        <FormGroup className="menuNumber">
+          <input
+            type="text"
+            placeholder="Číslo menu"
+            value={menuNumber}
+            onChange={(event) => setMenuNumber(event.target.value)}
+            id="menuNumberInput"
+          />
+          <label htmlFor="menuNumberInput">Číslo menu</label>
+        </FormGroup>
 
-      <FormGroup>
-        <input
-          type="text"
-          placeholder="Cena"
-          value={price}
-          onChange={(event) => setPrice(event.target.value)}
-          id="priceInput"
-          required
-        />
-        <label htmlFor="priceInput">Cena</label>
-      </FormGroup>
-
+        <FormGroup className="price">
+          <input
+            type="text"
+            placeholder="Cena"
+            value={price}
+            onChange={(event) => setPrice(event.target.value)}
+            id="priceInput"
+            required
+          />
+          <label htmlFor="priceInput">Cena</label>
+        </FormGroup>
+      </div>
       {renderRadioGroup()}
       {renderButtons()}
-    </Form>
+    </MealForm>
   );
 
   function handleSubmit(event) {
     event.preventDefault();
     if (name.length !== 0 && price.length !== 0) {
-      let meal = { name, alergens, price, type };
+      let meal = { name, alergens, price, type, menuNumber };
       if (isEditModeOn) {
-        editMeal({ id: selectedItem.id, name, alergens, price, type });
+        editMeal({
+          id: selectedItem.id,
+          name,
+          alergens,
+          price,
+          type,
+          menuNumber,
+        });
         handleCancel();
       } else {
         createMeal(meal);
