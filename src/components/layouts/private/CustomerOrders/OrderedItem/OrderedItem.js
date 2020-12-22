@@ -62,7 +62,7 @@ const OrderedItem = ({ order }) => {
         <p>
           {order.name} ({order.email}, {order.phoneNumber})
         </p>
-        <p className="bold">{renderOrderMethod(order.orderMethod)}</p>
+        {renderOrderMethod(order.orderMethod)}
       </div>
       <div className="items">
         <p className="bold">Položky</p>
@@ -92,7 +92,8 @@ const OrderedItem = ({ order }) => {
   function handleRemoveButton() {}
 
   function renderOrderMethod(method) {
-    return method === 'PICKUP' ? <p>Výdejní okenko</p> : <p>Rozvoz</p>;
+    const text = method === 'PICKUP' ? 'Výdejní okenko' : 'Rozvoz';
+    return <p className="bold">{text}</p>;
   }
 
   function renderButton() {
