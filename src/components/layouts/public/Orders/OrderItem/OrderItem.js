@@ -67,8 +67,12 @@ const OrderItemContainer = styled.div`
     @media only screen and (min-width: 900px) {
       grid-column: 10 / -1;
     }
+
+    @media only screen and (min-width: 1209px) {
+      grid-column: 9 / -1;
+    }
     @media only screen and (min-width: 1400px) {
-      grid-column: 8/ -1;
+      grid-column: 10/ -1;
     }
   }
 
