@@ -12,7 +12,7 @@ const MealListItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
   display: grid;
-  grid-template-rows: max-content 1fr;
+
   min-width: 100%;
   margin: 0.2rem;
 
@@ -40,6 +40,7 @@ const MealListItemContainer = styled.div`
   .buttons {
     margin-top: 1rem;
     display: flex;
+
     Button {
       width: 50%;
     }
@@ -63,12 +64,11 @@ const MealListItem = ({
   return (
     <MealListItemContainer>
       <p className="menuNumber">{meal.menuNumber} </p>
-      <div className="content">
-        {renderIsChildMeal()}
-        <p>Název: {meal.name}</p>
-        <p>Alergeny: ({meal.alergens})</p>
-        <p className="price">Cena: {meal.price},-</p>
-      </div>
+      {renderIsChildMeal()}
+      <p>Název: {meal.name}</p>
+      <p>Alergeny: ({meal.alergens})</p>
+      <p className="price">Cena: {meal.price},-</p>
+
       <div className="buttons">
         <Button primary onClick={handleEdit}>
           editovat{' '}
