@@ -15,11 +15,15 @@ const StyledNewsListItem = styled.div`
     ${(props) => (props.isSelected ? 'white' : 'var(--color-tertiary)')};
 
   margin: 0.2rem;
+  min-width: 100%;
+  @media only screen and (min-width: 768px) {
+    --width: calc((98% / 2));
+    max-width: var(--width);
+    min-width: var(--width);
+  }
 
   @media only screen and (min-width: 1024px) {
     --width: calc((99% / 2));
-    max-width: var(--width);
-    min-width: var(--width);
   }
 
   .buttons {

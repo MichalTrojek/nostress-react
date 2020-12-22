@@ -3,12 +3,17 @@ import styled from 'styled-components';
 const ListItem = styled.div`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
+
   margin: 0.2rem;
+  min-width: 100%;
+  @media only screen and (min-width: 768px) {
+    --width: calc((98% / 2));
+    max-width: var(--width);
+    min-width: var(--width);
+  }
 
   @media only screen and (min-width: 1024px) {
     --width: calc((99% / 2));
-    max-width: var(--width);
-    min-width: var(--width);
   }
 
   .content {

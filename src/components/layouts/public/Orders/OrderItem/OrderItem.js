@@ -16,9 +16,9 @@ const OrderItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
   margin-top: 1rem;
-  width: 100%;
-  margin: 0.2rem;
 
+  margin: 0.2rem;
+  width: 100%;
   @media only screen and (min-width: 768px) {
     --width: calc((98% / 2));
     max-width: var(--width);

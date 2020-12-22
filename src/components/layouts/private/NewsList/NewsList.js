@@ -7,7 +7,6 @@ import NewsListItem from './NewsListItem';
 
 const DisplayedNews = styled.div`
   display: flex;
-
   flex-wrap: wrap;
 `;
 
