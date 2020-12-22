@@ -16,30 +16,17 @@ const OrderItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
   margin-top: 1rem;
+  width: 100%;
+  margin: 0.2rem;
 
   @media only screen and (min-width: 768px) {
-    --width: 35rem;
+    --width: calc((98% / 2));
     max-width: var(--width);
     min-width: var(--width);
-    margin-left: 1rem;
-    margin-right: 1rem;
   }
 
-  @media only screen and (min-width: 900px) {
-    --width: 42rem;
-  }
-
-  @media only screen and (min-width: 920px) {
-    --width: 45rem;
-  }
   @media only screen and (min-width: 1024px) {
-    --width: 48rem;
-  }
-  @media only screen and (min-width: 1300px) {
-    --width: 65rem;
-  }
-  @media only screen and (min-width: 1300px) {
-    --width: 32rem;
+    --width: calc((99% / 2));
   }
 
   .name {
