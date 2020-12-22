@@ -53,7 +53,7 @@ const MealsForms = ({
       setAlergens(selectedItem.alergens);
       setPrice(selectedItem.price);
       setType(selectedItem.type);
-      setType(selectedItem.menuNumber);
+      setMenuNumber(selectedItem.menuNumber);
     }
   }, [isEditModeOn, selectedItem]);
 
@@ -199,6 +199,7 @@ const MealsForms = ({
     setName('');
     setAlergens('');
     setPrice('');
+    setMenuNumber('');
     setType('isWeeklyMeal');
   }
 };
