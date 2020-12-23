@@ -48,12 +48,9 @@ const CustomerOrders = ({
   const [showAll, setShowAll] = useState(true);
 
   useEffect(() => {
-    console.log(orders);
-    console.log(newsOrders);
-    console.log(confirmedOrders);
     setShowNewsOrders(newsOrders.length > 0);
     setShowConfirmed(confirmedOrders.length > 0);
-    setShowAll(orders.length > 0);
+    setShowAll(newsOrders.length > 0 && confirmedOrders.length > 0);
   }, [orders, newsOrders, confirmedOrders]);
 
   return (
@@ -73,13 +70,24 @@ const CustomerOrders = ({
           zobrazit všechny
         </Button>
       </ShowButtons>
-      <OrdersContainer>
-        {orders.map((order, index) => {
-          return <OrderedItem key={index} order={order} />;
-        })}
-      </OrdersContainer>
+      <OrdersContainer>{renderOrderedItems()}</OrdersContainer>
     </>
   );
+
+  function renderOrderedItems() {
+    let items = orders;
+    if (showAll) {
+      items = orders;
+    } else if (showConfirmed) {
+      items = confirmedOrders;
+    } else if (showNewsOrders) {
+      items = newsOrders;
+    }
+
+    return items.map((order, index) => {
+      return <OrderedItem key={index} order={order} />;
+    });
+  }
 };
 
 export default CustomerOrders;

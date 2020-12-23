@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import Button from '../../../../common/Button';
+import { db } from '../../../../../firebase';
+import {
+  showErrorToast,
+  showInfoToast,
+  showWarningToast,
+} from '../../../../../notifications/toast';
 
 const OrderedItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
@@ -101,7 +107,32 @@ const OrderedItem = ({ order }) => {
     </OrderedItemContainer>
   );
 
-  function handleRemoveButton() {}
+  function handleRemoveButton() {
+    console.log(order);
+
+    const success = db
+      .collection('orders')
+      .doc(order.id)
+      .delete()
+      .then()
+      .then(() => {
+        console.log(`Document with id ${order.id} was successfully deleted!`);
+        return true;
+      })
+      .catch((error) => {
+        console.log(
+          `Error removing document with id ${order.id}. Error: ${error}`
+        );
+        return false;
+      });
+    showToast(success);
+  }
+
+  function showToast(success) {
+    success
+      ? showInfoToast('Objednávka byla vymazána')
+      : showErrorToast('Objednvku se nepodařilo vymazat');
+  }
 
   function renderOrderMethod(method) {
     const text = method === 'PICKUP' ? 'Výdejní okenko' : 'Rozvoz';

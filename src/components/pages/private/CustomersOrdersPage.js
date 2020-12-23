@@ -26,7 +26,9 @@ const CustomersOrdersPage = () => {
       const tempNewOrders = [];
       const tempConfirmedOrders = [];
       onSnapshot.forEach((doc) => {
-        tempOrders.push(doc.data());
+        const order = { ...doc.data(), id: doc.id };
+
+        tempOrders.push(order);
       });
       setOrders(tempOrders);
       setNewOrders(tempNewOrders);
