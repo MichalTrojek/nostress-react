@@ -5,7 +5,6 @@ import { db } from '../../../../../firebase';
 import {
   showErrorToast,
   showInfoToast,
-  showWarningToast,
 } from '../../../../../notifications/toast';
 
 const OrderedItemContainer = styled.div`
@@ -108,8 +107,6 @@ const OrderedItem = ({ order }) => {
   );
 
   function handleRemoveButton() {
-    console.log(order);
-
     const success = db
       .collection('orders')
       .doc(order.id)

@@ -28,11 +28,21 @@ const CustomersOrdersPage = () => {
       onSnapshot.forEach((doc) => {
         const order = { ...doc.data(), id: doc.id };
 
+        if (order.isConfirmed) {
+          tempConfirmedOrders.push(order);
+        } else if (order.isNew) {
+          tempNewOrders.push(order);
+        }
         tempOrders.push(order);
+        console.log(newOrders);
       });
       setOrders(tempOrders);
       setNewOrders(tempNewOrders);
       setConfirmedOrders(tempConfirmedOrders);
+
+      console.log('new', newOrders);
+      console.log('confirmed', confirmedOrders);
+      console.log('all', orders);
     });
     return () => {
       unsubscribe();

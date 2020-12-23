@@ -40,48 +40,71 @@ const OrdersContainer = styled.div`
 
 const CustomerOrders = ({
   orders = [],
-  newsOrders = [],
+  newOrders = [],
   confirmedOrders = [],
 }) => {
-  const [showNewsOrders, setShowNewsOrders] = useState(true);
-  const [showConfirmed, setShowConfirmed] = useState(true);
-  const [showAll, setShowAll] = useState(true);
+  const [showNewOrdersButton, setShowNewOrdersButton] = useState(false);
+  const [showConfirmedButton, setShowConfirmedButton] = useState(false);
+  const [showAllButton, setShowAllButton] = useState(false);
+
+  const [showAll, setShowAll] = useState(false);
+  const [showNew, setShowNew] = useState(false);
+  const [showConfirmed, setShowConfirmed] = useState(false);
 
   useEffect(() => {
-    setShowNewsOrders(newsOrders.length > 0);
-    setShowConfirmed(confirmedOrders.length > 0);
-    setShowAll(newsOrders.length > 0 && confirmedOrders.length > 0);
-  }, [orders, newsOrders, confirmedOrders]);
+    // console.log('new', newOrders);
+    // console.log('confirmed', confirmedOrders);
+    // console.log('all', orders);
+    setShowNewOrdersButton(newOrders.length > 0);
+    setShowConfirmedButton(confirmedOrders.length > 0);
+    setShowAllButton(newOrders.length > 0 && confirmedOrders.length > 0);
+  }, [orders, newOrders, confirmedOrders]);
 
   return (
     <>
       <ShowButtons
-        showNewsOrders={showNewsOrders}
-        showConfirmed={showConfirmed}
-        showAll={showAll}
+        showNewsOrders={showNewOrdersButton}
+        showConfirmed={showConfirmedButton}
+        showAll={showAllButton}
       >
-        <Button primary className="showNewButton">
-          zobrazit Nové
+        <Button
+          primary
+          className="showNewButton"
+          onClick={() => setShowNew(true)}
+        >
+          zobrazit Nové {renderCount(newOrders)}
         </Button>
-        <Button primary className="showConfirmedButton">
-          zobrazit Potvrzené
+        <Button
+          primary
+          className="showConfirmedButton"
+          onClick={() => setShowConfirmed(true)}
+        >
+          zobrazit Potvrzené {renderCount(confirmedOrders)}
         </Button>
-        <Button primary className="showAllButton">
-          zobrazit všechny
+        <Button
+          primary
+          className="showAllButton"
+          onClick={() => setShowAll(true)}
+        >
+          zobrazit všechny {renderCount(orders)}
         </Button>
       </ShowButtons>
       <OrdersContainer>{renderOrderedItems()}</OrdersContainer>
     </>
   );
 
+  function renderCount(items) {
+    return items.length > 0 ? `(${items.length} obj.)` : '';
+  }
+
   function renderOrderedItems() {
-    let items = orders;
+    let items = [];
     if (showAll) {
       items = orders;
     } else if (showConfirmed) {
       items = confirmedOrders;
-    } else if (showNewsOrders) {
-      items = newsOrders;
+    } else if (showNew) {
+      items = newOrders;
     }
 
     return items.map((order, index) => {
