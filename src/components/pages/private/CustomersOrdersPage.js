@@ -17,14 +17,20 @@ const CustomersOrdersPageBackground = styled(Background)`
 
 const CustomersOrdersPage = () => {
   const [orders, setOrders] = useState([]);
+  const [newOrders, setNewOrders] = useState([]);
+  const [confirmedOrders, setConfirmedOrders] = useState([]);
 
   useEffect(() => {
     const unsubscribe = db.collection('orders').onSnapshot((onSnapshot) => {
-      const orders = [];
+      const tempOrders = [];
+      const tempNewOrders = [];
+      const tempConfirmedOrders = [];
       onSnapshot.forEach((doc) => {
-        orders.push(doc.data());
+        tempOrders.push(doc.data());
       });
-      setOrders(orders);
+      setOrders(tempOrders);
+      setNewOrders(tempNewOrders);
+      setConfirmedOrders(tempConfirmedOrders);
     });
     return () => {
       unsubscribe();
@@ -37,7 +43,11 @@ const CustomersOrdersPage = () => {
         <Wrapper>
           <PrivateNavBar />
           <h1>Objednávky</h1>
-          <OrdersContainer orders={orders}></OrdersContainer>
+          <OrdersContainer
+            orders={orders}
+            newOrders={newOrders}
+            confirmedOrders={confirmedOrders}
+          ></OrdersContainer>
         </Wrapper>
       </CustomersOrdersPageBackground>
     </PageLayout>

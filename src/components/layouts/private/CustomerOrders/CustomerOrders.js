@@ -1,42 +1,84 @@
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
 
 import Button from '../../../common/Button';
 import OrderedItem from '../CustomerOrders/OrderedItem';
 
-const OrdersContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+const ShowButtons = styled.div`
   padding-top: 1rem;
-
-  .buttons-show-list {
-    padding-bottom: 1rem;
-    display: grid;
-    /* grid-template-columns: repeat(12, 1fr); */
-    min-width: 100%;
-    row-gap: 1rem;
-    /* grid-column-gap: 1rem;
+  display: grid;
+  /* grid-template-columns: repeat(12, 1fr); */
+  /* min-width: 100%; */
+  row-gap: 1rem;
+  /* grid-column-gap: 1rem;
     margin-bottom: 0.5rem;
     Button:last-child {
       grid-column: 7 / 13;
     } */
 
-    Button:first-child {
-      background-color: lightgreen;
-    }
+  .showNewButton {
+    background-color: lightgreen;
+    display: ${(props) => (props.showNewsOrders ? 'block' : 'none')};
+    opacity: ${(props) => (props.showNewsOrders ? '1' : '0')};
+  }
+
+  .showConfirmedButton {
+    display: ${(props) => (props.showConfirmed ? 'block' : 'none')};
+    opacity: ${(props) => (props.showConfirmed ? '1' : '0')};
+  }
+  .showAllButton {
+    display: ${(props) => (props.showAll ? 'block' : 'none')};
+    opacity: ${(props) => (props.showAll ? '1' : '0')};
   }
 `;
 
-const CustomerOrders = ({ orders }) => {
+const OrdersContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+`;
+
+const CustomerOrders = ({
+  orders = [],
+  newsOrders = [],
+  confirmedOrders = [],
+}) => {
+  const [showNewsOrders, setShowNewsOrders] = useState(true);
+  const [showConfirmed, setShowConfirmed] = useState(true);
+  const [showAll, setShowAll] = useState(true);
+
+  useEffect(() => {
+    console.log(orders);
+    console.log(newsOrders);
+    console.log(confirmedOrders);
+    setShowNewsOrders(newsOrders.length > 0);
+    setShowConfirmed(confirmedOrders.length > 0);
+    setShowAll(orders.length > 0);
+  }, [orders, newsOrders, confirmedOrders]);
+
   return (
-    <OrdersContainer>
-      <div className="buttons-show-list">
-        <Button primary> zobrazit Nové</Button>
-        <Button primary>zobrazit Potvrzené</Button>
-      </div>
-      {orders.map((order, index) => {
-        return <OrderedItem key={index} order={order} />;
-      })}
-    </OrdersContainer>
+    <>
+      <ShowButtons
+        showNewsOrders={showNewsOrders}
+        showConfirmed={showConfirmed}
+        showAll={showAll}
+      >
+        <Button primary className="showNewButton">
+          zobrazit Nové
+        </Button>
+        <Button primary className="showConfirmedButton">
+          zobrazit Potvrzené
+        </Button>
+        <Button primary className="showAllButton">
+          zobrazit všechny
+        </Button>
+      </ShowButtons>
+      <OrdersContainer>
+        {orders.map((order, index) => {
+          return <OrderedItem key={index} order={order} />;
+        })}
+      </OrdersContainer>
+    </>
   );
 };
 
