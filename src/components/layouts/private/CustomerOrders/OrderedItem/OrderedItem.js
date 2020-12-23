@@ -10,6 +10,7 @@ const OrderedItemContainer = styled.div`
   grid-template-rows: max-content 1fr;
   min-width: 100%;
   margin: 0.2rem;
+  position: relative;
 
   @media only screen and (min-width: 1024px) {
     --width: calc((99% / 2));
@@ -32,6 +33,15 @@ const OrderedItemContainer = styled.div`
   }
 
   .items {
+  }
+
+  .orderNumber {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1rem 0 1rem;
+    background-color: var(--color-quaternary);
+    color: white;
   }
 
   .information {
@@ -59,11 +69,11 @@ const OrderedItem = ({ order }) => {
   return (
     <OrderedItemContainer>
       <div className="header">
-        <h2>Objednávka číslo {order.orderNumber}</h2>
+        <p className="orderNumber">Objednávka číslo {order.orderNumber}</p>
+        {renderOrderMethod(order.orderMethod)}
         <p>
           {order.name} ({order.email}, {order.phoneNumber})
         </p>
-        {renderOrderMethod(order.orderMethod)}
       </div>
       <div className="items">
         <p className="bold">Položky</p>
