@@ -33,7 +33,6 @@ const SoupsForm = ({ editSoups, soups }) => {
           value={monday}
           onChange={(event) => setMonday(event.target.value)}
           id="mondayInput"
-          required
         />
         <label htmlFor="mondayInput">Pondělí</label>
       </FormGroup>
@@ -44,7 +43,6 @@ const SoupsForm = ({ editSoups, soups }) => {
           value={tuesday}
           onChange={(event) => setTuesday(event.target.value)}
           id="tuesdayInput"
-          required
         />
         <label htmlFor="tuesdayInput">Úterý</label>
       </FormGroup>
@@ -56,7 +54,6 @@ const SoupsForm = ({ editSoups, soups }) => {
           value={wednesday}
           onChange={(event) => setWednesday(event.target.value)}
           id="wednesdayInput"
-          required
         />
         <label htmlFor="wednesdayInput">Středa</label>
       </FormGroup>
@@ -68,7 +65,6 @@ const SoupsForm = ({ editSoups, soups }) => {
           value={thursday}
           onChange={(event) => setThursday(event.target.value)}
           id="thursdayInput"
-          required
         />
         <label htmlFor="nameIthursdayInputnput">Čtvrtek</label>
       </FormGroup>
@@ -80,7 +76,6 @@ const SoupsForm = ({ editSoups, soups }) => {
           value={friday}
           onChange={(event) => setFriday(event.target.value)}
           id="fridayInput"
-          required
         />
         <label htmlFor="fridayInput">Pátek</label>
       </FormGroup>
@@ -92,7 +87,6 @@ const SoupsForm = ({ editSoups, soups }) => {
           value={price}
           onChange={(event) => setPrice(event.target.value)}
           id="priceInput"
-          required
         />
         <label htmlFor="priceInput">Jednotná cena</label>
       </FormGroup>

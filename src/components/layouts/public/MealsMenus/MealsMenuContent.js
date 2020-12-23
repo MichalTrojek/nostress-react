@@ -11,12 +11,13 @@ const MealsMenuContent = styled.div`
 
   .leftside {
     grid-column: 1 / span 7;
+    display: grid;
   }
 
   .rightside {
     grid-column: 8 /-1;
     display: grid;
-    grid-template-rows: max-content 1fr;
+    /* grid-template-rows: max-content 1fr; */
   }
 
   .rightside-breakfast {

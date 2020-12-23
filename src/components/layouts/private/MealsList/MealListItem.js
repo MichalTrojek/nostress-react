@@ -103,7 +103,6 @@ const MealListItem = ({
   function handleEdit() {
     setSelectedItem(meal);
     toggleEditMode(true);
-
     window.scroll({ top: 0, behavior: 'smooth' });
   }
 

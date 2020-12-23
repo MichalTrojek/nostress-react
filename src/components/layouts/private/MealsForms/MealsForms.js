@@ -81,7 +81,6 @@ const MealsForms = ({
           />
           <label htmlFor="alergenInput">Alergeny</label>
         </FormGroup>
-
         <FormGroup className="menuNumber">
           <input
             type="text"
@@ -89,6 +88,7 @@ const MealsForms = ({
             value={menuNumber}
             onChange={(event) => setMenuNumber(event.target.value)}
             id="menuNumberInput"
+            required
           />
           <label htmlFor="menuNumberInput">Číslo menu</label>
         </FormGroup>
@@ -112,7 +112,7 @@ const MealsForms = ({
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (name.length !== 0 && price.length !== 0) {
+    if (name.length !== 0 && price.length !== 0 && menuNumber.length !== 0) {
       let meal = { name, alergens, price, type, menuNumber };
       if (isEditModeOn) {
         editMeal({
