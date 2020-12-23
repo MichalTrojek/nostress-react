@@ -16,9 +16,15 @@ const newsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_MEALS:
       return {
-        meals: action.payload.meals,
-        childMeals: action.payload.childMeals,
-        breakfast: action.payload.breakfast,
+        meals: action.payload.meals.sort(
+          (a, b) => Number(a.menuNumber) - Number(b.menuNumber)
+        ),
+        childMeals: action.payload.childMeals.sort(
+          (a, b) => Number(a.menuNumber) - Number(b.menuNumber)
+        ),
+        breakfast: action.payload.breakfast.sort(
+          (a, b) => Number(a.menuNumber) - Number(b.menuNumber)
+        ),
         dataFetched: action.payload.dataFetched,
       };
     case CREATE_MEAL:

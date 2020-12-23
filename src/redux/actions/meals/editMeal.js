@@ -4,25 +4,26 @@ import { showErrorToast, showSuccessToast } from '../../../notifications/toast';
 
 const editMenu = (editedMeal, getState) => {
   switch (editedMeal.type) {
-    case 'isChildMeal':
-      return editMenuByType(
-        editedMeal,
-        getState().menu.childMeals,
-        'childMeals'
-      );
     case 'isWeeklyMeal':
       return editMenuByType(editedMeal, getState().menu.meals, 'meals');
     case 'isBreakfastMeal':
       return editMenuByType(editedMeal, getState().menu.breakfast, 'breakfast');
     default:
-      return '';
+      return editMenuByType(
+        editedMeal,
+        getState().menu.childMeals,
+        'childMeals'
+      );
   }
 };
 
 const editMenuByType = (editedMeal, menu, key) => {
-  const menuWithoutEditTemal = menu.filter((meal) => meal.id !== editedMeal.id);
+  const menuWithoutEditedMeal = menu.filter(
+    (meal) => meal.id !== editedMeal.id
+  );
   let returnObject = {};
-  returnObject[key] = [...menuWithoutEditTemal, editedMeal];
+  returnObject[key] = [...menuWithoutEditedMeal, editedMeal];
+  returnObject[key].sort((a, b) => Number(a.menuNumber) - Number(b.menuNumber));
   return returnObject;
 };
 

@@ -19,6 +19,12 @@ const MealsList = ({
     fetchMeals();
   }, [fetchMeals]);
 
+  useEffect(() => {
+    meals.sort((a, b) => Number(a.menuNumber) - Number(b.menuNumber));
+    childMeals.sort((a, b) => Number(a.menuNumber) - Number(b.menuNumber));
+    breakfast.sort((a, b) => Number(a.menuNumber) - Number(b.menuNumber));
+  }, [meals, childMeals, breakfast]);
+
   return (
     <>
       {renderRadioGroup()}
