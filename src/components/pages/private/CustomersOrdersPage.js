@@ -51,14 +51,18 @@ const CustomersOrdersPage = () => {
           <PrivateNavBar />
           <h1>Objednávky</h1>
           <OrdersContainer
-            orders={orders}
-            newOrders={newOrders}
-            confirmedOrders={confirmedOrders}
+            orders={sortByOrderNumber(orders)}
+            newOrders={sortByOrderNumber(newOrders)}
+            confirmedOrders={sortByOrderNumber(confirmedOrders)}
           ></OrdersContainer>
         </Wrapper>
       </CustomersOrdersPageBackground>
     </PageLayout>
   );
+
+  function sortByOrderNumber(items) {
+    return items.sort((a, b) => a.orderNumber - b.orderNumber);
+  }
 };
 
 export default CustomersOrdersPage;
