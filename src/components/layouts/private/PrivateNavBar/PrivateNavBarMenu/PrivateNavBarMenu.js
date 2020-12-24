@@ -7,7 +7,7 @@ const NavBarMenuList = styled.ul`
   column-gap: 1rem;
   list-style-type: none;
 
-  @media only screen and (min-width: 1114px) {
+  @media only screen and (min-width: 1262px) {
     display: grid;
   }
 `;
