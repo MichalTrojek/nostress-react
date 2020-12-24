@@ -57,7 +57,7 @@ const OrderedItemContainer = styled.div`
     border-top: 1.2px solid var(--color-tertiary);
     border-right: 1.3px solid var(--color-tertiary);
     border-left: 2px solid var(--color-tertiary);
-    border-bottom: 2px solid var(--color-tertiary);
+    border-bottom: 1.5px solid var(--color-tertiary);
   }
 
   .information {
