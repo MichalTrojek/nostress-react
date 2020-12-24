@@ -34,13 +34,16 @@ const MealListItemContainer = styled.div`
 
   .menuNumber {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -0.5px;
+    right: -0.5px;
     padding: 0 1rem 0 1rem;
     background-color: white;
     color: black;
     font-weight: bold;
     border-bottom-left-radius: 10px;
+
+    border-top: 2px solid var(--color-tertiary);
+    border-right: 2px solid var(--color-tertiary);
     border-left: 2px solid var(--color-tertiary);
     border-bottom: 2px solid var(--color-tertiary);
   }
