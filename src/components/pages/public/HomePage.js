@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { connect } from 'react-redux';
+
+import resetOrders from '../../../redux/actions/orders/resetOrders';
 
 import PageLayout from '../../PageLayout';
 
@@ -11,7 +15,11 @@ import Footer from '../../layouts/public/Footer';
 import Hero from '../../layouts/public/Hero';
 import News from '../../layouts/public/News';
 
-const Home = () => {
+const Home = ({ resetOrders }) => {
+  useEffect(() => {
+    resetOrders();
+  }, []);
+
   return (
     <PageLayout>
       <PublicNavBar />
@@ -26,4 +34,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default connect(null, { resetOrders })(Home);
