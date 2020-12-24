@@ -117,11 +117,14 @@ const OrderedItem = ({ order }) => {
   );
 
   function handleRemoveButton() {
+    removeOrder();
+  }
+
+  function removeOrder() {
     const success = db
       .collection('orders')
       .doc(order.id)
       .delete()
-      .then()
       .then(() => {
         console.log(`Document with id ${order.id} was successfully deleted!`);
         return true;
@@ -158,7 +161,22 @@ const OrderedItem = ({ order }) => {
     );
   }
 
-  function handleFinishedButton() {}
+  function handleFinishedButton() {
+    order.isFinished = true;
+    const batch = db.batch();
+    batch.set(db.collection('orderHistory').doc(order.id), order);
+    batch.delete(db.collection('orders').doc(order.id));
+    batch
+      .commit()
+      .then(() => {
+        showInfoToast(
+          `Objednávka číslo ${order.orderNumber} byla uložena do historie objednávek`
+        );
+      })
+      .catch((error) => {
+        console.log(`Error while finishing order: ${error}`);
+      });
+  }
 
   function handleConfirmButton() {
     setOrderConfirmed(!orderConfirmed);
