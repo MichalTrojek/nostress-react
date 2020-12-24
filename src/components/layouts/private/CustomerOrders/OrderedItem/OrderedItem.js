@@ -53,6 +53,9 @@ const OrderedItemContainer = styled.div`
     font-weight: bold;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 0;
+
+    border-bottom: solid 2px var(--color-tertiary);
+    border-left: solid 2px var(--color-tertiary);
   }
 
   .information {
