@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Button from '../../../../common/Button';
 import { db } from '../../../../../firebase';
 import {
