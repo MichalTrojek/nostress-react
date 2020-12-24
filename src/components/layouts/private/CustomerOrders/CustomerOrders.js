@@ -33,10 +33,14 @@ const ShowButtons = styled.div`
     @media only screen and (min-width: 768px) {
       font-size: 1.4rem;
     }
+    @media only screen and (min-width: 1200px) {
+      font-size: 1.9rem;
+    }
   }
 
   .showNewButton {
-    background-color: lightgreen;
+    background-color: forestgreen;
+    color: white;
     display: ${(props) => (props.showNewsOrders ? 'block' : 'none')};
     opacity: ${(props) => (props.showNewsOrders ? '1' : '0')};
   }
@@ -71,15 +75,12 @@ const CustomerOrders = ({
   const [showConfirmed, setShowConfirmed] = useState(false);
 
   useEffect(() => {
-    // console.log('new', newOrders);
-    // console.log('confirmed', confirmedOrders);
-    // console.log('all', orders);
     setShowNewOrdersButton(newOrders.length > 0 && !showNew);
     setShowConfirmedButton(confirmedOrders.length > 0 && !showConfirmed);
     setShowAllButton(
       newOrders.length > 0 && confirmedOrders.length > 0 && !showAll
     );
-  }, [orders, newOrders, confirmedOrders]);
+  }, [orders, newOrders, confirmedOrders, showNew, showConfirmed, showAll]);
 
   return (
     <>

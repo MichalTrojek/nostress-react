@@ -45,9 +45,10 @@ const OrderedItemContainer = styled.div`
     top: 0;
     right: 0;
     padding: 0 1rem 0 1rem;
-    background-color: var(--color-quaternary);
+    background-color: ${(props) => (props.isNew ? 'forestgreen' : '#6f6150')};
     color: white;
     font-weight: bold;
+    border-bottom-left-radius: 5px;
   }
 
   .information {
@@ -73,9 +74,15 @@ const OrderedItem = ({ order }) => {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
 
   return (
-    <OrderedItemContainer>
+    <OrderedItemContainer isNew={order.isNew}>
       <div className="header">
-        <p className="orderNumber">Objednávka číslo {order.orderNumber}</p>
+        <p className="orderNumber">
+          {' '}
+          {order.isNew
+            ? 'Nová objednávka číslo'
+            : 'Potvrzená objednávka číslo'}{' '}
+          {order.orderNumber}
+        </p>
         {renderOrderMethod(order.orderMethod)}
         <p>
           {order.name} ({order.email}, {order.phoneNumber})
