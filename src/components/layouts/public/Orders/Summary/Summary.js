@@ -112,7 +112,6 @@ const Summary = ({
           value={text}
           onChange={(event) => setText(event.target.value)}
           id="textInput"
-          required
         />
 
         <Button primary type="submit">
