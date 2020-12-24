@@ -16,6 +16,8 @@ const OrderedItemContainer = styled.div`
   min-width: 100%;
   margin: 0.2rem;
   position: relative;
+  border-radius: 10px;
+  border-top-right-radius: 0;
 
   @media only screen and (min-width: 1024px) {
     --width: calc((99% / 2));
@@ -42,14 +44,15 @@ const OrderedItemContainer = styled.div`
 
   .orderNumber {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 0px;
+    right: 0px;
     padding: 0 1rem 0 1rem;
     background-color: ${(props) =>
       props.isConfirmed ? '#6f6150' : 'forestgreen'};
     color: white;
     font-weight: bold;
     border-bottom-left-radius: 5px;
+    border-top-right-radius: 0;
   }
 
   .information {
