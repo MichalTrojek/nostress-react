@@ -19,7 +19,7 @@ const OrderPageBackground = styled.section`
   min-height: 100vh;
 `;
 
-const OrderPage = ({ items, orderingStarted }) => {
+const OrderPage = ({ items, orderingStarted, resetOrders }) => {
   const [isOrderingAllowed, setIsOrderingAllowed] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
   const history = useHistory();

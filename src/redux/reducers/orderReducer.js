@@ -8,7 +8,7 @@ import {
   RESET_ORDERS,
 } from '../actions/types';
 
-const initializeState = {
+const initialState = {
   id: '',
   totalPrice: 0,
   orderMethod: '',
@@ -16,7 +16,7 @@ const initializeState = {
   customerInfo: { name: '', phoneNumber: '', email: '', text: '' },
   orderingStarted: { status: false, menuType: '' },
 };
-function orderReducer(state = initializeState, action) {
+function orderReducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_ORDER:
       return { ...state, items: action.payload };
@@ -31,7 +31,7 @@ function orderReducer(state = initializeState, action) {
     case START_ORDERING:
       return { ...state, orderingStarted: action.payload };
     case RESET_ORDERS:
-      return { ...state, items: [] };
+      return initialState;
     default:
       return state;
   }
