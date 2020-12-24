@@ -74,29 +74,29 @@ const CustomerOrders = ({
   newOrders = [],
   confirmedOrders = [],
 }) => {
-  const [showNewOrdersButton, setShowNewOrdersButton] = useState(false);
-  const [showConfirmedButton, setShowConfirmedButton] = useState(false);
-  const [showAllButton, setShowAllButton] = useState(false);
+  const [enableNewOrdersButton, setEnableNewOrdersButton] = useState(false);
+  const [enableConfirmedButton, setEnableConfirmedButton] = useState(false);
+  const [enableAllButton, setEnableAllButton] = useState(false);
 
   const [showAll, setShowAll] = useState(false);
   const [showNew, setShowNew] = useState(false);
   const [showConfirmed, setShowConfirmed] = useState(false);
 
   useEffect(() => {
-    setShowNewOrdersButton(newOrders.length > 0);
-    setShowConfirmedButton(confirmedOrders.length > 0);
-    setShowAllButton(newOrders.length > 0 && confirmedOrders.length > 0);
+    setEnableNewOrdersButton(newOrders.length > 0);
+    setEnableConfirmedButton(confirmedOrders.length > 0);
+    setEnableAllButton(newOrders.length > 0 && confirmedOrders.length > 0);
   }, [orders, newOrders, confirmedOrders, showNew, showConfirmed, showAll]);
 
   return (
     <>
       <ShowButtons
-        showNewsOrders={showNewOrdersButton}
-        showConfirmed={showConfirmedButton}
-        showAll={showAllButton}
+        showNewsOrders={enableNewOrdersButton}
+        showConfirmed={enableConfirmedButton}
+        showAll={enableAllButton}
       >
         <Button primary className="showNewButton" onClick={handleShowNew}>
-          {showNewOrdersButton
+          {enableNewOrdersButton
             ? `zobrazit Nové ${renderCount(newOrders)}`
             : 'žadné nové'}
         </Button>
@@ -116,21 +116,27 @@ const CustomerOrders = ({
   );
 
   function handleShowConfirmed() {
-    setShowConfirmed(true);
-    setShowAll(false);
-    setShowNew(false);
+    if (enableConfirmedButton) {
+      setShowConfirmed(true);
+      setShowAll(false);
+      setShowNew(false);
+    }
   }
 
   function handleShowAll() {
-    setShowConfirmed(false);
-    setShowAll(true);
-    setShowNew(false);
+    if (enableAllButton) {
+      setShowConfirmed(false);
+      setShowAll(true);
+      setShowNew(false);
+    }
   }
 
   function handleShowNew() {
-    setShowConfirmed(false);
-    setShowAll(false);
-    setShowNew(true);
+    if (enableNewOrdersButton) {
+      setShowConfirmed(false);
+      setShowAll(false);
+      setShowNew(true);
+    }
   }
 
   function renderCount(items) {
