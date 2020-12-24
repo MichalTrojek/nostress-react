@@ -30,7 +30,7 @@ const CustomersOrdersPage = () => {
 
         if (order.isConfirmed) {
           tempConfirmedOrders.push(order);
-        } else if (order.isNew) {
+        } else {
           tempNewOrders.push(order);
         }
         tempOrders.push(order);

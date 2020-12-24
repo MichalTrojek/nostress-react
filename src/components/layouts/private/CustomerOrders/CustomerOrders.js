@@ -39,19 +39,27 @@ const ShowButtons = styled.div`
   }
 
   .showNewButton {
-    background-color: forestgreen;
+    background-color: ${(props) =>
+      props.showNewsOrders ? 'forestGreen' : 'transparent'};
+    border: 1px solid forestGreen;
     color: white;
-    display: ${(props) => (props.showNewsOrders ? 'block' : 'none')};
-    opacity: ${(props) => (props.showNewsOrders ? '1' : '0')};
+    /* display: ${(props) => (props.showNewsOrders ? 'block' : 'none')};
+    opacity: ${(props) => (props.showNewsOrders ? '1' : '0')}; */
   }
 
   .showConfirmedButton {
-    display: ${(props) => (props.showConfirmed ? 'block' : 'none')};
-    opacity: ${(props) => (props.showConfirmed ? '1' : '0')};
+    color: white;
+    background-color: ${(props) =>
+      props.showConfirmedOrders ? 'transparent' : '#6f6150'};
+    border: 1px solid #6f6150;
+    /* display: ${(props) => (props.showConfirmed ? 'block' : 'none')};
+    opacity: ${(props) => (props.showConfirmed ? '1' : '0')}; */
   }
   .showAllButton {
-    display: ${(props) => (props.showAll ? 'block' : 'none')};
-    opacity: ${(props) => (props.showAll ? '1' : '0')};
+    background-color: ${(props) => (props.showNewsOrders ? '#f2c48c' : 'grey')};
+    border: 1px solid grey;
+    /* display: ${(props) => (props.showAll ? 'block' : 'none')};
+    opacity: ${(props) => (props.showAll ? '1' : '0')}; */
   }
 `;
 
@@ -87,31 +95,43 @@ const CustomerOrders = ({
         showConfirmed={showConfirmedButton}
         showAll={showAllButton}
       >
-        <Button
-          primary
-          className="showNewButton"
-          onClick={() => setShowNew(true)}
-        >
-          zobrazit Nové {renderCount(newOrders)}
+        <Button primary className="showNewButton" onClick={handleShowNew}>
+          {showNewOrdersButton
+            ? `zobrazit Nové ${renderCount(newOrders)}`
+            : 'žadné nové'}
         </Button>
         <Button
           primary
           className="showConfirmedButton"
-          onClick={() => setShowConfirmed(true)}
+          onClick={handleShowConfirmed}
         >
           zobrazit Potvrzené {renderCount(confirmedOrders)}
         </Button>
-        <Button
-          primary
-          className="showAllButton"
-          onClick={() => setShowAll(true)}
-        >
+        <Button primary className="showAllButton" onClick={handleShowAll}>
           zobrazit všechny {renderCount(orders)}
         </Button>
       </ShowButtons>
       <OrdersContainer>{renderOrderedItems()}</OrdersContainer>
     </>
   );
+
+  function handleShowConfirmed() {
+    setShowConfirmed(true);
+    setShowAll(false);
+    setShowNew(false);
+  }
+
+  function handleShowAll() {
+    setShowConfirmed(false);
+    setShowAll(true);
+    setShowNew(false);
+  }
+
+  function handleShowNew() {
+    setShowConfirmed(false);
+    setShowAll(false);
+    setShowNew(true);
+  }
 
   function renderCount(items) {
     return items.length > 0 ? `(${items.length} obj.)` : '';
@@ -126,7 +146,6 @@ const CustomerOrders = ({
     } else if (showNew) {
       items = newOrders;
     }
-
     return items.map((order, index) => {
       return <OrderedItem key={index} order={order} />;
     });
