@@ -158,7 +158,6 @@ const Summary = ({
         menuType: menuType,
         orderMethod: orderMethod,
         isConfirmed: false,
-        isNew: true,
         isFinsihed: false,
       };
       saveCustomerInfo(order);
