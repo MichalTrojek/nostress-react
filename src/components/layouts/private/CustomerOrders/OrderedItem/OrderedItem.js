@@ -48,7 +48,7 @@ const OrderedItemContainer = styled.div`
     right: -0.5px;
     padding: 0 1rem 0 1rem;
     background-color: ${(props) =>
-      props.isConfirmed ? '#6f6150' : 'forestgreen'};
+      props.isConfirmed ? 'transparent' : 'forestgreen'};
     color: white;
     font-weight: bold;
     border-bottom-left-radius: 5px;
