@@ -19,6 +19,9 @@ const MealListItemContainer = styled.div`
 
   position: relative;
 
+  border-radius: 10px;
+  border-top-right-radius: 0px;
+
   @media only screen and (min-width: 768px) {
     --width: calc((98% / 2));
     max-width: var(--width);
@@ -34,8 +37,12 @@ const MealListItemContainer = styled.div`
     top: 0;
     right: 0;
     padding: 0 1rem 0 1rem;
-    background-color: var(--color-quaternary);
+    background-color: white;
+    color: black;
     font-weight: bold;
+    border-bottom-left-radius: 10px;
+    border-left: 2px solid var(--color-tertiary);
+    border-bottom: 2px solid var(--color-tertiary);
   }
 
   .buttons {

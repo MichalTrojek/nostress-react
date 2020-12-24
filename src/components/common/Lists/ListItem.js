@@ -6,6 +6,7 @@ const ListItem = styled.div`
 
   margin: 0.2rem;
   min-width: 100%;
+
   @media only screen and (min-width: 768px) {
     --width: calc((98% / 2));
     max-width: var(--width);
