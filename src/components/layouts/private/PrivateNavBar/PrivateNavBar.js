@@ -13,11 +13,11 @@ import PrivateNavBarMenu from './PrivateNavBarMenu';
 
 const MENU_ITEMS = [
   { name: 'Objednávky', href: '/dashboard/orders' },
-  { name: 'historie', href: '/dashboard/newsCart' },
+  // { name: 'historie', href: '/dashboard/ordersHistory' },
   { name: 'Editor Menu', href: '/dashboard/meals' },
   { name: 'Editor Polivek', href: '/dashboard/soups' },
   { name: 'Editor Novinek', href: '/dashboard/news' },
-  { name: 'Editor Karet', href: '/dashboard/newsCart' },
+  { name: 'Editor Karet', href: '/dashboard/newsCard' },
   { name: 'Odhlásit se', href: 'logout' },
 ];
 
