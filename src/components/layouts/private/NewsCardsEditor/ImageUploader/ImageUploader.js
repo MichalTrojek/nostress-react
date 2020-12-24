@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import UploadIcon from '../../../../../img/upload.png';
-// import { storage } from '../../../../../firebase';
+import { storage } from '../../../../../firebase';
 
 const UploaderContainer = styled.div`
   input {
@@ -55,8 +55,7 @@ const ImageUploader = () => {
         accept="image/png, image/jpeg"
       />
       <label htmlFor="file">
-        {' '}
-        <img src={UploadIcon}></img>{' '}
+        <img src={UploadIcon} />
         {fileName ? `${fileName}` : 'VYBRAT OBRÁZEK...'}
       </label>
     </UploaderContainer>
@@ -65,6 +64,11 @@ const ImageUploader = () => {
   function handleChange(event) {
     let file = event.target.files[0];
     setFileName(file.name);
+    let storageRef = storage.ref();
+    const fileRef = storageRef.child('/cardImages/' + file.name);
+    fileRef.put(file).then(() => {
+      console.log('uploaded', file.name);
+    });
   }
 };
 

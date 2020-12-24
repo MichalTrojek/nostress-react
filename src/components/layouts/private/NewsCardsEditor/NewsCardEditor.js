@@ -88,6 +88,7 @@ const NewsCardsEditor = ({
           onChange={getContent}
           placeholder="Vložte text k novince."
         />
+
         {renderEditButtons()}
       </form>
     </EditorContainer>
