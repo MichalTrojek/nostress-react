@@ -44,8 +44,8 @@ const OrderedItemContainer = styled.div`
 
   .orderNumber {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: -0.5px;
+    right: -0.5px;
     padding: 0 1rem 0 1rem;
     background-color: ${(props) =>
       props.isConfirmed ? '#6f6150' : 'forestgreen'};
@@ -54,8 +54,10 @@ const OrderedItemContainer = styled.div`
     border-bottom-left-radius: 5px;
     border-top-right-radius: 0;
 
-    border-bottom: solid 1px var(--color-tertiary);
-    border-left: solid 1px var(--color-tertiary);
+    border-top: 1.2px solid var(--color-tertiary);
+    border-right: 1.3px solid var(--color-tertiary);
+    border-left: 2px solid var(--color-tertiary);
+    border-bottom: 2px solid var(--color-tertiary);
   }
 
   .information {
