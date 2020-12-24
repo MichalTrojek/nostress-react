@@ -39,7 +39,7 @@ const Login = () => {
       setError('');
 
       await login(emailRef.current.value, passwordRef.current.value);
-      history.push('/dashboard/orders');
+      history.push('/dashboard/');
     } catch {
       setError('Nepodařilo se přihlásit');
     }
