@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import UploadIcon from '../../../../../img/upload.png';
 // import { storage } from '../../../../../firebase';
@@ -39,17 +39,33 @@ const UploaderContainer = styled.div`
 `;
 
 const ImageUploader = () => {
-  const [localPathToFile, setLocalPathToFile] = useState('');
+  const [fileName, setFileName] = useState('');
+
+  useEffect(() => {
+    console.log(fileName);
+  }, [fileName]);
 
   return (
     <UploaderContainer>
-      <input type="file" name="file" id="file" />
-      <label for="file">
+      <input
+        type="file"
+        name="file"
+        id="file"
+        onChange={(event) => handleChange(event)}
+        accept="image/png, image/jpeg"
+      />
+      <label htmlFor="file">
         {' '}
-        <img src={UploadIcon}></img>VYBRAT OBRÁZEK...
+        <img src={UploadIcon}></img>{' '}
+        {fileName ? `${fileName}` : 'VYBRAT OBRÁZEK...'}
       </label>
     </UploaderContainer>
   );
+
+  function handleChange(event) {
+    let file = event.target.files[0];
+    setFileName(file.name);
+  }
 };
 
 export default ImageUploader;
