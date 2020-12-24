@@ -61,14 +61,15 @@ const ImageUploader = () => {
     </UploaderContainer>
   );
 
-  function handleChange(event) {
+  async function handleChange(event) {
     let file = event.target.files[0];
     setFileName(file.name);
     let storageRef = storage.ref();
     const fileRef = storageRef.child('/cardImages/' + file.name);
-    fileRef.put(file).then(() => {
-      console.log('uploaded', file.name);
-    });
+    await fileRef.put(file);
+    const fileUrl = await fileRef.getDownloadURL();
+
+    console.log(fileUrl);
   }
 };
 
