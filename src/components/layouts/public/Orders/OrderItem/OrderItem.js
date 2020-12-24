@@ -20,6 +20,8 @@ const OrderItemContainer = styled.div`
   margin: 0.2rem;
   width: 100%;
 
+  border-radius: 10px;
+
   transition: all 0.2s;
 
   @media only screen and (min-width: 768px) {

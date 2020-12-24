@@ -11,6 +11,7 @@ import setTotalPrice from '../../../../../redux/actions/orders/setTotalPrice';
 
 const CartContainer = styled.div`
   border: 1px solid var(--color-tertiary);
+  border-radius: 10px;
 `;
 
 const Cart = ({ items = [], totalPrice, setTotalPrice }) => {
