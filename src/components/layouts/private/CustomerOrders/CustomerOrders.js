@@ -108,7 +108,7 @@ const CustomerOrders = ({
         </Button>
         <Button primary className="showAllButton" onClick={handleShowAll}>
           {enableNewOrdersButton
-            ? `zobrazit všechny ${renderCount(confirmedOrders)}`
+            ? `zobrazit všechny ${renderCount(orders)}`
             : 'žadné k zobrazení'}
         </Button>
       </ShowButtons>
