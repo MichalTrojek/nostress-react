@@ -7,14 +7,33 @@ import OrderedItem from '../CustomerOrders/OrderedItem';
 const ShowButtons = styled.div`
   padding-top: 1rem;
   display: grid;
-  /* grid-template-columns: repeat(12, 1fr); */
-  /* min-width: 100%; */
+
   row-gap: 1rem;
-  /* grid-column-gap: 1rem;
-    margin-bottom: 0.5rem;
-    Button:last-child {
-      grid-column: 7 / 13;
-    } */
+
+  @media only screen and (min-width: 1024px) {
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 1rem;
+    .showNewButton {
+      grid-column: 1 / span 4;
+    }
+    .showConfirmedButton {
+      grid-column: 5 / span 4;
+    }
+    .showAllButton {
+      grid-column: 9 / span 4;
+    }
+  }
+
+  Button {
+    font-size: 1rem;
+    @media only screen and (min-width: 411px) {
+      font-size: 1.3rem;
+    }
+
+    @media only screen and (min-width: 768px) {
+      font-size: 1.4rem;
+    }
+  }
 
   .showNewButton {
     background-color: lightgreen;
@@ -55,9 +74,11 @@ const CustomerOrders = ({
     // console.log('new', newOrders);
     // console.log('confirmed', confirmedOrders);
     // console.log('all', orders);
-    setShowNewOrdersButton(newOrders.length > 0);
-    setShowConfirmedButton(confirmedOrders.length > 0);
-    setShowAllButton(newOrders.length > 0 && confirmedOrders.length > 0);
+    setShowNewOrdersButton(newOrders.length > 0 && !showNew);
+    setShowConfirmedButton(confirmedOrders.length > 0 && !showConfirmed);
+    setShowAllButton(
+      newOrders.length > 0 && confirmedOrders.length > 0 && !showAll
+    );
   }, [orders, newOrders, confirmedOrders]);
 
   return (
