@@ -44,25 +44,19 @@ const ShowButtons = styled.div`
       props.showNewsOrders ? 'forestGreen' : 'transparent'};
     border: 1px solid forestGreen;
     color: white;
-    /* display: ${(props) => (props.showNewsOrders ? 'block' : 'none')};
-    opacity: ${(props) => (props.showNewsOrders ? '1' : '0')}; */
   }
 
   .showConfirmedButton {
     color: white;
     background-color: ${(props) =>
-      props.showConfirmedOrders ? '#6f6150' : 'transparent'};
-    border: 1px solid #6f6150;
-    /* display: ${(props) => (props.showConfirmed ? 'block' : 'none')};
-    opacity: ${(props) => (props.showConfirmed ? '1' : '0')}; */
+      props.showConfirmedOrders ? '#f2c48c' : 'transparent'};
+    border: 1px solid #f2c48c;
   }
   .showAllButton {
     background-color: ${(props) =>
-      props.showNewsOrders ? 'grey' : 'transparent'};
-    border: 1px solid grey;
+      props.showAllOrders ? '#f2c48c' : 'transparent'};
+    border: 1px solid #f2c48c;
     color: white;
-    /* display: ${(props) => (props.showAll ? 'block' : 'none')};
-    opacity: ${(props) => (props.showAll ? '1' : '0')}; */
   }
 `;
 
