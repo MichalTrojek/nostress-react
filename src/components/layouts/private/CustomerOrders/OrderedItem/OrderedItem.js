@@ -71,6 +71,12 @@ const OrderedItemContainer = styled.div`
     Button:last-child {
       margin-left: 0.2rem;
     }
+
+    .confirmButton {
+      /* background-color: transparent;
+      color: white;
+      border: 1px solid forestgreen; */
+    }
   }
 `;
 
@@ -155,7 +161,7 @@ const OrderedItem = ({ order }) => {
         Hotovo
       </Button>
     ) : (
-      <Button primary onClick={handleConfirmButton}>
+      <Button primary className="confirmButton" onClick={handleConfirmButton}>
         Potvrdit
       </Button>
     );
