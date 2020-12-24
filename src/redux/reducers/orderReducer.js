@@ -5,6 +5,7 @@ import {
   SAVE_CUSTOMER_INFO,
   CREATE_ORDER,
   START_ORDERING,
+  RESET_ORDERS,
 } from '../actions/types';
 
 const initializeState = {
@@ -29,6 +30,8 @@ function orderReducer(state = initializeState, action) {
       return state;
     case START_ORDERING:
       return { ...state, orderingStarted: action.payload };
+    case RESET_ORDERS:
+      return { ...state, items: [] };
     default:
       return state;
   }
