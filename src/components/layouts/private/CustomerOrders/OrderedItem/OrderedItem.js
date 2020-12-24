@@ -79,8 +79,8 @@ const OrderedItem = ({ order }) => {
       <div className="header">
         <p className="orderNumber">
           {!order.isConfirmed
-            ? 'Nová objednávka číslo'
-            : 'Potvrzená objednávka číslo'}
+            ? 'Nová objednávka číslo '
+            : 'Potvrzená objednávka číslo '}
           {order.orderNumber}
         </p>
         {renderOrderMethod(order.orderMethod)}
