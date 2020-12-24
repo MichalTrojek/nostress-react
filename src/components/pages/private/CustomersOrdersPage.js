@@ -34,15 +34,10 @@ const CustomersOrdersPage = () => {
           tempNewOrders.push(order);
         }
         tempOrders.push(order);
-        console.log(newOrders);
       });
       setOrders(tempOrders);
       setNewOrders(tempNewOrders);
       setConfirmedOrders(tempConfirmedOrders);
-
-      console.log('new', newOrders);
-      console.log('confirmed', confirmedOrders);
-      console.log('all', orders);
     });
     return () => {
       unsubscribe();

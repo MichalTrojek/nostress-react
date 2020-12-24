@@ -75,11 +75,9 @@ const CustomerOrders = ({
   const [showConfirmed, setShowConfirmed] = useState(false);
 
   useEffect(() => {
-    setShowNewOrdersButton(newOrders.length > 0 && !showNew);
-    setShowConfirmedButton(confirmedOrders.length > 0 && !showConfirmed);
-    setShowAllButton(
-      newOrders.length > 0 && confirmedOrders.length > 0 && !showAll
-    );
+    setShowNewOrdersButton(newOrders.length > 0);
+    setShowConfirmedButton(confirmedOrders.length > 0);
+    setShowAllButton(newOrders.length > 0 && confirmedOrders.length > 0);
   }, [orders, newOrders, confirmedOrders, showNew, showConfirmed, showAll]);
 
   return (

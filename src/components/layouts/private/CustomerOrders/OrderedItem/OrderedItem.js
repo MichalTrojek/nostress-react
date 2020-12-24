@@ -77,10 +77,7 @@ const OrderedItem = ({ order }) => {
     <OrderedItemContainer isNew={order.isNew}>
       <div className="header">
         <p className="orderNumber">
-          {' '}
-          {order.isNew
-            ? 'Nová objednávka číslo'
-            : 'Potvrzená objednávka číslo'}{' '}
+          {order.isNew ? 'Nová objednávka číslo' : 'Potvrzená objednávka číslo'}{' '}
           {order.orderNumber}
         </p>
         {renderOrderMethod(order.orderMethod)}
@@ -144,7 +141,7 @@ const OrderedItem = ({ order }) => {
   }
 
   function renderButton() {
-    return orderConfirmed ? (
+    return order.isConfirmed ? (
       <Button primary onClick={handleFinishedButton}>
         Hotovo
       </Button>
@@ -159,6 +156,9 @@ const OrderedItem = ({ order }) => {
 
   function handleConfirmButton() {
     setOrderConfirmed(!orderConfirmed);
+    order.isNew = false;
+    order.isConfirmed = true;
+    db.collection('orders').doc(order.id).update(order);
   }
 };
 
