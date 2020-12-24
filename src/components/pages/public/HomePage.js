@@ -18,7 +18,7 @@ import News from '../../layouts/public/News';
 const Home = ({ resetOrders }) => {
   useEffect(() => {
     resetOrders();
-  }, []);
+  }, [resetOrders]);
 
   return (
     <PageLayout>
