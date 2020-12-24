@@ -113,7 +113,9 @@ const CustomerOrders = ({
             : 'žadné potvrzené'}
         </Button>
         <Button primary className="showAllButton" onClick={handleShowAll}>
-          zobrazit všechny {renderCount(orders)}
+          {enableNewOrdersButton
+            ? `zobrazit všechny ${renderCount(confirmedOrders)}`
+            : 'žadné k zobrazení'}
         </Button>
       </ShowButtons>
       <OrdersContainer>{renderOrderedItems()}</OrdersContainer>
