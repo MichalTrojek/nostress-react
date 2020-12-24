@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 import Button from '../../../common/Button';
 import OrderedItem from '../CustomerOrders/OrderedItem';
+import { showInfoToast } from '../../../../notifications/toast';
 
 const ShowButtons = styled.div`
   padding-top: 1rem;
@@ -50,14 +51,16 @@ const ShowButtons = styled.div`
   .showConfirmedButton {
     color: white;
     background-color: ${(props) =>
-      props.showConfirmedOrders ? 'transparent' : '#6f6150'};
+      props.showConfirmedOrders ? '#6f6150' : 'transparent'};
     border: 1px solid #6f6150;
     /* display: ${(props) => (props.showConfirmed ? 'block' : 'none')};
     opacity: ${(props) => (props.showConfirmed ? '1' : '0')}; */
   }
   .showAllButton {
-    background-color: ${(props) => (props.showNewsOrders ? '#f2c48c' : 'grey')};
+    background-color: ${(props) =>
+      props.showNewsOrders ? 'grey' : 'transparent'};
     border: 1px solid grey;
+    color: white;
     /* display: ${(props) => (props.showAll ? 'block' : 'none')};
     opacity: ${(props) => (props.showAll ? '1' : '0')}; */
   }
@@ -105,7 +108,9 @@ const CustomerOrders = ({
           className="showConfirmedButton"
           onClick={handleShowConfirmed}
         >
-          zobrazit Potvrzené {renderCount(confirmedOrders)}
+          {enableNewOrdersButton
+            ? `zobrazit potvrzené ${renderCount(confirmedOrders)}`
+            : 'žadné potvrzené'}
         </Button>
         <Button primary className="showAllButton" onClick={handleShowAll}>
           zobrazit všechny {renderCount(orders)}
@@ -120,6 +125,8 @@ const CustomerOrders = ({
       setShowConfirmed(true);
       setShowAll(false);
       setShowNew(false);
+    } else {
+      showInfoToast('Nejsou žádné potvrzené objednávky');
     }
   }
 
@@ -128,6 +135,8 @@ const CustomerOrders = ({
       setShowConfirmed(false);
       setShowAll(true);
       setShowNew(false);
+    } else {
+      showInfoToast('Nejsou žádné objednávky');
     }
   }
 
@@ -136,6 +145,8 @@ const CustomerOrders = ({
       setShowConfirmed(false);
       setShowAll(false);
       setShowNew(true);
+    } else {
+      showInfoToast('Nejsou žádné nové objednávky');
     }
   }
 

@@ -45,7 +45,8 @@ const OrderedItemContainer = styled.div`
     top: 0;
     right: 0;
     padding: 0 1rem 0 1rem;
-    background-color: ${(props) => (props.isNew ? 'forestgreen' : '#6f6150')};
+    background-color: ${(props) =>
+      props.isConfirmed ? '#6f6150' : 'forestgreen'};
     color: white;
     font-weight: bold;
     border-bottom-left-radius: 5px;
@@ -74,7 +75,7 @@ const OrderedItem = ({ order }) => {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
 
   return (
-    <OrderedItemContainer isNew={order.isNew}>
+    <OrderedItemContainer isConfirmed={order.isNew}>
       <div className="header">
         <p className="orderNumber">
           {order.isNew ? 'Nová objednávka číslo' : 'Potvrzená objednávka číslo'}{' '}
@@ -156,7 +157,6 @@ const OrderedItem = ({ order }) => {
 
   function handleConfirmButton() {
     setOrderConfirmed(!orderConfirmed);
-    order.isNew = false;
     order.isConfirmed = true;
     db.collection('orders').doc(order.id).update(order);
   }
