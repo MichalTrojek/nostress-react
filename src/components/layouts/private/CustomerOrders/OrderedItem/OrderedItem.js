@@ -75,10 +75,12 @@ const OrderedItem = ({ order }) => {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
 
   return (
-    <OrderedItemContainer isConfirmed={order.isNew}>
+    <OrderedItemContainer isConfirmed={order.isConfirmed}>
       <div className="header">
         <p className="orderNumber">
-          {order.isNew ? 'Nová objednávka číslo' : 'Potvrzená objednávka číslo'}{' '}
+          {!order.isConfirmed
+            ? 'Nová objednávka číslo'
+            : 'Potvrzená objednávka číslo'}
           {order.orderNumber}
         </p>
         {renderOrderMethod(order.orderMethod)}
