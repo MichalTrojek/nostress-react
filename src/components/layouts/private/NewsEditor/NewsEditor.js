@@ -188,6 +188,8 @@ const Editor = ({
       buttonPath: buttonPath,
     };
 
+    console.log(news);
+
     if (isEditModeEnabled) {
       const { id } = selectedNewsToEdit[0];
       editNews({ ...news, id: id });
