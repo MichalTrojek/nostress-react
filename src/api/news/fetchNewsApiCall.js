@@ -12,6 +12,8 @@ function fetchNewsApiCall() {
           heading: doc.data().heading,
           content: doc.data().content,
           button: doc.data().button,
+          websiteLink: doc.data().websiteLink,
+          buttonPath: doc.data().buttonPath,
         });
       });
       return data;

@@ -63,10 +63,19 @@ const Editor = ({
     }
 
     function insertTextToInputFields() {
-      const { heading, content, button } = selectedNewsToEdit[0];
+      console.log(selectedNewsToEdit[0]);
+      const {
+        heading,
+        content,
+        button,
+        buttonPath,
+        websiteLink,
+      } = selectedNewsToEdit[0];
       setHeading(heading);
       setContent(replaceWhiteWithBlackColor(content));
       setButtonText(button);
+      setButtonPath(buttonPath);
+      setWebsiteLink(websiteLink);
     }
 
     function replaceWhiteWithBlackColor(text) {
