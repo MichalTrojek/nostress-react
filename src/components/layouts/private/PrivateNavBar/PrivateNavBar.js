@@ -7,13 +7,13 @@ import { showErrorToast } from '../../../../notifications/toast';
 
 import logo from '../../../../img/logo.png';
 
-import Burger from '../../../common/Burger';
+import PrivateBurger from '../../../common/Burgers/PrivateBurger';
 import SideMenuStyled from '../../../common/SideMenu';
 import PrivateNavBarMenu from './PrivateNavBarMenu';
 
 const MENU_ITEMS = [
   { name: 'Objednávky', href: '/dashboard/orders' },
-  // { name: 'historie', href: '/dashboard/ordersHistory' },
+  { name: 'historie', href: '/dashboard/ordersHistory' },
   { name: 'Editor Menu', href: '/dashboard/meals' },
   { name: 'Editor Polivek', href: '/dashboard/soups' },
   { name: 'Editor Novinek', href: '/dashboard/news' },
@@ -60,7 +60,7 @@ const PrivateNavBar = () => {
             menuItems={MENU_ITEMS}
             handleLogOut={handleLogOut}
           />
-          <Burger open={open} setOpen={setOpen} />
+          <PrivateBurger open={open} setOpen={setOpen} />
         </NavBarWrapper>
       </NavBarBackground>
       <SideMenuStyled

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import logo from '../../../../img/logo.png';
 
-import Burger from '../../../common/Burger';
+import PublicBurger from '../../../common/Burgers/PublicBurger';
 import SideMenuStyled from '../../../common/SideMenu';
 import NavBarMenu from './NavBarMenu';
 
@@ -56,7 +56,7 @@ const PublicNavBar = () => {
         <NavBarWrapper className="navigation">
           <NavBarLogo src={logo} alt="No Stress Logo" />
           <NavBarMenu menuItems={MENU_ITEMS} />
-          <Burger open={open} setOpen={setOpen} />
+          <PublicBurger open={open} setOpen={setOpen} />
         </NavBarWrapper>
       </NavBarBackground>
       <SideMenuStyled open={open} setOpen={setOpen} menuItems={MENU_ITEMS} />

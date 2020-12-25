@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const BurgerButton = styled.button`
+const Burger = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -12,9 +12,9 @@ const BurgerButton = styled.button`
   padding: 0;
   z-index: 10;
 
-  @media only screen and (min-width: 1262px) {
+  /* @media only screen and (min-width: 1168px) {
     display: none;
-  }
+  } */
 
   &:focus {
     outline: none;
@@ -44,15 +44,5 @@ const BurgerButton = styled.button`
     }
   }
 `;
-
-const Burger = ({ open, setOpen }) => {
-  return (
-    <BurgerButton open={open} onClick={() => setOpen(!open)}>
-      <span />
-      <span />
-      <span />
-    </BurgerButton>
-  );
-};
 
 export default Burger;
