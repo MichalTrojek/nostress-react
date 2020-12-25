@@ -10,7 +10,7 @@ import NavBarMenu from './NavBarMenu';
 const MENU_ITEMS = [
   { name: 'Domů', href: '/home' },
   { name: 'Menu', href: '/menu' },
-  { name: 'Objednat jídlo', href: '/menu' },
+  { name: 'Objednat jídlo', href: '/order' },
   { name: 'Novinky', href: '/news' },
   { name: 'Jídelní lístek', href: '/food' },
   { name: 'Otevírací doba', href: '/open' },

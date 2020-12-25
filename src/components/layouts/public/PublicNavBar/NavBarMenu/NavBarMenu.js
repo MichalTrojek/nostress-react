@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
+
+import { useHistory } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import startOrdering from '../../../../../redux/actions/orders/startOrdering';
 
 const NavBarMenuList = styled.ul`
   display: none;
@@ -23,7 +28,7 @@ const NavBarMenuItem = styled.li`
   }
 `;
 
-const NavBarMenuItemList = styled(Link)`
+const NavBarMenuItemScroll = styled(Link)`
   font-weight: bold;
   text-decoration: none;
   color: var(--color-primary);
@@ -32,26 +37,53 @@ const NavBarMenuItemList = styled(Link)`
   }
 `;
 
-const NavBarMenu = ({ menuItems }) => {
+const NavBarMenuItemPush = styled.div`
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--color-primary);
+  &:hover {
+    color: black;
+  }
+`;
+
+const NavBarMenu = ({ menuItems, startOrdering }) => {
+  const history = useHistory();
   return (
     <nav>
       <NavBarMenuList>
         {menuItems.map((item, index) => {
-          return (
-            <NavBarMenuItemList
-              key={index}
-              to={item.href.replace('/', '')}
-              spy="true"
-              smooth="true"
-              offset={-80}
-            >
-              <NavBarMenuItem>{item.name.toLocaleUpperCase()}</NavBarMenuItem>
-            </NavBarMenuItemList>
-          );
+          if (item.href === '/order') {
+            return (
+              <NavBarMenuItemPush
+                key={index}
+                onClick={() => handleStartingOrder()}
+              >
+                <NavBarMenuItem>{item.name.toLocaleUpperCase()}</NavBarMenuItem>
+              </NavBarMenuItemPush>
+            );
+          } else {
+            return (
+              <NavBarMenuItemScroll
+                key={index}
+                to={item.href.replace('/', '')}
+                spy={true}
+                smooth={true}
+                offset={-80}
+              >
+                <NavBarMenuItem>{item.name.toLocaleUpperCase()}</NavBarMenuItem>
+              </NavBarMenuItemScroll>
+            );
+          }
         })}
       </NavBarMenuList>
     </nav>
   );
+
+  function handleStartingOrder() {
+    window.scrollTo(0, 0);
+    history.push('/order');
+    startOrdering({ status: true, menuType: 'MainMenu' });
+  }
 };
 
-export default NavBarMenu;
+export default connect(null, { startOrdering })(NavBarMenu);
