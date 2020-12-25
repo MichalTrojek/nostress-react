@@ -30,6 +30,7 @@ const EditorContainer = styled.div`
       margin-left: 2rem;
       font-size: 2rem;
       cursor: pointer;
+      border-radius: 5px;
     }
   }
 `;
