@@ -12,7 +12,10 @@ const newsReducer = (state = [], action) => {
     case CREATE_NEWS:
       return [...state, action.payload];
     case DELETE_NEWS:
-      return state.filter((item) => item.id !== action.payload);
+      const stateAfterDelete = state.filter(
+        (item) => item.id !== action.payload
+      );
+      return stateAfterDelete;
     case EDIT_NEWS:
       const newState = state.filter((item) => item.id !== action.payload.id);
       return [...newState, action.payload];

@@ -6,7 +6,7 @@ function deleteNewsApiCalls(id) {
     .doc(id)
     .delete()
     .then(() => {
-      console.log(`Documnet with id ${id} was successfully deleted!`);
+      console.log(`Document with id ${id} was successfully deleted!`);
       return true;
     })
     .catch((error) => {

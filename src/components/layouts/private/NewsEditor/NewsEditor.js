@@ -26,11 +26,16 @@ const EditorContainer = styled.div`
 
   .selector {
     padding-bottom: 3rem;
+
+    label {
+      /* font-weight: bold; */
+    }
     select {
       margin-left: 2rem;
       font-size: 2rem;
       cursor: pointer;
       border-radius: 5px;
+      padding-left: 1rem;
     }
   }
 `;
