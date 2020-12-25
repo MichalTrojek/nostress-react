@@ -12,10 +12,6 @@ const Burger = styled.button`
   padding: 0;
   z-index: 10;
 
-  /* @media only screen and (min-width: 1168px) {
-    display: none;
-  } */
-
   &:focus {
     outline: none;
   }

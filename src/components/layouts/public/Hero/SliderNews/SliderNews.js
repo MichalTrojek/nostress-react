@@ -13,9 +13,9 @@ import './sliderNews.css';
 import SlideNews from './SlideNews';
 import Wrapper from '../../../../common/Wrapper';
 
-const SliderNews = ({ items }) => {
-  const history = useHistory();
+import { Link } from 'react-router-dom';
 
+const SliderNews = ({ items }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -38,11 +38,9 @@ const SliderNews = ({ items }) => {
     const pages = createNewsSlide();
     pages.unshift(
       <SlideNews key={654646}>
-        <h1>Máme znovu otevřeno. Těšíme se na Vás.</h1>
+        <h1>Máme otevřeno. Těšíme se na Vás.</h1>
         <OpenHours />
-        <Button onClick={() => history.push('/order')} primary>
-          Objednat
-        </Button>
+        <Button primary>Objednat</Button>
       </SlideNews>
     );
     return pages;

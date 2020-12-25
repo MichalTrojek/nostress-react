@@ -46,7 +46,7 @@ const BreakFastMenu = ({ breakfast, startOrdering }) => {
   };
 
   return (
-    <BreakFastMenuContainer>
+    <BreakFastMenuContainer id="Breakfastmenu">
       <h1>Snídaňové menu 8:00 – 10:30</h1>
       <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
       <BreakFastRow>

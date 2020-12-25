@@ -23,6 +23,15 @@ const EditorContainer = styled.div`
     margin-top: 2rem;
     width: 100%;
   }
+
+  .selector {
+    padding-bottom: 3rem;
+    select {
+      margin-left: 2rem;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
 `;
 
 const modules = {
@@ -86,6 +95,14 @@ const Editor = ({
           />
           <label htmlFor="heading">Text tlačítka</label>
         </FormGroup>
+
+        <div className="selector">
+          <label> Po stisknutí tlačítka se přejde do: </label>
+          <select>
+            <option value="MainMenu">Objednávky hlavního menu</option>
+            <option value="BreakfastMenu">Objednávky snídaňového menu</option>
+          </select>
+        </div>
 
         <ReactQuill
           modules={modules}
