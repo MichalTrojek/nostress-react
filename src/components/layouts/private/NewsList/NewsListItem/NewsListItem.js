@@ -11,9 +11,7 @@ import emptySelectedNewsToEdit from '../../../../../redux/actions/news/emptySele
 
 const StyledNewsListItem = styled.div`
   padding: 2rem;
-  border: 1px solid
-    ${(props) => (props.isSelected ? 'white' : 'var(--color-tertiary)')};
-
+  border: 1px solid var(--color-tertiary);
   margin: 0.2rem;
   min-width: 100%;
   @media only screen and (min-width: 768px) {

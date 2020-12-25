@@ -1,8 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
 
-import { useHistory } from 'react-router-dom';
-
 import OpenHours from '../../../../common/OpenHours';
 import Button from '../../../../common/Button';
 
@@ -13,9 +11,13 @@ import './sliderNews.css';
 import SlideNews from './SlideNews';
 import Wrapper from '../../../../common/Wrapper';
 
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import startOrdering from '../../../../../redux/actions/orders/startOrdering';
+import { useHistory } from 'react-router-dom';
 
-const SliderNews = ({ items }) => {
+const SliderNews = ({ items, startOrdering }) => {
+  const history = useHistory();
+
   const settings = {
     dots: true,
     infinite: true,
@@ -40,7 +42,9 @@ const SliderNews = ({ items }) => {
       <SlideNews key={654646}>
         <h1>Máme otevřeno. Těšíme se na Vás.</h1>
         <OpenHours />
-        <Button primary>Objednat</Button>
+        <Button primary onClick={() => handleStartingOrder('MainMenu')}>
+          Objednat
+        </Button>
       </SlideNews>
     );
     return pages;
@@ -56,11 +60,45 @@ const SliderNews = ({ items }) => {
               __html: item.content,
             }}
           ></div>
-          <Button primary>{item.button}</Button>
+          {renderButton(item)};
         </SlideNews>
       );
     });
   }
+
+  function renderButton(item) {
+    if (item.buttonPath === 'MainMenu') {
+      return (
+        <Button primary onClick={() => handleStartingOrder(item.buttonPath)}>
+          {item.button}
+        </Button>
+      );
+    } else if (item.buttonPath === 'BreakfastMenu') {
+      return (
+        <Button primary onClick={() => handleStartingOrder(item.buttonPath)}>
+          {item.button}
+        </Button>
+      );
+    } else if (item.buttonPath === 'website') {
+      return (
+        <Button primary onClick={() => openInNewTab(item.websiteLink)}>
+          {item.button}
+        </Button>
+      );
+    }
+  }
+
+  function handleStartingOrder(menuType) {
+    console.log('render button', menuType);
+    window.scrollTo(0, 0);
+    history.push('/order');
+    startOrdering({ status: true, menuType: menuType });
+  }
+
+  function openInNewTab(url) {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (newWindow) newWindow.opener = null;
+  }
 };
 
-export default SliderNews;
+export default connect(null, { startOrdering })(SliderNews);

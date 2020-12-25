@@ -143,6 +143,7 @@ const Editor = ({
         {websiteSelected > 0 && (
           <FormGroup className="form-group">
             <input
+              onClick={() => setWebsiteLink('https://')}
               id="website"
               onChange={(e) => setWebsiteLink(e.target.value)}
               value={websiteLink}
