@@ -31,8 +31,17 @@ const EditorContainer = styled.div`
       /* font-weight: bold; */
     }
     select {
-      margin-left: 2rem;
-      font-size: 2rem;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+
+      @media only screen and (min-width: 320px) {
+        font-size: 1.35rem;
+      }
+      @media only screen and (min-width: 768px) {
+        margin-top: 0;
+        margin-left: 2rem;
+        font-size: 2rem;
+      }
       cursor: pointer;
       border-radius: 5px;
       padding-left: 1rem;
@@ -69,8 +78,6 @@ const Editor = ({
     }
 
     function restoreInputFields() {
-      console.log(selectedNewsToEdit[0]);
-
       const {
         heading,
         content,
@@ -82,7 +89,6 @@ const Editor = ({
       setWebsiteSelected(
         websiteLink.length > 0 && buttonPath.includes('website')
       );
-      console.log('is website selected', websiteSelected);
 
       setWebsiteLink(websiteLink);
       setButtonPath(buttonPath);
@@ -210,7 +216,6 @@ const Editor = ({
       websiteLink: websiteSelected ? websiteLink : '',
       buttonPath: buttonPath,
     };
-    console.log(news);
 
     if (isEditModeEnabled) {
       const { id } = selectedNewsToEdit[0];
