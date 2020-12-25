@@ -12,10 +12,8 @@ const DisplayedNews = styled.div`
 
 const NewsList = ({ news, fetchNews, isEditModeEnabled }) => {
   useEffect(() => {
-    if (news.length === 0) {
-      fetchNews();
-    }
-  }, [fetchNews, news.length]);
+    fetchNews();
+  }, [fetchNews]);
 
   return (
     <>
