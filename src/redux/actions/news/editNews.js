@@ -2,18 +2,13 @@ import { EDIT_NEWS } from '../types';
 import editNewsApiCall from '../../../api/news/editNewsApiCall';
 import { showErrorToast, showSuccessToast } from '../../../notifications/toast';
 
-const editNews = (id, heading, newsContent, buttonText) => {
+const editNews = (news) => {
   return (dispatch, getState) => {
-    const success = editNewsApiCall(id, heading, newsContent, buttonText);
+    const success = editNewsApiCall(news);
     if (success) {
       dispatch({
         type: EDIT_NEWS,
-        payload: {
-          id: id,
-          heading: heading,
-          content: newsContent,
-          button: buttonText,
-        },
+        payload: news,
       });
 
       showSuccessToast('Novinka byla upravena!');

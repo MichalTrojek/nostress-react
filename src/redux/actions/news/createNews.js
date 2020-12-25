@@ -3,7 +3,6 @@ import createNewsApiCall from '../../../api/news/createNewsApiCall';
 import { showErrorToast, showSuccessToast } from '../../../notifications/toast';
 
 const createNews = (news) => {
-  console.log(news);
   return async (dispatch, getState) => {
     const id = await createNewsApiCall(news);
     if (id) {

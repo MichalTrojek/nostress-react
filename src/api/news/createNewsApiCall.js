@@ -1,7 +1,6 @@
 import { db } from '../../firebase';
 
 function createNewsApiCall(news) {
-  console.log(news);
   return db
     .collection('news')
     .add(news)
