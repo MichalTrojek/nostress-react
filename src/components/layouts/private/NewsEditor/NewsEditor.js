@@ -59,11 +59,12 @@ const Editor = ({
   useEffect(() => {
     if (selectedNewsToEdit.length !== 0) {
       setIsEditModeEnabled(true);
-      insertTextToInputFields();
+      restoreInputFields();
     }
 
-    function insertTextToInputFields() {
+    function restoreInputFields() {
       console.log(selectedNewsToEdit[0]);
+
       const {
         heading,
         content,
@@ -71,11 +72,17 @@ const Editor = ({
         buttonPath,
         websiteLink,
       } = selectedNewsToEdit[0];
+
+      setWebsiteSelected(
+        websiteLink.length > 0 && buttonPath.includes('website')
+      );
+      console.log('is website selected', websiteSelected);
+
+      setWebsiteLink(websiteLink);
+      setButtonPath(buttonPath);
       setHeading(heading);
       setContent(replaceWhiteWithBlackColor(content));
       setButtonText(button);
-      setButtonPath(buttonPath);
-      setWebsiteLink(websiteLink);
     }
 
     function replaceWhiteWithBlackColor(text) {
@@ -112,7 +119,7 @@ const Editor = ({
 
         <div className="selector">
           <label> Po stisknutí tlačítka se: </label>
-          <select onChange={handleSelector}>
+          <select value={buttonPath} onChange={handleSelector}>
             <option value="MainMenu">přejde do objednávky hlavního menu</option>
             <option value="BreakfastMenu">
               přejde do objednávky snídaňového menu
@@ -151,7 +158,7 @@ const Editor = ({
     const value = e.target.value;
     setWebsiteSelected(value.includes('website'));
     if (websiteSelected) {
-      setWebsiteLink(value);
+      setButtonPath(value);
     } else {
       setWebsiteLink('');
       setButtonPath(value);
@@ -173,6 +180,7 @@ const Editor = ({
 
   function handleCancelEdit() {
     setIsEditModeEnabled(false);
+    setWebsiteSelected(false);
     clearInputs();
     emptySelectedNewsToEdit();
   }
@@ -193,9 +201,10 @@ const Editor = ({
       heading: heading,
       content: replaceBlackWithWhiteColor(content),
       button: buttonText,
-      websiteLink: websiteLink,
+      websiteLink: websiteSelected ? websiteLink : '',
       buttonPath: buttonPath,
     };
+    console.log(news);
 
     if (isEditModeEnabled) {
       const { id } = selectedNewsToEdit[0];
@@ -205,6 +214,7 @@ const Editor = ({
       createNews(news);
     }
     clearInputs();
+    setWebsiteSelected(false);
   }
 
   function replaceBlackWithWhiteColor(text) {

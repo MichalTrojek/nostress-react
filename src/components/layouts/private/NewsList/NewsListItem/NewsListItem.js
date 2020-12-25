@@ -75,7 +75,6 @@ const NewsListItem = ({
 
   function handleEdit(id) {
     const selectedNews = news.filter((item) => item.id === id);
-    console.log(selectedNews);
     setSelectedNewsToEdit(selectedNews);
     setIsSelected(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
