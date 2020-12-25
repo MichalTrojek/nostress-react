@@ -41,8 +41,8 @@ const NavBarMenu = ({ menuItems }) => {
             <NavBarMenuItemList
               key={index}
               to={item.href.replace('/', '')}
-              spy={true}
-              smooth={true}
+              spy="true"
+              smooth="true"
               offset={-80}
             >
               <NavBarMenuItem>{item.name.toLocaleUpperCase()}</NavBarMenuItem>
