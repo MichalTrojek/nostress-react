@@ -51,6 +51,10 @@ const Editor = ({
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
   const [buttonText, setButtonText] = useState('');
+  const [buttonPath, setButtonPath] = useState('MainMenu');
+  const [websiteLink, setWebsiteLink] = useState('');
+
+  const [websiteSelected, setWebsiteSelected] = useState(false);
 
   useEffect(() => {
     if (selectedNewsToEdit.length !== 0) {
@@ -77,7 +81,7 @@ const Editor = ({
         <FormGroup className="form-group">
           <input
             id="heading"
-            onChange={getHeading}
+            onChange={(e) => setHeading(e.target.value)}
             value={heading}
             placeholder="Nadpis"
             type="Text"
@@ -88,21 +92,39 @@ const Editor = ({
         <FormGroup className="form-group">
           <input
             id="button"
-            onChange={getButtonText}
+            onChange={(e) => setButtonText(e.target.value)}
             value={buttonText}
             placeholder="Text tlačítka"
             type="Text"
+            required
           />
-          <label htmlFor="heading">Text tlačítka</label>
+          <label htmlFor="button">Text tlačítka</label>
         </FormGroup>
 
         <div className="selector">
-          <label> Po stisknutí tlačítka se přejde do: </label>
-          <select>
-            <option value="MainMenu">Objednávky hlavního menu</option>
-            <option value="BreakfastMenu">Objednávky snídaňového menu</option>
+          <label> Po stisknutí tlačítka se: </label>
+          <select onChange={handleSelector}>
+            <option value="MainMenu">přejde do objednávky hlavního menu</option>
+            <option value="BreakfastMenu">
+              přejde do objednávky snídaňového menu
+            </option>
+            <option value="website">přejde se na webovou stranku</option>
           </select>
         </div>
+
+        {websiteSelected > 0 && (
+          <FormGroup className="form-group">
+            <input
+              id="website"
+              onChange={(e) => setWebsiteLink(e.target.value)}
+              value={websiteLink}
+              placeholder="Webova stranka"
+              type="Text"
+              required
+            />
+            <label htmlFor="website">Webova stranka</label>
+          </FormGroup>
+        )}
 
         <ReactQuill
           modules={modules}
@@ -115,6 +137,17 @@ const Editor = ({
       </form>
     </EditorContainer>
   );
+
+  function handleSelector(e) {
+    const value = e.target.value;
+    setWebsiteSelected(value.includes('website'));
+    if (websiteSelected) {
+      setWebsiteLink(value);
+    } else {
+      setWebsiteLink('');
+      setButtonPath(value);
+    }
+  }
 
   function renderEditButtons() {
     return isEditModeEnabled ? (
@@ -137,16 +170,30 @@ const Editor = ({
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (heading.length === 0 || content === 0) {
+    if (
+      heading.length === 0 ||
+      content.length === 0 ||
+      buttonText.length === 0 ||
+      (websiteSelected && websiteLink.length === 0)
+    ) {
+      console.log('Some fields are empty!');
       return;
     }
 
+    const news = {
+      heading: heading,
+      content: replaceBlackWithWhiteColor(content),
+      button: buttonText,
+      websiteLink: websiteLink,
+      buttonPath: buttonPath,
+    };
+
     if (isEditModeEnabled) {
       const { id } = selectedNewsToEdit[0];
-      editNews(id, heading, replaceBlackWithWhiteColor(content), buttonText);
+      editNews({ ...news, id: id });
       setIsEditModeEnabled(false);
     } else {
-      createNews(heading, replaceBlackWithWhiteColor(content), buttonText);
+      createNews(news);
     }
     clearInputs();
   }
@@ -159,13 +206,8 @@ const Editor = ({
     setHeading('');
     setContent('');
     setButtonText('');
-  }
-  function getHeading(event) {
-    setHeading(event.target.value);
-  }
-
-  function getButtonText(event) {
-    setButtonText(event.target.value);
+    setButtonPath('MainMenu');
+    setWebsiteLink('');
   }
 
   function getContent(content, delta, source, editor) {
