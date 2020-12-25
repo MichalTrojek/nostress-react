@@ -55,7 +55,7 @@ const ImageUploader = () => {
         accept="image/png, image/jpeg"
       />
       <label htmlFor="file">
-        <img src={UploadIcon} />
+        <img src={UploadIcon} alt="icon " />
         {fileName ? `${fileName}` : 'VYBRAT OBRÁZEK...'}
       </label>
     </UploaderContainer>
