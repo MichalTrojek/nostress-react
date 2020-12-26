@@ -4,6 +4,10 @@ import UploadIcon from '../../../../../img/upload.png';
 import { storage } from '../../../../../firebase';
 
 const UploaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
   input {
     width: 0.1px;
     height: 0.1px;
@@ -14,19 +18,20 @@ const UploaderContainer = styled.div`
   }
 
   label {
+    text-align: center;
+    padding: 1rem 0;
     font-weight: 700;
     color: black;
-    padding: 1rem;
-    background-color: var(--color-tertiary);
-    margin-bottom: 1rem;
-    border-radius: 5px;
-    font-size: 2rem;
 
+    background-color: var(--color-tertiary);
+
+    border-radius: 10px;
+    font-size: 2rem;
     display: inline-block;
     cursor: pointer;
   }
 
-  img {
+  .icon {
     margin-right: 0.5rem;
     width: 100%;
     max-width: 1.5rem;
@@ -36,17 +41,38 @@ const UploaderContainer = styled.div`
   input + label:hover {
     filter: brightness(0.9);
   }
+
+  .previewImage {
+    margin-bottom: 1rem;
+    max-height: 30rem;
+    max-width: 30rem;
+    align-self: center;
+  }
 `;
 
 const ImageUploader = () => {
-  const [fileName, setFileName] = useState('');
+  const [filename, setFilename] = useState('');
+  const [fileUrl, setFileUrl] = useState('');
+  const [file, setFile] = useState(null);
 
   useEffect(() => {
-    console.log(fileName);
-  }, [fileName]);
+    fetchImage(file);
+    async function fetchImage(file) {
+      let storageRef = storage.ref();
+      const fileRef = storageRef.child('/cardImages/' + filename);
+      try {
+        await fileRef.put(file);
+        const fileUrl = await fileRef.getDownloadURL();
+        setFileUrl(fileUrl);
+      } catch (error) {
+        console.log(`Error while fetching `);
+      }
+    }
+  }, [file]);
 
   return (
     <UploaderContainer>
+      <img className="previewImage" src={fileUrl} alt={filename} />
       <input
         type="file"
         name="file"
@@ -55,21 +81,16 @@ const ImageUploader = () => {
         accept="image/png, image/jpeg"
       />
       <label htmlFor="file">
-        <img src={UploadIcon} alt="icon " />
-        {fileName ? `${fileName}` : 'VYBRAT OBRÁZEK...'}
+        <img className="icon" src={UploadIcon} alt="icon " />
+        {filename ? `${filename}` : 'VYBRAT OBRÁZEK...'}
       </label>
     </UploaderContainer>
   );
 
-  async function handleChange(event) {
+  function handleChange(event) {
     let file = event.target.files[0];
-    setFileName(file.name);
-    let storageRef = storage.ref();
-    const fileRef = storageRef.child('/cardImages/' + file.name);
-    await fileRef.put(file);
-    const fileUrl = await fileRef.getDownloadURL();
-
-    console.log(fileUrl);
+    setFile(file);
+    setFilename(file.name);
   }
 };
 
