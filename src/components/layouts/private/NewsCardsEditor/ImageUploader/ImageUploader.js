@@ -6,7 +6,7 @@ import { storage } from '../../../../../firebase';
 const UploaderContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 
   input {
     width: 0.1px;
