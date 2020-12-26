@@ -13,7 +13,7 @@ function cardsReducer(state = initialState, action) {
       const removedEdited = state.items.filter(
         (item) => item.id !== action.payload.id
       );
-      return { item: [...removedEdited, aciton.payload] };
+      return { item: [...removedEdited, action.payload] };
     default:
       return state;
   }
