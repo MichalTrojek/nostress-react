@@ -76,7 +76,6 @@ const NewsListItem = ({
   }
 
   function handleDelete(id) {
-    console.log(deleteNews);
     if (!isEditModeOn) {
       deleteNews(id);
     } else {

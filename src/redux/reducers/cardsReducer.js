@@ -1,4 +1,9 @@
-import { CREATE_CARD, EDIT_CARD, FETCH_CARDS } from '../actions/types';
+import {
+  CREATE_CARD,
+  EDIT_CARD,
+  FETCH_CARDS,
+  DELETE_CARD,
+} from '../actions/types';
 
 function cardsReducer(state = [], action) {
   switch (action.type) {
@@ -7,14 +12,19 @@ function cardsReducer(state = [], action) {
       newItems.push(action.payload);
       return newItems;
     case EDIT_CARD:
-      const removedEdited = state.items.filter(
+      const removedEdited = state.filter(
         (item) => item.id !== action.payload.id
       );
       removedEdited.push(action.payload);
       return removedEdited;
     case FETCH_CARDS:
-      console.log(action.payload);
       return [...action.payload];
+    case DELETE_CARD:
+      console.log('delete card', action.payload);
+
+      const removed = state.filter((item) => item.id !== action.payload.id);
+      console.log('removed', removed);
+      return removed;
     default:
       return state;
   }

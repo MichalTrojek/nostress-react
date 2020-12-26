@@ -4,10 +4,9 @@ import styled from 'styled-components';
 
 import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 
-import fetchNews from '../../../redux/actions/news/fetchNews';
-import deleteNews from '../../../redux/actions/news/deleteNews';
-
 import toggleEditMode from '../../../redux/actions/editor/toggleEditMode';
+import deleteNews from '../../../redux/actions/news/deleteNews';
+import fetchNews from '../../../redux/actions/news/fetchNews';
 
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';

@@ -10,12 +10,13 @@ import NewsList from '../../layouts/private/NewsList';
 
 import toggleEditMode from '../../../redux/actions/editor/toggleEditMode';
 import fetchCards from '../../../redux/actions/news/card/fetchCards';
+import deleteCard from '../../../redux/actions/news/card/deleteCard';
 
 const BackgroundNewsCards = styled(Background)`
   min-height: 100vh;
 `;
 
-const NewsCardPage = ({ cards, toggleEditMode, fetchCards }) => {
+const NewsCardPage = ({ cards, toggleEditMode, fetchCards, deleteCard }) => {
   useEffect(() => {
     fetchCards();
   }, [fetchCards]);
@@ -23,7 +24,11 @@ const NewsCardPage = ({ cards, toggleEditMode, fetchCards }) => {
     <BackgroundNewsCards>
       <Wrapper>
         <NewsCardsEditor toggleEditMode={toggleEditMode} />
-        <NewsList toggleEditMode={toggleEditMode} news={cards} />
+        <NewsList
+          toggleEditMode={toggleEditMode}
+          news={cards}
+          deleteNews={deleteCard}
+        />
       </Wrapper>
     </BackgroundNewsCards>
   );
@@ -34,6 +39,8 @@ const mapStateToProps = (state, ownProps) => {
   return { cards };
 };
 
-export default connect(mapStateToProps, { toggleEditMode, fetchCards })(
-  NewsCardPage
-);
+export default connect(mapStateToProps, {
+  toggleEditMode,
+  fetchCards,
+  deleteCard,
+})(NewsCardPage);
