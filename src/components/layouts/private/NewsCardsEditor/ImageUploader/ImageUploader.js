@@ -50,7 +50,7 @@ const UploaderContainer = styled.div`
   }
 `;
 
-const ImageUploader = () => {
+const ImageUploader = ({ setImageUrl }) => {
   const [filename, setFilename] = useState('');
   const [fileUrl, setFileUrl] = useState('');
   const [file, setFile] = useState(null);
@@ -59,11 +59,12 @@ const ImageUploader = () => {
     fetchImage(file);
     async function fetchImage(file) {
       let storageRef = storage.ref();
-      const fileRef = storageRef.child('/cardImages/' + filename);
+      const fileRef = storageRef.child('cardImages/' + filename);
       try {
         await fileRef.put(file);
         const fileUrl = await fileRef.getDownloadURL();
         setFileUrl(fileUrl);
+        setImageUrl(fileUrl);
       } catch (error) {
         console.log(`Error while fetching `);
       }

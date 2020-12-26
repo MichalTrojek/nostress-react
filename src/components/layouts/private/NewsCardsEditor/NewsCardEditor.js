@@ -41,34 +41,31 @@ const NewsCardsEditor = ({
   setIsEditModeEnabled,
   isEditModeEnabled,
 }) => {
+  const [imageUrl, setImageUrl] = useState('');
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
-  const [buttonText, setButtonText] = useState('');
 
   useEffect(() => {
-    if (selectedNewsToEdit.length !== 0) {
-      setIsEditModeEnabled(true);
-      insertTextToInputFields();
-    }
-
-    function insertTextToInputFields() {
-      const { heading, content, button } = selectedNewsToEdit[0];
-      setHeading(heading);
-      setContent(replaceWhiteWithBlackColor(content));
-      setButtonText(button);
-    }
-
-    function replaceWhiteWithBlackColor(text) {
-      return text.replaceAll('white', 'black');
-    }
+    // if (selectedNewsToEdit.length !== 0) {
+    //   setIsEditModeEnabled(true);
+    //   insertTextToInputFields();
+    // }
+    // function insertTextToInputFields() {
+    //   const { heading, content } = selectedNewsToEdit[0];
+    //   setHeading(heading);
+    //   setContent(replaceWhiteWithBlackColor(content));
+    //   setButtonText(button);
+    // }
+    // function replaceWhiteWithBlackColor(text) {
+    //   return text.replaceAll('white', 'black');
+    // }
   }, [selectedNewsToEdit, setIsEditModeEnabled]);
 
   return (
     <EditorContainer>
       <h1 style={{ paddingBottom: '5rem' }}>Editor novinek</h1>
-
       <form onSubmit={handleSubmit}>
-        <ImageUploader />
+        <ImageUploader setImageUrl={setImageUrl} />
         <FormGroup className="form-group">
           <input
             id="heading"
@@ -88,7 +85,6 @@ const NewsCardsEditor = ({
           onChange={getContent}
           placeholder="Vložte text k novince."
         />
-
         {renderEditButtons()}
       </form>
     </EditorContainer>
@@ -115,16 +111,16 @@ const NewsCardsEditor = ({
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (heading.length === 0 || content === 0) {
+    if (heading.length === 0 || content === 0 || imageUrl === 0) {
       return;
     }
 
     if (isEditModeEnabled) {
-      const { id } = selectedNewsToEdit[0];
-      editNews(id, heading, replaceBlackWithWhiteColor(content), buttonText);
-      setIsEditModeEnabled(false);
+      // const { id } = selectedNewsToEdit[0];
+      // editNews(id, heading, replaceBlackWithWhiteColor(content), buttonText);
+      // setIsEditModeEnabled(false);
     } else {
-      createNews(heading, replaceBlackWithWhiteColor(content), buttonText);
+      createNews(heading, replaceBlackWithWhiteColor(content));
     }
     clearInputs();
   }
@@ -136,14 +132,10 @@ const NewsCardsEditor = ({
   function clearInputs() {
     setHeading('');
     setContent('');
-    setButtonText('');
+    setImageUrl('');
   }
   function getHeading(event) {
     setHeading(event.target.value);
-  }
-
-  function getButtonText(event) {
-    setButtonText(event.target.value);
   }
 
   function getContent(content, delta, source, editor) {
