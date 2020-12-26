@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 
-import { showWarningToast } from '../../../../../notifications/toast';
-import Button from '../../../../common/Button';
+import { showWarningToast } from '../../../../../../notifications/toast';
+import Button from '../../../../../common/Button';
 
-import setSelectedItem from '../../../../../redux/actions/editor/setSelectedItem';
+import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
 
 const StyledNewsListItem = styled.div`
   padding: 2rem;

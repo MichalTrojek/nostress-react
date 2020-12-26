@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { FormGroup } from '../../../common/Forms/FormStyles';
-import Button from '../../../common/Button';
+import { FormGroup } from '../../../../common/Forms/FormStyles';
+import Button from '../../../../common/Button';
 
 import ReactQuill from 'react-quill';
 
-import editNews from '../../../../redux/actions/news/editNews';
-import createNews from '../../../../redux/actions/news/createNews';
+import editNews from '../../../../../redux/actions/news/editNews';
+import createNews from '../../../../../redux/actions/news/createNews';
 
-import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
+import setSelectedItem from '../../../../../redux/actions/editor/setSelectedItem';
 
 import 'react-quill/dist/quill.snow.css';
 import './NewsEditor.css';

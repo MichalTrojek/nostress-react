@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import Background from '../../common/Background';
 import Wrapper from '../../common/Wrapper';
 
-import NewsCardsEditor from '../../layouts/private/NewsCardsEditor';
-import NewsList from '../../layouts/private/NewsList';
+import NewsCardsEditor from '../../layouts/private/Editors/NewsCardsEditor';
+import NewsList from '../../layouts/private/Editors/NewsList';
 
 import toggleEditMode from '../../../redux/actions/editor/toggleEditMode';
 import fetchCards from '../../../redux/actions/news/card/fetchCards';

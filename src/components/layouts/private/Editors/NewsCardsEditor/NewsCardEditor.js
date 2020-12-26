@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { storage } from '../../../../firebase';
+import { storage } from '../../../../../firebase';
 
-import { FormGroup } from '../../../common/Forms/FormStyles';
-import Button from '../../../common/Button';
+import { FormGroup } from '../../../../common/Forms/FormStyles';
+import Button from '../../../../common/Button';
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -12,12 +12,12 @@ import './NewsEditor.css';
 import EditorContainer from './styles/EditorContainer';
 import UploaderContainer from './styles/UploaderContainer';
 
-import UploadIcon from '../../../../img/upload.png';
+import UploadIcon from '../../../../../img/upload.png';
 
-import editCard from '../../../../redux/actions/news/card/editCard';
-import createCard from '../../../../redux/actions/news/card/createCard';
+import editCard from '../../../../../redux/actions/news/card/editCard';
+import createCard from '../../../../../redux/actions/news/card/createCard';
 
-import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
+import setSelectedItem from '../../../../../redux/actions/editor/setSelectedItem';
 
 const modules = {
   toolbar: [['bold'], [{ color: ['black', '#f2c48c'] }]],
