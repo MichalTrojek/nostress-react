@@ -54,6 +54,32 @@ const NewsCardsEditor = ({
     }
   }, [file]);
 
+  useEffect(() => {
+    if (selectedItem) {
+      toggleEditMode(true);
+      restoreInputFields();
+    }
+
+    function restoreInputFields() {
+      if (selectedItem) {
+        const {
+          heading,
+          content,
+
+          fileUrl,
+        } = selectedItem;
+
+        setHeading(heading);
+        setContent(replaceWhiteWithBlackColor(content));
+        setFileUrl(fileUrl);
+      }
+    }
+
+    function replaceWhiteWithBlackColor(text) {
+      return text.replaceAll('white', 'black');
+    }
+  }, [selectedItem, toggleEditMode]);
+
   return (
     <EditorContainer>
       <h1 style={{ paddingBottom: '5rem' }}>Editor karet </h1>
@@ -117,7 +143,7 @@ const NewsCardsEditor = ({
   function handleCancelEdit() {
     toggleEditMode(false);
     clearInputs();
-    setSelectedItem();
+    setSelectedItem(null);
   }
 
   function handleSubmit(e) {
