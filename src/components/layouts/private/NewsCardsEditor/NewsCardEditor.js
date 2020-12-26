@@ -14,9 +14,10 @@ import UploaderContainer from './styles/UploaderContainer';
 
 import UploadIcon from '../../../../img/upload.png';
 
-import editNews from '../../../../redux/actions/news/editNews';
+import editCard from '../../../../redux/actions/news/card/editCard';
 import createCard from '../../../../redux/actions/news/card/createCard';
-// import emptySelectedNewsToEdit from '../../../../redux/actions/news/emptySelectedNewsToEdit';
+
+import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
 
 const modules = {
   toolbar: [['bold'], [{ color: ['black', '#f2c48c'] }]],
@@ -26,11 +27,11 @@ const formats = ['bold', 'color'];
 
 const NewsCardsEditor = ({
   createCard,
-  editNews,
-  selectedNewsToEdit,
-  emptySelectedNewsToEdit,
-  setIsEditModeEnabled,
-  isEditModeEnabled,
+  editCard,
+  selectedItem,
+  setSelectedItem,
+  toggleEditMode,
+  isEditModeOn,
 }) => {
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
@@ -101,7 +102,7 @@ const NewsCardsEditor = ({
     setFilename(file.name);
   }
   function renderEditButtons() {
-    return isEditModeEnabled ? (
+    return isEditModeOn ? (
       <div>
         <Button primary>změnit</Button>
         <Button primary onClick={handleCancelEdit}>
@@ -114,9 +115,9 @@ const NewsCardsEditor = ({
   }
 
   function handleCancelEdit() {
-    setIsEditModeEnabled(false);
+    toggleEditMode(false);
     clearInputs();
-    emptySelectedNewsToEdit();
+    setSelectedItem();
   }
 
   function handleSubmit(e) {
@@ -131,11 +132,10 @@ const NewsCardsEditor = ({
       content: replaceBlackWithWhiteColor(content),
     };
 
-    console.log(card);
-    if (isEditModeEnabled) {
-      // const { id } = selectedNewsToEdit[0];
-      // editNews(id, heading, replaceBlackWithWhiteColor(content), buttonText);
-      // setIsEditModeEnabled(false);
+    if (isEditModeOn) {
+      const { id } = selectedItem;
+      editCard({ ...card, id: id });
+      toggleEditMode(false);
     } else {
       createCard(card);
     }
@@ -162,14 +162,14 @@ const NewsCardsEditor = ({
 };
 
 function mapStateToProps(state, prevState) {
-  const { selectedNewsToEdit } = state;
   return {
-    selectedNewsToEdit,
+    selectedItem: state.editor.selectedItem,
+    isEditModeOn: state.editor.isEditModeOn,
   };
 }
 
 export default connect(mapStateToProps, {
   createCard,
-
-  editNews,
+  editCard,
+  setSelectedItem,
 })(NewsCardsEditor);

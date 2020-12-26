@@ -19,3 +19,5 @@ function editCard(card) {
     }
   };
 }
+
+export default editCard;
