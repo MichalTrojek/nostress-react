@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+
 import styled from 'styled-components';
 
 import NewsListItem from './NewsListItem';

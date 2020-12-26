@@ -20,6 +20,7 @@ const NewsCardPage = ({ cards, toggleEditMode, fetchCards, deleteCard }) => {
   useEffect(() => {
     fetchCards();
   }, [fetchCards]);
+
   return (
     <BackgroundNewsCards>
       <Wrapper>
