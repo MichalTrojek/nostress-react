@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
@@ -14,7 +14,10 @@ const BackgroundNewsCards = styled(Background)`
   min-height: 100vh;
 `;
 
-const NewsCardPage = ({ carts, toggleEditMode }) => {
+const NewsCardPage = ({ cards, toggleEditMode, fetchCards }) => {
+  useEffect(() => {
+    fetchCards();
+  }, [fetchCards]);
   return (
     <BackgroundNewsCards>
       <Wrapper>
@@ -26,8 +29,8 @@ const NewsCardPage = ({ carts, toggleEditMode }) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const { carts } = state;
-  return { carts };
+  const { cards } = state;
+  return { cards };
 };
 
 export default connect(mapStateToProps, { toggleEditMode })(NewsCardPage);

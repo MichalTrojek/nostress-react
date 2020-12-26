@@ -17,6 +17,9 @@ function fetchNewsApiCall() {
         });
       });
       return data;
+    })
+    .catch((error) => {
+      console.log(`Error while fetching news from firestore: ${error}`);
     });
 
   return promise;
