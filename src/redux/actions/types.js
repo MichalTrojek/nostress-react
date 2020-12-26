@@ -34,5 +34,6 @@ export const GET_ALL_ORDERS = 'GET_ALL_ORDERS';
 export const START_ORDERING = 'START_ORDERING';
 
 export const CREATE_CARD = 'CREATE_CARD';
+export const FETCH_CARDS = 'FETCH_CARDS';
 export const DELETE_CARD = 'DELETE_CARD';
 export const EDIT_CARD = 'EDIT_CARD';

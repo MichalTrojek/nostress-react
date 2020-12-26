@@ -1,4 +1,4 @@
-import { CREATE_CARD, EDIT_CARD } from '../actions/types';
+import { CREATE_CARD, EDIT_CARD, FETCH_CARDS } from '../actions/types';
 
 function cardsReducer(state = [], action) {
   switch (action.type) {
@@ -12,6 +12,9 @@ function cardsReducer(state = [], action) {
       );
       removedEdited.push(action.payload);
       return removedEdited;
+    case FETCH_CARDS:
+      console.log(action.payload);
+      return [...action.payload];
     default:
       return state;
   }

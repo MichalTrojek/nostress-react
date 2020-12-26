@@ -2,11 +2,12 @@ import { db } from '../../../../firebase';
 
 function fetchCardsApiCall() {
   return db
-    .collection('orders')
+    .collection('cards')
     .get()
     .then((snapshot) => {
       const data = [];
       snapshot.forEach((doc) => {
+        console.log(doc);
         data.push({
           id: doc.id,
           heading: doc.data().heading,
@@ -14,6 +15,8 @@ function fetchCardsApiCall() {
           content: doc.data().content,
         });
       });
+
+      return data;
     })
     .catch((error) => {
       console.log(`Error while fetching cards from firestore: ${error}`);
