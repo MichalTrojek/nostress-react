@@ -8,7 +8,7 @@ import Button from '../../../common/Button';
 import ReactQuill from 'react-quill';
 
 import editNews from '../../../../redux/actions/news/editNews';
-import createNews from '../../../../redux/actions/news/createNews';
+import createCard from '../../../../redux/actions/news/card/createCard';
 import emptySelectedNewsToEdit from '../../../../redux/actions/news/emptySelectedNewsToEdit';
 
 import ImageUploader from './ImageUploader';
@@ -34,7 +34,7 @@ const modules = {
 const formats = ['bold', 'color'];
 
 const NewsCardsEditor = ({
-  createNews,
+  createCard,
   editNews,
   selectedNewsToEdit,
   emptySelectedNewsToEdit,
@@ -115,12 +115,19 @@ const NewsCardsEditor = ({
       return;
     }
 
+    const card = {
+      imageUrl: imageUrl,
+      heading: heading,
+      content: replaceBlackWithWhiteColor(content),
+    };
+
+    console.log(card);
     if (isEditModeEnabled) {
       // const { id } = selectedNewsToEdit[0];
       // editNews(id, heading, replaceBlackWithWhiteColor(content), buttonText);
       // setIsEditModeEnabled(false);
     } else {
-      createNews(heading, replaceBlackWithWhiteColor(content));
+      // createNews(heading, replaceBlackWithWhiteColor(content));
     }
     clearInputs();
   }
@@ -151,7 +158,7 @@ function mapStateToProps(state, prevState) {
 }
 
 export default connect(mapStateToProps, {
-  createNews,
+  createCard,
   emptySelectedNewsToEdit,
   editNews,
 })(NewsCardsEditor);
