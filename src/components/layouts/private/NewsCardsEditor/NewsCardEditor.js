@@ -1,32 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
+import { storage } from '../../../../firebase';
 
 import { FormGroup } from '../../../common/Forms/FormStyles';
 import Button from '../../../common/Button';
 
 import ReactQuill from 'react-quill';
-
-import editNews from '../../../../redux/actions/news/editNews';
-import createCard from '../../../../redux/actions/news/card/createCard';
-
-import emptySelectedNewsToEdit from '../../../../redux/actions/news/emptySelectedNewsToEdit';
-
-import ImageUploader from './ImageUploader';
-
 import 'react-quill/dist/quill.snow.css';
 import './NewsEditor.css';
 
-const EditorContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 0;
+import EditorContainer from './styles/EditorContainer';
+import UploaderContainer from './styles/UploaderContainer';
 
-  button {
-    margin-top: 2rem;
-    width: 100%;
-  }
-`;
+import UploadIcon from '../../../../img/upload.png';
+
+import editNews from '../../../../redux/actions/news/editNews';
+import createCard from '../../../../redux/actions/news/card/createCard';
+import emptySelectedNewsToEdit from '../../../../redux/actions/news/emptySelectedNewsToEdit';
 
 const modules = {
   toolbar: [['bold'], [{ color: ['black', '#f2c48c'] }]],
@@ -42,31 +32,45 @@ const NewsCardsEditor = ({
   setIsEditModeEnabled,
   isEditModeEnabled,
 }) => {
-  const [imageUrl, setImageUrl] = useState('');
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
+  const [filename, setFilename] = useState('');
+  const [fileUrl, setFileUrl] = useState('');
+  const [file, setFile] = useState(null);
 
   useEffect(() => {
-    // if (selectedNewsToEdit.length !== 0) {
-    //   setIsEditModeEnabled(true);
-    //   insertTextToInputFields();
-    // }
-    // function insertTextToInputFields() {
-    //   const { heading, content } = selectedNewsToEdit[0];
-    //   setHeading(heading);
-    //   setContent(replaceWhiteWithBlackColor(content));
-    //   setButtonText(button);
-    // }
-    // function replaceWhiteWithBlackColor(text) {
-    //   return text.replaceAll('white', 'black');
-    // }
-  }, [selectedNewsToEdit, setIsEditModeEnabled]);
+    uploadImage(file);
+    async function uploadImage(file) {
+      let storageRef = storage.ref();
+      const fileRef = storageRef.child('cardImages/' + filename);
+      try {
+        await fileRef.put(file);
+        const fileUrl = await fileRef.getDownloadURL();
+        setFileUrl(fileUrl);
+      } catch (error) {
+        console.log(`Error while fetching `);
+      }
+    }
+  }, [file]);
 
   return (
     <EditorContainer>
       <h1 style={{ paddingBottom: '5rem' }}>Editor novinek</h1>
       <form onSubmit={handleSubmit}>
-        <ImageUploader setImageUrl={setImageUrl} />
+        <UploaderContainer>
+          <img className="previewImage" src={fileUrl} alt={filename} />
+          <input
+            type="file"
+            name="file"
+            id="file"
+            onChange={(event) => handleChange(event)}
+            accept="image/png, image/jpeg"
+          />
+          <label htmlFor="file">
+            <img className="icon" src={UploadIcon} alt="icon " />
+            {filename ? `${filename}` : 'VYBRAT OBRÁZEK...'}
+          </label>
+        </UploaderContainer>
         <FormGroup className="form-group">
           <input
             id="heading"
@@ -91,6 +95,11 @@ const NewsCardsEditor = ({
     </EditorContainer>
   );
 
+  function handleChange(event) {
+    let file = event.target.files[0];
+    setFile(file);
+    setFilename(file.name);
+  }
   function renderEditButtons() {
     return isEditModeEnabled ? (
       <div>
@@ -112,12 +121,12 @@ const NewsCardsEditor = ({
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (heading.length === 0 || content === 0 || imageUrl === 0) {
+    if (heading.length === 0 || content === 0 || fileUrl === 0) {
       return;
     }
 
     const card = {
-      imageUrl: imageUrl,
+      fileUrl: fileUrl,
       heading: heading,
       content: replaceBlackWithWhiteColor(content),
     };
@@ -140,7 +149,8 @@ const NewsCardsEditor = ({
   function clearInputs() {
     setHeading('');
     setContent('');
-    setImageUrl('');
+    setFileUrl('');
+    setFilename('');
   }
   function getHeading(event) {
     setHeading(event.target.value);
