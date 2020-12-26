@@ -22,8 +22,8 @@ function cardsReducer(state = [], action) {
     case DELETE_CARD:
       console.log('delete card', action.payload);
 
-      const removed = state.filter((item) => item.id !== action.payload.id);
-      console.log('removed', removed);
+      const removed = state.filter((item) => item.id !== action.payload);
+      console.log(removed);
       return removed;
     default:
       return state;
