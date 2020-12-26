@@ -7,7 +7,6 @@ function fetchCardsApiCall() {
     .then((snapshot) => {
       const data = [];
       snapshot.forEach((doc) => {
-        console.log(doc);
         data.push({
           id: doc.id,
           heading: doc.data().heading,
