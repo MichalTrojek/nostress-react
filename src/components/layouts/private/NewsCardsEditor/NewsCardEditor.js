@@ -16,7 +16,7 @@ import UploadIcon from '../../../../img/upload.png';
 
 import editNews from '../../../../redux/actions/news/editNews';
 import createCard from '../../../../redux/actions/news/card/createCard';
-import emptySelectedNewsToEdit from '../../../../redux/actions/news/emptySelectedNewsToEdit';
+// import emptySelectedNewsToEdit from '../../../../redux/actions/news/emptySelectedNewsToEdit';
 
 const modules = {
   toolbar: [['bold'], [{ color: ['black', '#f2c48c'] }]],
@@ -170,6 +170,6 @@ function mapStateToProps(state, prevState) {
 
 export default connect(mapStateToProps, {
   createCard,
-  emptySelectedNewsToEdit,
+
   editNews,
 })(NewsCardsEditor);

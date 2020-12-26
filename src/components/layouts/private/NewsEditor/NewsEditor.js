@@ -9,7 +9,8 @@ import ReactQuill from 'react-quill';
 
 import editNews from '../../../../redux/actions/news/editNews';
 import createNews from '../../../../redux/actions/news/createNews';
-import emptySelectedNewsToEdit from '../../../../redux/actions/news/emptySelectedNewsToEdit';
+
+import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
 
 import 'react-quill/dist/quill.snow.css';
 import './NewsEditor.css';
@@ -58,10 +59,10 @@ const formats = ['bold', 'color'];
 const Editor = ({
   createNews,
   editNews,
-  selectedNewsToEdit,
-  emptySelectedNewsToEdit,
-  setIsEditModeEnabled,
-  isEditModeEnabled,
+  selectedItem,
+  setSelectedItem,
+  toggleEditMode,
+  isEditModeOn,
 }) => {
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
@@ -72,35 +73,37 @@ const Editor = ({
   const [websiteSelected, setWebsiteSelected] = useState(false);
 
   useEffect(() => {
-    if (selectedNewsToEdit.length !== 0) {
-      setIsEditModeEnabled(true);
+    if (selectedItem) {
+      toggleEditMode(true);
       restoreInputFields();
     }
 
     function restoreInputFields() {
-      const {
-        heading,
-        content,
-        button,
-        buttonPath,
-        websiteLink,
-      } = selectedNewsToEdit[0];
+      if (selectedItem) {
+        const {
+          heading,
+          content,
+          button,
+          buttonPath,
+          websiteLink,
+        } = selectedItem;
 
-      setWebsiteSelected(
-        websiteLink.length > 0 && buttonPath.includes('website')
-      );
+        setWebsiteSelected(
+          websiteLink.length > 0 && buttonPath.includes('website')
+        );
 
-      setWebsiteLink(websiteLink);
-      setButtonPath(buttonPath);
-      setHeading(heading);
-      setContent(replaceWhiteWithBlackColor(content));
-      setButtonText(button);
+        setWebsiteLink(websiteLink);
+        setButtonPath(buttonPath);
+        setHeading(heading);
+        setContent(replaceWhiteWithBlackColor(content));
+        setButtonText(button);
+      }
     }
 
     function replaceWhiteWithBlackColor(text) {
       return text.replaceAll('white', 'black');
     }
-  }, [selectedNewsToEdit, setIsEditModeEnabled]);
+  }, [selectedItem, toggleEditMode]);
 
   return (
     <EditorContainer>
@@ -179,7 +182,7 @@ const Editor = ({
   }
 
   function renderEditButtons() {
-    return isEditModeEnabled ? (
+    return isEditModeOn ? (
       <div>
         <Button primary>změnit</Button>
         <Button primary onClick={handleCancelEdit}>
@@ -192,10 +195,10 @@ const Editor = ({
   }
 
   function handleCancelEdit() {
-    setIsEditModeEnabled(false);
+    toggleEditMode(false);
     setWebsiteSelected(false);
     clearInputs();
-    emptySelectedNewsToEdit();
+    setSelectedItem(null);
   }
 
   function handleSubmit(e) {
@@ -218,10 +221,10 @@ const Editor = ({
       buttonPath: buttonPath,
     };
 
-    if (isEditModeEnabled) {
-      const { id } = selectedNewsToEdit[0];
+    if (isEditModeOn) {
+      const { id } = selectedItem;
       editNews({ ...news, id: id });
-      setIsEditModeEnabled(false);
+      toggleEditMode(false);
     } else {
       createNews(news);
     }
@@ -247,14 +250,13 @@ const Editor = ({
 };
 
 function mapStateToProps(state, prevState) {
-  const { selectedNewsToEdit } = state;
   return {
-    selectedNewsToEdit,
+    selectedItem: state.editor.selectedItem,
+    isEditModeOn: state.editor.isEditModeOn,
   };
 }
-
 export default connect(mapStateToProps, {
   createNews,
-  emptySelectedNewsToEdit,
   editNews,
+  setSelectedItem,
 })(Editor);

@@ -6,8 +6,7 @@ import { showWarningToast } from '../../../../../notifications/toast';
 import Button from '../../../../common/Button';
 
 import deleteNews from '../../../../../redux/actions/news/deleteNews';
-import setSelectedNewsToEdit from '../../../../../redux/actions/news/setSelectedNewsToEdit';
-import emptySelectedNewsToEdit from '../../../../../redux/actions/news/emptySelectedNewsToEdit';
+import setSelectedItem from '../../../../../redux/actions/editor/setSelectedItem';
 
 const StyledNewsListItem = styled.div`
   padding: 2rem;
@@ -38,32 +37,31 @@ const StyledNewsListItem = styled.div`
 `;
 
 const NewsListItem = ({
-  news,
   item,
   deleteNews,
-  isEditModeEnabled,
-  setSelectedNewsToEdit,
-  selectedNewsToEdit,
+  toggleEditMode,
+  setSelectedItem,
+  selectedItem,
 }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
-    if (isSelected && selectedNewsToEdit[0]) {
-      if (selectedNewsToEdit[0].id !== item.id) {
+    if (isSelected && selectedItem) {
+      if (selectedItem.id !== item.id) {
         setIsSelected(false);
       }
     } else {
-      if (!isEditModeEnabled) {
+      if (!toggleEditMode) {
         setIsSelected(false);
       }
     }
-  }, [selectedNewsToEdit, isEditModeEnabled, isSelected, item.id]);
+  }, [selectedItem, toggleEditMode, isSelected, item.id]);
 
   return (
     <StyledNewsListItem isSelected={isSelected}>
       <p>{item.heading}</p>
       <div className="buttons">
-        <Button primary onClick={() => handleEdit(item.id)}>
+        <Button primary onClick={() => handleEdit(item)}>
           Editovat
         </Button>
         <Button onClick={() => handleDelete(item.id)}>Smazat</Button>
@@ -71,15 +69,14 @@ const NewsListItem = ({
     </StyledNewsListItem>
   );
 
-  function handleEdit(id) {
-    const selectedNews = news.filter((item) => item.id === id);
-    setSelectedNewsToEdit(selectedNews);
+  function handleEdit(item) {
+    setSelectedItem(item);
     setIsSelected(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function handleDelete(id) {
-    if (!isEditModeEnabled) {
+    if (!toggleEditMode) {
       deleteNews(id);
     } else {
       showWarningToast('Nelze mazat během editování.');
@@ -88,13 +85,11 @@ const NewsListItem = ({
 };
 
 function mapStateToProps(state, prevState) {
-  const { selectedNewsToEdit } = state;
   return {
-    selectedNewsToEdit,
+    selectedItem: state.editor.selectedItem,
   };
 }
 export default connect(mapStateToProps, {
   deleteNews,
-  setSelectedNewsToEdit,
-  emptySelectedNewsToEdit,
+  setSelectedItem,
 })(NewsListItem);

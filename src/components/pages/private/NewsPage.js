@@ -1,8 +1,16 @@
 import NewsEditor from '../../layouts/private/NewsEditor';
 import NewsList from '../../layouts/private/NewsList';
 import styled from 'styled-components';
-import { useState } from 'react';
+
 import PrivateNavBar from '../../layouts/private/PrivateNavBar';
+
+import fetchNews from '../../../redux/actions/news/fetchNews';
+
+import toggleEditMode from '../../../redux/actions/editor/toggleEditMode';
+
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+
 const NewsPageBackground = styled.div`
   background-color: black;
   min-height: 100vh;
@@ -13,21 +21,27 @@ const NewsPageWrapper = styled.section`
   padding: 0 2rem;
 `;
 
-const NewsPage = () => {
-  const [isEditModeEnabled, setIsEditModeEnabled] = useState(false);
+const NewsPage = ({ news, toggleEditMode, fetchNews }) => {
+  useEffect(() => {
+    fetchNews();
+  }, [fetchNews]);
 
   return (
     <NewsPageBackground>
       <NewsPageWrapper>
         <PrivateNavBar />
-        <NewsEditor
-          isEditModeEnabled={isEditModeEnabled}
-          setIsEditModeEnabled={setIsEditModeEnabled}
-        />
-        <NewsList isEditModeEnabled={isEditModeEnabled} />
+        <NewsEditor toggleEditMode={toggleEditMode} />
+        <NewsList toggleEditMode={toggleEditMode} news={news} />
       </NewsPageWrapper>
     </NewsPageBackground>
   );
 };
 
-export default NewsPage;
+const mapStateToProps = (state, ownProps) => {
+  const { news } = state;
+  return { news };
+};
+
+export default connect(mapStateToProps, { fetchNews, toggleEditMode })(
+  NewsPage
+);

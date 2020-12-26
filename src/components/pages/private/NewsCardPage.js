@@ -4,7 +4,7 @@ import Background from '../../common/Background';
 import Wrapper from '../../common/Wrapper';
 
 import NewsCardsEditor from '../../layouts/private/NewsCardsEditor';
-import NewsList from '../../layouts/private/NewsList';
+// import NewsList from '../../layouts/private/NewsList';
 
 const BackgroundNewsCards = styled(Background)`
   min-height: 100vh;
@@ -15,11 +15,11 @@ const NewsCardPage = () => {
   return (
     <BackgroundNewsCards>
       <Wrapper>
-        <NewsCardsEditor
+        {/* <NewsCardsEditor
           isEditModeEnabled={isEditModeEnabled}
           setIsEditModeEnabled={setIsEditModeEnabled}
-        />
-        <NewsList isEditModeEnabled={isEditModeEnabled} />
+        /> */}
+        {/* <NewsList isEditModeEnabled={isEditModeEnabled} /> */}
       </Wrapper>
     </BackgroundNewsCards>
   );
