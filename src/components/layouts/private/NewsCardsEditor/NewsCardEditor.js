@@ -55,7 +55,7 @@ const NewsCardsEditor = ({
 
   return (
     <EditorContainer>
-      <h1 style={{ paddingBottom: '5rem' }}>Editor novinek</h1>
+      <h1 style={{ paddingBottom: '5rem' }}>Editor karet </h1>
       <form onSubmit={handleSubmit}>
         <UploaderContainer>
           <img className="previewImage" src={fileUrl} alt={filename} />
