@@ -9,7 +9,6 @@ import {
 function deleteCard(id) {
   return async (dispatch, getState) => {
     const success = await deleteCardApiCall(id);
-    console.log(success);
     if (success) {
       dispatch({
         type: DELETE_CARD,
