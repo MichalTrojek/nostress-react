@@ -12,6 +12,7 @@ const StyledNewsListItem = styled.div`
   border: 1px solid var(--color-tertiary);
   margin: 0.2rem;
   min-width: 100%;
+  border-radius: 10px;
   @media only screen and (min-width: 768px) {
     --width: calc((98% / 2));
     max-width: var(--width);
