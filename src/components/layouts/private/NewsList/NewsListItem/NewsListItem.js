@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import { showWarningToast } from '../../../../../notifications/toast';
 import Button from '../../../../common/Button';
 
-import deleteNews from '../../../../../redux/actions/news/deleteNews';
 import setSelectedItem from '../../../../../redux/actions/editor/setSelectedItem';
 
 const StyledNewsListItem = styled.div`
@@ -40,6 +39,7 @@ const NewsListItem = ({
   item,
   deleteNews,
   toggleEditMode,
+  isEditModeOn,
   setSelectedItem,
   selectedItem,
 }) => {
@@ -76,7 +76,8 @@ const NewsListItem = ({
   }
 
   function handleDelete(id) {
-    if (!toggleEditMode) {
+    console.log(deleteNews);
+    if (!isEditModeOn) {
       deleteNews(id);
     } else {
       showWarningToast('Nelze mazat během editování.');
@@ -87,9 +88,9 @@ const NewsListItem = ({
 function mapStateToProps(state, prevState) {
   return {
     selectedItem: state.editor.selectedItem,
+    isEditModeOn: state.editor.isEditModeOn,
   };
 }
 export default connect(mapStateToProps, {
-  deleteNews,
   setSelectedItem,
 })(NewsListItem);

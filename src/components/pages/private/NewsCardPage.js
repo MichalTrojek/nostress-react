@@ -23,7 +23,7 @@ const NewsCardPage = ({ cards, toggleEditMode, fetchCards }) => {
     <BackgroundNewsCards>
       <Wrapper>
         <NewsCardsEditor toggleEditMode={toggleEditMode} />
-        {/* <NewsList toggleEditMode={toggleEditMode} cards={cards} /> */}
+        <NewsList toggleEditMode={toggleEditMode} news={cards} />
       </Wrapper>
     </BackgroundNewsCards>
   );

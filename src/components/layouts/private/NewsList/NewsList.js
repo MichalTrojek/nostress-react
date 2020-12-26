@@ -9,7 +9,7 @@ const DisplayedNews = styled.div`
   flex-wrap: wrap;
 `;
 
-const NewsList = ({ news, toggleEditMode }) => {
+const NewsList = ({ news, toggleEditMode, deleteNews }) => {
   return (
     <>
       <h1>Seznam</h1>
@@ -20,6 +20,7 @@ const NewsList = ({ news, toggleEditMode }) => {
               toggleEditMode={toggleEditMode}
               item={item}
               key={index}
+              deleteNews={deleteNews}
             ></NewsListItem>
           );
         })}
