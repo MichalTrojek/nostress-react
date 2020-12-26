@@ -68,7 +68,7 @@ const NewsCardsEditor = ({
           />
           <label htmlFor="file">
             <img className="icon" src={UploadIcon} alt="icon " />
-            {filename ? `${filename}` : 'VYBRAT OBRÁZEK...'}
+            VYBRAT OBRÁZEK...
           </label>
         </UploaderContainer>
         <FormGroup className="form-group">
