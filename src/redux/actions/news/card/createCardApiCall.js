@@ -4,9 +4,9 @@ function createCardApiCall(card) {
   const promise = db
     .collection('cards')
     .add(card)
-    .then((doc) => {
-      console.log(`Card with an id ${doc.id()} was created`);
-      return doc.id();
+    .then((docRef) => {
+      console.log(`Card with an id ${docRef.id} was created`);
+      return docRef.id;
     })
     .catch((error) => {
       console.log(`Error while creating a card: ${error}`);

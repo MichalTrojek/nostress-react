@@ -9,6 +9,7 @@ import ReactQuill from 'react-quill';
 
 import editNews from '../../../../redux/actions/news/editNews';
 import createCard from '../../../../redux/actions/news/card/createCard';
+
 import emptySelectedNewsToEdit from '../../../../redux/actions/news/emptySelectedNewsToEdit';
 
 import ImageUploader from './ImageUploader';
@@ -127,7 +128,7 @@ const NewsCardsEditor = ({
       // editNews(id, heading, replaceBlackWithWhiteColor(content), buttonText);
       // setIsEditModeEnabled(false);
     } else {
-      // createNews(heading, replaceBlackWithWhiteColor(content));
+      createCard(card);
     }
     clearInputs();
   }

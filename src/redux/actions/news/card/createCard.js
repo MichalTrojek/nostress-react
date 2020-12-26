@@ -1,4 +1,7 @@
-import { showErrorToast } from '../../../../notifications/toast';
+import {
+  showErrorToast,
+  showSuccessToast,
+} from '../../../../notifications/toast';
 import { CREATE_CARD } from '../../types';
 import createCardApiCall from './createCardApiCall';
 
@@ -10,6 +13,7 @@ function createCard(card) {
         type: CREATE_CARD,
         payload: { ...card, id: id },
       });
+      showSuccessToast('Novinka byla uložena');
     } else {
       showErrorToast('Novinku se nepodařilo uložit do databáze');
     }
