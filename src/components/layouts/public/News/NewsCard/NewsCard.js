@@ -42,13 +42,13 @@ const newsData = {
   Objednávejte telefonicky na 732 161 372`,
 };
 
-const NewsCard = () => {
+const NewsCard = ({ card }) => {
   return (
     <NewsContainer>
-      <img src={image} alt="obrazek novinky" />
+      <img src={card.fileUrl} alt="obrazek novinky" />
       <div className="content">
-        <h2>{newsData.header}</h2>
-        <p>{newsData.content}</p>
+        <h2>{card.heading}</h2>
+        <p>{card.content}</p>
       </div>
     </NewsContainer>
   );
