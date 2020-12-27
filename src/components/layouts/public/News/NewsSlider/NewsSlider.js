@@ -18,9 +18,6 @@ const NewsSliderWrapper = styled(Wrapper)`
 
 const NewsSlider = ({ cards, fetchCards }) => {
   const [numberOfSlidesShown, setNumberOfSlidesShown] = useState(1);
-  useEffect(() => {
-    fetchCards();
-  }, [fetchCards]);
 
   useEffect(() => {
     fetchCards();

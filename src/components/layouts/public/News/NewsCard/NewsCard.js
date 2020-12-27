@@ -1,35 +1,50 @@
 import styled from 'styled-components';
 
 const NewsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: max-content max-content 1fr;
+  grid-template-columns: repeat(12, 1fr);
+  grid-row-gap: 1rem;
+
   background-color: white;
   border-radius: 5px;
   margin-bottom: 3rem;
   margin-left: 1rem;
   margin-right: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-  max-width: 45rem;
-
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
-  img {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+  .cardImage {
+    grid-row: 1 / span 1;
+    grid-column: 1 / -1;
     max-width: 100%;
     height: auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
 
-  .content {
-    padding: 1rem;
-    h2 {
-      color: black;
-      padding: 1rem 0;
+  .cardHeading {
+    padding: 0 1rem;
+    grid-row: 2 / span 1;
+    grid-column: 1/ -1;
+    color: black;
+    hyphens: auto;
+  }
+
+  .cardContent {
+    padding: 1rem 1rem;
+    grid-row: 3 / span 1;
+    grid-column: 1/ -1;
+    hyphens: auto;
+    color: black;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .cardHeading {
+      font-size: 2rem;
     }
 
     p {
-      color: black;
-      hyphens: auto;
+      font-size: 2rem;
     }
   }
 `;
@@ -37,15 +52,15 @@ const NewsContainer = styled.div`
 const NewsCard = ({ card }) => {
   return (
     <NewsContainer>
-      <img src={card.fileUrl} alt="obrazek novinky" />
-      <div className="content">
-        <h2>{card.heading}</h2>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: card.content,
-          }}
-        ></div>
-      </div>
+      <img className="cardImage" src={card.fileUrl} alt="obrazek novinky" />
+
+      <h2 className="cardHeading">{card.heading}</h2>
+      <div
+        className="cardContent"
+        dangerouslySetInnerHTML={{
+          __html: card.content,
+        }}
+      ></div>
     </NewsContainer>
   );
 };
