@@ -25,11 +25,11 @@ const NewsSlider = ({ cards, fetchCards }) => {
     window.addEventListener('resize', handleResize);
     function handleResize() {
       const innerWidth = window.innerWidth;
-      if (innerWidth < 540) {
+      if (innerWidth < 767) {
         setNumberOfSlidesShown(1);
-      } else if (innerWidth >= 540 && innerWidth < 1000) {
+      } else if (innerWidth >= 768 && innerWidth < 1200) {
         setNumberOfSlidesShown(2);
-      } else if (innerWidth >= 1000) {
+      } else if (innerWidth >= 1200) {
         setNumberOfSlidesShown(3);
       }
     }

@@ -2,9 +2,8 @@ import styled from 'styled-components';
 
 const NewsContainer = styled.div`
   display: grid;
-  grid-template-rows: max-content max-content 1fr;
+  grid-template-rows: 25vh 1fr;
   grid-template-columns: repeat(12, 1fr);
-  grid-row-gap: 1rem;
 
   background-color: white;
   border-radius: 5px;
@@ -15,37 +14,49 @@ const NewsContainer = styled.div`
 
   .cardImage {
     grid-row: 1 / span 1;
-    grid-column: 1 / -1;
-    max-width: 100%;
-    height: auto;
+    grid-column: 1/ -1;
+    width: 100%;
+    height: 25vh;
+    object-fit: cover;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
   }
 
-  .cardHeading {
-    padding: 0 1rem;
+  .content {
     grid-row: 2 / span 1;
     grid-column: 1/ -1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+  }
+
+  .cardHeading {
     color: black;
     hyphens: auto;
   }
 
-  .cardContent {
-    padding: 1rem 1rem;
-    grid-row: 3 / span 1;
-    grid-column: 1/ -1;
+  .text {
+    padding-top: 2rem;
     hyphens: auto;
     color: black;
   }
 
   @media only screen and (min-width: 768px) {
-    .cardHeading {
-      font-size: 2rem;
-    }
+    min-height: 60vh;
+    .content {
+      .cardHeading {
+        font-size: 2.5rem;
+      }
 
-    p {
-      font-size: 2rem;
+      .text p {
+        font-size: 2.2rem;
+      }
     }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    min-height: 80vh;
   }
 `;
 
@@ -54,13 +65,15 @@ const NewsCard = ({ card }) => {
     <NewsContainer>
       <img className="cardImage" src={card.fileUrl} alt="obrazek novinky" />
 
-      <h2 className="cardHeading">{card.heading}</h2>
-      <div
-        className="cardContent"
-        dangerouslySetInnerHTML={{
-          __html: card.content,
-        }}
-      ></div>
+      <div className="content">
+        <h2 className="cardHeading">{card.heading}</h2>
+        <div
+          className="text"
+          dangerouslySetInnerHTML={{
+            __html: card.content,
+          }}
+        ></div>
+      </div>
     </NewsContainer>
   );
 };
