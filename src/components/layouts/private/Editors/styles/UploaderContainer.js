@@ -44,10 +44,6 @@ const UploaderContainer = styled.div`
     max-width: 30rem;
     align-self: center;
   }
-
-  Loader {
-    align-self: center;
-  }
 `;
 
 export default UploaderContainer;
