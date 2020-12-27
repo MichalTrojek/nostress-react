@@ -2,6 +2,8 @@ import NewsEditor from '../../layouts/private/Editors/NewsEditor';
 import NewsList from '../../layouts/private/Editors/NewsList';
 import styled from 'styled-components';
 
+import Wrapper from '../../common/Wrapper';
+
 import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 
 import toggleEditMode from '../../../redux/actions/editor/toggleEditMode';
@@ -15,11 +17,6 @@ const NewsPageBackground = styled.div`
   background-color: black;
   min-height: 100vh;
 `;
-const NewsPageWrapper = styled.section`
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 2rem;
-`;
 
 const NewsPage = ({ news, toggleEditMode, fetchNews, deleteNews }) => {
   useEffect(() => {
@@ -28,7 +25,7 @@ const NewsPage = ({ news, toggleEditMode, fetchNews, deleteNews }) => {
 
   return (
     <NewsPageBackground>
-      <NewsPageWrapper>
+      <Wrapper>
         <PrivateNavBar />
         <NewsEditor toggleEditMode={toggleEditMode} />
         <NewsList
@@ -36,7 +33,7 @@ const NewsPage = ({ news, toggleEditMode, fetchNews, deleteNews }) => {
           news={news}
           deleteNews={deleteNews}
         />
-      </NewsPageWrapper>
+      </Wrapper>
     </NewsPageBackground>
   );
 };
