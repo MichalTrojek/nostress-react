@@ -2,7 +2,7 @@ import { db } from '../../../../firebase';
 
 function editCardApiCall(card) {
   return db
-    .collection('orders')
+    .collection('cards')
     .doc(card.id)
     .set(card)
     .then(() => {
