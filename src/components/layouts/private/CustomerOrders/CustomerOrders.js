@@ -159,6 +159,7 @@ const CustomerOrders = ({
     } else if (showNew) {
       items = newOrders;
     }
+
     return items.map((order, index) => {
       return <OrderedItem key={index} order={order} />;
     });

@@ -48,7 +48,7 @@ function App() {
             <PrivateRoute exact path="/dashboard/news" component={NewsPage} />
             <PrivateRoute
               exact
-              path="/dashboard/newsCard"
+              path="/dashboard/cards"
               component={NewsCardPage}
             />
           </Switch>

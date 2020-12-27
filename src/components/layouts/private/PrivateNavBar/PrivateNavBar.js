@@ -17,7 +17,7 @@ const MENU_ITEMS = [
   { name: 'Editor Menu', href: '/dashboard/meals' },
   { name: 'Editor Polivek', href: '/dashboard/soups' },
   { name: 'Editor Novinek', href: '/dashboard/news' },
-  { name: 'Editor Karet', href: '/dashboard/newsCard' },
+  { name: 'Editor Karet', href: '/dashboard/cards' },
   { name: 'Odhlásit se', href: 'logout' },
 ];
 
