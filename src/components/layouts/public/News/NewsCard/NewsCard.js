@@ -40,7 +40,11 @@ const NewsCard = ({ card }) => {
       <img src={card.fileUrl} alt="obrazek novinky" />
       <div className="content">
         <h2>{card.heading}</h2>
-        <p>{card.content}</p>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: card.content,
+          }}
+        ></div>
       </div>
     </NewsContainer>
   );

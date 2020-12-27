@@ -66,26 +66,6 @@ const NewsSlider = ({ cards, fetchCards }) => {
   );
 };
 
-// function mapStateToProps(state, ownProps) {
-//   // const cards = [];
-//   // const card = {
-//   //   heading: 'Vyzkoušejte naši novou snídaňovou nabídku!',
-//   //   content: `Nově Vám u nás nabídneme výborné snídaňové menu. Vyvážená a vydatná snídaně je základ každého úspěšného dne.
-//   //   Naše snídaně jsou jen z kvalitních surovin a čerstvě připravené.
-//   //   Naše snídaně Vám DOVEZEME až domů nebo do firmy nebo vydáme TAKE AWAY ve výdejním okénku.  A to vždy Pondělí – Pátek 8:00 – 10:30.
-//   //   Objednávejte telefonicky na 732 161 372`,
-//   //   fileUrl:
-//   //     'https://firebasestorage.googleapis.com/v0/b/nostress-a057b.appspot.com/o/cardImages%2Ffooddelivery.jpg?alt=media&token=43cbda1b-5546-453d-aaf9-4c198eb07649',
-//   // };
-//   // cards.push(card);
-//   // cards.push(card);
-//   // cards.push(card);
-//   // cards.push(card);
-//   return {
-//     cards: state.cards,
-//   };
-// }
-
 const mapStateToProps = (state, ownProps) => {
   const { cards } = state;
   return { cards };
