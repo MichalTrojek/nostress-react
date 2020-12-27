@@ -32,10 +32,12 @@ const NewsContainer = styled.div`
   }
 
   .cardHeading {
+    color: black;
     hyphens: auto;
   }
 
   .text {
+    color: black;
     padding-top: 2rem;
     hyphens: auto;
   }
