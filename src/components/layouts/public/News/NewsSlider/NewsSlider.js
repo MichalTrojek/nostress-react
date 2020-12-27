@@ -36,7 +36,7 @@ const NewsSlider = ({ cards }) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [cards]);
+  }, []);
 
   const settings = {
     dots: true,

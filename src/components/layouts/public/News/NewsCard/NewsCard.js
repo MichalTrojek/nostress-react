@@ -11,6 +11,8 @@ const NewsContainer = styled.div`
 
   max-width: 45rem;
 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
   img {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
