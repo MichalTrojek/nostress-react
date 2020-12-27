@@ -31,3 +31,7 @@
 .button__bar li.slick-active button {
   background-color: var(--color-tertiary);
 }
+
+/* .slick-slide {
+  max-width: 30%;
+} */

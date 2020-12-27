@@ -1,17 +1,15 @@
 import styled from 'styled-components';
 
-import image from '../../../../../img/healthyfood.jpg';
-
 const NewsContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
   border-radius: 5px;
-
   margin-bottom: 3rem;
-
   margin-left: 1rem;
   margin-right: 1rem;
+
+  max-width: 45rem;
 
   img {
     border-top-left-radius: 5px;
@@ -33,14 +31,6 @@ const NewsContainer = styled.div`
     }
   }
 `;
-
-const newsData = {
-  header: 'Vyzkoušejte naši novou snídaňovou nabídku!',
-  content: `Nově Vám u nás nabídneme výborné snídaňové menu. Vyvážená a vydatná snídaně je základ každého úspěšného dne.
-  Naše snídaně jsou jen z kvalitních surovin a čerstvě připravené.
-  Naše snídaně Vám DOVEZEME až domů nebo do firmy nebo vydáme TAKE AWAY ve výdejním okénku.  A to vždy Pondělí – Pátek 8:00 – 10:30.
-  Objednávejte telefonicky na 732 161 372`,
-};
 
 const NewsCard = ({ card }) => {
   return (

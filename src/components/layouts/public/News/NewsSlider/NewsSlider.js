@@ -32,6 +32,7 @@ const NewsSlider = ({ cards }) => {
         setNumberOfSlidesShown(3);
       }
     }
+    console.log(numberOfSlidesShown);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -39,7 +40,8 @@ const NewsSlider = ({ cards }) => {
 
   const settings = {
     dots: true,
-    infinite: true,
+    // infinite: true,
+    infinite: cards.length >= numberOfSlidesShown,
     speed: 500,
     slidesToShow: numberOfSlidesShown,
     slidesToSrroll: 1,
@@ -47,13 +49,14 @@ const NewsSlider = ({ cards }) => {
     arrows: false,
     autoplay: true,
     autoplaySpeed: 5000,
+    // variableWidth: true,
   };
 
   return (
     <NewsSliderWrapper>
       <Slider {...settings}>
         {cards.map((card, index) => {
-          return <NewsCard card={card} />;
+          return <NewsCard key={index} card={card} />;
         })}
       </Slider>
     </NewsSliderWrapper>
