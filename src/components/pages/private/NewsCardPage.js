@@ -12,6 +12,8 @@ import toggleEditMode from '../../../redux/actions/editor/toggleEditMode';
 import fetchCards from '../../../redux/actions/news/card/fetchCards';
 import deleteCard from '../../../redux/actions/news/card/deleteCard';
 
+import PrivateNavBar from '../../layouts/private/PrivateNavBar';
+
 const BackgroundNewsCards = styled(Background)`
   min-height: 100vh;
 `;
@@ -24,6 +26,7 @@ const NewsCardPage = ({ cards, toggleEditMode, fetchCards, deleteCard }) => {
   return (
     <BackgroundNewsCards>
       <Wrapper>
+        <PrivateNavBar />
         <NewsCardsEditor toggleEditMode={toggleEditMode} />
         <NewsList
           toggleEditMode={toggleEditMode}

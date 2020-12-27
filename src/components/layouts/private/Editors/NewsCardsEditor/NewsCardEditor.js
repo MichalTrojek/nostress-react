@@ -7,10 +7,10 @@ import Button from '../../../../common/Button';
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import './NewsEditor.css';
 
-import EditorContainer from './styles/EditorContainer';
-import UploaderContainer from './styles/UploaderContainer';
+import '../styles/NewsEditor.css';
+import EditorContainer from '../styles/EditorContainer';
+import UploaderContainer from '../styles/UploaderContainer';
 
 import UploadIcon from '../../../../../img/upload.png';
 
