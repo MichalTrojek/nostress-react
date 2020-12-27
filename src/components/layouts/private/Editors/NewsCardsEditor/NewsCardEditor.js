@@ -71,13 +71,9 @@ const NewsCardsEditor = ({
         const { heading, content, fileUrl } = selectedItem;
 
         setHeading(heading);
-        setContent(replaceWhiteWithBlackColor(content));
+        setContent(content);
         setFileUrl(fileUrl);
       }
-    }
-
-    function replaceWhiteWithBlackColor(text) {
-      return text.replaceAll('white', 'black');
     }
   }, [selectedItem, toggleEditMode]);
 
@@ -161,7 +157,7 @@ const NewsCardsEditor = ({
     const card = {
       fileUrl: fileUrl,
       heading: heading,
-      content: replaceBlackWithWhiteColor(content),
+      content: content,
     };
 
     if (isEditModeOn) {
@@ -172,10 +168,6 @@ const NewsCardsEditor = ({
       createCard(card);
     }
     clearInputs();
-  }
-
-  function replaceBlackWithWhiteColor(text) {
-    return text.replaceAll('black', 'white');
   }
 
   function clearInputs() {

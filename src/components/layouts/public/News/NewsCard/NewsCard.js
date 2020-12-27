@@ -32,14 +32,12 @@ const NewsContainer = styled.div`
   }
 
   .cardHeading {
-    color: black;
     hyphens: auto;
   }
 
   .text {
     padding-top: 2rem;
     hyphens: auto;
-    color: black;
   }
 
   @media only screen and (min-width: 768px) {
