@@ -11,6 +11,7 @@ import 'react-quill/dist/quill.snow.css';
 import '../styles/NewsEditor.css';
 import EditorContainer from '../styles/EditorContainer';
 import UploaderContainer from '../styles/UploaderContainer';
+import Loader from '../../../../common/Loader';
 
 import UploadIcon from '../../../../../img/upload.png';
 
@@ -38,16 +39,21 @@ const NewsCardsEditor = ({
   const [filename, setFilename] = useState('');
   const [fileUrl, setFileUrl] = useState('');
   const [file, setFile] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    uploadImage(file);
+    if (file) {
+      uploadImage(file);
+    }
     async function uploadImage(file) {
+      setLoading(true);
       let storageRef = storage.ref();
       const fileRef = storageRef.child('cardImages/' + filename);
       try {
         await fileRef.put(file);
         const fileUrl = await fileRef.getDownloadURL();
         setFileUrl(fileUrl);
+        setLoading(false);
       } catch (error) {
         console.log(`Error while fetching `);
       }
@@ -62,12 +68,7 @@ const NewsCardsEditor = ({
 
     function restoreInputFields() {
       if (selectedItem) {
-        const {
-          heading,
-          content,
-
-          fileUrl,
-        } = selectedItem;
+        const { heading, content, fileUrl } = selectedItem;
 
         setHeading(heading);
         setContent(replaceWhiteWithBlackColor(content));
@@ -85,7 +86,12 @@ const NewsCardsEditor = ({
       <h1 style={{ paddingBottom: '5rem' }}>Editor karet </h1>
       <form onSubmit={handleSubmit}>
         <UploaderContainer>
-          <img className="previewImage" src={fileUrl} alt={filename} />
+          {loading ? (
+            <Loader style={{ alignSelf: 'center', marginBottom: '1rem' }} />
+          ) : (
+            <img className="previewImage" src={fileUrl} alt={filename} />
+          )}
+
           <input
             type="file"
             name="file"
@@ -148,7 +154,7 @@ const NewsCardsEditor = ({
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (heading.length === 0 || content === 0 || fileUrl === 0) {
+    if (heading.length === 0 || content === 0 || fileUrl === 0 || loading) {
       return;
     }
 
