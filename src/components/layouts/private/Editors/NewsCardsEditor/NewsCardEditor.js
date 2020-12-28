@@ -35,7 +35,6 @@ const NewsCardsEditor = ({
 }) => {
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
-  const [filename, setFilename] = useState('');
   const [fileUrl, setFileUrl] = useState('');
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -47,35 +46,16 @@ const NewsCardsEditor = ({
   }, [setSelectedItem]);
 
   useEffect(() => {
-    if (file) {
-      uploadImage(file);
-    }
-    async function uploadImage(file) {
-      setLoading(true);
-      let storageRef = storage.ref();
-      const fileRef = storageRef.child('cardImages/' + filename);
-      try {
-        await fileRef.put(file);
-        const fileUrl = await fileRef.getDownloadURL();
-        setFileUrl(fileUrl);
-        setLoading(false);
-      } catch (error) {
-        console.log(`Error while fetching `);
-      }
-    }
-  }, [file, filename]);
-
-  useEffect(() => {
     if (isEditModeOn) {
       restoreInputFields();
     }
 
     function restoreInputFields() {
       if (selectedItem.selectedItemType === 'card') {
-        const { heading, content, fileUrl } = selectedItem;
+        const { heading, content, image } = selectedItem;
         setHeading(heading);
         setContent(content);
-        setFileUrl(fileUrl);
+        setFileUrl(image.fileUrl);
       }
     }
   }, [selectedItem, isEditModeOn]);
@@ -88,7 +68,7 @@ const NewsCardsEditor = ({
           {loading ? (
             <Loader style={{ alignSelf: 'center', marginBottom: '1rem' }} />
           ) : (
-            <img className="previewImage" src={fileUrl} alt={filename} />
+            <img className="previewImage" src={fileUrl} alt="" />
           )}
 
           <input
@@ -128,10 +108,11 @@ const NewsCardsEditor = ({
   );
 
   function handleChange(event) {
-    let file = event.target.files[0];
+    const file = event.target.files[0];
+    setFileUrl(URL.createObjectURL(file));
     setFile(file);
-    setFilename(file.name);
   }
+
   function renderEditButtons() {
     return isEditModeOn ? (
       <div>
@@ -150,14 +131,22 @@ const NewsCardsEditor = ({
     clearInputs();
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    if (heading.length === 0 || content === 0 || fileUrl === 0 || loading) {
+    if (
+      heading.length === 0 ||
+      content === 0 ||
+      fileUrl === 0 ||
+      loading ||
+      !file
+    ) {
       return;
     }
 
+    const image = await uploadImage(file);
+
     const card = {
-      fileUrl: fileUrl,
+      image: image,
       heading: heading,
       content: content,
       selectedItemType: 'card',
@@ -173,11 +162,27 @@ const NewsCardsEditor = ({
     clearInputs();
   }
 
+  async function uploadImage(file) {
+    console.log('uploading');
+    setLoading(true);
+    let storageRef = storage.ref();
+    const filename = `${Date.now()}${file.name}`;
+    const fileRef = storageRef.child('cardImages/' + filename);
+
+    try {
+      await fileRef.put(file);
+      const fileUrl = await fileRef.getDownloadURL();
+      setLoading(false);
+      return { fileUrl, filename };
+    } catch (error) {
+      console.log(`Error while fetching `);
+    }
+  }
+
   function clearInputs() {
     setHeading('');
     setContent('');
     setFileUrl('');
-    setFilename('');
   }
   function getHeading(event) {
     setHeading(event.target.value);

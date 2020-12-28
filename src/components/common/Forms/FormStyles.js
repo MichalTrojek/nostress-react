@@ -27,6 +27,7 @@ export const FormGroup = styled.div`
     transition: all 0.2s;
     transform: translateY(-4.1rem) translateX(1rem);
     pointer-events: none;
+    font-weight: bold;
   }
 
   input {

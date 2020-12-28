@@ -10,7 +10,7 @@ function fetchCardsApiCall() {
         data.push({
           id: doc.id,
           heading: doc.data().heading,
-          fileUrl: doc.data().fileUrl,
+          image: doc.data().image,
           content: doc.data().content,
           selectedItemType: doc.data().selectedItemType,
         });
