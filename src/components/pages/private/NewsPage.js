@@ -6,7 +6,6 @@ import Wrapper from '../../common/Wrapper';
 
 import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 
-import toggleEditMode from '../../../redux/actions/editor/toggleEditMode';
 import deleteNews from '../../../redux/actions/news/deleteNews';
 import fetchNews from '../../../redux/actions/news/fetchNews';
 
@@ -18,7 +17,7 @@ const NewsPageBackground = styled.div`
   min-height: 100vh;
 `;
 
-const NewsPage = ({ news, toggleEditMode, fetchNews, deleteNews }) => {
+const NewsPage = ({ news, fetchNews, deleteNews }) => {
   useEffect(() => {
     fetchNews();
   }, [fetchNews]);
@@ -27,12 +26,8 @@ const NewsPage = ({ news, toggleEditMode, fetchNews, deleteNews }) => {
     <NewsPageBackground>
       <Wrapper>
         <PrivateNavBar />
-        <NewsEditor toggleEditMode={toggleEditMode} />
-        <NewsList
-          toggleEditMode={toggleEditMode}
-          news={news}
-          deleteNews={deleteNews}
-        />
+        <NewsEditor />
+        <NewsList news={news} deleteNews={deleteNews} />
       </Wrapper>
     </NewsPageBackground>
   );
@@ -45,6 +40,5 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(mapStateToProps, {
   fetchNews,
-  toggleEditMode,
   deleteNews,
 })(NewsPage);

@@ -1,4 +1,4 @@
-import { TOGGLE_EDIT_MODE, SELECT_ITEM_TO_EDIT } from '../actions/types';
+import { SELECT_ITEM_TO_EDIT } from '../actions/types';
 
 const initialState = { selectedItem: null, isEditModeOn: false };
 

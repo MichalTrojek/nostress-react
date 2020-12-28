@@ -44,7 +44,7 @@ const NewsCardsEditor = ({
     return () => {
       setSelectedItem(null); // turns off editing mode
     };
-  }, []);
+  }, [setSelectedItem]);
 
   useEffect(() => {
     if (file) {
@@ -63,7 +63,7 @@ const NewsCardsEditor = ({
         console.log(`Error while fetching `);
       }
     }
-  }, [file]);
+  }, [file, filename]);
 
   useEffect(() => {
     if (isEditModeOn) {

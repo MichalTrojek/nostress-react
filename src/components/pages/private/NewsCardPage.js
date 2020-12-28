@@ -8,7 +8,6 @@ import Wrapper from '../../common/Wrapper';
 import NewsCardsEditor from '../../layouts/private/Editors/NewsCardsEditor';
 import NewsList from '../../layouts/private/Editors/NewsList';
 
-import toggleEditMode from '../../../redux/actions/editor/toggleEditMode';
 import fetchCards from '../../../redux/actions/news/card/fetchCards';
 import deleteCard from '../../../redux/actions/news/card/deleteCard';
 
@@ -18,7 +17,7 @@ const BackgroundNewsCards = styled(Background)`
   min-height: 100vh;
 `;
 
-const NewsCardPage = ({ cards, toggleEditMode, fetchCards, deleteCard }) => {
+const NewsCardPage = ({ cards, fetchCards, deleteCard }) => {
   useEffect(() => {
     fetchCards();
   }, [fetchCards]);
@@ -27,12 +26,8 @@ const NewsCardPage = ({ cards, toggleEditMode, fetchCards, deleteCard }) => {
     <BackgroundNewsCards>
       <Wrapper>
         <PrivateNavBar />
-        <NewsCardsEditor toggleEditMode={toggleEditMode} />
-        <NewsList
-          toggleEditMode={toggleEditMode}
-          news={cards}
-          deleteNews={deleteCard}
-        />
+        <NewsCardsEditor />
+        <NewsList news={cards} deleteNews={deleteCard} />
       </Wrapper>
     </BackgroundNewsCards>
   );
@@ -44,7 +39,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 export default connect(mapStateToProps, {
-  toggleEditMode,
   fetchCards,
   deleteCard,
 })(NewsCardPage);

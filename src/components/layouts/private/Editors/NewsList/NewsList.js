@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import styled from 'styled-components';
 
@@ -9,7 +9,7 @@ const DisplayedNews = styled.div`
   flex-wrap: wrap;
 `;
 
-const NewsList = ({ news, toggleEditMode, deleteNews }) => {
+const NewsList = ({ news, deleteNews }) => {
   return (
     <>
       <h1>Seznam</h1>
@@ -17,7 +17,6 @@ const NewsList = ({ news, toggleEditMode, deleteNews }) => {
         {news.map((item, index) => {
           return (
             <NewsListItem
-              toggleEditMode={toggleEditMode}
               item={item}
               key={index}
               deleteNews={deleteNews}

@@ -41,7 +41,7 @@ const Editor = ({
     return () => {
       setSelectedItem(null); // turns off editing mode
     };
-  }, []);
+  }, [setSelectedItem]);
 
   useEffect(() => {
     if (isEditModeOn) {
