@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import Button from '../../../common/Button';
+import Button from '../../../../../common/Button';
 
 import styled from 'styled-components';
 
-import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
-import toggleEditMode from '../../../../redux/actions/editor/toggleEditMode';
-import deleteMeal from '../../../../redux/actions/meals/deleteMeal';
-import { showInfoToast } from '../../../../notifications/toast';
+import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
+import toggleEditMode from '../../../../../../redux/actions/editor/toggleEditMode';
+import deleteMeal from '../../../../../../redux/actions/meals/deleteMeal';
+import { showInfoToast } from '../../../../../../notifications/toast';
 
 const MealListItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);

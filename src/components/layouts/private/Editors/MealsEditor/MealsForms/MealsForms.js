@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import Form from '../../../common/Forms/Form';
-import FormGroup from '../../../common/Forms/FormGroup';
-import Button from '../../../common/Button';
+import Form from '../../../../../common/Forms/Form';
+import FormGroup from '../../../../../common/Forms/FormGroup';
+import Button from '../../../../../common/Button';
 
-import createMeal from '../../../../redux/actions/meals/createMeal';
-import editMeal from '../../../../redux/actions/meals/editMeal';
-import toggleEditMode from '../../../../redux/actions/editor/toggleEditMode';
-import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
-import RadioGroup from '../../../common/Forms/RadioGroup';
+import createMeal from '../../../../../../redux/actions/meals/createMeal';
+import editMeal from '../../../../../../redux/actions/meals/editMeal';
+import toggleEditMode from '../../../../../../redux/actions/editor/toggleEditMode';
+import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
+import RadioGroup from '../../../../../common/Forms/RadioGroup';
 
 const MealForm = styled(Form)`
   @media only screen and (min-width: 1024px) {

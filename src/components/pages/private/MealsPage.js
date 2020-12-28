@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import Background from '../../common/Background';
 import Wrapper from '../../common/Wrapper';
-import MealsForms from '../../layouts/private/MealsForms';
-import MealsList from '../../layouts/private/MealsList';
+import MealsForms from '../../layouts/private/Editors/MealsEditor/MealsForms';
+import MealsList from '../../layouts/private/Editors/MealsEditor/MealsList';
 import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 
 const MealsPageBackground = styled(Background)`
