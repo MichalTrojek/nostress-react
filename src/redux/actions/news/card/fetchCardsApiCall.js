@@ -12,6 +12,7 @@ function fetchCardsApiCall() {
           heading: doc.data().heading,
           fileUrl: doc.data().fileUrl,
           content: doc.data().content,
+          selectedItemType: doc.data().selectedItemType,
         });
       });
 

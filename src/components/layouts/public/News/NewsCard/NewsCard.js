@@ -44,7 +44,7 @@ const NewsContainer = styled.div`
 
   @media only screen and (min-width: 768px) {
     min-height: 60vh;
-    max-height: 60vh;
+    /* max-height: 60vh; */
     .content {
       .cardHeading {
         font-size: 2.5rem;
@@ -57,8 +57,8 @@ const NewsContainer = styled.div`
   }
 
   @media only screen and (min-width: 1200px) {
-    min-height: 80vh;
-    max-height: 80vh;
+    /* min-height: 80vh; */
+    /* max-height: 80vh; */
   }
 `;
 

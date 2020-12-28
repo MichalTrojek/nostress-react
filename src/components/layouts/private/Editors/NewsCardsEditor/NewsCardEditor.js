@@ -31,7 +31,6 @@ const NewsCardsEditor = ({
   editCard,
   selectedItem,
   setSelectedItem,
-  toggleEditMode,
   isEditModeOn,
 }) => {
   const [heading, setHeading] = useState('');
@@ -40,6 +39,12 @@ const NewsCardsEditor = ({
   const [fileUrl, setFileUrl] = useState('');
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      setSelectedItem(null); // turns off editing mode
+    };
+  }, []);
 
   useEffect(() => {
     if (file) {
@@ -61,21 +66,19 @@ const NewsCardsEditor = ({
   }, [file]);
 
   useEffect(() => {
-    if (selectedItem) {
-      toggleEditMode(true);
+    if (isEditModeOn) {
       restoreInputFields();
     }
 
     function restoreInputFields() {
-      if (selectedItem) {
+      if (selectedItem.selectedItemType === 'card') {
         const { heading, content, fileUrl } = selectedItem;
-
         setHeading(heading);
         setContent(content);
         setFileUrl(fileUrl);
       }
     }
-  }, [selectedItem, toggleEditMode]);
+  }, [selectedItem, isEditModeOn]);
 
   return (
     <EditorContainer>
@@ -143,9 +146,8 @@ const NewsCardsEditor = ({
   }
 
   function handleCancelEdit() {
-    toggleEditMode(false);
-    clearInputs();
     setSelectedItem(null);
+    clearInputs();
   }
 
   function handleSubmit(e) {
@@ -158,12 +160,13 @@ const NewsCardsEditor = ({
       fileUrl: fileUrl,
       heading: heading,
       content: content,
+      selectedItemType: 'card',
     };
 
     if (isEditModeOn) {
       const { id } = selectedItem;
       editCard({ ...card, id: id });
-      toggleEditMode(false);
+      setSelectedItem(null);
     } else {
       createCard(card);
     }

@@ -14,6 +14,7 @@ function fetchMealsApiCall() {
           price: doc.data().price,
           type: doc.data().type,
           menuNumber: doc.data().menuNumber,
+          selectedItemType: doc.data().selectedItemType,
         });
       });
       return data;

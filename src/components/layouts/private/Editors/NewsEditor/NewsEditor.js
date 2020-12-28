@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 
 import { FormGroup } from '../../../../common/Forms/FormStyles';
 import Button from '../../../../common/Button';
@@ -28,7 +27,6 @@ const Editor = ({
   editNews,
   selectedItem,
   setSelectedItem,
-  toggleEditMode,
   isEditModeOn,
 }) => {
   const [heading, setHeading] = useState('');
@@ -40,13 +38,18 @@ const Editor = ({
   const [websiteSelected, setWebsiteSelected] = useState(false);
 
   useEffect(() => {
-    if (selectedItem) {
-      toggleEditMode(true);
+    return () => {
+      setSelectedItem(null); // turns off editing mode
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isEditModeOn) {
       restoreInputFields();
     }
 
     function restoreInputFields() {
-      if (selectedItem) {
+      if (selectedItem.selectedItemType === 'news') {
         const {
           heading,
           content,
@@ -70,7 +73,7 @@ const Editor = ({
     function replaceWhiteWithBlackColor(text) {
       return text.replaceAll('white', 'black');
     }
-  }, [selectedItem, toggleEditMode]);
+  }, [selectedItem, isEditModeOn]);
 
   return (
     <EditorContainer>
@@ -162,10 +165,9 @@ const Editor = ({
   }
 
   function handleCancelEdit() {
-    toggleEditMode(false);
+    setSelectedItem(null);
     setWebsiteSelected(false);
     clearInputs();
-    setSelectedItem(null);
   }
 
   function handleSubmit(e) {
@@ -186,12 +188,13 @@ const Editor = ({
       button: buttonText,
       websiteLink: websiteSelected ? websiteLink : '',
       buttonPath: buttonPath,
+      selectedItemType: 'news',
     };
 
     if (isEditModeOn) {
       const { id } = selectedItem;
       editNews({ ...news, id: id });
-      toggleEditMode(false);
+      setSelectedItem(null);
     } else {
       createNews(news);
     }
