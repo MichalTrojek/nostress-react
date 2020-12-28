@@ -2,14 +2,14 @@ import { DELETE_NEWS } from '../types';
 import deleteNewsApiCalls from '../../../api/news/deleteNewsApiCall';
 import { showSuccessToast, showErrorToast } from '../../../notifications/toast';
 
-const deleteNews = (id) => {
+const deleteNews = (news) => {
   return async (dispatch, getState) => {
-    const succes = deleteNewsApiCalls(id);
+    const succes = deleteNewsApiCalls(news.id);
     if (succes) {
       showSuccessToast('Novinak byla odstraněna!');
       dispatch({
         type: DELETE_NEWS,
-        payload: id,
+        payload: news.id,
       });
     } else {
       showErrorToast('Novinak nebyla odstraněna!');

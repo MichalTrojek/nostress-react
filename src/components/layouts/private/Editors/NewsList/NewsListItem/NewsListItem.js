@@ -65,7 +65,7 @@ const NewsListItem = ({
         <Button primary onClick={() => handleEdit(item)}>
           Editovat
         </Button>
-        <Button onClick={() => handleDelete(item.id)}>Smazat</Button>
+        <Button onClick={() => handleDelete(item)}>Smazat</Button>
       </div>
     </StyledNewsListItem>
   );
@@ -76,9 +76,9 @@ const NewsListItem = ({
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function handleDelete(id) {
+  function handleDelete(item) {
     if (!isEditModeOn) {
-      deleteNews(id);
+      deleteNews(item);
     } else {
       showWarningToast('Nelze mazat během editování.');
     }

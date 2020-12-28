@@ -163,7 +163,6 @@ const NewsCardsEditor = ({
   }
 
   async function uploadImage(file) {
-    console.log('uploading');
     setLoading(true);
     let storageRef = storage.ref();
     const filename = `${Date.now()}${file.name}`;
