@@ -4,7 +4,6 @@ import Button from '../../../../../common/Button';
 import styled from 'styled-components';
 
 import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
-import toggleEditMode from '../../../../../../redux/actions/editor/toggleEditMode';
 import deleteMeal from '../../../../../../redux/actions/meals/deleteMeal';
 import { showInfoToast } from '../../../../../../notifications/toast';
 
@@ -75,13 +74,7 @@ const MealListItemContainer = styled.div`
   }
 `;
 
-const MealListItem = ({
-  meal,
-  isEditModeOn,
-  setSelectedItem,
-  toggleEditMode,
-  deleteMeal,
-}) => {
+const MealListItem = ({ meal, isEditModeOn, setSelectedItem, deleteMeal }) => {
   return (
     <MealListItemContainer>
       <p className="menuNumber">{meal.menuNumber} </p>
@@ -112,7 +105,6 @@ const MealListItem = ({
 
   function handleEdit() {
     setSelectedItem(meal);
-    toggleEditMode(true);
     window.scroll({ top: 0, behavior: 'smooth' });
   }
 
@@ -131,6 +123,5 @@ function mapStateToProps(state, ownProps) {
 
 export default connect(mapStateToProps, {
   setSelectedItem,
-  toggleEditMode,
   deleteMeal,
 })(MealListItem);

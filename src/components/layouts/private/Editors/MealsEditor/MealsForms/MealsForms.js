@@ -8,7 +8,6 @@ import Button from '../../../../../common/Button';
 
 import createMeal from '../../../../../../redux/actions/meals/createMeal';
 import editMeal from '../../../../../../redux/actions/meals/editMeal';
-import toggleEditMode from '../../../../../../redux/actions/editor/toggleEditMode';
 import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
 import RadioGroup from '../../../../../common/Forms/RadioGroup';
 
@@ -37,7 +36,6 @@ const MealsForms = ({
   createMeal,
   editMeal,
   isEditModeOn,
-  toggleEditMode,
   setSelectedItem,
   selectedItem,
 }) => {
@@ -113,15 +111,18 @@ const MealsForms = ({
   function handleSubmit(event) {
     event.preventDefault();
     if (name.length !== 0 && price.length !== 0 && menuNumber.length !== 0) {
-      let meal = { name, alergens, price, type, menuNumber };
+      let meal = {
+        name,
+        alergens,
+        price,
+        type,
+        menuNumber,
+        selectedItemType: 'meal',
+      };
       if (isEditModeOn) {
         editMeal({
+          ...meal,
           id: selectedItem.id,
-          name,
-          alergens,
-          price,
-          type,
-          menuNumber,
         });
         handleCancel();
       } else {
@@ -190,7 +191,6 @@ const MealsForms = ({
   }
 
   function handleCancel() {
-    toggleEditMode(false);
     setSelectedItem(null);
     clearStates();
   }
@@ -214,6 +214,5 @@ function mapStateToProps(state, ownProps) {
 export default connect(mapStateToProps, {
   createMeal,
   editMeal,
-  toggleEditMode,
   setSelectedItem,
 })(MealsForms);

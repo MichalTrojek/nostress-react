@@ -1,23 +1,17 @@
 import { db } from '../../firebase';
 
-function editMealApiCall({ id, name, alergens, price, type, menuNumber }) {
+function editMealApiCall(meal) {
   return db
     .collection('meals')
-    .doc(id)
-    .set({
-      name: name,
-      alergens: alergens,
-      price: price,
-      type: type,
-      menuNumber: menuNumber,
-    })
+    .doc(meal.id)
+    .set(meal)
     .then(() => {
-      console.log(`Meal with ID ${id} was successfully updated`);
+      console.log(`Meal with ID ${meal.id} was successfully updated`);
       return true;
     })
     .catch((error) => {
       console.log(
-        `Error while trying to update Meal with ID ${id}. Erorr: ${error}`
+        `Error while trying to update Meal with ID ${meal.id}. Erorr: ${error}`
       );
       return false;
     });
