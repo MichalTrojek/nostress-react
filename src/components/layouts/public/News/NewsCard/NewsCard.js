@@ -72,7 +72,11 @@ const NewsCard = ({ card, maxHeight, setMaxHeight }) => {
 
   return (
     <NewsContainer maxHeight={maxHeight} ref={currentElement}>
-      <img className="cardImage" src={card.fileUrl} alt="obrazek novinky" />
+      <img
+        className="cardImage"
+        src={card.image.fileUrl}
+        alt="obrazek novinky"
+      />
 
       <div className="content">
         <h2 className="cardHeading">{card.heading}</h2>

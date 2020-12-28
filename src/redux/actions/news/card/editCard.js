@@ -5,9 +5,12 @@ import {
 import { EDIT_CARD } from '../../types';
 import editCardApiCall from './editCardApiCall';
 
-function editCard(card) {
+import { storage } from '../../../../firebase';
+
+function editCard(card, selectedItem) {
   return async (dispatch, getState) => {
     const success = await editCardApiCall(card);
+    deleteOldImageFromStorage(card, selectedItem);
     if (success) {
       dispatch({
         type: EDIT_CARD,
@@ -18,6 +21,13 @@ function editCard(card) {
       showErrorToast('Kartu se nepodařilo editovat.');
     }
   };
+}
+
+function deleteOldImageFromStorage(card, selectedItem) {
+  if (card.image.filename !== selectedItem.image.filename) {
+    const storageRef = storage.ref();
+    storageRef.child('cardImages/' + selectedItem.image.filename).delete();
+  }
 }
 
 export default editCard;

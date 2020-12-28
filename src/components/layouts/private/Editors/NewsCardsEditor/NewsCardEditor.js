@@ -133,17 +133,16 @@ const NewsCardsEditor = ({
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (
-      heading.length === 0 ||
-      content === 0 ||
-      fileUrl === 0 ||
-      loading ||
-      !file
-    ) {
+    if (heading.length === 0 || content === 0 || fileUrl === 0 || loading) {
       return;
     }
 
-    const image = await uploadImage(file);
+    let image;
+    if (file) {
+      image = await uploadImage(file);
+    } else {
+      image = selectedItem.image;
+    }
 
     const card = {
       image: image,
@@ -154,7 +153,7 @@ const NewsCardsEditor = ({
 
     if (isEditModeOn) {
       const { id } = selectedItem;
-      editCard({ ...card, id: id });
+      editCard({ ...card, id: id }, selectedItem);
       setSelectedItem(null);
     } else {
       createCard(card);
