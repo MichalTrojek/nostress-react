@@ -35,3 +35,10 @@
 /* .slick-slide {
   max-width: 30%;
 } */
+/* .slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: inherit !important;
+} */

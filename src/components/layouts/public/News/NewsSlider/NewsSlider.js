@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import Wrapper from '../../../../common/Wrapper';
@@ -18,6 +18,7 @@ const NewsSliderWrapper = styled(Wrapper)`
 
 const NewsSlider = ({ cards, fetchCards }) => {
   const [numberOfSlidesShown, setNumberOfSlidesShown] = useState(1);
+  const [maxHeight, setMaxHeight] = useState(0);
 
   useEffect(() => {
     fetchCards();
@@ -40,7 +41,6 @@ const NewsSlider = ({ cards, fetchCards }) => {
 
   const settings = {
     dots: true,
-    // infinite: true,
     infinite: cards.length >= numberOfSlidesShown,
     speed: 500,
     slidesToShow: numberOfSlidesShown,
@@ -56,7 +56,14 @@ const NewsSlider = ({ cards, fetchCards }) => {
     <NewsSliderWrapper>
       <Slider {...settings}>
         {cards.map((card, index) => {
-          return <NewsCard key={index} card={card} />;
+          return (
+            <NewsCard
+              setMaxHeight={setMaxHeight}
+              maxHeight={maxHeight}
+              key={index}
+              card={card}
+            />
+          );
         })}
       </Slider>
     </NewsSliderWrapper>

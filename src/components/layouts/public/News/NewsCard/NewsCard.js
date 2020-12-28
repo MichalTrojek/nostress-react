@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const NewsContainer = styled.div`
@@ -11,6 +12,8 @@ const NewsContainer = styled.div`
   margin-left: 1rem;
   margin-right: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  min-height: ${(props) => props.maxHeight}px;
 
   .cardImage {
     grid-row: 1 / span 1;
@@ -43,8 +46,6 @@ const NewsContainer = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    min-height: 60vh;
-    /* max-height: 60vh; */
     .content {
       .cardHeading {
         font-size: 2.5rem;
@@ -57,14 +58,20 @@ const NewsContainer = styled.div`
   }
 
   @media only screen and (min-width: 1200px) {
-    /* min-height: 80vh; */
-    /* max-height: 80vh; */
   }
 `;
 
-const NewsCard = ({ card }) => {
+const NewsCard = ({ card, maxHeight, setMaxHeight }) => {
+  const currentElement = useRef(null);
+
+  useEffect(() => {
+    if (maxHeight < currentElement.current.clientHeight) {
+      setMaxHeight(currentElement.current.clientHeight);
+    }
+  }, [maxHeight]);
+
   return (
-    <NewsContainer>
+    <NewsContainer maxHeight={maxHeight} ref={currentElement}>
       <img className="cardImage" src={card.fileUrl} alt="obrazek novinky" />
 
       <div className="content">
