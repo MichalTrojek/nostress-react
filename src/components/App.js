@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 import { GlobalStyle } from '../globalStyles';
 
 import { AuthProvider } from '../contexts/AuthContext';
@@ -20,13 +20,17 @@ import NewsCardPage from './pages/private/NewsCardPage';
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { AnimatePresence } from 'framer-motion';
+
 function App() {
+  const location = useLocation();
+
   return (
     <>
       <GlobalStyle />
-      <Router>
-        <AuthProvider>
-          <Switch>
+      <AuthProvider>
+        <AnimatePresence exitBeforeEnter>
+          <Switch location={location} key={location.key}>
             <Route exact path="/" component={Home} />
             <Route exact path="/order" component={OrderPage} />
             <Route
@@ -52,8 +56,9 @@ function App() {
               component={NewsCardPage}
             />
           </Switch>
-        </AuthProvider>
-      </Router>
+        </AnimatePresence>
+      </AuthProvider>
+
       <ToastContainer
         autoClose={2000}
         transition={Zoom}

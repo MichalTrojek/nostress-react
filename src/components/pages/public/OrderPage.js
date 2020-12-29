@@ -17,6 +17,8 @@ import logo from '../../../img/logo.png';
 
 import { showInfoToast } from '../../../notifications/toast';
 
+import { motion } from 'framer-motion';
+
 const OrderPageBackground = styled.section`
   background-color: black;
   min-height: 100vh;
@@ -50,7 +52,7 @@ const GoBackNavBarItem = styled.div`
   }
 `;
 
-const OrderPage = ({ items, orderingStarted, resetOrders }) => {
+const OrderPage = ({ items, orderingStarted }) => {
   const [isOrderingAllowed, setIsOrderingAllowed] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
   const [showShorterText, setShowShorterText] = useState(false);
@@ -81,17 +83,35 @@ const OrderPage = ({ items, orderingStarted, resetOrders }) => {
     };
   }, []);
 
+  const containerVariants = {
+    hidden: { y: '100vh' },
+    visible: {
+      y: 0,
+      transition: { delay: 0, duration: 0.5 },
+    },
+  };
+
   return (
     <OrderPageBackground>
-      <Wrapper>
-        <GoBackNavBar>
-          <img className="GoBackNavBar__logo" src={logo} alt="no stress logo" />
-          <GoBackNavBarItem onClick={() => history.push('/')}>
-            {showShorterText ? 'ZPĚT' : 'VRÁTIT SE NA HLAVNÍ STRÁNKU'}
-          </GoBackNavBarItem>
-        </GoBackNavBar>
-        {showSummary ? renderSummary() : renderMenuPicker()}
-      </Wrapper>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <Wrapper>
+          <GoBackNavBar>
+            <img
+              className="GoBackNavBar__logo"
+              src={logo}
+              alt="no stress logo"
+            />
+            <GoBackNavBarItem onClick={() => history.push('/')}>
+              {showShorterText ? 'ZPĚT' : 'VRÁTIT SE NA HLAVNÍ STRÁNKU'}
+            </GoBackNavBarItem>
+          </GoBackNavBar>
+          {showSummary ? renderSummary() : renderMenuPicker()}
+        </Wrapper>
+      </motion.div>
     </OrderPageBackground>
   );
 

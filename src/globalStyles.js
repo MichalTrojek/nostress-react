@@ -126,6 +126,4 @@ export const GlobalStyle = createGlobalStyle`
       }
     }
 
-        
-    }
 `;
