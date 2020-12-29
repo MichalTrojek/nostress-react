@@ -60,7 +60,7 @@ const SliderNews = ({ items, startOrdering }) => {
               __html: item.content,
             }}
           ></div>
-          {renderButton(item)};
+          {renderButton(item)}
         </SlideNews>
       );
     });
