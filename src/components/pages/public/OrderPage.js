@@ -15,7 +15,7 @@ import Cart from '../../layouts/public/Orders/Cart';
 
 import logo from '../../../img/logo.png';
 
-import { showErrorToast, showInfoToast } from '../../../notifications/toast';
+import { showInfoToast } from '../../../notifications/toast';
 
 const OrderPageBackground = styled.section`
   background-color: black;

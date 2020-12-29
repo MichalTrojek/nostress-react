@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import Wrapper from '../../../../common/Wrapper';

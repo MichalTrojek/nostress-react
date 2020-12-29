@@ -48,9 +48,9 @@ const NavBarLogo = styled.img`
 
 const PrivateNavBar = () => {
   const [open, setOpen] = useState(false);
-
   const { logout } = useAuth();
   const history = useHistory();
+
   return (
     <>
       <NavBarBackground>

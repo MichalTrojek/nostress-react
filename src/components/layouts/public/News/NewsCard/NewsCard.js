@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 const NewsContainer = styled.div`
@@ -68,7 +68,7 @@ const NewsCard = ({ card, maxHeight, setMaxHeight }) => {
     if (maxHeight < currentElement.current.clientHeight) {
       setMaxHeight(currentElement.current.clientHeight);
     }
-  }, [maxHeight]);
+  }, [maxHeight, setMaxHeight]);
 
   return (
     <NewsContainer maxHeight={maxHeight} ref={currentElement}>
