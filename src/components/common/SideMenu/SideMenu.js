@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
+import startOrdering from '../../../redux/actions/orders/startOrdering';
 
 const SideMenuStyled = styled.nav`
   display: flex;
@@ -58,8 +61,24 @@ const SideMenuLinkScroll = styled(ScrollLink)`
   flex-direction: column;
 `;
 
-const SideMenu = ({ menuItems, open, setOpen, handleLogOut }) => {
+const NavBarMenuItemPush = styled.div`
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--color-primary);
+  &:hover {
+    color: black;
+  }
+`;
+
+const SideMenu = ({
+  menuItems,
+  open,
+  setOpen,
+  handleLogOut,
+  startOrdering,
+}) => {
   const [isDashboard, setIsDashBoard] = useState(true);
+  const history = useHistory();
 
   useEffect(() => {
     if (menuItems[0].href.includes('dashboard')) {
@@ -88,6 +107,18 @@ const SideMenu = ({ menuItems, open, setOpen, handleLogOut }) => {
                 <SideMenuItem>{item.name}</SideMenuItem>
               </SideMenuLink>
             );
+          } else if (item.href.includes('order')) {
+            return (
+              <NavBarMenuItemPush
+                key={index}
+                onClick={() => {
+                  setOpen(!open);
+                  handleStartingOrder();
+                }}
+              >
+                <SideMenuItem>{item.name}</SideMenuItem>
+              </NavBarMenuItemPush>
+            );
           } else {
             return renderMenuItems(item, index, path);
           }
@@ -95,6 +126,12 @@ const SideMenu = ({ menuItems, open, setOpen, handleLogOut }) => {
       </ul>
     </SideMenuStyled>
   );
+
+  function handleStartingOrder() {
+    window.scrollTo(0, 0);
+    history.push('/order');
+    startOrdering({ status: true, menuType: 'MainMenu' });
+  }
 
   function renderMenuItems(item, index, path) {
     if (isDashboard) {
@@ -126,4 +163,4 @@ const SideMenu = ({ menuItems, open, setOpen, handleLogOut }) => {
     }
   }
 };
-export default SideMenu;
+export default connect(null, { startOrdering })(SideMenu);
