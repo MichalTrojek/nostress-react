@@ -10,6 +10,9 @@ const CartRadioGroupContainer = styled(RadioGroup)`
   display: flex;
   border-top: solid 1px var(--color-tertiary);
   padding: 0.2rem 0;
+  label {
+    margin-left: 1rem;
+  }
 `;
 
 const CartRadioGroup = ({ selectForm }) => {
