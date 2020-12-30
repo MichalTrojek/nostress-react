@@ -6,7 +6,7 @@ import Background from '../../common/Background';
 import Wrapper from '../../common/Wrapper';
 import SoupsForm from '../../layouts/private/SoupsForm';
 
-import fetchSoups from '../../../redux/actions/soups/fetchSoups';
+import fetchData from '../../../redux/actions/data/fetchData';
 
 import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 
@@ -14,12 +14,10 @@ const SoupsPageBackground = styled(Background)`
   min-height: 100vh;
 `;
 
-const SoupsPage = ({ fetchSoups, fetchedData, soups }) => {
+const SoupsPage = ({ fetchData, soups }) => {
   useEffect(() => {
-    if (!fetchedData) {
-      fetchSoups();
-    }
-  }, [fetchSoups, fetchedData]);
+    fetchData();
+  }, [fetchData]);
 
   return (
     <SoupsPageBackground>
@@ -33,12 +31,10 @@ const SoupsPage = ({ fetchSoups, fetchedData, soups }) => {
 };
 
 function mapStateToProps(state, ownProps) {
-  const fetchedData = state.soups > 0;
-  const soups = state.soups;
+  const soups = state.data.soups;
   return {
-    fetchedData: fetchedData,
     soups: soups,
   };
 }
 
-export default connect(mapStateToProps, { fetchSoups })(SoupsPage);
+export default connect(mapStateToProps, { fetchData })(SoupsPage);

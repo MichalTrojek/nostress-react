@@ -15,11 +15,14 @@ const fetchData = () => {
 
 function dataFetched(data) {
   return (
-    data.cards.length > 0 ||
-    data.menu.length > 0 ||
-    data.soups.length > 0 ||
-    data.news.length > 0
+    dataExist(data.cards) ||
+    dataExist(data.menu) ||
+    dataExist(data.soups) ||
+    dataExist(data.news)
   );
 }
+const dataExist = (array) => {
+  return array && array.lenght > 0;
+};
 
 export default fetchData;

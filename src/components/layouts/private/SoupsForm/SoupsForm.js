@@ -5,23 +5,25 @@ import Form from '../../../common/Forms/Form';
 import FormGroup from '../../../common/Forms/FormGroup';
 import Button from '../../../../components/common/Button';
 
-import editSoups from '../../../../redux/actions/soups/editSoups';
+import updateSoups from '../../../../redux/actions/data/updateSoups';
 
-const SoupsForm = ({ editSoups, soups }) => {
-  const [monday, setMonday] = useState(soups.monday);
-  const [tuesday, setTuesday] = useState(soups.tuesday);
-  const [wednesday, setWednesday] = useState(soups.wednesday);
-  const [thursday, setThursday] = useState(soups.thursday);
-  const [friday, setFriday] = useState(soups.friday);
-  const [price, setPrice] = useState(soups.price);
+const SoupsForm = ({ updateSoups, soups }) => {
+  const [monday, setMonday] = useState('');
+  const [tuesday, setTuesday] = useState('');
+  const [wednesday, setWednesday] = useState('');
+  const [thursday, setThursday] = useState('');
+  const [friday, setFriday] = useState('');
+  const [price, setPrice] = useState('');
 
   useEffect(() => {
-    setMonday(soups.monday);
-    setTuesday(soups.tuesday);
-    setWednesday(soups.wednesday);
-    setThursday(soups.thursday);
-    setFriday(soups.friday);
-    setPrice(soups.price);
+    if (soups) {
+      setMonday(soups.monday);
+      setTuesday(soups.tuesday);
+      setWednesday(soups.wednesday);
+      setThursday(soups.thursday);
+      setFriday(soups.friday);
+      setPrice(soups.price);
+    }
   }, [soups]);
 
   return (
@@ -106,10 +108,10 @@ const SoupsForm = ({ editSoups, soups }) => {
       friday: friday,
       price: price,
     };
-    editSoups(soups);
+    updateSoups({ soups: soups });
   }
 };
 
 export default connect(null, {
-  editSoups,
+  updateSoups,
 })(SoupsForm);
