@@ -1,35 +1,5 @@
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-const timeTableData = [
-  {
-    day: 'Pondělí',
-    hours: '8:00 – 20:00',
-  },
-  {
-    day: 'Úterý',
-    hours: '8:00 – 20:00',
-  },
-  {
-    day: 'Středa',
-    hours: '8:00 – 20:00',
-  },
-  {
-    day: 'Čtvrtek',
-    hours: '8:00 – 20:00',
-  },
-  {
-    day: 'Pátek',
-    hours: '8:00 – 22:00',
-  },
-  {
-    day: 'Sobota',
-    hours: '11:00 – 22:00',
-  },
-  {
-    day: 'Neděle',
-    hours: 'zavřeno',
-  },
-];
 
 const OpenHoursContainer = styled.div`
   max-width: 27rem;
