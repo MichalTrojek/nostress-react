@@ -82,7 +82,7 @@ const CustomerOrders = ({
   useEffect(() => {
     setEnableNewOrdersButton(newOrders.length > 0);
     setEnableConfirmedButton(confirmedOrders.length > 0);
-    setEnableAllButton(newOrders.length > 0 && confirmedOrders.length > 0);
+    setEnableAllButton(newOrders.length > 0 || confirmedOrders.length > 0);
   }, [orders, newOrders, confirmedOrders, showNew, showConfirmed, showAll]);
 
   return (
@@ -102,12 +102,12 @@ const CustomerOrders = ({
           className="showConfirmedButton"
           onClick={handleShowConfirmed}
         >
-          {enableNewOrdersButton
+          {enableConfirmedButton
             ? `zobrazit potvrzené ${renderCount(confirmedOrders)}`
             : 'žadné potvrzené'}
         </Button>
         <Button primary className="showAllButton" onClick={handleShowAll}>
-          {enableNewOrdersButton
+          {enableAllButton
             ? `zobrazit všechny ${renderCount(orders)}`
             : 'žadné k zobrazení'}
         </Button>
