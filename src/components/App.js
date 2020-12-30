@@ -14,6 +14,7 @@ import DashboardPage from './pages/private/DashboardPage';
 import NewsPage from './pages/private/NewsPage';
 import MealsPage from './pages/private/MealsPage';
 import SoupsPage from './pages/private/SoupsPage';
+import BusinessHoursPage from './pages/private/BusinessHoursPage';
 import CustomersOrdersPage from './pages/private/CustomersOrdersPage';
 import NewsCardPage from './pages/private/NewsCardPage';
 
@@ -49,6 +50,11 @@ function App() {
             />
             <PrivateRoute exact path="/dashboard/meals" component={MealsPage} />
             <PrivateRoute exact path="/dashboard/soups" component={SoupsPage} />
+            <PrivateRoute
+              exact
+              path="/dashboard/hours"
+              component={BusinessHoursPage}
+            />
             <PrivateRoute exact path="/dashboard/news" component={NewsPage} />
             <PrivateRoute
               exact

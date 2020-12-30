@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { connect } from 'react-redux';
 const timeTableData = [
   {
     day: 'Pondělí',
@@ -45,18 +45,49 @@ const OpenHoursContainer = styled.div`
   }
 `;
 
-const OpenHours = () => {
-  return <OpenHoursContainer>{renderTimeTable()}</OpenHoursContainer>;
-  function renderTimeTable() {
-    return timeTableData.map((item, index) => {
-      return (
-        <div key={index} className="openhours-row">
-          <p>{item.day}</p>
-          <p className="hours">{item.hours}</p>
-        </div>
-      );
-    });
-  }
+const OpenHours = ({ hours }) => {
+  return (
+    <OpenHoursContainer>
+      {hours && (
+        <>
+          <div className="openhours-row">
+            <p>Pondělí</p>
+            <p className="hours"> {hours.monday}</p>
+          </div>
+          <div className="openhours-row">
+            <p>Úterý</p>
+            <p className="hours"> {hours.tuesday}</p>
+          </div>
+          <div className="openhours-row">
+            <p>Středa</p>
+            <p className="hours"> {hours.wednesday}</p>
+          </div>
+          <div className="openhours-row">
+            <p>Čtvrtek</p>
+            <p className="hours"> {hours.thursday}</p>
+          </div>
+          <div className="openhours-row">
+            <p>Pátek</p>
+            <p className="hours"> {hours.friday}</p>
+          </div>
+          <div className="openhours-row">
+            <p>Sobota</p>
+            <p className="hours"> {hours.saturday}</p>
+          </div>
+          <div className="openhours-row">
+            <p>Neděle</p>
+            <p className="hours"> {hours.sunday}</p>
+          </div>
+        </>
+      )}
+    </OpenHoursContainer>
+  );
 };
 
-export default OpenHours;
+function mapStateToProps(state, ownProps) {
+  return {
+    hours: state.data.hours,
+  };
+}
+
+export default connect(mapStateToProps)(OpenHours);

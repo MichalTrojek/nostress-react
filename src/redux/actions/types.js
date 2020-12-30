@@ -37,3 +37,6 @@ export const CREATE_CARD = 'CREATE_CARD';
 export const FETCH_CARDS = 'FETCH_CARDS';
 export const DELETE_CARD = 'DELETE_CARD';
 export const EDIT_CARD = 'EDIT_CARD';
+
+export const UPDATE_HOURS = 'UPDATE_HOURS';
+export const FETCH_DATA = 'FETCH_DATA';

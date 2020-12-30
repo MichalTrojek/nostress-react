@@ -5,6 +5,7 @@ import editorReducer from './editorReducer';
 import soupsReducer from './soupsReducer';
 import orderReducer from './orderReducer';
 import cardsReducer from './cardsReducer';
+import dataReducer from './dataReducer';
 
 const allReducers = combineReducers({
   editor: editorReducer,
@@ -13,6 +14,7 @@ const allReducers = combineReducers({
   soups: soupsReducer,
   order: orderReducer,
   cards: cardsReducer,
+  data: dataReducer,
 });
 
 export default allReducers;

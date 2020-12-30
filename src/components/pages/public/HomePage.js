@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import resetOrders from '../../../redux/actions/orders/resetOrders';
+import fetchData from '../../../redux/actions/data/fetchData';
 
 import PageLayout from '../../PageLayout';
 
@@ -17,10 +18,14 @@ import News from '../../layouts/public/News';
 
 import { motion } from 'framer-motion';
 
-const Home = ({ resetOrders }) => {
+const Home = ({ resetOrders, fetchData }) => {
   useEffect(() => {
     resetOrders();
   }, [resetOrders]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const containerVariants = {
     hidden: { y: '100vh' },
@@ -51,4 +56,4 @@ const Home = ({ resetOrders }) => {
   );
 };
 
-export default connect(null, { resetOrders })(Home);
+export default connect(null, { resetOrders, fetchData })(Home);
