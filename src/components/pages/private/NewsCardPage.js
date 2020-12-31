@@ -8,8 +8,8 @@ import Wrapper from '../../common/Wrapper';
 import NewsCardsEditor from '../../layouts/private/Editors/NewsCardsEditor';
 import NewsList from '../../layouts/private/Editors/NewsList';
 
-import fetchCards from '../../../redux/actions/news/card/fetchCards';
-import deleteCard from '../../../redux/actions/news/card/deleteCard';
+import fetchData from '../../../redux/actions/data/fetchData';
+import deleteCard from '../../../redux/actions/data/cards/deleteCard';
 
 import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 
@@ -17,28 +17,29 @@ const BackgroundNewsCards = styled(Background)`
   min-height: 100vh;
 `;
 
-const NewsCardPage = ({ cards, fetchCards, deleteCard }) => {
+const NewsCardPage = ({ cards, fetchData, deleteCard }) => {
   useEffect(() => {
-    fetchCards();
-  }, [fetchCards]);
+    fetchData();
+  }, [fetchData]);
 
   return (
     <BackgroundNewsCards>
       <Wrapper>
         <PrivateNavBar />
         <NewsCardsEditor />
-        <NewsList news={cards} deleteNews={deleteCard} />
+        <NewsList items={cards} deleteNews={deleteCard} />
       </Wrapper>
     </BackgroundNewsCards>
   );
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const { cards } = state;
+  const cards = state.data.cards;
+
   return { cards };
 };
 
 export default connect(mapStateToProps, {
-  fetchCards,
+  fetchData,
   deleteCard,
 })(NewsCardPage);

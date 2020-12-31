@@ -1,6 +1,6 @@
-import { DELETE_CARD } from '../../types';
+import { UPDATE_CARDS } from '../../types';
 import { storage } from '../../../../firebase';
-import deleteCardApiCall from './deleteCardApiCall';
+import updateDataApiCall from '../api/updateDataApiCall';
 
 import {
   showErrorToast,
@@ -9,12 +9,15 @@ import {
 
 function deleteCard(card) {
   return async (dispatch, getState) => {
-    const success = await deleteCardApiCall(card.id);
+    const filteredCards = getState().data.cards.filter(
+      (item) => item.id !== card.id
+    );
+    const success = await updateDataApiCall({ cards: filteredCards });
     deleteImageFromStorage(card);
     if (success) {
       dispatch({
-        type: DELETE_CARD,
-        payload: card.id,
+        type: UPDATE_CARDS,
+        payload: filteredCards,
       });
       showSuccessToast('Karta byla vymazána');
     } else {

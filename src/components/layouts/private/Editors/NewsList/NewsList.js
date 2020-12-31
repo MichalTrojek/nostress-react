@@ -1,7 +1,5 @@
 import React from 'react';
-
 import styled from 'styled-components';
-
 import NewsListItem from './NewsListItem';
 
 const DisplayedNews = styled.div`
@@ -9,12 +7,12 @@ const DisplayedNews = styled.div`
   flex-wrap: wrap;
 `;
 
-const NewsList = ({ allNews, deleteNews }) => {
+const NewsList = ({ items = [], deleteNews }) => {
   return (
     <>
       <h1>Seznam</h1>
       <DisplayedNews>
-        {allNews.map((item, index) => {
+        {items.map((item, index) => {
           return (
             <NewsListItem
               item={item}

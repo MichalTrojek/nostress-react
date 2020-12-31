@@ -5,7 +5,7 @@ import Form from '../../../common/Forms/Form';
 import FormGroup from '../../../common/Forms/FormGroup';
 import Button from '../../../common/Button';
 
-import updateHours from '../../../../redux/actions/data/updateHours';
+import updateHours from '../../../../redux/actions/data/hours/updateHours';
 
 const BussinessHoursForm = ({ hours, updateHours }) => {
   const [monday, setMonday] = useState('');

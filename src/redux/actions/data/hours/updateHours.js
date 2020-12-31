@@ -1,6 +1,9 @@
-import { showErrorToast, showSuccessToast } from '../../../notifications/toast';
-import { UPDATE_HOURS } from '../types';
-import updateDataApiCall from './api/updateDataApiCall';
+import {
+  showErrorToast,
+  showSuccessToast,
+} from '../../../../notifications/toast';
+import { UPDATE_HOURS } from '../../types';
+import updateDataApiCall from '../api/updateDataApiCall';
 
 function updateHours(hours) {
   return async (dispatch, getState) => {

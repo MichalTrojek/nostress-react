@@ -5,7 +5,7 @@ import Form from '../../../common/Forms/Form';
 import FormGroup from '../../../common/Forms/FormGroup';
 import Button from '../../../../components/common/Button';
 
-import updateSoups from '../../../../redux/actions/data/updateSoups';
+import updateSoups from '../../../../redux/actions/data/soups/updateSoups';
 
 const SoupsForm = ({ updateSoups, soups }) => {
   const [monday, setMonday] = useState('');

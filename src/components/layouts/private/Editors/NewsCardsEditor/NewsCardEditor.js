@@ -15,10 +15,12 @@ import Loader from '../../../../common/Loader';
 
 import UploadIcon from '../../../../../img/upload.png';
 
-import editCard from '../../../../../redux/actions/news/card/editCard';
-import createCard from '../../../../../redux/actions/news/card/createCard';
+import editCard from '../../../../../redux/actions/data/cards/editCard';
+import createCard from '../../../../../redux/actions/data/cards/createCard';
 
 import setSelectedItem from '../../../../../redux/actions/editor/setSelectedItem';
+
+import { v4 as uuidv4 } from 'uuid';
 
 const modules = {
   toolbar: [['bold'], [{ color: ['black', '#f2c48c'] }]],
@@ -145,6 +147,7 @@ const NewsCardsEditor = ({
     }
 
     const card = {
+      id: uuidv4(),
       image: image,
       heading: heading,
       content: content,

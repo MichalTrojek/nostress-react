@@ -28,7 +28,7 @@ const NewsPage = ({ allNews, fetchData, deleteNews }) => {
       <Wrapper>
         <PrivateNavBar />
         <NewsEditor />
-        <NewsList allNews={allNews} deleteNews={deleteNews} />
+        <NewsList items={allNews} deleteNews={deleteNews} />
       </Wrapper>
     </NewsPageBackground>
   );

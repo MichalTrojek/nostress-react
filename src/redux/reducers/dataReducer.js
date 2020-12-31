@@ -3,6 +3,7 @@ import {
   UPDATE_SOUPS,
   FETCH_DATA,
   UPDATE_NEWS,
+  UPDATE_CARDS,
 } from '../actions/types';
 
 const initialState = {
@@ -36,6 +37,8 @@ function dataReducer(state = initialState, action) {
       return { ...state, soups: action.payload };
     case UPDATE_NEWS:
       return { ...state, allNews: action.payload };
+    case UPDATE_CARDS:
+      return { ...state, cards: action.payload };
     case FETCH_DATA:
       return action.payload;
     default:

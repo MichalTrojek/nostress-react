@@ -2,16 +2,17 @@ import {
   showErrorToast,
   showSuccessToast,
 } from '../../../../notifications/toast';
-import { CREATE_CARD } from '../../types';
-import createCardApiCall from './createCardApiCall';
+import { UPDATE_CARDS } from '../../types';
+import updateDataApiCall from '../api/updateDataApiCall';
 
 function createCard(card) {
   return async (dispatch, getState) => {
-    const id = await createCardApiCall(card);
-    if (id) {
+    const allCards = [...getState().data.cards, card];
+    const success = await updateDataApiCall({ cards: allCards });
+    if (success) {
       dispatch({
-        type: CREATE_CARD,
-        payload: { ...card, id: id },
+        type: UPDATE_CARDS,
+        payload: allCards,
       });
       showSuccessToast('Novinka byla uložena');
     } else {
