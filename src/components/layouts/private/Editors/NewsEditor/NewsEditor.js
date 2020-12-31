@@ -14,7 +14,10 @@ import setSelectedItem from '../../../../../redux/actions/editor/setSelectedItem
 import 'react-quill/dist/quill.snow.css';
 
 import '../styles/NewsEditor.css';
+
 import EditorContainer from '../styles/EditorContainer';
+
+import { v4 as uuidv4 } from 'uuid';
 
 const modules = {
   toolbar: [['bold'], [{ color: ['black', '#f2c48c'] }]],
@@ -183,6 +186,7 @@ const Editor = ({
     }
 
     const news = {
+      id: uuidv4(),
       heading: heading,
       content: replaceBlackWithWhiteColor(content),
       button: buttonText,
