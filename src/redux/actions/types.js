@@ -1,8 +1,3 @@
-export const CREATE_NEWS = 'CREATE_NEWS';
-export const FETCH_NEWS = 'FETCH_NEWS';
-export const DELETE_NEWS = 'DELETE_NEWS';
-export const EDIT_NEWS = 'EDIT_NEWS';
-
 export const SELECTED_NEWS = 'SELECTED_NEWS';
 export const EMPTY_SELECTED_NEWS = 'EMPTY_SELECTED_NEWS';
 
@@ -41,5 +36,6 @@ export const EDIT_CARD = 'EDIT_CARD';
 export const UPDATE_HOURS = 'UPDATE_HOURS';
 export const UPDATE_SOUPS = 'UPDATE_SOUPS';
 export const UPDATE_NEWS = 'UPDATE_NEWS';
+export const UPDATE_CARDS = 'UPDATE_CARDS';
 
 export const FETCH_DATA = 'FETCH_DATA';

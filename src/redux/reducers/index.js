@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import newsReducer from './newsReducer';
 import mealsReducer from './mealsReducer';
 import editorReducer from './editorReducer';
 import orderReducer from './orderReducer';
