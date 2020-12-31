@@ -8,7 +8,6 @@ import dataReducer from './dataReducer';
 
 const allReducers = combineReducers({
   editor: editorReducer,
-  news: newsReducer,
   menu: mealsReducer,
   order: orderReducer,
   cards: cardsReducer,

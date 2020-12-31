@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 import startOrdering from '../../../../../redux/actions/orders/startOrdering';
 import { useHistory } from 'react-router-dom';
 
-const SliderNews = ({ items, startOrdering }) => {
+const SliderNews = ({ items = [], startOrdering }) => {
   const history = useHistory();
 
   const settings = {

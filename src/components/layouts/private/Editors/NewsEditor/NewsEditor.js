@@ -6,8 +6,8 @@ import Button from '../../../../common/Button';
 
 import ReactQuill from 'react-quill';
 
-import editNews from '../../../../../redux/actions/news/editNews';
-import createNews from '../../../../../redux/actions/news/createNews';
+import editNews from '../../../../../redux/actions/data/news/editNews';
+import createNews from '../../../../../redux/actions/data/news/createNews';
 
 import setSelectedItem from '../../../../../redux/actions/editor/setSelectedItem';
 

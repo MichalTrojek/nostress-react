@@ -1,16 +1,9 @@
-import {
-  CREATE_NEWS,
-  FETCH_NEWS,
-  DELETE_NEWS,
-  EDIT_NEWS,
-} from '../actions/types';
+import { CREATE_NEWS, DELETE_NEWS, EDIT_NEWS } from '../actions/types';
 
 const newsReducer = (state = [], action) => {
   switch (action.type) {
-    case FETCH_NEWS:
-      return [...state, ...action.payload];
     case CREATE_NEWS:
-      return [...state, action.payload];
+      return action.payload;
     case DELETE_NEWS:
       const stateAfterDelete = state.filter(
         (item) => item.id !== action.payload

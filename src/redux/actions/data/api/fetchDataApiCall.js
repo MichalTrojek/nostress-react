@@ -8,14 +8,14 @@ function fetchNewsApiCall() {
       let data = {};
       snapshot.forEach((doc) => {
         data = {
-          news: doc.data().news || [],
+          allNews: doc.data().allNews || [],
           menu: doc.data().menu || [],
           soups: doc.data().soups || [],
           cards: doc.data().cards || [],
           hours: doc.data().hours,
         };
       });
-      console.log(data);
+
       return data;
     })
     .catch((error) => {

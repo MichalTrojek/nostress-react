@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
 
-import fetchNews from '../../../../redux/actions/news/fetchNews';
-
 import { connect } from 'react-redux';
 import backgroundImage from '../../../../img/hero.png';
 import SliderNews from './SliderNews/SliderNews';
@@ -22,25 +20,21 @@ const HeroWrapper = styled.section`
   margin: 0 auto;
 `;
 
-const Hero = ({ news, fetchNews }) => {
-  useEffect(() => {
-    fetchNews();
-  }, [fetchNews]);
-
+const Hero = ({ allNews }) => {
   return (
     <HeroBackground id="home">
       <HeroWrapper>
-        <SliderNews items={news} />
+        <SliderNews items={allNews} />
       </HeroWrapper>
     </HeroBackground>
   );
 };
 
 function mapStateToProps(state, prevState) {
-  const { news } = state;
+  const allNews = state.data.allNews;
   return {
-    news,
+    allNews,
   };
 }
 
-export default connect(mapStateToProps, { fetchNews })(Hero);
+export default connect(mapStateToProps)(Hero);

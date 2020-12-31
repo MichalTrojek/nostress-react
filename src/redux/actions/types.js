@@ -40,5 +40,6 @@ export const EDIT_CARD = 'EDIT_CARD';
 
 export const UPDATE_HOURS = 'UPDATE_HOURS';
 export const UPDATE_SOUPS = 'UPDATE_SOUPS';
+export const UPDATE_NEWS = 'UPDATE_NEWS';
 
 export const FETCH_DATA = 'FETCH_DATA';

@@ -9,12 +9,12 @@ const DisplayedNews = styled.div`
   flex-wrap: wrap;
 `;
 
-const NewsList = ({ news, deleteNews }) => {
+const NewsList = ({ allNews, deleteNews }) => {
   return (
     <>
       <h1>Seznam</h1>
       <DisplayedNews>
-        {news.map((item, index) => {
+        {allNews.map((item, index) => {
           return (
             <NewsListItem
               item={item}
