@@ -6,10 +6,12 @@ import Form from '../../../../../common/Forms/Form';
 import FormGroup from '../../../../../common/Forms/FormGroup';
 import Button from '../../../../../common/Button';
 
-import createMeal from '../../../../../../redux/actions/meals/createMeal';
-import editMeal from '../../../../../../redux/actions/meals/editMeal';
+import createMeal from '../../../../../../redux/actions/data/meals/createMeal';
+import editMeal from '../../../../../../redux/actions/data/meals/editMeal';
 import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
 import RadioGroup from '../../../../../common/Forms/RadioGroup';
+
+import { v4 as uuidv4 } from 'uuid';
 
 const MealForm = styled(Form)`
   @media only screen and (min-width: 1024px) {
@@ -112,6 +114,7 @@ const MealsForms = ({
     event.preventDefault();
     if (name.length !== 0 && price.length !== 0 && menuNumber.length !== 0) {
       let meal = {
+        id: uuidv4(),
         name,
         alergens,
         price,
@@ -119,6 +122,7 @@ const MealsForms = ({
         menuNumber,
         selectedItemType: 'meal',
       };
+
       if (isEditModeOn) {
         editMeal({
           ...meal,

@@ -5,35 +5,37 @@ import RadioGroup from '../../../../../common/Forms/RadioGroup';
 import ListContainer from '../../../../../common/Lists/ListContainer';
 import MealListItem from './MealListItem';
 
-import fetchMeals from '../../../../../../redux/actions/meals/fetchMeals';
+import fetchData from '../../../../../../redux/actions/data/fetchData';
+
+import sortOutMenusByType from '../../../../../../utils/mealUtils';
 
 const MealsList = ({
-  meals = [],
+  weeklyMeals = [],
   childMeals = [],
-  breakfast = [],
-  fetchMeals,
+  breakfastMeals = [],
+  fetchData,
 }) => {
   const [mealType, setMealType] = useState('isWeeklyMeal');
 
   useEffect(() => {
-    fetchMeals();
-  }, [fetchMeals]);
+    fetchData();
+  }, [fetchData]);
 
   return (
     <>
       {renderRadioGroup()}
-      <ListContainer>{displayListByMealType(mealType)}</ListContainer>
+      <ListContainer>{renderListByMealType(mealType)}</ListContainer>
     </>
   );
 
-  function displayListByMealType(type) {
+  function renderListByMealType(type) {
     switch (type) {
       case 'isChildMeal':
         return renderList(childMeals);
       case 'isBreakfastMeal':
-        return renderList(breakfast);
+        return renderList(breakfastMeals);
       case 'isWeeklyMeal':
-        return renderList(meals);
+        return renderList(weeklyMeals);
       default:
         return [];
     }
@@ -84,11 +86,14 @@ const MealsList = ({
 };
 
 function mapStateToProps(state, ownProps) {
+  const { weeklyMeals, childMeals, breakfastMeals } = sortOutMenusByType(
+    state.data.meals
+  );
   return {
-    dataFetched: state.menu.dataFetched,
-    meals: state.menu.meals,
-    childMeals: state.menu.childMeals,
-    breakfast: state.menu.breakfast,
+    weeklyMeals: weeklyMeals,
+    childMeals: childMeals,
+    breakfastMeals: breakfastMeals,
   };
 }
-export default connect(mapStateToProps, { fetchMeals })(MealsList);
+
+export default connect(mapStateToProps, { fetchData })(MealsList);

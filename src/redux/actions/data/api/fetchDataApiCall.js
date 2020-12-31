@@ -9,7 +9,7 @@ function fetchNewsApiCall() {
       snapshot.forEach((doc) => {
         data = {
           allNews: doc.data().allNews || [],
-          menu: doc.data().menu || [],
+          meals: doc.data().meals || [],
           soups: doc.data().soups || [],
           cards: doc.data().cards || [],
           hours: doc.data().hours,

@@ -6,39 +6,35 @@ import { connect } from 'react-redux';
 import WeeklyMenu from './WeeklyMenu';
 import BreakFastMenu from './BreakFastMenu';
 
-import fetchMeals from '../../../../redux/actions/meals/fetchMeals';
+import fetchData from '../../../../redux/actions/data/fetchData';
+
+import sortOutMenusByType from '../../../../utils/mealUtils';
 
 const MealsMenusBackground = styled.div`
   background-color: black;
 `;
 
-const MealsMenus = ({
-  dataFetched,
-  fetchMeals,
-  meals,
-  childMeals,
-  breakfast,
-}) => {
+const MealsMenus = ({ fetchData, weeklyMeals, childMeals, breakfastMeals }) => {
   useEffect(() => {
-    if (!dataFetched) {
-      fetchMeals();
-    }
-  }, [fetchMeals, dataFetched]);
+    fetchData();
+  }, [fetchData]);
 
   return (
     <MealsMenusBackground>
-      <WeeklyMenu meals={meals} childMeals={childMeals} />
-      <BreakFastMenu breakfast={breakfast} />
+      <WeeklyMenu meals={weeklyMeals} childMeals={childMeals} />
+      <BreakFastMenu breakfast={breakfastMeals} />
     </MealsMenusBackground>
   );
 };
 
 function mapStateToProps(state, ownProps) {
+  const { weeklyMeals, childMeals, breakfastMeals } = sortOutMenusByType(
+    state.data.meals
+  );
   return {
-    meals: state.menu.meals,
-    childMeals: state.menu.childMeals,
-    breakfast: state.menu.breakfast,
-    dataFetched: state.menu.dataFetched,
+    weeklyMeals: weeklyMeals,
+    childMeals: childMeals,
+    breakfastMeals: breakfastMeals,
   };
 }
-export default connect(mapStateToProps, { fetchMeals })(MealsMenus);
+export default connect(mapStateToProps, { fetchData })(MealsMenus);

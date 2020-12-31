@@ -4,7 +4,7 @@ import Button from '../../../../../common/Button';
 import styled from 'styled-components';
 
 import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
-import deleteMeal from '../../../../../../redux/actions/meals/deleteMeal';
+import deleteMeal from '../../../../../../redux/actions/data/meals/deleteMeal';
 import { showInfoToast } from '../../../../../../notifications/toast';
 
 const MealListItemContainer = styled.div`

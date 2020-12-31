@@ -4,11 +4,12 @@ import {
   FETCH_DATA,
   UPDATE_NEWS,
   UPDATE_CARDS,
+  UPDATE_MEALS,
 } from '../actions/types';
 
 const initialState = {
   allNews: [],
-  menu: [],
+  meals: [],
   cards: [],
   soups: {
     monday: '',
@@ -39,6 +40,8 @@ function dataReducer(state = initialState, action) {
       return { ...state, allNews: action.payload };
     case UPDATE_CARDS:
       return { ...state, cards: action.payload };
+    case UPDATE_MEALS:
+      return { ...state, meals: action.payload };
     case FETCH_DATA:
       return action.payload;
     default:
