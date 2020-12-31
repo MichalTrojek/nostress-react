@@ -1,16 +1,16 @@
 import { CREATE_NEWS } from '../types';
-import createNewsApiCall from '../../../api/news/createNewsApiCall';
+import updateNewsApiCall from './api/updateNewsApiCall';
 import { showErrorToast, showSuccessToast } from '../../../notifications/toast';
 
 const createNews = (news) => {
   return async (dispatch, getState) => {
-    const id = await createNewsApiCall(news);
-    if (id) {
+    const allNews = [...getState().news, news];
+    const success = updateNewsApiCall(allNews);
+    if (success) {
       dispatch({
         type: CREATE_NEWS,
         payload: {
           ...news,
-          id: id,
         },
       });
       showSuccessToast('Novinka byla uspešně uložena.');
