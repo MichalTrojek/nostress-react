@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
-
 import menuIcon from '../../../../../img/soups-logo.png';
 import Row from '../../../../common/Row';
 import MenuList from './MenuList';

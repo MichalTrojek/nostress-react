@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
 import styled from 'styled-components';
-
 import { connect } from 'react-redux';
 import backgroundImage from '../../../../img/hero.png';
 import SliderNews from './SliderNews/SliderNews';

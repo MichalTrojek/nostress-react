@@ -10,18 +10,15 @@ import './slideview.css';
 
 import { connect } from 'react-redux';
 
-import fetchData from '../../../../../redux/actions/data/fetchData';
-
 const NewsSliderWrapper = styled(Wrapper)`
   padding: 0 0;
 `;
 
-const NewsSlider = ({ cards, fetchData }) => {
+const NewsSlider = ({ cards }) => {
   const [numberOfSlidesShown, setNumberOfSlidesShown] = useState(1);
   const [maxHeight, setMaxHeight] = useState(0);
 
   useEffect(() => {
-    fetchData();
     handleResize();
     window.addEventListener('resize', handleResize);
     function handleResize() {
@@ -37,7 +34,7 @@ const NewsSlider = ({ cards, fetchData }) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [fetchData]);
+  }, []);
 
   const settings = {
     dots: true,
@@ -75,4 +72,4 @@ const mapStateToProps = (state, ownProps) => {
   return { cards };
 };
 
-export default connect(mapStateToProps, { fetchData })(NewsSlider);
+export default connect(mapStateToProps)(NewsSlider);
