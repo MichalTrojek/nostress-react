@@ -6,8 +6,6 @@ import Row from '../../../../common/Row';
 import MenuList from './MenuList';
 import styled from 'styled-components';
 
-import fetchSoups from '../../../../../redux/actions/soups/fetchSoups';
-
 const SoupRow = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -32,12 +30,7 @@ const SoupsMenuList = styled(MenuList)`
   }
 `;
 
-const MenuSoupsList = ({ fetchSoups, fetchedData, soups = [] }) => {
-  useEffect(() => {
-    if (!fetchedData) {
-      fetchSoups();
-    }
-  }, [fetchedData, fetchSoups]);
+const MenuSoupsList = ({ soups = [] }) => {
   return (
     <SoupsMenuList>
       <Row>
@@ -70,12 +63,10 @@ const MenuSoupsList = ({ fetchSoups, fetchedData, soups = [] }) => {
 };
 
 function mapStateToProps(state, ownProps) {
-  const soups = state.soups;
-  const dataFetched = state.soups.length > 0;
+  const soups = state.data.soups;
   return {
     soups: soups,
-    dataFetched: dataFetched,
   };
 }
 
-export default connect(mapStateToProps, { fetchSoups })(MenuSoupsList);
+export default connect(mapStateToProps)(MenuSoupsList);

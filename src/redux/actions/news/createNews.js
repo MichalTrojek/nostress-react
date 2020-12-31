@@ -1,11 +1,11 @@
 import { CREATE_NEWS } from '../types';
-import updateNewsApiCall from './api/updateNewsApiCall';
+import updateDataApiCall from '../../actions/data/api/updateDataApiCall';
 import { showErrorToast, showSuccessToast } from '../../../notifications/toast';
 
 const createNews = (news) => {
   return async (dispatch, getState) => {
     const allNews = [...getState().news, news];
-    const success = updateNewsApiCall(allNews);
+    const success = updateDataApiCall({ news: allNews });
     if (success) {
       dispatch({
         type: CREATE_NEWS,

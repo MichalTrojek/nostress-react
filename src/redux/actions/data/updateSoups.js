@@ -1,10 +1,9 @@
 import { showErrorToast, showSuccessToast } from '../../../notifications/toast';
 import { UPDATE_SOUPS } from '../types';
-import updateSoupsApiCall from './api/updateSoupsApiCall';
-
+import updateDataApiCall from '../../actions/data/api/updateDataApiCall';
 function updateSoups(soups) {
   return async (dispatch, getState) => {
-    const success = await updateSoupsApiCall(soups);
+    const success = await updateDataApiCall({ soups: soups });
     if (success) {
       dispatch({
         type: UPDATE_SOUPS,

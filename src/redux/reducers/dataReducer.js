@@ -3,8 +3,15 @@ import { UPDATE_HOURS, UPDATE_SOUPS, FETCH_DATA } from '../actions/types';
 const initialState = {
   news: [],
   menu: [],
-  soups: [],
   cards: [],
+  soups: {
+    monday: '',
+    tuesday: '',
+    wednesday: '',
+    thursday: '',
+    friday: '',
+    price: '',
+  },
   hours: {
     monday: '',
     tuesday: '',
@@ -21,7 +28,7 @@ function dataReducer(state = initialState, action) {
     case UPDATE_HOURS:
       return { ...state, hours: action.payload };
     case UPDATE_SOUPS:
-      return { ...state, hours: action.payload };
+      return { ...state, soups: action.payload };
     case FETCH_DATA:
       return action.payload;
     default:

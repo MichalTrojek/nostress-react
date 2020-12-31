@@ -108,7 +108,7 @@ const SoupsForm = ({ updateSoups, soups }) => {
       friday: friday,
       price: price,
     };
-    updateSoups({ soups: soups });
+    updateSoups(soups);
   }
 };
 

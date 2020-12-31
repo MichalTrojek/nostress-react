@@ -1,17 +1,17 @@
 import { db } from '../../../../firebase';
 
-function updateSoupsApiCall(soups) {
+function updateDataApiCall(data) {
   return db
     .collection('nostress')
     .doc('data')
-    .set(soups, { merge: true })
+    .set(data, { merge: true })
     .then(() => {
       return true;
     })
     .catch((error) => {
-      console.log(`Error thrown while updating soups. ${error}`);
+      console.log(`Error thrown while updating hours. ${error}`);
       return false;
     });
 }
 
-export default updateSoupsApiCall;
+export default updateDataApiCall;

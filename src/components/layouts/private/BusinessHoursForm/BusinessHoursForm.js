@@ -121,7 +121,7 @@ const BussinessHoursForm = ({ hours, updateHours }) => {
       saturday: saturday,
       sunday: sunday,
     };
-    updateHours({ hours: hours });
+    updateHours(hours);
   }
 };
 
