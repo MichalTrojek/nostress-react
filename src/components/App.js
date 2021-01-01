@@ -31,7 +31,7 @@ function App() {
       <GlobalStyle />
       <AuthProvider>
         <AnimatePresence exitBeforeEnter>
-          <Switch location={location} key={location.key}>
+          <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/order" component={OrderPage} />
             <Route

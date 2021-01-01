@@ -12,7 +12,7 @@ const HeroBackground = styled.div`
 
 const HeroWrapper = styled.section`
   max-width: var(--max-width);
-  min-height: 8rem;
+  min-height: 100vh;
   padding-top: 8rem;
   padding-bottom: 3rem;
   margin: 0 auto;
