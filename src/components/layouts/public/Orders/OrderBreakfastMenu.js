@@ -4,7 +4,9 @@ import OrderItem from './OrderItem';
 
 import MealListContainer from './styles/MealListContainer';
 
-const OrderBreakfastMenu = ({ breakfast = [] }) => {
+import sortOutMenusByType from '../../../../utils/mealUtils';
+
+const OrderBreakfastMenu = ({ breakfastMeals = [] }) => {
   return (
     <>
       <h1>Snídaně</h1>
@@ -13,7 +15,7 @@ const OrderBreakfastMenu = ({ breakfast = [] }) => {
   );
 
   function renderBreakfast() {
-    return breakfast.map((meal, index) => {
+    return breakfastMeals.map((meal, index) => {
       return (
         <OrderItem
           key={index}
@@ -27,8 +29,9 @@ const OrderBreakfastMenu = ({ breakfast = [] }) => {
 };
 
 function mapStateToProps(state, ownProps) {
+  const { breakfastMeals } = sortOutMenusByType(state.data.meals);
   return {
-    breakfast: state.menu.breakfast,
+    breakfastMeals: breakfastMeals,
   };
 }
 

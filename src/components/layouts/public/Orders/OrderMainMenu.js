@@ -4,7 +4,13 @@ import OrderItem from './OrderItem';
 
 import MealListContainer from './styles/MealListContainer';
 
-const OrderMainMenu = ({ meals = [], childMeals = [], soup = undefined }) => {
+import sortOutMenusByType from '../../../../utils/mealUtils';
+
+const OrderMainMenu = ({
+  weeklyMeals = [],
+  childMeals = [],
+  soup = undefined,
+}) => {
   return (
     <>
       <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Hlavní menu</h1>
@@ -29,7 +35,7 @@ const OrderMainMenu = ({ meals = [], childMeals = [], soup = undefined }) => {
   }
 
   function renderMainMenu() {
-    return meals.map((meal, index) => {
+    return weeklyMeals.map((meal, index) => {
       return (
         <OrderItem
           key={index}
@@ -71,15 +77,15 @@ function selectSoupByDay(day, soups) {
 }
 
 function mapStateToProps(state, ownProps) {
-  const soups = state.soups;
+  const { weeklyMeals, childMeals } = sortOutMenusByType(state.data.meals);
+  const soups = state.data.soups;
   const soup = {
     name: selectSoupByDay(new Date().getDay(), soups),
     price: soups.price,
   };
-
   return {
-    meals: state.menu.meals,
-    childMeals: state.menu.childMeals,
+    weeklyMeals: weeklyMeals,
+    childMeals: childMeals,
     soup: soup,
   };
 }
