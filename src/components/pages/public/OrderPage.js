@@ -106,7 +106,7 @@ const OrderPage = ({ items, orderingStarted }) => {
               alt="no stress logo"
             />
             <GoBackNavBarItem onClick={() => history.push('/')}>
-              {showShorterText ? 'ZPĚT' : 'VRÁTIT SE NA HLAVNÍ STRÁNKU'}
+              {showShorterText ? 'DOMŮ' : 'VRÁTIT SE NA HLAVNÍ STRÁNKU'}
             </GoBackNavBarItem>
           </GoBackNavBar>
           {showSummary ? renderSummary() : renderMenuPicker()}
