@@ -60,6 +60,7 @@ const NewsCardsEditor = ({
         setHeading(heading);
         setContent(content);
         setFileUrl(image.fileUrl);
+        setFile(null);
       }
     }
   }, [selectedItem, isEditModeOn]);
@@ -113,6 +114,10 @@ const NewsCardsEditor = ({
 
   function handleChange(event) {
     const file = event.target.files[0];
+
+    var binaryData = [];
+    binaryData.push(file);
+    window.URL.createObjectURL(new Blob(binaryData, { type: 'image' }));
     setFileUrl(URL.createObjectURL(file));
     setFile(file);
   }
