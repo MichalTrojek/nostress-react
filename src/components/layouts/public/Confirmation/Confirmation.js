@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import logo from '../../../../img/logo.png';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
+import { DELIVERY, PICKUP } from '../../../../utils/constant';
 
 const ConfirmationContainer = styled.div`
   padding: 1rem;
@@ -68,11 +69,11 @@ const Confirmation = ({ customerInfo, totalPrice, orderMethod }) => {
       <Logo src={logo} alt="No Stress Logo" />
       <h1>Děkujeme Vám za Vaší objednávku.</h1>
       <p className="ready">Vaše objednávka se již připravuje.</p>
-      {orderMethod === 'DELIVERY' ? renderDelivery() : renderPickUp()}
+      {orderMethod === DELIVERY ? renderDelivery() : renderPickUp()}
       <p className="price">
         Při převzetí budete platit <span>{totalPrice},-</span> Kč.{' '}
       </p>
-      {orderMethod === 'DELIVERY' ? (
+      {orderMethod === DELIVERY ? (
         <p className="payment">(Lze platit pouze hotově)</p>
       ) : (
         <p className="payment">(Lze platit hotově i kartou)</p>

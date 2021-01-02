@@ -6,6 +6,8 @@ import selectForm from '../../../../../../redux/actions/orders/selectForm';
 
 import RadioGroup from '../../../../../common/Forms/RadioGroup';
 
+import { DELIVERY, PICKUP } from '../../../../../../utils/constant';
+
 const CartRadioGroupContainer = styled(RadioGroup)`
   display: flex;
   border-top: solid 1px var(--color-tertiary);
@@ -16,8 +18,6 @@ const CartRadioGroupContainer = styled(RadioGroup)`
 `;
 
 const CartRadioGroup = ({ selectForm }) => {
-  const DELIVERY = 'DELIVERY';
-  const PICKUP = 'PICKUP';
   const [selectedForm, setSelectedForm] = useState(DELIVERY);
 
   useEffect(() => {

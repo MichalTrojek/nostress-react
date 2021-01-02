@@ -13,7 +13,7 @@ const SummaryPage = () => {
   return (
     <SummaryBackground>
       <Wrapper>
-        <Summary></Summary>
+        <Summary />
       </Wrapper>
     </SummaryBackground>
   );
