@@ -13,6 +13,9 @@ const StyledNewsListItem = styled.div`
   margin: 0.2rem;
   min-width: 100%;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @media only screen and (min-width: 768px) {
     --width: calc((98% / 2));
     max-width: var(--width);
@@ -34,6 +37,11 @@ const StyledNewsListItem = styled.div`
   Button:first-child {
     margin-right: 1rem;
   }
+
+  .listItemImage {
+    max-width: 10rem;
+    height: auto;
+  }
 `;
 
 const NewsListItem = ({
@@ -47,6 +55,7 @@ const NewsListItem = ({
   const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
+    console.log(item);
     if (isSelected && selectedItem) {
       if (selectedItem.id !== item.id) {
         setIsSelected(false);
@@ -60,6 +69,7 @@ const NewsListItem = ({
 
   return (
     <StyledNewsListItem isSelected={isSelected}>
+      {renderImage()}
       <p>{item.heading}</p>
       <div className="buttons">
         <Button primary onClick={() => handleEdit(item)}>
@@ -69,6 +79,18 @@ const NewsListItem = ({
       </div>
     </StyledNewsListItem>
   );
+
+  function renderImage() {
+    if (item.image) {
+      return (
+        <img
+          className="listItemImage"
+          src={item.image.fileUrl}
+          alt={item.image.filename}
+        ></img>
+      );
+    }
+  }
 
   function handleEdit(item) {
     setSelectedItem(item);
