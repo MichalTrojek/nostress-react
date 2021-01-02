@@ -5,13 +5,12 @@ import instagram from '../../../../../img/instagram.png';
 const SocialLinksStyled = styled.div`
   display: flex;
 
-  align-items: center;
   padding: 1rem 0;
 
   .facebook,
   .instagram {
-    height: 4rem;
-    max-width: 100%;
+    max-width: 6rem;
+    height: auto;
     padding: 0 1rem;
   }
   .facebook:hover,

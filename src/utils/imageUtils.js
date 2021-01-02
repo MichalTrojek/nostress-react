@@ -9,7 +9,6 @@ export async function uploadImage(setLoading, file) {
 
   try {
     const compressedImage = await compressImage(file);
-
     await fileRef.put(compressedImage);
     const fileUrl = await fileRef.getDownloadURL();
     setLoading(false);
