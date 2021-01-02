@@ -9,6 +9,7 @@ import Button from '../../../../common/Button';
 
 import saveCustomerInfo from '../../../../../redux/actions/orders/saveCustomerInfo';
 import createOrder from '../../../../../redux/actions/orders/createOrder';
+import { DELIVERY } from '../../../../../utils/constant';
 
 const SummaryBox = styled.div`
   border: 1px solid var(--color-tertiary);
@@ -61,6 +62,10 @@ const Summary = ({
     <>
       <h1>Souhrn objednávky</h1>
       <SummaryBox>
+        <p>
+          Způsob dopravy:{' '}
+          {orderMethod === DELIVERY ? 'ROZVOZ' : 'OSOBNÍ VYZVEDNUTÍ'}
+        </p>
         <p>Jmeno: {name}</p>
         <p>Email: {email}</p>
         <p>Telefon: {phoneNumber}</p>
