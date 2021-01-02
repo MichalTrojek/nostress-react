@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { storage } from '../../../../../firebase';
 
 import { FormGroup } from '../../../../common/Forms/FormStyles';
 import Button from '../../../../common/Button';
@@ -11,6 +10,7 @@ import 'react-quill/dist/quill.snow.css';
 import '../styles/NewsEditor.css';
 import EditorContainer from '../styles/EditorContainer';
 import UploaderContainer from '../styles/UploaderContainer';
+
 import Loader from '../../../../common/Loader';
 
 import UploadIcon from '../../../../../img/upload.png';
@@ -19,6 +19,8 @@ import editCard from '../../../../../redux/actions/data/cards/editCard';
 import createCard from '../../../../../redux/actions/data/cards/createCard';
 
 import setSelectedItem from '../../../../../redux/actions/editor/setSelectedItem';
+
+import { uploadImage } from '../../../../../utils/imageUtils';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -141,7 +143,7 @@ const NewsCardsEditor = ({
 
     let image;
     if (file) {
-      image = await uploadImage(file);
+      image = await uploadImage(setLoading, file);
     } else {
       image = selectedItem.image;
     }
@@ -162,22 +164,6 @@ const NewsCardsEditor = ({
       createCard(card);
     }
     clearInputs();
-  }
-
-  async function uploadImage(file) {
-    setLoading(true);
-    let storageRef = storage.ref();
-    const filename = `${Date.now()}${file.name}`;
-    const fileRef = storageRef.child('cardImages/' + filename);
-
-    try {
-      await fileRef.put(file);
-      const fileUrl = await fileRef.getDownloadURL();
-      setLoading(false);
-      return { fileUrl, filename };
-    } catch (error) {
-      console.log(`Error while fetching `);
-    }
   }
 
   function clearInputs() {

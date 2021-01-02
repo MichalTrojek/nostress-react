@@ -55,7 +55,6 @@ const NewsListItem = ({
   const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
-    console.log(item);
     if (isSelected && selectedItem) {
       if (selectedItem.id !== item.id) {
         setIsSelected(false);
