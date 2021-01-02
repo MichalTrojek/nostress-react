@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import selectForm from '../../../../../../redux/actions/orders/selectForm';
+import orderMethod from '../../../../../../redux/actions/orders/orderMethod';
 
 import RadioGroup from '../../../../../common/Forms/RadioGroup';
 
@@ -17,12 +17,12 @@ const CartRadioGroupContainer = styled(RadioGroup)`
   }
 `;
 
-const CartRadioGroup = ({ selectForm }) => {
-  const [selectedForm, setSelectedForm] = useState(DELIVERY);
+const CartRadioGroup = ({ orderMethod }) => {
+  const [selectedMethod, setSelectedMethod] = useState(DELIVERY);
 
   useEffect(() => {
-    selectForm(selectedForm);
-  }, [selectedForm, selectForm]);
+    orderMethod(selectedMethod);
+  }, [selectedMethod, orderMethod]);
 
   return (
     <CartRadioGroupContainer>
@@ -31,8 +31,8 @@ const CartRadioGroup = ({ selectForm }) => {
           type="radio"
           value={DELIVERY}
           name="deliveryGroup"
-          checked={selectedForm === DELIVERY}
-          onChange={(event) => setSelectedForm(event.target.value)}
+          checked={selectedMethod === DELIVERY}
+          onChange={(event) => setSelectedMethod(event.target.value)}
         />
         Doručit na adresu
       </label>
@@ -42,8 +42,8 @@ const CartRadioGroup = ({ selectForm }) => {
           type="radio"
           value={PICKUP}
           name="deliveryGroup"
-          checked={selectedForm === PICKUP}
-          onChange={(event) => setSelectedForm(event.target.value)}
+          checked={selectedMethod === PICKUP}
+          onChange={(event) => setSelectedMethod(event.target.value)}
         />
         Vyzvednu osobně
       </label>
@@ -51,4 +51,4 @@ const CartRadioGroup = ({ selectForm }) => {
   );
 };
 
-export default connect(null, { selectForm })(CartRadioGroup);
+export default connect(null, { orderMethod })(CartRadioGroup);

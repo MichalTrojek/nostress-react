@@ -1,6 +1,6 @@
 import {
   UPDATE_ORDER,
-  SELECT_FORM,
+  ORDER_METHOD,
   SET_TOTAL_PRICE,
   SAVE_CUSTOMER_INFO,
   CREATE_ORDER,
@@ -20,7 +20,7 @@ function orderReducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_ORDER:
       return { ...state, items: action.payload };
-    case SELECT_FORM:
+    case ORDER_METHOD:
       return { ...state, orderMethod: action.payload };
     case SET_TOTAL_PRICE:
       return { ...state, totalPrice: action.payload };
