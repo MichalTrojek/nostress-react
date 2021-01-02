@@ -48,7 +48,7 @@ const Logo = styled.img`
   }
 `;
 
-const Confirmation = ({ customerInfo, totalPrice, selectedForm }) => {
+const Confirmation = ({ customerInfo, totalPrice, orderMethod }) => {
   const history = useHistory();
 
   useEffect(() => {
@@ -68,11 +68,11 @@ const Confirmation = ({ customerInfo, totalPrice, selectedForm }) => {
       <Logo src={logo} alt="No Stress Logo" />
       <h1>Děkujeme Vám za Vaší objednávku.</h1>
       <p className="ready">Vaše objednávka se již připravuje.</p>
-      {selectedForm === 'DELIVERY_FORM' ? renderDelivery() : renderPickUp()}
+      {orderMethod === 'DELIVERY' ? renderDelivery() : renderPickUp()}
       <p className="price">
         Při převzetí budete platit <span>{totalPrice},-</span> Kč.{' '}
       </p>
-      {selectedForm === 'DELIVERY_FORM' ? (
+      {orderMethod === 'DELIVERY' ? (
         <p className="payment">(Lze platit pouze hotově)</p>
       ) : (
         <p className="payment">(Lze platit hotově i kartou)</p>
@@ -100,10 +100,11 @@ const Confirmation = ({ customerInfo, totalPrice, selectedForm }) => {
 };
 
 function mapStateToProps(state, ownProps) {
+  console.log(state);
   return {
     customerInfo: state.order.customerInfo,
     totalPrice: state.order.totalPrice,
-    selectedForm: state.order.selectedForm,
+    orderMethod: state.order.orderMethod,
   };
 }
 

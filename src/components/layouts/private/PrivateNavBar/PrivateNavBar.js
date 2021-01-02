@@ -14,10 +14,10 @@ import PrivateNavBarMenu from './PrivateNavBarMenu';
 const MENU_ITEMS = [
   { name: 'Objednávky', href: '/dashboard/orders' },
   { name: 'Otevírací doba', href: '/dashboard/hours' },
-  { name: 'Editor Menu', href: '/dashboard/meals' },
-  { name: 'Editor Polivek', href: '/dashboard/soups' },
-  { name: 'Editor Novinek', href: '/dashboard/news' },
-  { name: 'Editor Karet', href: '/dashboard/cards' },
+  { name: 'Menu', href: '/dashboard/meals' },
+  { name: 'Polivky', href: '/dashboard/soups' },
+  { name: 'Novinky', href: '/dashboard/news' },
+  { name: 'Karty', href: '/dashboard/cards' },
   { name: 'Odhlásit se', href: 'logout' },
 ];
 

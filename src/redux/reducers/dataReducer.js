@@ -43,7 +43,7 @@ function dataReducer(state = initialState, action) {
     case UPDATE_MEALS:
       return { ...state, meals: action.payload };
     case FETCH_DATA:
-      return action.payload;
+      return action.payload || state;
     default:
       return state;
   }
