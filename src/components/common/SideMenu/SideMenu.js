@@ -81,6 +81,7 @@ const SideMenu = ({
   const history = useHistory();
 
   useEffect(() => {
+    console.log(menuItems);
     if (menuItems[0].href.includes('dashboard')) {
       setIsDashBoard(true);
     } else {
@@ -93,7 +94,6 @@ const SideMenu = ({
       <ul>
         {menuItems.map((item, index) => {
           const path = isDashboard ? item.href : item.href.replace('/', '');
-
           if (item.href.includes('logout')) {
             return (
               <SideMenuLink
@@ -107,7 +107,7 @@ const SideMenu = ({
                 <SideMenuItem>{item.name}</SideMenuItem>
               </SideMenuLink>
             );
-          } else if (item.href.includes('order')) {
+          } else if (item.href.includes('order') && !isDashboard) {
             return (
               <NavBarMenuItemPush
                 key={index}

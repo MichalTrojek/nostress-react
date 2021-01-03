@@ -193,6 +193,8 @@ const OrderedItem = ({ order }) => {
     setOrderConfirmed(!orderConfirmed);
     order.isConfirmed = true;
     db.collection('orders').doc(order.id).update(order);
+    // console.log('confirmed');
+    // sendEmail('michaltrojek1@gmail.com');
   }
 };
 

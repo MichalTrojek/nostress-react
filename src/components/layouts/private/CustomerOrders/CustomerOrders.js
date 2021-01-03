@@ -94,7 +94,7 @@ const CustomerOrders = ({
       >
         <Button primary className="showNewButton" onClick={handleShowNew}>
           {enableNewOrdersButton
-            ? `zobrazit Nové ${renderCount(newOrders)}`
+            ? `zobrazit nové ${renderCount(newOrders)}`
             : 'žadné nové'}
         </Button>
         <Button
