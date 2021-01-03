@@ -53,10 +53,10 @@ const DashboardPage = () => {
               editovat karty
             </Button>
             <Button primary onClick={() => history.push('/dashboard/meals')}>
-              editovat jidla
+              editovat jídla
             </Button>
             <Button primary onClick={() => history.push('/dashboard/soups')}>
-              editovat polivky
+              editovat polévky
             </Button>
 
             <Button primary onClick={handleLogOut}>
