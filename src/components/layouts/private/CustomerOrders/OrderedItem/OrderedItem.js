@@ -2,9 +2,12 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import Button from '../../../../common/Button';
 import { db } from '../../../../../firebase';
+import { sendConfirmationEmail } from '../../../../../utils/emailUtils';
+
 import {
   showErrorToast,
   showInfoToast,
+  showSuccessToast,
 } from '../../../../../notifications/toast';
 
 const OrderedItemContainer = styled.div`
@@ -193,8 +196,8 @@ const OrderedItem = ({ order }) => {
     setOrderConfirmed(!orderConfirmed);
     order.isConfirmed = true;
     db.collection('orders').doc(order.id).update(order);
-    // console.log('confirmed');
-    // sendEmail('michaltrojek1@gmail.com');
+    sendConfirmationEmail(order.email, order);
+    showSuccessToast(`Objednávka číslo ${order.orderNumber} byla potvrzena.`);
   }
 };
 
