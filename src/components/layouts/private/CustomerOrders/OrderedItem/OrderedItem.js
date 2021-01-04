@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import Button from '../../../../common/Button';
 import { db } from '../../../../../firebase';
-import { sendConfirmationEmail } from '../../../../../utils/emailUtils';
+import { sendOrderConfirmedEmail } from '../../../../../utils/emailUtils';
 
 import {
   showErrorToast,
@@ -196,7 +196,7 @@ const OrderedItem = ({ order }) => {
     setOrderConfirmed(!orderConfirmed);
     order.isConfirmed = true;
     db.collection('orders').doc(order.id).update(order);
-    sendConfirmationEmail(order.email, order);
+    sendOrderConfirmedEmail(order.email, order);
     showSuccessToast(`Objednávka číslo ${order.orderNumber} byla potvrzena.`);
   }
 };
