@@ -19,8 +19,8 @@ export function sendOrderConfirmedEmail(email, order) {
     .catch((error) => console.log('what error', error));
 }
 
-export function sendOrderReceivedEmail(email, order) {
-  const url = 'http://localhost:3000/api/sendEmailOrderConfirmed';
+export function sendOrderSentEmail(email, order) {
+  const url = 'http://localhost:3000/api/sendEmailOrderSent';
   axios({
     method: 'post',
     url: url,

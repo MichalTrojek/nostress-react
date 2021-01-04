@@ -10,6 +10,7 @@ import Button from '../../../../common/Button';
 import saveCustomerInfo from '../../../../../redux/actions/orders/saveCustomerInfo';
 import createOrder from '../../../../../redux/actions/orders/createOrder';
 import { DELIVERY } from '../../../../../utils/constant';
+import { sendOrderSentEmail } from '../../../../../utils/emailUtils';
 
 const SummaryBox = styled.div`
   border: 1px solid var(--color-tertiary);
@@ -166,6 +167,7 @@ const Summary = ({
       };
       saveCustomerInfo(order);
       createOrder(order);
+      sendOrderSentEmail(order.email, order);
       history.push('/orderConfirmation');
     }
   }
