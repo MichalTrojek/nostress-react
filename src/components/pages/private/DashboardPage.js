@@ -43,13 +43,13 @@ const DashboardPage = () => {
             <Button primary onClick={() => history.push('/dashboard/orders')}>
               Objednávky
             </Button>
-            <Button primary onClick={() => history.push('/dashboard/soups')}>
+            <Button primary onClick={() => history.push('/dashboard/hours')}>
               Otevíraci doba
             </Button>
             <Button primary onClick={() => history.push('/dashboard/news')}>
               editovat novinky
             </Button>
-            <Button primary onClick={() => history.push('/dashboard/news')}>
+            <Button primary onClick={() => history.push('/dashboard/cards')}>
               editovat karty
             </Button>
             <Button primary onClick={() => history.push('/dashboard/meals')}>

@@ -81,7 +81,6 @@ const SideMenu = ({
   const history = useHistory();
 
   useEffect(() => {
-    console.log(menuItems);
     if (menuItems[0].href.includes('dashboard')) {
       setIsDashBoard(true);
     } else {

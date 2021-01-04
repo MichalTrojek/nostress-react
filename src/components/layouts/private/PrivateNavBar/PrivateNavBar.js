@@ -15,7 +15,7 @@ const MENU_ITEMS = [
   { name: 'Objednávky', href: '/dashboard/orders' },
   { name: 'Otevírací doba', href: '/dashboard/hours' },
   { name: 'Menu', href: '/dashboard/meals' },
-  { name: 'Polivky', href: '/dashboard/soups' },
+  { name: 'Polévky', href: '/dashboard/soups' },
   { name: 'Novinky', href: '/dashboard/news' },
   { name: 'Karty', href: '/dashboard/cards' },
   { name: 'Odhlásit se', href: 'logout' },
