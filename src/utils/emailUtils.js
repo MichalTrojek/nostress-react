@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function sendOrderConfirmedEmail(email, order) {
   const url =
-    'http://nostressemail-env.eba-pixwdpij.eu-central-1.elasticbeanstalk.com/api/sendEmailOrderConfirmed';
+    'https://nostress-email.herokuapp.com/api/sendEmailOrderConfirmed';
   axios({
     method: 'post',
     url: url,
@@ -21,8 +21,7 @@ export function sendOrderConfirmedEmail(email, order) {
 }
 
 export function sendOrderSentEmail(email, order) {
-  const url =
-    'http://nostressemail-env.eba-pixwdpij.eu-central-1.elasticbeanstalk.com/api/sendEmailOrderSent';
+  const url = 'https://nostress-email.herokuapp.com/api/sendEmailOrderSent';
   axios({
     method: 'post',
     url: url,
