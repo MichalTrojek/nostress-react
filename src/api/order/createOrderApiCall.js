@@ -1,9 +1,13 @@
-import { db } from '../../firebase';
+import { db, timeStamp } from '../../firebase';
 
 function createOrderApiCall(order) {
   return db
     .collection('orders')
-    .add({ ...order, isComplete: false })
+    .add({
+      ...order,
+      isComplete: false,
+      created: timeStamp,
+    })
     .then((docRef) => {
       console.log(`Order with id ${docRef.id} was created`);
       return docRef.id;
