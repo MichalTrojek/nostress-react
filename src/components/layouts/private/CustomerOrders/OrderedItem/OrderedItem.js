@@ -129,10 +129,15 @@ const OrderedItem = ({ order }) => {
       </div>
     </OrderedItemContainer>
   );
-  function toDateTime(secs) {
-    var t = new Date(Date.UTC(1970, 0, 1)); // Epoch
-    t.setUTCSeconds(secs);
-    return `${t.toLocaleDateString()} ${t.toLocaleTimeString()}`;
+  function toDateTime(secs = 0) {
+    try {
+      var t = new Date(Date.UTC(1970, 0, 1)); // Epoch
+      t.setUTCSeconds(secs);
+      return `${t.toLocaleDateString()} ${t.toLocaleTimeString()}`;
+    } catch (error) {
+      console.log(error);
+      return '';
+    }
   }
   function handleRemoveButton() {
     removeOrder();
