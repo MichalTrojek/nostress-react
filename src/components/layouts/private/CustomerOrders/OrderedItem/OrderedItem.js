@@ -90,7 +90,6 @@ const OrderedItemContainer = styled.div`
 
 const OrderedItem = ({ order }) => {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
-  console.log(toDateTime(order.created.seconds));
   return (
     <OrderedItemContainer isConfirmed={order.isConfirmed}>
       <div className="header">
