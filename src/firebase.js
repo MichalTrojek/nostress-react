@@ -18,6 +18,6 @@ export const db = app.firestore();
 export const storage = app.storage();
 
 export const increment = firebase.firestore.FieldValue.increment(1);
-export const timeStamp = firebase.firestore.Timestamp.fromDate(new Date());
+export const timeStamp = firebase.firestore.FieldValue.serverTimestamp();
 
 export default app;

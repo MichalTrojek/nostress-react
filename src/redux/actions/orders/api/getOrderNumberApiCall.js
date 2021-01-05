@@ -1,4 +1,4 @@
-import { increment, db } from '../../firebase';
+import { increment, db } from '../../../../firebase';
 
 const getOrderNumberApiCall = () => {
   const storyRef = db.collection('stats').doc('currentOrderNumber');

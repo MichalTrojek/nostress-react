@@ -90,7 +90,7 @@ const OrderedItemContainer = styled.div`
 
 const OrderedItem = ({ order }) => {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
-
+  console.log(toDateTime(order.created.seconds));
   return (
     <OrderedItemContainer isConfirmed={order.isConfirmed}>
       <div className="header">
@@ -101,6 +101,7 @@ const OrderedItem = ({ order }) => {
           {order.orderNumber}
         </p>
         {renderOrderMethod(order.orderMethod)}
+        <p>Vytvořena: {toDateTime(order.created.seconds)} </p>
         <p>
           {order.name} ({order.email}, {order.phoneNumber})
         </p>
@@ -129,7 +130,11 @@ const OrderedItem = ({ order }) => {
       </div>
     </OrderedItemContainer>
   );
-
+  function toDateTime(secs) {
+    var t = new Date(Date.UTC(1970, 0, 1)); // Epoch
+    t.setUTCSeconds(secs);
+    return `${t.toLocaleDateString()} ${t.toLocaleTimeString()}`;
+  }
   function handleRemoveButton() {
     removeOrder();
   }

@@ -1,4 +1,4 @@
-import { db, timeStamp } from '../../firebase';
+import { db, timeStamp } from '../../../../firebase';
 
 function createOrderApiCall(order) {
   return db

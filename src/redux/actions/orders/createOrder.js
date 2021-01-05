@@ -1,8 +1,8 @@
 import { CREATE_ORDER } from '../types';
 import { showErrorToast } from '../../../notifications/toast';
-import createOrderApiCall from '../../../api/order/createOrderApiCall';
+import createOrderApiCall from './api/createOrderApiCall';
 
-import getOrderNumberApiCall from '../../../api/order/getOrderNumberApiCall';
+import getOrderNumberApiCall from './api/getOrderNumberApiCall';
 
 function createOrder(order) {
   return async (dispatch, getState) => {
