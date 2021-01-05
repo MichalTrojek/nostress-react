@@ -164,6 +164,7 @@ const Summary = ({
         orderMethod: orderMethod,
         isConfirmed: false,
         isFinished: false,
+        totalPrice: totalPrice,
       };
       saveCustomerInfo(order);
       createOrder(order);
