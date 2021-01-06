@@ -10,12 +10,11 @@ function fetchNewsApiCall() {
         data = {
           allNews: doc.data().allNews || [],
           meals: doc.data().meals || [],
-          soups: doc.data().soups || [],
+          soups: doc.data().soups || {},
           cards: doc.data().cards || [],
-          hours: doc.data().hours,
+          hours: doc.data().hours || {},
         };
       });
-
       return data;
     })
     .catch((error) => {

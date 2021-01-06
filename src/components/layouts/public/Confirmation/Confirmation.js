@@ -101,7 +101,6 @@ const Confirmation = ({ customerInfo, totalPrice, orderMethod }) => {
 };
 
 function mapStateToProps(state, ownProps) {
-  console.log(state);
   return {
     customerInfo: state.order.customerInfo,
     totalPrice: state.order.totalPrice,

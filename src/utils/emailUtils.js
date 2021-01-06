@@ -15,7 +15,7 @@ export function sendOrderConfirmedEmail(email, order) {
     },
   })
     .then((data) => {
-      console.log(data);
+      // console.log(data);
     })
     .catch((error) => console.log('what error', error));
 }
@@ -34,7 +34,7 @@ export function sendOrderSentEmail(email, order) {
     },
   })
     .then((data) => {
-      console.log(data);
+      // console.log(data);
     })
     .catch((error) => console.log('what error', error));
 }

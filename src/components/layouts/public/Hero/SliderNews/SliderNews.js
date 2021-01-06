@@ -89,7 +89,6 @@ const SliderNews = ({ items = [], startOrdering }) => {
   }
 
   function handleStartingOrder(menuType) {
-    console.log('render button', menuType);
     window.scrollTo(0, 0);
     history.push('/order');
     startOrdering({ status: true, menuType: menuType });

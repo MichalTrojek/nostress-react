@@ -4,7 +4,6 @@ import fetchDataApiCall from './api/fetchDataApiCall';
 const fetchData = () => {
   return async (dispatch, getState) => {
     if (!dataFetched(getState().data)) {
-      console.log('fetching data');
       let data = await fetchDataApiCall();
       dispatch({ type: FETCH_DATA, payload: data });
     } else {
@@ -18,7 +17,8 @@ function dataFetched(data) {
     dataExist(data.cards) ||
     dataExist(data.menu) ||
     dataExist(data.soups) ||
-    dataExist(data.news)
+    dataExist(data.allNews) ||
+    dataExist(data.hours)
   );
 }
 const dataExist = (array) => {
