@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import logo from '../../../../img/logo.png';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
-import { DELIVERY, PICKUP } from '../../../../utils/constant';
+import { DELIVERY } from '../../../../utils/constant';
 
 const ConfirmationContainer = styled.div`
   padding: 1rem;
