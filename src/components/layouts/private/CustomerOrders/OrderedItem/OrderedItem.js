@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Button from '../../../../common/Button';
 import { db } from '../../../../../firebase';
 import { sendOrderConfirmedEmail } from '../../../../../utils/emailUtils';
+import { toDateTime } from '../../../../../utils/dateUtils';
 
 import {
   showErrorToast,
@@ -100,7 +101,8 @@ const OrderedItem = ({ order }) => {
           {order.orderNumber}
         </p>
         {renderOrderMethod(order.orderMethod)}
-        <p>Vytvořena: {toDateTime(order.created.seconds)} </p>
+
+        <p>Vytvořena: {toDateTime(order)} </p>
         <p>
           {order.name} ({order.email}, {order.phoneNumber})
         </p>
@@ -129,16 +131,7 @@ const OrderedItem = ({ order }) => {
       </div>
     </OrderedItemContainer>
   );
-  function toDateTime(secs = 0) {
-    try {
-      var t = new Date(Date.UTC(1970, 0, 1)); // Epoch
-      t.setUTCSeconds(secs);
-      return `${t.toLocaleDateString()} ${t.toLocaleTimeString()}`;
-    } catch (error) {
-      console.log(error);
-      return '';
-    }
-  }
+
   function handleRemoveButton() {
     removeOrder();
   }
