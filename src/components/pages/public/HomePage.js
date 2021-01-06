@@ -33,6 +33,10 @@ const Home = ({ resetOrders, fetchData }) => {
       y: 0,
       transition: { delay: 0, duration: 0.5 },
     },
+    exit: {
+      y: '100vh',
+      transition: { delay: 0, duration: 0.5 },
+    },
   };
 
   return (

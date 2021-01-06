@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '../../../../common/Button';
 import { db } from '../../../../../firebase';
 import { sendOrderConfirmedEmail } from '../../../../../utils/emailUtils';
@@ -11,7 +11,9 @@ import {
   showSuccessToast,
 } from '../../../../../notifications/toast';
 
-const OrderedItemContainer = styled.div`
+import { motion } from 'framer-motion';
+
+const OrderedItemContainer = styled(motion.div)`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
   display: grid;
@@ -91,8 +93,37 @@ const OrderedItemContainer = styled.div`
 
 const OrderedItem = ({ order }) => {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
+
+  const variants = {
+    hidden: {
+      opacity: 0,
+      transitionEnd: {
+        display: 'none',
+      },
+    },
+
+    visible: {
+      opacity: 1,
+      display: 'grid',
+    },
+
+    exit: {
+      x: -100,
+      // opacity: 0,
+      // transitionEnd: {
+      //   display: 'none',
+      // },
+    },
+  };
+
   return (
-    <OrderedItemContainer isConfirmed={order.isConfirmed}>
+    <OrderedItemContainer
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      variants={variants}
+      isConfirmed={order.isConfirmed}
+    >
       <div className="header">
         <p className="orderNumber">
           {!order.isConfirmed
