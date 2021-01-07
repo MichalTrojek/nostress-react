@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-const OrderContainer = styled.div`
+import { motion } from 'framer-motion';
+
+const OrderContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   Button {

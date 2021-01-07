@@ -17,7 +17,7 @@ import logo from '../../../img/logo.png';
 
 import { showInfoToast } from '../../../notifications/toast';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const OrderPageBackground = styled.section`
   background-color: black;
@@ -115,22 +115,73 @@ const OrderPage = ({ items, orderingStarted }) => {
               {showShorterText ? 'DOMŮ' : 'VRÁTIT SE NA HLAVNÍ STRÁNKU'}
             </GoBackNavBarItem>
           </GoBackNavBar>
-          {showSummary ? renderSummary() : renderMenuPicker()}
+          <AnimatePresence exitBeforeEnter>
+            {renderSummary()}
+            {renderMenuPicker()}
+          </AnimatePresence>
         </Wrapper>
       </motion.div>
     </OrderPageBackground>
   );
 
   function renderSummary() {
-    return <Summary hideSummary={hideSummary} />;
+    const summaryVariants = {
+      hidden: { display: 'none', x: '100vw' },
+      exit: {
+        x: '100vw',
+        transitionEnd: {
+          display: 'none',
+        },
+        transition: { delay: 0, duration: 0.5 },
+      },
+
+      visible: {
+        x: 0,
+        display: 'block',
+        transition: { delay: 0, duration: 0.5 },
+      },
+    };
+
+    return (
+      <motion.div
+        variants={summaryVariants}
+        animate={showSummary ? 'visible' : 'hidden'}
+        exit="hidden"
+        key="summaryKey"
+      >
+        <Summary hideSummary={hideSummary} />
+      </motion.div>
+    );
+
     function hideSummary() {
       setShowSummary(false);
     }
   }
 
   function renderMenuPicker() {
+    const pickerVariant = {
+      hidden: { display: 'none', x: '-100vw' },
+      exit: {
+        x: '-100vw',
+        transition: { delay: 0, duration: 0.5 },
+        transitionEnd: {
+          display: 'none',
+        },
+      },
+      visible: {
+        x: 0,
+        display: 'flex',
+        transition: { delay: 0, duration: 0.5 },
+      },
+    };
     return (
-      <OrderContainer>
+      <OrderContainer
+        variants={pickerVariant}
+        initial="visible"
+        animate={showSummary ? 'hidden' : 'visible'}
+        key="OrderPicker"
+        exit="exit"
+      >
         <h1>{renderHeader()}</h1>
         <Cart />
         <Button className="orderButton" primary onClick={handleOrder}>
