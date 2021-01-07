@@ -25,13 +25,14 @@ import { AnimatePresence } from 'framer-motion';
 
 function App() {
   const location = useLocation();
+  console.log(location);
 
   return (
     <>
       <GlobalStyle />
       <AuthProvider>
         <AnimatePresence exitBeforeEnter>
-          <Switch>
+          <Switch location={location} key={location.key}>
             <Route exact path="/" component={Home} />
             <Route exact path="/order" component={OrderPage} />
             <Route

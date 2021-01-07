@@ -84,9 +84,13 @@ const OrderPage = ({ items, orderingStarted }) => {
   }, []);
 
   const containerVariants = {
-    hidden: { y: '100vh' },
+    hidden: { x: '100vw' },
     visible: {
-      y: 0,
+      x: 0,
+      transition: { delay: 0, duration: 0.5 },
+    },
+    exit: {
+      x: '100vw',
       transition: { delay: 0, duration: 0.5 },
     },
   };
@@ -97,6 +101,8 @@ const OrderPage = ({ items, orderingStarted }) => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
+        key="orderpage"
+        exit="exit"
       >
         <Wrapper>
           <GoBackNavBar>

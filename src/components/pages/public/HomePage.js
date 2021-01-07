@@ -33,8 +33,9 @@ const Home = ({ resetOrders, fetchData }) => {
       y: 0,
       transition: { delay: 0, duration: 0.5 },
     },
+
     exit: {
-      y: '100vh',
+      y: '100vw',
       transition: { delay: 0, duration: 0.5 },
     },
   };
@@ -46,6 +47,7 @@ const Home = ({ resetOrders, fetchData }) => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
+        key="mainpage"
         exit="exit"
       >
         <Hero />

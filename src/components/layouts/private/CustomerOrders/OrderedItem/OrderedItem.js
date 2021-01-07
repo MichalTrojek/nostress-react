@@ -106,21 +106,12 @@ const OrderedItem = ({ order }) => {
       opacity: 1,
       display: 'grid',
     },
-
-    exit: {
-      x: -100,
-      // opacity: 0,
-      // transitionEnd: {
-      //   display: 'none',
-      // },
-    },
   };
 
   return (
     <OrderedItemContainer
       initial="hidden"
       animate="visible"
-      exit="exit"
       variants={variants}
       isConfirmed={order.isConfirmed}
     >
