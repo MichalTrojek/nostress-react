@@ -24,22 +24,18 @@ import { AnimatePresence } from 'framer-motion';
 
 function App() {
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
 
   return (
     <>
       <GlobalStyle />
-      <AuthProvider>
-        <AnimatePresence exitBeforeEnter>
-          <Switch key={location.key}>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/order" component={OrderPage} />
-            <Route
-              exact
-              path="/orderConfirmation"
-              component={ConfirmationPage}
-            />
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.key}>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/order" component={OrderPage} />
+          <Route exact path="/orderConfirmation" component={ConfirmationPage} />
 
+          <AuthProvider>
             <Route exact path="/login" component={LoginPage} />
             <PrivateRoute exact path="/dashboard/" component={DashboardPage} />
             <PrivateRoute
@@ -60,10 +56,9 @@ function App() {
               path="/dashboard/cards"
               component={NewsCardPage}
             />
-          </Switch>
-        </AnimatePresence>
-      </AuthProvider>
-
+          </AuthProvider>
+        </Switch>
+      </AnimatePresence>
       <ToastContainer
         autoClose={2000}
         transition={Zoom}

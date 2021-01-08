@@ -19,6 +19,7 @@ export function AuthProvider({ children }) {
 
     return unsubscribe;
   }, []);
+
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);
   }

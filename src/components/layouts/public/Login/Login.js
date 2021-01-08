@@ -39,6 +39,7 @@ const Login = () => {
       setError('');
 
       await login(emailRef.current.value, passwordRef.current.value);
+      console.log(history);
       history.push('/dashboard/');
     } catch {
       setError('Nepodařilo se přihlásit');
