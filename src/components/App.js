@@ -7,7 +7,6 @@ import PrivateRoute from './PrivateRoute';
 import Home from './pages/public/HomePage';
 import OrderPage from './pages/public/OrderPage';
 import LoginPage from './pages/public/LoginPage';
-import SummaryPage from './pages/public/SummaryPage';
 import ConfirmationPage from './pages/public/ConfirmationPage';
 
 import DashboardPage from './pages/private/DashboardPage';
@@ -25,13 +24,14 @@ import { AnimatePresence } from 'framer-motion';
 
 function App() {
   const location = useLocation();
+  console.log(location);
 
   return (
     <>
       <GlobalStyle />
       <AuthProvider>
         <AnimatePresence exitBeforeEnter>
-          <Switch location={location} key={location.key}>
+          <Switch key={location.key}>
             <Route exact path="/" component={Home} />
             <Route exact path="/order" component={OrderPage} />
             <Route
@@ -40,9 +40,8 @@ function App() {
               component={ConfirmationPage}
             />
 
-            <Route exact path="/summary" component={SummaryPage} />
             <Route exact path="/login" component={LoginPage} />
-            <PrivateRoute exact path="/dashboard" component={DashboardPage} />
+            <PrivateRoute exact path="/dashboard/" component={DashboardPage} />
             <PrivateRoute
               exact
               path="/dashboard/orders"
