@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 const OrderContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
+
   Button {
     margin-top: 1rem;
   }

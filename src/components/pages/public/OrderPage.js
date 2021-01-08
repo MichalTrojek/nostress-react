@@ -115,7 +115,7 @@ const OrderPage = ({ items, orderingStarted }) => {
               {showShorterText ? 'DOMŮ' : 'VRÁTIT SE NA HLAVNÍ STRÁNKU'}
             </GoBackNavBarItem>
           </GoBackNavBar>
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence>
             {renderSummary()}
             {renderMenuPicker()}
           </AnimatePresence>
@@ -145,8 +145,9 @@ const OrderPage = ({ items, orderingStarted }) => {
     return (
       <motion.div
         variants={summaryVariants}
+        initial="hidden"
         animate={showSummary ? 'visible' : 'hidden'}
-        exit="hidden"
+        exit="exit"
         key="summaryKey"
       >
         <Summary hideSummary={hideSummary} />
@@ -177,7 +178,6 @@ const OrderPage = ({ items, orderingStarted }) => {
     return (
       <OrderContainer
         variants={pickerVariant}
-        initial="visible"
         animate={showSummary ? 'hidden' : 'visible'}
         key="OrderPicker"
         exit="exit"

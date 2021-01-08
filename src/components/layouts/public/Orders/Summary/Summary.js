@@ -17,6 +17,7 @@ const SummaryBox = styled.div`
   padding: 1rem;
   display: grid;
   grid-row-gap: 1rem;
+
   .totalPrice {
     color: var(--color-tertiary);
     font-weight: bold;

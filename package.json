@@ -10,6 +10,7 @@
     "axios": "^0.21.1",
     "browser-image-compression": "^1.0.13",
     "firebase": "^8.1.1",
+    "firebase-tools": "^9.1.2",
     "framer-motion": "^3.1.1",
     "mailgun.js": "^2.0.6",
     "pure-react-carousel": "^1.27.6",
