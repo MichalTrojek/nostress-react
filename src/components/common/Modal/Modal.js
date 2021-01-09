@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import './styles/modal.css';
 
-const ModelBackground = styled.div`
+const ModelOverlay = styled.div`
   background: rgba(0, 0, 0, 0.8);
   display: ${(props) => (props.showModal ? 'flex' : 'none')};
   justify-content: center;
@@ -60,7 +60,7 @@ const Modal = ({ text, showModal, setShowModal, confirm }) => {
     handleCloseButton();
   }
   return (
-    <ModelBackground showModal={showModal} onClick={handleCloseButton}>
+    <ModelOverlay showModal={showModal} onClick={handleCloseButton}>
       <CSSTransition
         in={showModal}
         timeout={300}
@@ -79,7 +79,7 @@ const Modal = ({ text, showModal, setShowModal, confirm }) => {
           </div>
         </ModalContainer>
       </CSSTransition>
-    </ModelBackground>
+    </ModelOverlay>
   );
 };
 

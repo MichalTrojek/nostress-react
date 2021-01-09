@@ -1,7 +1,10 @@
-import { connect } from 'react-redux';
-import Button from '../../../../../common/Button';
-
 import styled from 'styled-components';
+import { useState } from 'react';
+
+import { connect } from 'react-redux';
+
+import Button from '../../../../../common/Button';
+import Modal from '../../../../../common/Modal';
 
 import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
 import deleteMeal from '../../../../../../redux/actions/data/meals/deleteMeal';
@@ -75,6 +78,7 @@ const MealListItemContainer = styled.div`
 `;
 
 const MealListItem = ({ meal, isEditModeOn, setSelectedItem, deleteMeal }) => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <MealListItemContainer>
       <p className="menuNumber">{meal.menuNumber} </p>
@@ -87,8 +91,14 @@ const MealListItem = ({ meal, isEditModeOn, setSelectedItem, deleteMeal }) => {
         <Button primary onClick={handleEdit}>
           editovat{' '}
         </Button>
-        <Button onClick={handleDelete}> smazat</Button>
+        <Button onClick={() => setShowModal(true)}> smazat</Button>
       </div>
+      <Modal
+        text={`Potvrďte vymazání menu číslo: ${meal.menuNumber}`}
+        confirm={handleDelete}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </MealListItemContainer>
   );
 
