@@ -142,7 +142,13 @@ const NewsCardsEditor = ({
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (heading.length === 0 || content === 0 || fileUrl === 0 || loading) {
+    if (
+      heading.length === 0 ||
+      content === 0 ||
+      fileUrl === 0 ||
+      loading ||
+      !file
+    ) {
       return;
     }
 

@@ -7,7 +7,10 @@ import Button from '../../../../../common/Button';
 
 import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
 
+import Modal from '../../../../../common/Modal';
+
 const StyledNewsListItem = styled.div`
+  position: relative;
   padding: 2rem;
   border: 1px solid var(--color-tertiary);
   margin: 0.2rem;
@@ -53,6 +56,7 @@ const NewsListItem = ({
   selectedItem,
 }) => {
   const [isSelected, setIsSelected] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (isSelected && selectedItem) {
@@ -71,11 +75,17 @@ const NewsListItem = ({
       {renderImage()}
       <p>{item.heading}</p>
       <div className="buttons">
-        <Button primary onClick={() => handleEdit(item)}>
+        <Button primary onClick={() => handleEdit()}>
           Editovat
         </Button>
-        <Button onClick={() => handleDelete(item)}>Smazat</Button>
+        <Button onClick={() => setShowModal(true)}>Smazat</Button>
       </div>
+      <Modal
+        text={`Potvrďte vymazání karty.`}
+        confirm={handleDelete}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </StyledNewsListItem>
   );
 
@@ -91,13 +101,13 @@ const NewsListItem = ({
     }
   }
 
-  function handleEdit(item) {
+  function handleEdit() {
     setSelectedItem(item);
     setIsSelected(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function handleDelete(item) {
+  function handleDelete() {
     if (!isEditModeOn) {
       deleteNews(item);
     } else {

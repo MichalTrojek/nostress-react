@@ -95,7 +95,7 @@ const OrderedItemContainer = styled(motion.div)`
 
 const OrderedItem = ({ order }) => {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const variants = {
     hidden: {
@@ -152,20 +152,16 @@ const OrderedItem = ({ order }) => {
       </div>
       <div className="buttons">
         {renderButton()}
-        <Button onClick={showModal}>Smazat</Button>
+        <Button onClick={() => setShowModal(true)}>Smazat</Button>
       </div>
       <Modal
         text={`Potvrďte vymazání objednávky číslo: ${order.orderNumber}`}
         confirm={removeOrder}
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
+        showModal={showModal}
+        setShowModal={setShowModal}
       />
     </OrderedItemContainer>
   );
-
-  function showModal() {
-    setIsVisible(true);
-  }
 
   function removeOrder() {
     const success = db
