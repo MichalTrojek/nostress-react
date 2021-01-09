@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import Button from '../Button';
 
+import { CSSTransition } from 'react-transition-group';
+
+import './styles/modal.css';
+
 const ModelBackground = styled.div`
   background: rgba(0, 0, 0, 0.8);
   display: ${(props) => (props.showModal ? 'flex' : 'none')};
@@ -57,17 +61,24 @@ const Modal = ({ text, showModal, setShowModal, confirm }) => {
   }
   return (
     <ModelBackground showModal={showModal} onClick={handleCloseButton}>
-      <ModalContainer>
-        <p>{text}</p>
-        <div className="dialogButtons">
-          <Button primary onClick={handleConfirmButton}>
-            Ok
-          </Button>
-          <Button secundary onClick={handleCloseButton}>
-            zrušit
-          </Button>
-        </div>
-      </ModalContainer>
+      <CSSTransition
+        in={showModal}
+        timeout={300}
+        classNames="modal"
+        unmountOnExit
+      >
+        <ModalContainer>
+          <p>{text}</p>
+          <div className="dialogButtons">
+            <Button primary onClick={handleConfirmButton}>
+              Ok
+            </Button>
+            <Button secundary onClick={handleCloseButton}>
+              zrušit
+            </Button>
+          </div>
+        </ModalContainer>
+      </CSSTransition>
     </ModelBackground>
   );
 };
