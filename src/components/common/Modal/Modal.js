@@ -3,7 +3,7 @@ import Button from '../Button';
 
 const ModelBackground = styled.div`
   background: rgba(0, 0, 0, 0.8);
-  display: ${(props) => (props.visible ? 'flex' : 'none')};
+  display: ${(props) => (props.showModal ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
   min-width: 100%;
@@ -45,9 +45,9 @@ const ModalContainer = styled.div`
   }
 `;
 
-const Modal = ({ text, isVisible, setIsVisible, confirm }) => {
+const Modal = ({ text, showModal, setShowModal, confirm }) => {
   function handleCloseButton() {
-    setIsVisible(false);
+    setShowModal(false);
   }
 
   function handleConfirmButton() {
@@ -55,7 +55,7 @@ const Modal = ({ text, isVisible, setIsVisible, confirm }) => {
     handleCloseButton();
   }
   return (
-    <ModelBackground visible={isVisible} onClick={handleCloseButton}>
+    <ModelBackground showModal={showModal} onClick={handleCloseButton}>
       <ModalContainer>
         <p>{text}</p>
         <div className="dialogButtons">
