@@ -1,9 +1,11 @@
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Button from '../../../../common/Button';
 import { db } from '../../../../../firebase';
 import { sendOrderConfirmedEmail } from '../../../../../utils/emailUtils';
 import { toDateTime } from '../../../../../utils/dateUtils';
+
+import Modal from '../../../../common/Modal';
 
 import {
   showErrorToast,
@@ -93,6 +95,7 @@ const OrderedItemContainer = styled(motion.div)`
 
 const OrderedItem = ({ order }) => {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const variants = {
     hidden: {
@@ -149,13 +152,19 @@ const OrderedItem = ({ order }) => {
       </div>
       <div className="buttons">
         {renderButton()}
-        <Button onClick={handleRemoveButton}>Smazat</Button>
+        <Button onClick={showModal}>Smazat</Button>
       </div>
+      <Modal
+        text={`Potvrďte vymazání objednávky číslo: ${order.orderNumber}`}
+        confirm={removeOrder}
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
+      />
     </OrderedItemContainer>
   );
 
-  function handleRemoveButton() {
-    removeOrder();
+  function showModal() {
+    setIsVisible(true);
   }
 
   function removeOrder() {

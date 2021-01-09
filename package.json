@@ -25,6 +25,7 @@
     "react-scroll": "^1.8.1",
     "react-slick": "^0.27.13",
     "react-toastify": "^6.1.0",
+    "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",

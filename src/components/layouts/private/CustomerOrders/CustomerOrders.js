@@ -5,6 +5,10 @@ import Button from '../../../common/Button';
 import OrderedItem from '../CustomerOrders/OrderedItem';
 import { showInfoToast } from '../../../../notifications/toast';
 
+const CustomerOrdersContainer = styled.div`
+  position: relative;
+`;
+
 const ShowButtons = styled.div`
   padding-top: 1rem;
   display: grid;
@@ -86,7 +90,7 @@ const CustomerOrders = ({
   }, [orders, newOrders, confirmedOrders, showNew, showConfirmed, showAll]);
 
   return (
-    <>
+    <CustomerOrdersContainer>
       <ShowButtons
         showNewsOrders={enableNewOrdersButton}
         showConfirmed={enableConfirmedButton}
@@ -113,7 +117,7 @@ const CustomerOrders = ({
         </Button>
       </ShowButtons>
       <OrdersContainer>{renderOrderedItems()}</OrdersContainer>
-    </>
+    </CustomerOrdersContainer>
   );
 
   function handleShowConfirmed() {
