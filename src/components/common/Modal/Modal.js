@@ -8,6 +8,7 @@ const ModelBackground = styled.div`
   align-items: center;
   min-width: 100%;
   min-height: 100%;
+  border-radius: 10px;
   max-width: var(--max-width);
   top: 0;
   left: 0;

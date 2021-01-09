@@ -12,6 +12,7 @@ import Modal from '../../../../../common/Modal';
 const StyledNewsListItem = styled.div`
   position: relative;
   padding: 2rem;
+
   border: 1px solid var(--color-tertiary);
   margin: 0.2rem;
   min-width: 100%;
@@ -81,7 +82,7 @@ const NewsListItem = ({
         <Button onClick={() => setShowModal(true)}>Smazat</Button>
       </div>
       <Modal
-        text={`Potvrďte vymazání karty.`}
+        text={`Potvrďte vymazání.`}
         confirm={handleDelete}
         showModal={showModal}
         setShowModal={setShowModal}
