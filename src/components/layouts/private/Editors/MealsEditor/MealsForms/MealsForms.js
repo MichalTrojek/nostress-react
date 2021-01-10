@@ -168,7 +168,7 @@ const MealsForms = ({
           checked={type === 'isWeeklyMeal'}
           onChange={(event) => setType(event.target.value)}
         />
-        <label for="weeklyId">Pokrm patří do týdenního menu</label>
+        <label htmlFor="weeklyId">Pokrm patří do týdenního menu</label>
 
         <input
           type="radio"
@@ -178,7 +178,7 @@ const MealsForms = ({
           checked={type === 'isBreakfastMeal'}
           onChange={(event) => setType(event.target.value)}
         />
-        <label for="breakfastId">Pokrm patří do snídaňového menu</label>
+        <label htmlFor="breakfastId">Pokrm patří do snídaňového menu</label>
 
         <input
           type="radio"
@@ -188,7 +188,7 @@ const MealsForms = ({
           onChange={(event) => setType(event.target.value)}
           id="childId"
         />
-        <label for="childId">Pokrm patří do dětského menu</label>
+        <label htmlFor="childId">Pokrm patří do dětského menu</label>
       </RadioGroup>
     );
   }

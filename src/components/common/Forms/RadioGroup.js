@@ -7,14 +7,21 @@ const RadioGroup = styled.div`
   padding-bottom: 1rem;
 
   label {
-    display: flex;
-    align-items: center;
+    display: block;
+    text-align: center;
     font-size: 2rem;
     padding: 1rem;
     border-radius: 10px;
     font-weight: bold;
     border: 1px solid var(--color-tertiary);
     cursor: pointer;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    @media only screen and (min-width: 931px) {
+      margin-bottom: 0;
+      width: 33%;
+    }
   }
 
   input {
