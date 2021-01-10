@@ -160,36 +160,35 @@ const MealsForms = ({
   function renderRadioGroup() {
     return (
       <RadioGroup>
-        <label>
-          <input
-            type="radio"
-            value="isWeeklyMeal"
-            name="mealType"
-            checked={type === 'isWeeklyMeal'}
-            onChange={(event) => setType(event.target.value)}
-          />
-          Pokrm patří do týdenního menu
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="isBreakfastMeal"
-            name="mealType"
-            checked={type === 'isBreakfastMeal'}
-            onChange={(event) => setType(event.target.value)}
-          />
-          Pokrm patří do snídaňového menu
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="isChildMeal"
-            name="mealType"
-            checked={type === 'isChildMeal'}
-            onChange={(event) => setType(event.target.value)}
-          />
-          Pokrm patří do dětského menu
-        </label>
+        <input
+          type="radio"
+          value="isWeeklyMeal"
+          name="mealType"
+          id="weeklyId"
+          checked={type === 'isWeeklyMeal'}
+          onChange={(event) => setType(event.target.value)}
+        />
+        <label for="weeklyId">Pokrm patří do týdenního menu</label>
+
+        <input
+          type="radio"
+          value="isBreakfastMeal"
+          name="mealType"
+          id="breakfastId"
+          checked={type === 'isBreakfastMeal'}
+          onChange={(event) => setType(event.target.value)}
+        />
+        <label for="breakfastId">Pokrm patří do snídaňového menu</label>
+
+        <input
+          type="radio"
+          value="isChildMeal"
+          name="mealType"
+          checked={type === 'isChildMeal'}
+          onChange={(event) => setType(event.target.value)}
+          id="childId"
+        />
+        <label for="childId">Pokrm patří do dětského menu</label>
       </RadioGroup>
     );
   }

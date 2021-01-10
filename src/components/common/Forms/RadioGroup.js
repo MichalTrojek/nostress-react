@@ -10,15 +10,20 @@ const RadioGroup = styled.div`
     display: flex;
     align-items: center;
     font-size: 2rem;
-    margin-left: 2rem;
-    min-width: 30rem;
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+    border: 1px solid var(--color-tertiary);
+    cursor: pointer;
+  }
 
-    input {
-      width: 2rem;
-      height: 2rem;
-      margin-right: 1rem;
-      cursor: pointer;
-    }
+  input {
+    display: none;
+  }
+
+  input:checked + label {
+    background-color: var(--color-tertiary);
+    color: black;
   }
 `;
 

@@ -15,7 +15,6 @@ const MealListItemContainer = styled.div`
   padding: 1rem;
   display: grid;
   grid-template-rows: max-content 1fr;
-
   min-width: 100%;
   margin: 0.2rem;
 
