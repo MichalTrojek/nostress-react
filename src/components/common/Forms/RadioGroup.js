@@ -32,6 +32,13 @@ const RadioGroup = styled.div`
     background-color: var(--color-tertiary);
     color: black;
   }
+
+  input:disabled + label {
+    background-color: transparent;
+    color: grey;
+    border: grey 1px solid;
+    cursor: default;
+  }
 `;
 
 export default RadioGroup;
