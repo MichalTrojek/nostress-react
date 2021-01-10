@@ -14,6 +14,19 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 2.7rem;
     } */
 
+
+    
+    /* animation: glow 0.1s;
+    @keyframes glow {
+    0% {
+      transform: scale(1.1);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+    } */
+
     *,
     *::before,
     *::after {
