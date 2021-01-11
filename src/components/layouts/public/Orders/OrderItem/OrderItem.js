@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import styled from 'styled-components';
 
 import Button from '../../../../common/Button';
 
@@ -7,15 +6,24 @@ import { connect } from 'react-redux';
 
 import updateOrderToState from '../../../../../redux/actions/orders/updateOrderToState';
 
+import styled, { keyframes } from 'styled-components';
+import { fadeInUp } from 'react-animations';
+
+const slideInUpAnimation = keyframes`${fadeInUp}`;
+
 const OrderItemContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 1fr 1fr min-content;
-  grid-row-gap: 1rem;
+  grid-row-gap: 0.4rem;
 
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
+  padding-bottom: 0;
   margin-top: 1rem;
+
+  border-bottom: 1px solid
+    ${(props) => (props.isOrdered ? 'red' : 'var(--color-tertiary)')};
 
   margin: 0.2rem;
   width: 100%;
@@ -84,19 +92,37 @@ const OrderItemContainer = styled.div`
   .orderAndCancel {
     grid-row: 4 / span 1;
     grid-column: 1/ -1;
+    width: calc(100% + 22px);
+
+    margin-left: -11px;
+
+    border-radius: 6px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    z-index: 1;
+
+    &:hover {
+      transform: translateY(0);
+    }
+    &:active {
+      transform: translateY(0);
+    }
   }
 
   .increment {
+    animation: 0.2s ${slideInUpAnimation};
     grid-row: 3 / span 1;
     grid-column: 1/ 5;
   }
 
   .decrement {
+    animation: 0.2s ${slideInUpAnimation};
     grid-row: 3 / span 1;
     grid-column: 9/ -1;
   }
 
   .counter {
+    animation: 0.2s ${slideInUpAnimation};
     grid-row: 3 / span 1;
     grid-column: 6/ 8;
     align-self: center;
@@ -131,7 +157,7 @@ const OrderItem = ({ name, alergens, price, updateOrderToState, items }) => {
   }, [amount, isOrdered, price, name, updateOrderToState]);
 
   return (
-    <OrderItemContainer>
+    <OrderItemContainer isOrdered={isOrdered}>
       <p className="name">{name}</p>
       {alergens ? <p className="alergens">Alergeny: ({alergens})</p> : <p></p>}
       <p className="price">Cena: {price},-</p>
@@ -145,6 +171,7 @@ const OrderItem = ({ name, alergens, price, updateOrderToState, items }) => {
         <Button className="orderAndCancel" onClick={stopOrdering}>
           zrušit
         </Button>
+
         <Button className="increment" primary onClick={() => increase()}>
           +
         </Button>
