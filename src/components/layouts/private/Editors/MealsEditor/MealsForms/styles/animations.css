@@ -1,18 +1,32 @@
+/*
+Slide from left
+*/
+
 .slideFromLeft-enter {
   transform: translateX(-100vw);
 }
-.slideFromLeft-exit {
-  transform: translateX(-100vw);
+
+.slideFromLeft-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms;
 }
+
+/*
+Slide from right
+*/
 
 .slideFromRight-enter {
   transform: translateX(100vw);
 }
 
-.slideFromRight-exit {
-  transform: translateX(100vw);
+.slideFromRight-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms;
 }
 
+/*
+fade
+*/
 .fade-enter {
   opacity: 0;
   transform: scale(0.9);

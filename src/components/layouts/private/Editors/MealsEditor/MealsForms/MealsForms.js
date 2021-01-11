@@ -16,6 +16,9 @@ import { v4 as uuidv4 } from 'uuid';
 import './styles/animations.css';
 
 const MealForm = styled(Form)`
+  .createMealButton {
+    width: 100%;
+  }
   @media only screen and (min-width: 1024px) {
     .inputs {
       display: grid;
@@ -41,10 +44,6 @@ const MealFormButtons = styled.div`
   justify-content: center;
   Button {
     width: 50%;
-  }
-
-  .createMealButton {
-    width: 100%;
   }
 
   Button:first-child {
@@ -135,8 +134,9 @@ const MealsForms = ({
   function renderButtons() {
     if (isEditModeOn) {
       return (
-        <MealFormButtons>
+        <TransitionGroup component={MealFormButtons} exit>
           <CSSTransition
+            key="changeBtn"
             in={isEditModeOn}
             timeout={300}
             classNames="slideFromLeft"
@@ -147,6 +147,7 @@ const MealsForms = ({
             </Button>
           </CSSTransition>
           <CSSTransition
+            key="resetBtn"
             in={isEditModeOn}
             timeout={300}
             classNames="slideFromRight"
@@ -156,15 +157,23 @@ const MealsForms = ({
               zrušit
             </Button>
           </CSSTransition>
-        </MealFormButtons>
+        </TransitionGroup>
       );
     } else {
       return (
-        <CSSTransition in={!isEditModeOn} timeout={300} classNames="fade">
-          <Button className="createMealButton" primary type="submit">
-            Vytvořit
-          </Button>
-        </CSSTransition>
+        <TransitionGroup component={null}>
+          <CSSTransition
+            key="createBtn"
+            in={!isEditModeOn}
+            timeout={300}
+            classNames="fade"
+            unmountOnExit
+          >
+            <Button className="createMealButton" primary type="submit">
+              Vytvořit
+            </Button>
+          </CSSTransition>
+        </TransitionGroup>
       );
     }
   }
