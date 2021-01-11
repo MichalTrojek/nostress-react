@@ -82,22 +82,22 @@ const OrderItemContainer = styled.div`
   }
 
   .orderAndCancel {
-    grid-row: 3 / span 1;
+    grid-row: 4 / span 1;
     grid-column: 1/ -1;
   }
 
   .increment {
-    grid-row: 4 / span 1;
+    grid-row: 3 / span 1;
     grid-column: 1/ 5;
   }
 
   .decrement {
-    grid-row: 4 / span 1;
+    grid-row: 3 / span 1;
     grid-column: 9/ -1;
   }
 
   .counter {
-    grid-row: 4 / span 1;
+    grid-row: 3 / span 1;
     grid-column: 6/ 8;
     align-self: center;
     justify-self: center;
@@ -134,7 +134,6 @@ const OrderItem = ({ name, alergens, price, updateOrderToState, items }) => {
     <OrderItemContainer>
       <p className="name">{name}</p>
       {alergens ? <p className="alergens">Alergeny: ({alergens})</p> : <p></p>}
-
       <p className="price">Cena: {price},-</p>
       {isOrdered ? renderButtons() : renderOrderButton()}
     </OrderItemContainer>
