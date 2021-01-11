@@ -10,8 +10,10 @@ import createMeal from '../../../../../../redux/actions/data/meals/createMeal';
 import editMeal from '../../../../../../redux/actions/data/meals/editMeal';
 import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
 import RadioGroup from '../../../../../common/Forms/RadioGroup';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import { v4 as uuidv4 } from 'uuid';
+import './styles/animations.css';
 
 const MealForm = styled(Form)`
   @media only screen and (min-width: 1024px) {
@@ -39,6 +41,10 @@ const MealFormButtons = styled.div`
   justify-content: center;
   Button {
     width: 50%;
+  }
+
+  .createMealButton {
+    width: 100%;
   }
 
   Button:first-child {
@@ -149,27 +155,6 @@ const MealsForms = ({
         createMeal(meal);
         clearStates();
       }
-    }
-  }
-
-  function renderButtons() {
-    if (isEditModeOn) {
-      return (
-        <MealFormButtons>
-          <Button primary type="submit">
-            změnit
-          </Button>
-          <Button primary type="reset" onClick={handleCancel}>
-            zrušit
-          </Button>
-        </MealFormButtons>
-      );
-    } else {
-      return (
-        <Button primary type="submit">
-          Vytvořit
-        </Button>
-      );
     }
   }
 
