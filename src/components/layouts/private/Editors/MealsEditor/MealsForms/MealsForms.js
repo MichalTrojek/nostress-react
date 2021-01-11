@@ -134,9 +134,9 @@ const MealsForms = ({
   function renderButtons() {
     if (isEditModeOn) {
       return (
-        <TransitionGroup component={MealFormButtons} exit>
+        <TransitionGroup component={MealFormButtons}>
           <CSSTransition
-            key="changeBtn"
+            key="changeBtnKey"
             in={isEditModeOn}
             timeout={300}
             classNames="slideFromLeft"
@@ -147,7 +147,7 @@ const MealsForms = ({
             </Button>
           </CSSTransition>
           <CSSTransition
-            key="resetBtn"
+            key="resetBtnKey"
             in={isEditModeOn}
             timeout={300}
             classNames="slideFromRight"
@@ -163,9 +163,9 @@ const MealsForms = ({
       return (
         <TransitionGroup component={null}>
           <CSSTransition
-            key="createBtn"
+            key="createBtnKey"
             in={!isEditModeOn}
-            timeout={300}
+            timeout={900}
             classNames="fade"
             unmountOnExit
           >
@@ -206,7 +206,7 @@ const MealsForms = ({
 
   function renderRadioGroup() {
     return (
-      <RadioGroup>
+      <RadioGroup className="animate__backInRight">
         <input
           type="radio"
           value="isWeeklyMeal"
