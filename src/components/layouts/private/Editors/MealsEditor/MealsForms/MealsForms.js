@@ -132,6 +132,43 @@ const MealsForms = ({
     </MealForm>
   );
 
+  function renderButtons() {
+    if (isEditModeOn) {
+      return (
+        <MealFormButtons>
+          <CSSTransition
+            in={isEditModeOn}
+            timeout={300}
+            classNames="slideFromLeft"
+            unmountOnExit
+          >
+            <Button primary type="submit">
+              změnit
+            </Button>
+          </CSSTransition>
+          <CSSTransition
+            in={isEditModeOn}
+            timeout={300}
+            classNames="slideFromRight"
+            unmountOnExit
+          >
+            <Button primary type="reset" onClick={handleCancel}>
+              zrušit
+            </Button>
+          </CSSTransition>
+        </MealFormButtons>
+      );
+    } else {
+      return (
+        <CSSTransition in={!isEditModeOn} timeout={300} classNames="fade">
+          <Button className="createMealButton" primary type="submit">
+            Vytvořit
+          </Button>
+        </CSSTransition>
+      );
+    }
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     if (name.length !== 0 && price.length !== 0 && menuNumber.length !== 0) {
