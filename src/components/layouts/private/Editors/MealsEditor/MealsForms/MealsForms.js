@@ -165,7 +165,7 @@ const MealsForms = ({
           <CSSTransition
             key="createBtnKey"
             in={!isEditModeOn}
-            timeout={900}
+            timeout={300}
             classNames="fade"
             unmountOnExit
           >
