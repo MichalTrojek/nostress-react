@@ -73,10 +73,10 @@ const OrderPage = ({ items, orderingStarted }) => {
 
     function handleResize() {
       // console.log('resize', window.innerWidth);
-      if (window.innerWidth <= 730) {
-        setShowShorterText(true);
-      } else {
+      if (window.innerWidth >= 1024) {
         setShowShorterText(false);
+      } else {
+        setShowShorterText(true);
       }
     }
 
