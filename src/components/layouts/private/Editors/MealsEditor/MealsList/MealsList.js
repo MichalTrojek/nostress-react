@@ -14,6 +14,7 @@ const MealsList = ({
   childMeals = [],
   breakfastMeals = [],
   fetchData,
+  isEditModeOn,
 }) => {
   const [mealType, setMealType] = useState('isWeeklyMeal');
 
@@ -59,6 +60,7 @@ const MealsList = ({
           name="mealType"
           defaultChecked={true}
           onChange={(event) => setMealType(event.target.value)}
+          disabled={isEditModeOn}
         />
         <label htmlFor="showWeeklyId">Zobrazit týdenní menu</label>
 
@@ -68,6 +70,7 @@ const MealsList = ({
           value="isBreakfastMeal"
           name="mealType"
           onChange={(event) => setMealType(event.target.value)}
+          disabled={isEditModeOn}
         />
         <label htmlFor="showBreakfastId">Zobrazit snídaňové menu</label>
 
@@ -77,6 +80,7 @@ const MealsList = ({
           value="isChildMeal"
           name="mealType"
           onChange={(event) => setMealType(event.target.value)}
+          disabled={isEditModeOn}
         />
         <label htmlFor="showChildsMealsId">Zobrazit dětské menu</label>
       </RadioGroup>
@@ -92,6 +96,7 @@ function mapStateToProps(state, ownProps) {
     weeklyMeals: weeklyMeals,
     childMeals: childMeals,
     breakfastMeals: breakfastMeals,
+    isEditModeOn: state.editor.isEditModeOn,
   };
 }
 
