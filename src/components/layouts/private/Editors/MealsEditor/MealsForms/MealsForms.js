@@ -34,6 +34,22 @@ const MealForm = styled(Form)`
   }
 `;
 
+const MealFormButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  Button {
+    width: 50%;
+  }
+
+  Button:first-child {
+    margin-right: 0.5rem;
+  }
+
+  Button:last-child {
+    margin-left: 0.5rem;
+  }
+`;
+
 const MealsForms = ({
   createMeal,
   editMeal,
@@ -139,14 +155,14 @@ const MealsForms = ({
   function renderButtons() {
     if (isEditModeOn) {
       return (
-        <div className="buttons">
+        <MealFormButtons>
           <Button primary type="submit">
             změnit
           </Button>
           <Button primary type="reset" onClick={handleCancel}>
             zrušit
           </Button>
-        </div>
+        </MealFormButtons>
       );
     } else {
       return (

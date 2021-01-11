@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-import { FormGroup } from '../../../../common/Forms/FormStyles';
+import FormGroup from '../../../../common/Forms/FormGroup';
 import Button from '../../../../common/Button';
 
 import ReactQuill from 'react-quill';

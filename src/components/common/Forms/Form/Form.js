@@ -10,14 +10,6 @@ const Form = styled.form`
     font-size: 2rem;
   }
 
-  .buttons {
-    display: flex;
-    justify-content: center;
-    Button {
-      margin: 0 1rem;
-    }
-  }
-
   textarea {
     border-radius: 5px;
     padding: 1rem;
