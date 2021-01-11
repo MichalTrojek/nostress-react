@@ -72,7 +72,8 @@ const OrderPage = ({ items, orderingStarted }) => {
     window.addEventListener('resize', handleResize);
 
     function handleResize() {
-      if (window.innerWidth <= 600) {
+      // console.log('resize', window.innerWidth);
+      if (window.innerWidth <= 730) {
         setShowShorterText(true);
       } else {
         setShowShorterText(false);
