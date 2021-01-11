@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -19,6 +18,15 @@ import logo from '../../../img/logo.png';
 import { showInfoToast } from '../../../notifications/toast';
 
 import { motion, AnimatePresence } from 'framer-motion';
+
+import styled, { keyframes } from 'styled-components';
+import { slideInUp } from 'react-animations';
+
+const slideInUpAnimation = keyframes`${slideInUp}`;
+
+const SlideInUpDiv = styled.div`
+  animation: 2s ${slideInUpAnimation};
+`;
 
 const OrderPageBackground = styled.section`
   background-color: black;
@@ -204,7 +212,9 @@ const OrderPage = ({ items, orderingStarted }) => {
 
   function renderMenu() {
     return orderingStarted.menuType === 'MainMenu' ? (
-      <OrderMainMenu />
+      <SlideInUpDiv>
+        <OrderMainMenu />
+      </SlideInUpDiv>
     ) : (
       <OrderBreakfastMenu />
     );
