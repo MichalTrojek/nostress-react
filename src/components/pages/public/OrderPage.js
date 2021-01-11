@@ -23,6 +23,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const OrderPageBackground = styled.section`
   background-color: black;
   min-height: 100vh;
+  overflow-x: hidden;
 `;
 
 const GoBackNavBar = styled.nav`
@@ -72,11 +73,10 @@ const OrderPage = ({ items, orderingStarted }) => {
     window.addEventListener('resize', handleResize);
 
     function handleResize() {
-      // console.log('resize', window.innerWidth);
-      if (window.innerWidth >= 1024) {
-        setShowShorterText(false);
-      } else {
+      if (window.innerWidth <= 570) {
         setShowShorterText(true);
+      } else {
+        setShowShorterText(false);
       }
     }
 
