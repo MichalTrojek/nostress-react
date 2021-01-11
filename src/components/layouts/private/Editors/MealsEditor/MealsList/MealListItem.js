@@ -81,7 +81,7 @@ const MealListItem = ({ meal, isEditModeOn, setSelectedItem, deleteMeal }) => {
   return (
     <MealListItemContainer>
       <p className="menuNumber">{meal.menuNumber} </p>
-      {renderIsChildMeal()}
+      {renderMealType()}
       <p>Název: {meal.name}</p>
       <p>Alergeny: ({meal.alergens})</p>
       <p className="price">Cena: {meal.price},-</p>
@@ -90,7 +90,7 @@ const MealListItem = ({ meal, isEditModeOn, setSelectedItem, deleteMeal }) => {
         <Button primary onClick={handleEdit}>
           editovat{' '}
         </Button>
-        <Button onClick={() => setShowModal(true)}> smazat</Button>
+        <Button onClick={() => setShowModal(true)}>smazat</Button>
       </div>
       <Modal
         text={`Potvrďte vymazání menu číslo: ${meal.menuNumber}`}
@@ -101,15 +101,14 @@ const MealListItem = ({ meal, isEditModeOn, setSelectedItem, deleteMeal }) => {
     </MealListItemContainer>
   );
 
-  function renderIsChildMeal() {
-    switch (meal.type) {
-      case 'isChildMeal':
-        return <p style={{ fontWeight: 'bold' }}>Dětské menu</p>;
-      case 'isBreakfastMeal':
-        return <p style={{ fontWeight: 'bold' }}>Snídaňové menu</p>;
-      default:
-        return <p style={{ fontWeight: 'bold' }}>Týdenní menu</p>;
+  function renderMealType() {
+    let text = 'Týdenní menu';
+    if (meal.type === 'isChildMeal') {
+      text = 'Dětské menu';
+    } else if (meal.type === 'isBreakfastMeal') {
+      text = 'Snídaňové menu';
     }
+    return <p style={{ fontWeight: 'bold' }}>{text}</p>;
   }
 
   function handleEdit() {
