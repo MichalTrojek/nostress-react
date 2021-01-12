@@ -3,14 +3,7 @@ import styled from 'styled-components';
 const MealListContainer = styled.div`
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fill, 1fr);
-  @media only screen and (min-width: 768px) {
-    grid-template-columns: repeat(auto-fill, 49%);
-  }
-
-  @media only screen and (min-width: 1262px) {
-    grid-template-columns: repeat(auto-fill, 32.8%);
-  }
+  grid-template-columns: repeat(auto-fill, minmax(34rem, 1fr));
 `;
 
 export default MealListContainer;
