@@ -5,17 +5,17 @@ const OrderedBoxStyle = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: max-content;
 
-  .amount {
+  .OrderedBox__amount {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
   }
-  .name {
+  .OrderedBox__name {
     grid-column: 2 / 11;
     grid-row: 1 / span 1;
     hyphens: auto;
   }
 
-  .price {
+  .OrderedBox__price {
     grid-column: 12/ -1;
     grid-row: 1 / span 1;
     color: var(--color-tertiary);
@@ -25,9 +25,9 @@ const OrderedBoxStyle = styled.div`
 const OrderedBox = ({ item }) => {
   return (
     <OrderedBoxStyle>
-      <p className="name">{item.name}</p>
-      <p className="amount">{item.amount} x </p>
-      <p className="price">{item.price},-</p>
+      <p className="OrderedBox__name">{item.name}</p>
+      <p className="OrderedBox__amount">{item.amount} x </p>
+      <p className="OrderedBox__price">{item.price},-</p>
     </OrderedBoxStyle>
   );
 };

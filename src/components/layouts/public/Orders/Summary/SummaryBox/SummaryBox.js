@@ -38,6 +38,7 @@ const SummaryBox = ({
       <p className="totalPrice">Cena celkem: {totalPrice},-</p>
     </SummaryBoxStyle>
   );
+
   function renderOrderedItems() {
     return items.map((item, index) => {
       return <OrderedBox key={index} item={item} />;
