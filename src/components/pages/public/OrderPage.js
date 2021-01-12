@@ -194,9 +194,13 @@ const OrderPage = ({ items, orderingStarted }) => {
         key="OrderPicker"
         exit="exit"
       >
-        <h1>{renderHeader()}</h1>
+        <h1 className="orderContainer__heading">{renderHeader()}</h1>
         <Cart />
-        <Button className="orderButton" primary onClick={handleOrder}>
+        <Button
+          className="orderContainer__button"
+          primary
+          onClick={handleOrder}
+        >
           Pokračovat k objednávce
         </Button>
         {renderMenu()}
