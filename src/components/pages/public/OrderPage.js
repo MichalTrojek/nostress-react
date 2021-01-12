@@ -137,35 +137,7 @@ const OrderPage = ({ items, orderingStarted }) => {
   );
 
   function renderSummary() {
-    const summaryVariants = {
-      hidden: { display: 'none', x: '100vw' },
-      exit: {
-        x: '100vw',
-        transitionEnd: {
-          display: 'none',
-        },
-        transition: { delay: 0, duration: 0.5 },
-      },
-
-      visible: {
-        x: 0,
-        display: 'block',
-        transition: { delay: 0, duration: 0.5 },
-      },
-    };
-
-    return (
-      <motion.div
-        variants={summaryVariants}
-        initial="hidden"
-        animate={showSummary ? 'visible' : 'hidden'}
-        exit="exit"
-        key="summaryKey"
-      >
-        <Summary hideSummary={hideSummary} />
-      </motion.div>
-    );
-
+    return <Summary showSummary={showSummary} hideSummary={hideSummary} />;
     function hideSummary() {
       setShowSummary(false);
     }

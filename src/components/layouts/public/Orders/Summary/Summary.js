@@ -12,6 +12,8 @@ import createOrder from '../../../../../redux/actions/orders/createOrder';
 import { DELIVERY } from '../../../../../utils/constant';
 import { sendOrderSentEmail } from '../../../../../utils/emailUtils';
 
+import { motion } from 'framer-motion';
+
 const SummaryBox = styled.div`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
@@ -45,6 +47,24 @@ const OrderedBox = styled.div`
     color: var(--color-tertiary);
   }
 `;
+
+const summaryVariants = {
+  hidden: { display: 'none', x: '100vw' },
+  exit: {
+    x: '100vw',
+    transitionEnd: {
+      display: 'none',
+    },
+    transition: { delay: 0, duration: 0.5 },
+  },
+
+  visible: {
+    x: 0,
+    display: 'block',
+    transition: { delay: 0, duration: 0.5 },
+  },
+};
+
 const Summary = ({
   items = [],
   totalPrice,
@@ -53,6 +73,7 @@ const Summary = ({
   hideSummary,
   menuType,
   orderMethod,
+  showSummary,
 }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -61,7 +82,13 @@ const Summary = ({
   const history = useHistory();
 
   return (
-    <>
+    <motion.div
+      variants={summaryVariants}
+      initial="hidden"
+      animate={showSummary ? 'visible' : 'hidden'}
+      exit="exit"
+      key="summaryKey"
+    >
       <h1>Souhrn objednávky</h1>
       <SummaryBox>
         <p>
@@ -132,7 +159,7 @@ const Summary = ({
           Zpět
         </Button>
       </Form>
-    </>
+    </motion.div>
   );
 
   function handleBackButton(e) {
