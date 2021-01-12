@@ -16,13 +16,13 @@ const CardRadioGroupContainer = styled(RadioGroup)`
     border-bottom: 0;
     border-left: 0;
     border-right: 0;
+    padding: 0.1rem 0;
 
     @media only screen and (min-width: 931px) {
       width: 50%;
     }
 
     &:nth-child(2) {
-      /* border-bottom-left-radius: 7px; */
       @media only screen and (min-width: 931px) {
         border-bottom-left-radius: 7px;
       }
