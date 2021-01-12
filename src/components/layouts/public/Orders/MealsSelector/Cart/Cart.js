@@ -12,6 +12,14 @@ import setTotalPrice from '../../../../../../redux/actions/orders/setTotalPrice'
 const CartContainer = styled.div`
   border: 1px solid var(--color-tertiary);
   border-radius: 10px;
+  transition: all 1s;
+
+  .items {
+    min-height: 10rem;
+    @media only screen and (min-width: 1024px) {
+      min-height: 15rem;
+    }
+  }
 `;
 
 const Cart = ({ items = [], totalPrice, setTotalPrice }) => {
@@ -35,11 +43,12 @@ const Cart = ({ items = [], totalPrice, setTotalPrice }) => {
         <p className="name">Název</p>
         <p className="price">Cena/kus</p>
       </CartHeader>
-
-      {items.length > 0 ? renderItems() : renderEmptyItem()}
+      <div className="items">
+        {items.length > 0 ? renderItems() : renderEmptyItem()}
+      </div>
       <CartFooter>
         <p>Celkem kusů: {totalAmount}</p>
-        <p className="totalPrice">Celkem: {totalPrice} ,- </p>
+        <p className="totalPrice">Celkem: {totalPrice},- Kč </p>
       </CartFooter>
       <CartRadioGroup />
     </CartContainer>

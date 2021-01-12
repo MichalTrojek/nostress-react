@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const CartItem = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  padding: 1rem;
+  padding: 0 1rem;
 
   .name {
     grid-row: 1 / span 1;
@@ -18,6 +18,7 @@ const CartItem = styled.div`
   .price {
     grid-row: 1 / span 1;
     grid-column: 12 / span 1;
+    justify-self: center;
   }
 `;
 
