@@ -64,7 +64,13 @@ const OrderPage = ({ items, orderingStarted }) => {
   );
 
   function renderSummary() {
-    return <Summary showSummary={showSummary} hideSummary={hideSummary} />;
+    return (
+      <Summary
+        key="summaryKey"
+        showSummary={showSummary}
+        hideSummary={hideSummary}
+      />
+    );
     function hideSummary() {
       setShowSummary(false);
     }
@@ -73,6 +79,7 @@ const OrderPage = ({ items, orderingStarted }) => {
   function renderMealsSelector() {
     return (
       <MealsSelector
+        key="mealSelectorKey"
         showSummary={showSummary}
         setShowSummary={setShowSummary}
         orderingStarted={orderingStarted}

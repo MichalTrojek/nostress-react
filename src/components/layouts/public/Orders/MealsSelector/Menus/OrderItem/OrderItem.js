@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
-import Button from '../../../../common/Button';
+import Button from '../../../../../../common/Button';
 
 import { connect } from 'react-redux';
 
-import updateOrderToState from '../../../../../redux/actions/orders/updateOrderToState';
+import updateOrderToState from '../../../../../../../redux/actions/orders/updateOrderToState';
 
 import styled, { keyframes } from 'styled-components';
 import { fadeInUp } from 'react-animations';
