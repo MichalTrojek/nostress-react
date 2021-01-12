@@ -12,79 +12,39 @@ import { fadeInUp } from 'react-animations';
 const slideInUpAnimation = keyframes`${fadeInUp}`;
 
 const OrderItemContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr 1fr min-content;
-  grid-row-gap: 0.4rem;
-
   border: 1px solid var(--color-tertiary);
+  border-radius: 5px;
   padding: 1rem;
-  padding-bottom: 0;
+  padding-bottom: 10rem;
+
+  position: relative;
 
   border-bottom: 1px solid
     ${(props) => (props.isOrdered ? 'red' : 'var(--color-tertiary)')};
 
-  margin: 0.2rem;
-  width: 100%;
-
-  border-radius: 10px;
-
-  transition: all 0.2s;
-
   .name {
-    grid-row: 1 / span 1;
-    grid-column: 1 / -1;
-    font-weight: bold;
-    hyphens: auto;
   }
 
   .alergens,
   .price {
-    align-self: center;
   }
 
   .alergens {
-    grid-row: 2 / span 1;
-    grid-column: 1 / span 5;
-
-    @media only screen and (min-width: 768px) {
-      grid-column: 1 / span 7;
-    }
   }
 
   .price {
-    grid-row: 2 / span 1;
-    grid-column: 10 / -1;
-    font-weight: bold;
-    color: var(--color-tertiary);
-
-    @media only screen and (min-width: 768px) {
-      grid-column: 9 / -1;
-    }
-
-    @media only screen and (min-width: 900px) {
-      grid-column: 10 / -1;
-    }
-
-    @media only screen and (min-width: 1209px) {
-      grid-column: 9 / -1;
-    }
-    @media only screen and (min-width: 1400px) {
-      grid-column: 10/ -1;
-    }
   }
 
   .orderAndCancel {
-    grid-row: 4 / span 1;
-    grid-column: 1/ -1;
-    width: calc(100% + 22px);
+    position: absolute;
+    width: calc(100% + 2px);
+    height: 20%;
+    bottom: 0px;
+    left: -1px;
 
-    margin-left: -11px;
-
-    border-radius: 6px;
+    border-radius: 3px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    z-index: 1;
 
     &:hover {
       transform: translateY(0);
@@ -94,26 +54,41 @@ const OrderItemContainer = styled.div`
     }
   }
 
-  .increment {
+  .buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    left: 0;
+    bottom: 20%;
     animation: 0.2s ${slideInUpAnimation};
-    grid-row: 3 / span 1;
-    grid-column: 1/ 5;
-  }
+    &__increment,
+    &__decrement {
+      width: 30%;
+      border-radius: 0;
 
-  .decrement {
-    animation: 0.2s ${slideInUpAnimation};
-    grid-row: 3 / span 1;
-    grid-column: 9/ -1;
-  }
+      &:hover {
+        transform: translateY(0);
+      }
+      &:active {
+        transform: translateY(0);
+      }
+    }
 
-  .counter {
-    animation: 0.2s ${slideInUpAnimation};
-    grid-row: 3 / span 1;
-    grid-column: 6/ 8;
-    align-self: center;
-    justify-self: center;
-    font-weight: bold;
-    font-size: 2rem;
+    &__increment {
+      border-top-right-radius: 5px;
+    }
+
+    &__decrement {
+      border-top-left-radius: 5px;
+    }
+
+    &__counter {
+      font-size: 2.6rem;
+      font-weight: bold;
+    }
   }
 `;
 
@@ -153,16 +128,26 @@ const OrderItem = ({ name, alergens, price, updateOrderToState, items }) => {
   function renderButtons() {
     return (
       <>
+        <div className="buttonsContainer">
+          <Button
+            className="buttonsContainer__increment"
+            primary
+            onClick={() => increase()}
+          >
+            +
+          </Button>
+          <span className="buttonsContainer__counter">{amount}</span>
+          <Button
+            className="buttonsContainer__decrement"
+            primary
+            onClick={() => decrease()}
+          >
+            -
+          </Button>
+        </div>
+
         <Button className="orderAndCancel" onClick={stopOrdering}>
           zrušit
-        </Button>
-
-        <Button className="increment" primary onClick={() => increase()}>
-          +
-        </Button>
-        <span className="counter">{amount}</span>
-        <Button className="decrement" primary onClick={() => decrease()}>
-          -
         </Button>
       </>
     );
