@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import OrderItem from '../OrderItem';
 
-import MealListContainer from '../../../styles/MealListContainer';
+import MealListContainer from '../MealListContainer';
 
 import sortOutMenusByType from '../../../../../../../utils/mealUtils';
 

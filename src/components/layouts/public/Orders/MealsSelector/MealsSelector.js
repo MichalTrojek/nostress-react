@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import styled, { keyframes } from 'styled-components';
 import { slideInUp } from 'react-animations';
 import OrderBreakfastMenu from './Menus/OrderBreakfastMenu';
-import OrderMainMenu from './Menus/OrderBreakfastMenu';
+import OrderMainMenu from './Menus/OrderMainMenu';
 import { showInfoToast } from '../../../../../notifications/toast';
 import Button from '../../../../common/Button';
 import Cart from './Cart';
