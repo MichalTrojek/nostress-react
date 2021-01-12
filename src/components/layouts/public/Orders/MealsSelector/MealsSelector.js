@@ -6,7 +6,7 @@ import OrderBreakfastMenu from '../OrderBreakfastMenu';
 import OrderMainMenu from '../OrderMainMenu';
 import { showInfoToast } from '../../../../../notifications/toast';
 import Button from '../../../../common/Button';
-import Cart from '../Cart';
+import Cart from './Cart';
 
 const slideInUpAnimation = keyframes`${slideInUp}`;
 

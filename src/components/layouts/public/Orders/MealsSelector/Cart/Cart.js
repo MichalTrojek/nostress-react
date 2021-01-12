@@ -7,7 +7,7 @@ import CartHeader from './styles/CartHeader';
 import CartItem from './styles/CartItem';
 import CartRadioGroup from './CartRadioGroup';
 
-import setTotalPrice from '../../../../../redux/actions/orders/setTotalPrice';
+import setTotalPrice from '../../../../../../redux/actions/orders/setTotalPrice';
 
 const CartContainer = styled.div`
   border: 1px solid var(--color-tertiary);

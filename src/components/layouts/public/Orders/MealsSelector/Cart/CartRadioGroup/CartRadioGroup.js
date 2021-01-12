@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import orderMethod from '../../../../../../redux/actions/orders/orderMethod';
+import orderMethod from '../../../../../../../redux/actions/orders/orderMethod';
 
-import RadioGroup from '../../../../../common/Forms/RadioGroup';
+import RadioGroup from '../../../../../../common/Forms/RadioGroup';
 
-import { DELIVERY, PICKUP } from '../../../../../../utils/constant';
+import { DELIVERY, PICKUP } from '../../../../../../../utils/constant';
 
 const CardRadioGroupContainer = styled(RadioGroup)`
   padding-bottom: 0;
