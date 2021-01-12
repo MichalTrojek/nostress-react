@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 
 const MealListContainer = styled.div`
-  /* @media only screen and (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-  } */
-
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, 1fr);

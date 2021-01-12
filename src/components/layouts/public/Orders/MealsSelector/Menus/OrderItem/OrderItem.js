@@ -31,20 +31,6 @@ const OrderItemContainer = styled.div`
 
   transition: all 0.2s;
 
-  /* @media only screen and (min-width: 768px) {
-    --width: calc((98% / 2));
-    max-width: var(--width);
-    min-width: var(--width);
-  }
-
-  @media only screen and (min-width: 1024px) {
-    --width: calc((99% / 2));
-  }
-
-  @media only screen and (min-width: 1209px) {
-    --width: calc((99% / 3));
-  } */
-
   .name {
     grid-row: 1 / span 1;
     grid-column: 1 / -1;
