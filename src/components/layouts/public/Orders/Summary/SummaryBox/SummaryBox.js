@@ -21,13 +21,6 @@ const SummaryBoxStyle = styled.div`
     color: var(--color-tertiary);
     font-weight: bold;
     justify-self: flex-end;
-    /* @media only screen and (min-width: 768px) {
-      padding-right: 2rem;
-    }
-
-    @media only screen and (min-width: 1024px) {
-      padding-right: 4rem;
-    } */
   }
 `;
 
