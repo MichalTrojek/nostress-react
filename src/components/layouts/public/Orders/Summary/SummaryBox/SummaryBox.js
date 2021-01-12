@@ -7,9 +7,10 @@ import CustomerInfoBox from './CustomerInfoBox';
 
 const SummaryBoxStyle = styled.div`
   border: 1px solid var(--color-tertiary);
-  padding: 1rem;
+  padding: 2rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  border-radius: 10px;
 
   .SummaryBox__deliveryMethod {
     grid-column: 1 / -1;
