@@ -11,9 +11,13 @@ const SummaryBoxStyle = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 
-  grid-row-gap: 1rem;
+  .SummaryBox__deliveryMethod {
+    grid-column: 1 / -1;
+  }
 
   .SummaryBox__totalPrice {
+    grid-column: 1 / -1;
+
     color: var(--color-tertiary);
     font-weight: bold;
     justify-self: flex-end;
@@ -37,7 +41,7 @@ const SummaryBox = ({
 }) => {
   return (
     <SummaryBoxStyle>
-      <p>
+      <p className="SummaryBox__deliveryMethod">
         Způsob dopravy:{' '}
         {orderMethod === DELIVERY ? 'ROZVOZ' : 'OSOBNÍ VYZVEDNUTÍ'}
       </p>

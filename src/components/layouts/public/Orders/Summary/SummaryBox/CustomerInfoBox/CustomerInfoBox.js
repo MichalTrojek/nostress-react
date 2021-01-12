@@ -5,6 +5,7 @@ const CustomerInfoBoxStyle = styled.div`
   flex-direction: column;
   grid-column: 1/ -1;
   grid-row: 2 / span 1;
+  padding-bottom: 1rem;
 `;
 
 const CustomerInfoBox = ({ name, email, phoneNumber }) => {

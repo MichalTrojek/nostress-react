@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const OrderedBoxStyle = styled.div`
+  padding: 0.5rem 0;
+  grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: max-content;
@@ -19,6 +21,7 @@ const OrderedBoxStyle = styled.div`
     grid-column: 12/ -1;
     grid-row: 1 / span 1;
     color: var(--color-tertiary);
+    justify-self: end;
   }
 `;
 
