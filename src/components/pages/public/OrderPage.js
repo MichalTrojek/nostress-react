@@ -25,7 +25,7 @@ import { slideInUp } from 'react-animations';
 const slideInUpAnimation = keyframes`${slideInUp}`;
 
 const SlideInUpDiv = styled.div`
-  animation: 2s ${slideInUpAnimation};
+  animation: 1s ${slideInUpAnimation};
 `;
 
 const OrderPageBackground = styled.section`
@@ -216,7 +216,9 @@ const OrderPage = ({ items, orderingStarted }) => {
         <OrderMainMenu />
       </SlideInUpDiv>
     ) : (
-      <OrderBreakfastMenu />
+      <SlideInUpDiv>
+        <OrderBreakfastMenu />
+      </SlideInUpDiv>
     );
   }
 
