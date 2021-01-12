@@ -27,19 +27,14 @@ const MealsSelectorContainerStyle = styled(motion.div)`
       props.isOrderingAllowed ? 'var(--color-tertiary)' : 'transparent'};
     color: ${(props) => (props.isOrderingAllowed ? 'black' : 'white')};
     border: 1px solid
-      ${(props) =>
-        props.isOrderingAllowed ? 'var(--color-tertiary)' : 'grey'};
+      ${(props) => (props.isOrderingAllowed ? 'var(--color-tertiary)' : 'grey')};
     cursor: ${(props) => (props.isOrderingAllowed ? 'pointer' : 'default')};
 
-    &:hover, &:active {
-
-    transform: ${(props) =>
-      props.isOrderingAllowed ? 'translateY(-0.2rem)' : ' translateY(0)'};
-    
+    &:hover,
+    &:active {
+      transform: ${(props) =>
+        props.isOrderingAllowed ? 'translateY(-0.2rem)' : ' translateY(0)'};
     }
-  }
-  
-
   }
 
   @media only screen and (max-width: 411px) {
