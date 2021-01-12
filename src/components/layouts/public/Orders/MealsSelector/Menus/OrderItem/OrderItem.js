@@ -20,7 +20,6 @@ const OrderItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
   padding-bottom: 0;
-  margin-top: 1rem;
 
   border-bottom: 1px solid
     ${(props) => (props.isOrdered ? 'red' : 'var(--color-tertiary)')};
@@ -32,7 +31,7 @@ const OrderItemContainer = styled.div`
 
   transition: all 0.2s;
 
-  @media only screen and (min-width: 768px) {
+  /* @media only screen and (min-width: 768px) {
     --width: calc((98% / 2));
     max-width: var(--width);
     min-width: var(--width);
@@ -44,7 +43,7 @@ const OrderItemContainer = styled.div`
 
   @media only screen and (min-width: 1209px) {
     --width: calc((99% / 3));
-  }
+  } */
 
   .name {
     grid-row: 1 / span 1;

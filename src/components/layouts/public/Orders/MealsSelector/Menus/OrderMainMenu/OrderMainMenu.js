@@ -17,7 +17,8 @@ const OrderMainMenu = ({
       <MealListContainer>{renderMainMenu()}</MealListContainer>
       <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Dětské menu</h1>
       <MealListContainer>{renderChildMenu()}</MealListContainer>
-      {renderSoup(soup)}
+      <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Polévky</h1>
+      <MealListContainer>{renderSoup(soup)}</MealListContainer>
     </>
   );
 
@@ -50,10 +51,7 @@ const OrderMainMenu = ({
 
 function renderSoup(soup) {
   return soup.name.length > 0 ? (
-    <>
-      <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Polévky</h1>
-      <OrderItem name={soup.name} price={soup.price} />
-    </>
+    <OrderItem name={soup.name} price={soup.price} />
   ) : (
     <></>
   );
