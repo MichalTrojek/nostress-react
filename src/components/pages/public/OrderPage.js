@@ -16,6 +16,7 @@ const OrderPageBackground = styled.section`
   background-color: black;
   min-height: 100vh;
   overflow-x: hidden;
+  padding-bottom: 5rem;
 `;
 
 const OrderPage = ({ items, orderingStarted }) => {
