@@ -4,7 +4,7 @@ import logo from '../../../../../img/logo.png';
 
 import { useHistory } from 'react-router-dom';
 
-const GoBackNavBarStyle = styled.nav`
+const OrderNavBarStyle = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +19,7 @@ const GoBackNavBarStyle = styled.nav`
   }
 `;
 
-const GoBackNavBarItem = styled.div`
+const OrderNavBarItem = styled.div`
   padding: 1rem;
   border-radius: 0.5rem;
   text-align: center;
@@ -32,7 +32,7 @@ const GoBackNavBarItem = styled.div`
   }
 `;
 
-const GoBackNavBar = () => {
+const OrderNavBar = () => {
   const [showShorterText, setShowShorterText] = useState(false);
   const history = useHistory();
   useEffect(() => {
@@ -52,13 +52,13 @@ const GoBackNavBar = () => {
     };
   }, []);
   return (
-    <GoBackNavBarStyle>
+    <OrderNavBarStyle>
       <img className="GoBackNavBar__logo" src={logo} alt="no stress logo" />
-      <GoBackNavBarItem onClick={() => history.push('/')}>
+      <OrderNavBarItem onClick={() => history.push('/')}>
         {showShorterText ? 'DOMŮ' : 'VRÁTIT SE NA HLAVNÍ STRÁNKU'}
-      </GoBackNavBarItem>
-    </GoBackNavBarStyle>
+      </OrderNavBarItem>
+    </OrderNavBarStyle>
   );
 };
 
-export default GoBackNavBar;
+export default OrderNavBar;
