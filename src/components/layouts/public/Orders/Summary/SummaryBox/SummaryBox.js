@@ -3,17 +3,27 @@ import styled from 'styled-components';
 import { DELIVERY } from '../../../../../../utils/constant';
 
 import OrderedBox from './OrderBox';
+import CustomerInfoBox from './CustomerInfoBox';
 
 const SummaryBoxStyle = styled.div`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
   display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
   grid-row-gap: 1rem;
 
-  .totalPrice {
+  .SummaryBox__totalPrice {
     color: var(--color-tertiary);
     font-weight: bold;
     justify-self: flex-end;
+    /* @media only screen and (min-width: 768px) {
+      padding-right: 2rem;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      padding-right: 4rem;
+    } */
   }
 `;
 
@@ -31,11 +41,9 @@ const SummaryBox = ({
         Způsob dopravy:{' '}
         {orderMethod === DELIVERY ? 'ROZVOZ' : 'OSOBNÍ VYZVEDNUTÍ'}
       </p>
-      <p>Jmeno: {name}</p>
-      <p>Email: {email}</p>
-      <p>Telefon: {phoneNumber}</p>
+      <CustomerInfoBox name={name} email={email} phoneNumber={phoneNumber} />
       {renderOrderedItems()}
-      <p className="totalPrice">Cena celkem: {totalPrice},-</p>
+      <p className="SummaryBox__totalPrice">Cena celkem: {totalPrice},- Kč</p>
     </SummaryBoxStyle>
   );
 
