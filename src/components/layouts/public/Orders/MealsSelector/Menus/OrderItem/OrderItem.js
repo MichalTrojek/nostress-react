@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 
+import OrderedAmount from './OrderedAmount';
 import Button from '../../../../../../common/Button';
 
 import { connect } from 'react-redux';
 
 import updateOrderToState from '../../../../../../../redux/actions/orders/updateOrderToState';
 
-import styled, { keyframes } from 'styled-components';
-import { fadeInUp } from 'react-animations';
-
-const slideInUpAnimation = keyframes`${fadeInUp}`;
+import styled from 'styled-components';
 
 const OrderItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
@@ -53,43 +51,6 @@ const OrderItemContainer = styled.div`
       transform: translateY(0);
     }
   }
-
-  .buttonsContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 20%;
-    position: absolute;
-    left: 0;
-    bottom: 20%;
-    animation: 0.2s ${slideInUpAnimation};
-    &__increment,
-    &__decrement {
-      width: 30%;
-      border-radius: 0;
-
-      &:hover {
-        transform: translateY(0);
-      }
-      &:active {
-        transform: translateY(0);
-      }
-    }
-
-    &__increment {
-      border-top-right-radius: 5px;
-    }
-
-    &__decrement {
-      border-top-left-radius: 5px;
-    }
-
-    &__counter {
-      font-size: 2.6rem;
-      font-weight: bold;
-    }
-  }
 `;
 
 const OrderItem = ({ name, alergens, price, updateOrderToState, items }) => {
@@ -128,24 +89,11 @@ const OrderItem = ({ name, alergens, price, updateOrderToState, items }) => {
   function renderButtons() {
     return (
       <>
-        <div className="buttonsContainer">
-          <Button
-            className="buttonsContainer__increment"
-            primary
-            onClick={() => increase()}
-          >
-            +
-          </Button>
-          <span className="buttonsContainer__counter">{amount}</span>
-          <Button
-            className="buttonsContainer__decrement"
-            primary
-            onClick={() => decrease()}
-          >
-            -
-          </Button>
-        </div>
-
+        <OrderedAmount
+          increase={increase}
+          decrease={decrease}
+          amount={amount}
+        />
         <Button className="orderAndCancel" onClick={stopOrdering}>
           zrušit
         </Button>
