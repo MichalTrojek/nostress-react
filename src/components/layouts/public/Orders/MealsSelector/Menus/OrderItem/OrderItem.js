@@ -13,32 +13,35 @@ const OrderItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
   border-radius: 5px;
   padding: 1rem;
-  padding-bottom: 10rem;
-
+  padding-bottom: 12%;
   position: relative;
+  border-bottom: 1px solid var(--color-tertiary);
 
-  border-bottom: 1px solid
-    ${(props) => (props.isOrdered ? 'red' : 'var(--color-tertiary)')};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   .name {
+    grid-row: 1 / span 1;
+    grid-column: 1/ -1;
   }
 
-  .alergens,
-  .price {
-  }
-
-  .alergens {
-  }
-
-  .price {
+  .priceAndAlergens {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    .price {
+      color: var(--color-tertiary);
+      font-weight: bold;
+    }
   }
 
   .orderAndCancel {
     position: absolute;
-    width: calc(100% + 2px);
-    height: 20%;
+    width: 100%;
+
     bottom: 0px;
-    left: -1px;
+    left: 0px;
 
     border-radius: 3px;
     border-top-left-radius: 0;
@@ -80,24 +83,22 @@ const OrderItem = ({ name, alergens, price, updateOrderToState, items }) => {
   return (
     <OrderItemContainer isOrdered={isOrdered}>
       <p className="name">{name}</p>
-      {alergens ? <p className="alergens">Alergeny: ({alergens})</p> : <p></p>}
-      <p className="price">Cena: {price},-</p>
+
+      <div className="priceAndAlergens">
+        {alergens ? (
+          <p className="alergens">Alergeny: ({alergens})</p>
+        ) : (
+          <p></p>
+        )}
+        <p className="price">Cena: {price},-</p>
+      </div>
       {isOrdered ? renderButtons() : renderOrderButton()}
     </OrderItemContainer>
   );
 
   function renderButtons() {
     return (
-      <>
-        <OrderedAmount
-          increase={increase}
-          decrease={decrease}
-          amount={amount}
-        />
-        <Button className="orderAndCancel" onClick={stopOrdering}>
-          zrušit
-        </Button>
-      </>
+      <OrderedAmount increase={increase} decrease={decrease} amount={amount} />
     );
   }
 
