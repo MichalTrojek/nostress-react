@@ -18,16 +18,21 @@ const MealsSelectorContainerStyle = styled(motion.div)`
   display: flex;
   flex-direction: column;
 
-  .orderContainer__heading {
+  .heading {
     padding-bottom: 1rem;
   }
-  .orderContainer__button {
+  .button {
     margin-top: 1rem;
+    background-color: ${(props) =>
+      props.isOrderingAllowed ? 'var(--color-tertiary)' : 'transparent'};
+    color: ${(props) => (props.isOrderingAllowed ? 'black' : 'white')};
+    border: 1px solid
+      ${(props) => (props.isOrderingAllowed ? 'var(--color-tertiary)' : 'grey')};
   }
 
   @media only screen and (max-width: 411px) {
-    .orderContainer__button {
-      font-size: 1.3rem;
+    .button {
+      font-size: 1.4rem;
     }
   }
 `;
@@ -82,14 +87,20 @@ const MealsSelector = ({
 
   return (
     <MealsSelectorContainerStyle
+      isOrderingAllowed={isOrderingAllowed}
       variants={mealsSelectorVariant}
       animate={showSummary ? 'hidden' : 'visible'}
       key="OrderPicker"
       exit="exit"
     >
-      <h1 className="orderContainer__heading">{renderHeader()}</h1>
+      <h1 className="heading">{renderHeader()}</h1>
       <Cart />
-      <Button className="orderContainer__button" primary onClick={handleOrder}>
+      <Button
+        disabled={!isOrderingAllowed}
+        className="button"
+        primary
+        onClick={handleOrder}
+      >
         Pokračovat k objednávce
       </Button>
       {renderMenu()}
