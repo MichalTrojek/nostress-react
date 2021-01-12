@@ -69,10 +69,8 @@ const OrderPage = ({ items, orderingStarted }) => {
         <Wrapper>
           <GoBackNavBar />
           <AnimatePresence>
-            <div>
-              {renderSummary()}
-              {renderMenuPicker()}
-            </div>
+            {renderSummary()}
+            {renderMenuPicker()}
           </AnimatePresence>
         </Wrapper>
       </motion.div>
