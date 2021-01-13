@@ -7,7 +7,10 @@ import { connect } from 'react-redux';
 
 import updateOrderToState from '../../../../../../../redux/actions/orders/updateOrderToState';
 
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+import { fadeInUp } from 'react-animations';
+const fadeUpAnimation = keyframes`${fadeInUp}`;
 
 const OrderItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
@@ -36,9 +39,11 @@ const OrderItemContainer = styled.div`
     }
   }
 
-  .orderAndCancel {
+  .orderButton {
     position: absolute;
     width: 100%;
+
+    animation: 0.2s ${fadeUpAnimation};
 
     bottom: 0px;
     left: 0px;
@@ -92,11 +97,11 @@ const OrderItem = ({ name, alergens, price, updateOrderToState, items }) => {
         )}
         <p className="price">Cena: {price},-</p>
       </div>
-      {isOrdered ? renderButtons() : renderOrderButton()}
+      {isOrdered ? renderOrderAmount() : renderOrderButton()}
     </OrderItemContainer>
   );
 
-  function renderButtons() {
+  function renderOrderAmount() {
     return (
       <OrderedAmount increase={increase} decrease={decrease} amount={amount} />
     );
@@ -123,7 +128,7 @@ const OrderItem = ({ name, alergens, price, updateOrderToState, items }) => {
 
   function renderOrderButton() {
     return (
-      <Button className="orderAndCancel" primary onClick={startOrdering}>
+      <Button className="orderButton" primary onClick={startOrdering}>
         Přidat
       </Button>
     );
