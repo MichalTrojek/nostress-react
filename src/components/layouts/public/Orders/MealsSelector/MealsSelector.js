@@ -82,7 +82,6 @@ const MealsSelector = ({
       in={!showSummary}
       timeout={1000}
       classNames="mealSelector-"
-      // unmountOnExit={true}
       isOrderingAllowed={isOrderingAllowed}
       key="OrderPicker"
     >
