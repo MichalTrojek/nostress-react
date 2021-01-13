@@ -14,13 +14,13 @@ import styled from 'styled-components';
 
 const OrderPageBackground = styled.section`
   background-color: black;
-  min-height: 100vh;
   overflow-x: hidden;
   padding-bottom: 5rem;
 `;
 
 const OrderWrapper = styled(Wrapper)`
   position: relative;
+  max-height: max-content;
 `;
 
 const OrderPage = ({ items, orderingStarted }) => {

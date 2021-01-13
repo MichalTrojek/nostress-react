@@ -16,7 +16,6 @@ import { sendOrderSentEmail } from '../../../../../utils/emailUtils';
 import { CSSTransition } from 'react-transition-group';
 
 import './Summary.css';
-import { CarouselContext } from 'pure-react-carousel';
 
 const Summary = ({
   items = [],
@@ -46,7 +45,6 @@ const Summary = ({
         style={{
           position: 'absolute',
           width: 'calc(100% - 2rem)',
-          height: '100%',
         }}
       >
         <h1 style={{ paddingBottom: '1rem' }}>Souhrn objednávky</h1>
