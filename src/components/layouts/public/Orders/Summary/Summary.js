@@ -13,24 +13,9 @@ import createOrder from '../../../../../redux/actions/orders/createOrder';
 
 import { sendOrderSentEmail } from '../../../../../utils/emailUtils';
 
-import { motion } from 'framer-motion';
+import { CSSTransition } from 'react-transition-group';
 
-const summaryVariants = {
-  hidden: { display: 'none', x: '100vw' },
-  exit: {
-    x: '100vw',
-    transitionEnd: {
-      display: 'none',
-    },
-    transition: { delay: 0, duration: 0.5 },
-  },
-
-  visible: {
-    x: 0,
-    display: 'block',
-    transition: { delay: 0, duration: 0.5 },
-  },
-};
+import './Summary.css';
 
 const Summary = ({
   items = [],
@@ -49,81 +34,85 @@ const Summary = ({
   const history = useHistory();
 
   return (
-    <motion.div
-      variants={summaryVariants}
-      initial="hidden"
-      animate={showSummary ? 'visible' : 'hidden'}
-      exit="exit"
-      key="summaryKey"
+    <CSSTransition
+      in={showSummary}
+      timeout={1000}
+      classNames="summary-"
+      unmountOnExit={true}
     >
-      <h1 style={{ paddingBottom: '1rem' }}>Souhrn objednávky</h1>
-      <SummaryBox
-        name={name}
-        email={email}
-        phoneNumber={phoneNumber}
-        totalPrice={totalPrice}
-        orderMethod={orderMethod}
-        items={items}
-      />
-
-      <Form onSubmit={handleSubmit}>
-        <FormGroup>
-          <input
-            type="text"
-            placeholder="Jméno"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            id="nameInput"
-            required
-          />
-          <label htmlFor="nameInput">Jméno</label>
-        </FormGroup>
-        <FormGroup>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            id="emailInput"
-            required
-          />
-          <label htmlFor="emailInput">Email</label>
-        </FormGroup>
-        <FormGroup>
-          <input
-            type="text"
-            placeholder="Telefon"
-            value={phoneNumber}
-            onChange={(event) => setPhoneNumber(event.target.value)}
-            id="phoneInput"
-            required
-          />
-          <label htmlFor="phoneInput">Telefon</label>
-        </FormGroup>
-        <label htmlFor="textInput">
-          Ostatní informace (Vaše adresa, upřesnění objednávky)
-        </label>
-        <textarea
-          className="textArea"
-          rows="10"
-          placeholder="Vložit text"
-          value={text}
-          onChange={(event) => setText(event.target.value)}
-          id="textInput"
+      <div
+        className="summary"
+        style={{ position: 'absolute', width: '100%', height: '100%' }}
+      >
+        <h1 style={{ paddingBottom: '1rem' }}>Souhrn objednávky</h1>
+        <SummaryBox
+          name={name}
+          email={email}
+          phoneNumber={phoneNumber}
+          totalPrice={totalPrice}
+          orderMethod={orderMethod}
+          items={items}
         />
 
-        <Button primary type="submit">
-          objednat
-        </Button>
-        <Button
-          style={{ marginTop: '1rem' }}
-          primary
-          onClick={(e) => handleBackButton(e)}
-        >
-          Zpět
-        </Button>
-      </Form>
-    </motion.div>
+        <Form onSubmit={handleSubmit}>
+          <FormGroup>
+            <input
+              type="text"
+              placeholder="Jméno"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              id="nameInput"
+              required
+            />
+            <label htmlFor="nameInput">Jméno</label>
+          </FormGroup>
+          <FormGroup>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              id="emailInput"
+              required
+            />
+            <label htmlFor="emailInput">Email</label>
+          </FormGroup>
+          <FormGroup>
+            <input
+              type="text"
+              placeholder="Telefon"
+              value={phoneNumber}
+              onChange={(event) => setPhoneNumber(event.target.value)}
+              id="phoneInput"
+              required
+            />
+            <label htmlFor="phoneInput">Telefon</label>
+          </FormGroup>
+          <label htmlFor="textInput">
+            Ostatní informace (Vaše adresa, upřesnění objednávky)
+          </label>
+          <textarea
+            className="textArea"
+            rows="10"
+            placeholder="Vložit text"
+            value={text}
+            onChange={(event) => setText(event.target.value)}
+            id="textInput"
+          />
+
+          <Button primary type="submit">
+            objednat
+          </Button>
+          <Button
+            style={{ marginTop: '1rem' }}
+            primary
+            onClick={(e) => handleBackButton(e)}
+          >
+            Zpět
+          </Button>
+        </Form>
+      </div>
+    </CSSTransition>
   );
 
   function handleBackButton(e) {

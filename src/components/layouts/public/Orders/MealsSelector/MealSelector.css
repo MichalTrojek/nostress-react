@@ -1,0 +1,25 @@
+.mealSelector--enter {
+  transform: translateX(-100vw);
+}
+
+.mealSelector--enter-active {
+  transform: translateX(0);
+  transition: transform 1000ms;
+}
+
+.mealSelector--enter-done {
+  transform: translateX(0);
+}
+
+.mealSelector--exit {
+  transform: translateX(0);
+}
+
+.mealSelector--exit-active {
+  transform: translateX(-100vw);
+  transition: transform 1000ms;
+}
+
+.mealSelector--exit-done {
+  transform: translateX(-100vw);
+}

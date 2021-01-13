@@ -8,7 +8,7 @@ import MealsSelector from '../../layouts/public/Orders/MealsSelector';
 import OrderNavBar from '../../layouts/public/Orders/OrderNavBar';
 import Summary from '../../layouts/public/Orders/Summary';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import styled from 'styled-components';
 
@@ -17,6 +17,10 @@ const OrderPageBackground = styled.section`
   min-height: 100vh;
   overflow-x: hidden;
   padding-bottom: 5rem;
+`;
+
+const OrderWrapper = styled(Wrapper)`
+  position: relative;
 `;
 
 const OrderPage = ({ items, orderingStarted }) => {
@@ -53,13 +57,11 @@ const OrderPage = ({ items, orderingStarted }) => {
         key="orderpage"
         exit="exit"
       >
-        <Wrapper>
+        <OrderWrapper>
           <OrderNavBar />
-          <AnimatePresence>
-            {renderSummary()}
-            {renderMealsSelector()}
-          </AnimatePresence>
-        </Wrapper>
+          {renderSummary()}
+          {renderMealsSelector()}
+        </OrderWrapper>
       </motion.div>
     </OrderPageBackground>
   );

@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-
 import styled, { keyframes } from 'styled-components';
 import { slideInUp } from 'react-animations';
 import OrderBreakfastMenu from './Menus/OrderBreakfastMenu';
@@ -8,13 +6,16 @@ import { showInfoToast } from '../../../../../notifications/toast';
 import Button from '../../../../common/Button';
 import Cart from './Cart';
 
+import { CSSTransition } from 'react-transition-group';
+import './MealSelector.css';
+
 const slideInUpAnimation = keyframes`${slideInUp}`;
 
 const SlideInUpDiv = styled.div`
   animation: 1s ${slideInUpAnimation};
 `;
 
-const MealsSelectorContainerStyle = styled(motion.div)`
+const MealsSelectorContainerStyle = styled(CSSTransition)`
   display: flex;
   flex-direction: column;
 
@@ -43,22 +44,6 @@ const MealsSelectorContainerStyle = styled(motion.div)`
     }
   }
 `;
-
-const mealsSelectorVariant = {
-  hidden: { display: 'none', x: '-100vw' },
-  exit: {
-    x: '-100vw',
-    transition: { delay: 0, duration: 0.5 },
-    transitionEnd: {
-      display: 'none',
-    },
-  },
-  visible: {
-    x: 0,
-    display: 'flex',
-    transition: { delay: 0, duration: 0.5 },
-  },
-};
 
 const MealsSelector = ({
   showSummary,
@@ -94,23 +79,26 @@ const MealsSelector = ({
 
   return (
     <MealsSelectorContainerStyle
+      in={!showSummary}
+      timeout={1000}
+      classNames="mealSelector-"
+      // unmountOnExit={true}
       isOrderingAllowed={isOrderingAllowed}
-      variants={mealsSelectorVariant}
-      animate={showSummary ? 'hidden' : 'visible'}
       key="OrderPicker"
-      exit="exit"
     >
-      <h1 className="heading">{renderHeader()}</h1>
-      <Cart />
-      <Button
-        disabled={!isOrderingAllowed}
-        className="button"
-        primary
-        onClick={handleOrder}
-      >
-        Pokračovat k objednávce
-      </Button>
-      {renderMenu()}
+      <div className="mealSelector">
+        <h1 className="heading">{renderHeader()}</h1>
+        <Cart />
+        <Button
+          disabled={!isOrderingAllowed}
+          className="button"
+          primary
+          onClick={handleOrder}
+        >
+          Pokračovat k objednávce
+        </Button>
+        {renderMenu()}
+      </div>
     </MealsSelectorContainerStyle>
   );
 };
