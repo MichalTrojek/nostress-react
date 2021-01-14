@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
 import Wrapper from '../../common/Wrapper';
 
 import MealsSelector from '../../layouts/public/Orders/MealsSelector';
 import OrderNavBar from '../../layouts/public/Orders/OrderNavBar';
 import Summary from '../../layouts/public/Orders/Summary';
-
-import { motion } from 'framer-motion';
-
-import styled from 'styled-components';
 
 const OrderPageBackground = styled.section`
   background-color: black;
