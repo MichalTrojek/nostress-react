@@ -1,15 +1,20 @@
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+
 import logo from '../../../../img/logo.png';
-import { useHistory } from 'react-router-dom';
-import { useEffect } from 'react';
 import { DELIVERY } from '../../../../utils/constant';
+
+import { CSSTransition } from 'react-transition-group';
+import './Confirmation.css';
 
 const ConfirmationContainer = styled.div`
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  position: absolute;
+  width: 100%;
 
   h1 {
     text-align: center;
@@ -49,36 +54,34 @@ const Logo = styled.img`
   }
 `;
 
-const Confirmation = ({ customerInfo, totalPrice, orderMethod }) => {
-  const history = useHistory();
-
-  useEffect(() => {
-    const unlisten = history.listen((newLocation, action) => {
-      if (action === 'POP') {
-        history.push('/');
-      }
-    });
-
-    return function cleanUp() {
-      unlisten();
-    };
-  }, [history]);
-
+const Confirmation = ({
+  customerInfo,
+  totalPrice,
+  orderMethod,
+  showConfirmation,
+}) => {
   return (
-    <ConfirmationContainer>
-      <Logo src={logo} alt="No Stress Logo" />
-      <h1>Děkujeme Vám za Vaší objednávku.</h1>
-      <p className="ready">Vaše objednávka se již připravuje.</p>
-      {orderMethod === DELIVERY ? renderDelivery() : renderPickUp()}
-      <p className="price">
-        Při převzetí budete platit <span>{totalPrice},-</span> Kč.{' '}
-      </p>
-      {orderMethod === DELIVERY ? (
-        <p className="payment">(Lze platit pouze hotově)</p>
-      ) : (
-        <p className="payment">(Lze platit hotově i kartou)</p>
-      )}
-    </ConfirmationContainer>
+    <CSSTransition
+      in={showConfirmation}
+      classNames="confirmation-"
+      timeout={1000}
+      unmountOnExit={true}
+    >
+      <ConfirmationContainer>
+        <Logo src={logo} alt="No Stress Logo" />
+        <h1>Děkujeme Vám za Vaší objednávku.</h1>
+        <p className="ready">Vaše objednávka se již připravuje.</p>
+        {orderMethod === DELIVERY ? renderDelivery() : renderPickUp()}
+        <p className="price">
+          Při převzetí budete platit <span>{totalPrice},-</span> Kč.{' '}
+        </p>
+        {orderMethod === DELIVERY ? (
+          <p className="payment">(Lze platit pouze hotově)</p>
+        ) : (
+          <p className="payment">(Lze platit hotově i kartou)</p>
+        )}
+      </ConfirmationContainer>
+    </CSSTransition>
   );
 
   function renderDelivery() {

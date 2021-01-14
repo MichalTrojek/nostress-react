@@ -45,6 +45,7 @@ const MealsSelectorContainerStyle = styled(CSSTransition)`
 `;
 
 const MealsSelector = ({
+  showConfirmation,
   showSummary,
   setShowSummary,
   orderingStarted,
@@ -76,11 +77,11 @@ const MealsSelector = ({
 
   return (
     <MealsSelectorContainerStyle
-      in={!showSummary}
+      in={!showSummary && !showConfirmation}
       timeout={1000}
       classNames="mealSelector-"
       isOrderingAllowed={isOrderingAllowed}
-      key="OrderPicker"
+      unmountOnExit={showConfirmation}
     >
       <div className="mealSelector">
         <h1 className="heading">{renderHeader()}</h1>

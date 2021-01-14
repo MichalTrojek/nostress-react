@@ -1,0 +1,27 @@
+.confirmation--enter {
+  transform: translateX(-100vw);
+}
+
+.confirmation--enter-active {
+  transform: translateX(0);
+  transition: transform 1000ms;
+}
+
+.confirmation--enter-done {
+  transform: translateX(0);
+}
+
+/* exit animation */
+
+.confrimation--exit {
+  transform: translateX(0);
+}
+
+.confirmation--exit-active {
+  transform: translateX(-100vw);
+  transition: transform 1000ms;
+}
+
+.confrimation--exit-done {
+  transform: translateX(-100vw);
+}

@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import Wrapper from '../../common/Wrapper';
 
 import MealsSelector from '../../layouts/public/Orders/MealsSelector';
+import Confirmation from '../../layouts/public/Confirmation';
 import OrderNavBar from '../../layouts/public/Orders/OrderNavBar';
 import Summary from '../../layouts/public/Orders/Summary';
 
@@ -23,6 +24,7 @@ const OrderWrapper = styled(Wrapper)`
 
 const OrderPage = ({ items, orderingStarted }) => {
   const [isOrderingAllowed, setIsOrderingAllowed] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
   const history = useHistory();
 
@@ -59,6 +61,7 @@ const OrderPage = ({ items, orderingStarted }) => {
           <OrderNavBar />
           {renderSummary()}
           {renderMealsSelector()}
+          {renderConfirmation()}
         </OrderWrapper>
       </motion.div>
     </OrderPageBackground>
@@ -67,9 +70,10 @@ const OrderPage = ({ items, orderingStarted }) => {
   function renderSummary() {
     return (
       <Summary
-        key="summaryKey"
         showSummary={showSummary}
         hideSummary={hideSummary}
+        setShowSummary={setShowSummary}
+        setShowConfirmation={setShowConfirmation}
       />
     );
     function hideSummary() {
@@ -80,13 +84,16 @@ const OrderPage = ({ items, orderingStarted }) => {
   function renderMealsSelector() {
     return (
       <MealsSelector
-        key="mealSelectorKey"
+        showConfirmation={showConfirmation}
         showSummary={showSummary}
         setShowSummary={setShowSummary}
         orderingStarted={orderingStarted}
         isOrderingAllowed={isOrderingAllowed}
       />
     );
+  }
+  function renderConfirmation() {
+    return <Confirmation showConfirmation={showConfirmation} />;
   }
 };
 

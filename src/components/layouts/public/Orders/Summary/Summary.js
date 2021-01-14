@@ -26,12 +26,13 @@ const Summary = ({
   menuType,
   orderMethod,
   showSummary,
+  setShowConfirmation,
+  setShowSummary,
 }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [text, setText] = useState('');
-  const history = useHistory();
 
   return (
     <CSSTransition
@@ -41,7 +42,6 @@ const Summary = ({
       unmountOnExit={true}
     >
       <div
-        className="summary"
         style={{
           position: 'absolute',
           width: 'calc(100% - 2rem)',
@@ -120,6 +120,7 @@ const Summary = ({
 
   function handleBackButton(e) {
     e.preventDefault();
+
     hideSummary();
   }
 
@@ -141,7 +142,9 @@ const Summary = ({
       saveCustomerInfo(order);
       createOrder(order);
       sendOrderSentEmail(order.email, order);
-      history.push('/orderConfirmation');
+      // history.push('/orderConfirmation');
+      setShowSummary(false);
+      setShowConfirmation(true);
     }
   }
 };
