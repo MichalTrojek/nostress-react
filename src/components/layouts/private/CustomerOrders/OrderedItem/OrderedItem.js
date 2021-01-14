@@ -19,24 +19,19 @@ const OrderedItemContainer = styled.div`
   display: grid;
   grid-row-gap: 1rem;
   grid-template-rows: max-content 1fr;
-  min-width: 100%;
+
   margin: 0.2rem;
   position: relative;
   border-radius: 10px;
   border-top-right-radius: 0;
 
-  @media only screen and (min-width: 1024px) {
+  /* min-width: 100%; */
+  /* @media only screen and (min-width: 1024px) {
     --width: calc((99% / 2));
     max-width: var(--width);
     min-width: var(--width);
-  }
+  } */
 
-  ul {
-    list-style-type: none;
-    li {
-      padding-left: 1rem;
-    }
-  }
   .header {
     color: var(--color-tertiary);
   }
@@ -45,7 +40,9 @@ const OrderedItemContainer = styled.div`
     font-weight: bold;
   }
 
-  .items {
+  .items > p {
+    padding-left: 1.5rem;
+    text-indent: -1.8rem;
   }
 
   .orderNumber {
@@ -110,17 +107,13 @@ const OrderedItem = ({ order }) => {
       </div>
       <div className="items">
         <p className="bold">Položky</p>
-        <ul>
-          {order.items.map((item, index) => {
-            return (
-              <li key={index}>
-                <p>
-                  {item.amount} x {item.name}
-                </p>
-              </li>
-            );
-          })}
-        </ul>
+        {order.items.map((item, index) => {
+          return (
+            <p key={index}>
+              {item.amount} x {item.name}
+            </p>
+          );
+        })}
       </div>
       <div className="information">
         <p className="bold">Ostatní informace</p>

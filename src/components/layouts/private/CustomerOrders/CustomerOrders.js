@@ -31,9 +31,12 @@ const CustomerOrdersRadioGroup = styled(RadioGroup)`
   }
 `;
 const OrdersContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 1rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  @media only screen and (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
+  }
 `;
 
 const CustomerOrders = ({ orders = [] }) => {
