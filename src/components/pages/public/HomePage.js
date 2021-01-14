@@ -36,7 +36,7 @@ const Home = ({ resetOrders, fetchData }) => {
         timeout={1000}
         appear={true}
       >
-        <div className="test" style={{ overflowX: 'hidden' }}>
+        <div className="test" style={{ overflowX: 'hidden', width: '100%' }}>
           <PublicNavBar />
           <Hero />
           <MealsMenus />
