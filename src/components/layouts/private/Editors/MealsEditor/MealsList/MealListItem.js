@@ -15,7 +15,7 @@ const MealListItemContainer = styled.div`
   padding: 1rem;
   display: grid;
   grid-template-rows: max-content 1fr;
-  min-width: 100%;
+
   margin: 0.2rem;
 
   position: relative;
@@ -23,6 +23,7 @@ const MealListItemContainer = styled.div`
   border-radius: 10px;
   border-top-right-radius: 0px;
 
+  /* min-width: 100%;
   @media only screen and (min-width: 768px) {
     --width: calc((98% / 2));
     max-width: var(--width);
@@ -31,7 +32,7 @@ const MealListItemContainer = styled.div`
 
   @media only screen and (min-width: 1024px) {
     --width: calc((98% / 3));
-  }
+  } */
 
   .menuNumber {
     position: absolute;
