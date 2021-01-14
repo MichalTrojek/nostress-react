@@ -6,20 +6,29 @@ import MealListContainer from '../MealListContainer';
 
 import sortOutMenusByType from '../../../../../../../utils/mealUtils';
 
+import { CSSTransition } from 'react-transition-group';
+import '../menu.css';
+
 const OrderMainMenu = ({
   weeklyMeals = [],
   childMeals = [],
   soup = undefined,
 }) => {
   return (
-    <>
-      <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Hlavní menu</h1>
-      <MealListContainer>{renderMainMenu()}</MealListContainer>
-      <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Dětské menu</h1>
-      <MealListContainer>{renderChildMenu()}</MealListContainer>
-      <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Polévky</h1>
-      <MealListContainer>{renderSoup(soup)}</MealListContainer>
-    </>
+    <CSSTransition in={true} classNames="menu-" timeout={1000} appear={true}>
+      <div>
+        <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>
+          Hlavní menu
+        </h1>
+        <MealListContainer>{renderMainMenu()}</MealListContainer>
+        <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>
+          Dětské menu
+        </h1>
+        <MealListContainer>{renderChildMenu()}</MealListContainer>
+        <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Polévky</h1>
+        <MealListContainer>{renderSoup(soup)}</MealListContainer>
+      </div>
+    </CSSTransition>
   );
 
   function renderChildMenu() {

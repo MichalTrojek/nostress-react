@@ -1,0 +1,12 @@
+.menu--appear {
+  transform: translateY(100vh);
+}
+
+.menu--appear-active {
+  transform: translateY(0);
+  transition: transform 1000ms;
+}
+
+.menu--appear-done {
+  transform: translateY(0);
+}

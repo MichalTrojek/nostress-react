@@ -6,12 +6,17 @@ import MealListContainer from '../MealListContainer';
 
 import sortOutMenusByType from '../../../../../../../utils/mealUtils';
 
+import { CSSTransition } from 'react-transition-group';
+import '../menu.css';
+
 const OrderBreakfastMenu = ({ breakfastMeals = [] }) => {
   return (
-    <>
-      <h1>Snídaně</h1>
-      <MealListContainer>{renderBreakfast()}</MealListContainer>
-    </>
+    <CSSTransition in={true} classNames="menu-" timeout={1000} appear={true}>
+      <div>
+        <h1>Snídaně</h1>
+        <MealListContainer>{renderBreakfast()}</MealListContainer>
+      </div>
+    </CSSTransition>
   );
 
   function renderBreakfast() {
