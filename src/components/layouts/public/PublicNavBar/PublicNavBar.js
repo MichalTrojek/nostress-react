@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import logo from '../../../../img/logo.png';
+import startOrdering from '../../../../redux/actions/orders/startOrdering';
 
 import PublicBurger from '../../../common/Burgers/PublicBurger';
 import SideMenuStyled from '../../../common/SideMenu';
@@ -20,7 +21,7 @@ const MENU_ITEMS = [
 const NavBarBackground = styled.header`
   background: rgba(0, 0, 0, 0.9);
   min-height: 8rem;
-  width: 100%;
+  width: 100vw;
   position: fixed;
   top: 0;
   left: 0;

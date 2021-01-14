@@ -8,7 +8,7 @@ import { Link as ScrollLink } from 'react-scroll';
 import startOrdering from '../../../redux/actions/orders/startOrdering';
 
 const SideMenuStyled = styled.nav`
-  display: flex;
+  display: ${({ open }) => (open ? 'flex' : 'none')};
   flex-direction: column;
   align-items: center;
   background: var(--color-secondary);
@@ -16,14 +16,13 @@ const SideMenuStyled = styled.nav`
   width: 100%;
   text-align: left;
   padding: 2rem 1rem 2rem 2rem;
-  left: 0;
   transition: width 0.5 ease-in-out;
-
   position: fixed;
   top: 77px;
-  overflow-x: hidden;
+  left: 0;
+  /* overflow-x: hidden; */
 
-  z-index: ${({ open }) => (open ? '25' : '-25')};
+  z-index: 25;
 `;
 
 const SideMenuItem = styled.li`

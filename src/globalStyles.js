@@ -43,8 +43,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html, body{
-      height:100%;
-      /* overflow-x: hidden; */
+      /* height:100%; */
+      overflow-x: hidden;
     }
 
   
