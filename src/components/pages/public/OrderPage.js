@@ -41,21 +41,19 @@ const OrderPage = ({ items, orderingStarted }) => {
 
   return (
     <OrderPageBackground>
-      <OrderWrapper>
-        <CSSTransition
-          in={true}
-          classNames="orderPage-"
-          timeout={1000}
-          appear={true}
-        >
-          <div>
-            <OrderNavBar />
-            {renderSummary()}
-            {renderMealsSelector()}
-            {renderConfirmation()}
-          </div>
-        </CSSTransition>
-      </OrderWrapper>
+      <CSSTransition
+        in={true}
+        classNames="orderPage-"
+        timeout={1000}
+        appear={true}
+      >
+        <OrderWrapper>
+          <OrderNavBar />
+          {renderSummary()}
+          {renderMealsSelector()}
+          {renderConfirmation()}
+        </OrderWrapper>
+      </CSSTransition>
     </OrderPageBackground>
   );
 

@@ -10,3 +10,16 @@
 .orderPage--appear-done {
   transform: translateX(0);
 }
+
+.orderPage--exit {
+  transform: translateX(0);
+}
+
+.orderPage--exit-active {
+  transform: translateX(-100vw);
+  transition: transform 1000ms;
+}
+
+.orderPage--exit-done {
+  transform: translateX(-100vw);
+}
