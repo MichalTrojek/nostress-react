@@ -7,7 +7,6 @@ import PrivateRoute from './PrivateRoute';
 import Home from './pages/public/HomePage';
 import OrderPage from './pages/public/OrderPage';
 import LoginPage from './pages/public/LoginPage';
-import ConfirmationPage from './pages/public/ConfirmationPage';
 
 import DashboardPage from './pages/private/DashboardPage';
 import NewsPage from './pages/private/NewsPage';
@@ -32,7 +31,6 @@ function App() {
         <Switch location={location} key={location.key}>
           <Route exact path="/" component={Home} />
           <Route exact path="/order" component={OrderPage} />
-          <Route exact path="/orderConfirmation" component={ConfirmationPage} />
 
           <AuthProvider>
             <Route exact path="/login" component={LoginPage} />
