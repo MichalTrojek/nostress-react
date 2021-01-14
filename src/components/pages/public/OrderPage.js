@@ -16,11 +16,11 @@ const OrderPageBackground = styled.section`
   background-color: black;
   overflow-x: hidden;
   padding-bottom: 5rem;
+  min-height: 100vh;
 `;
 
 const OrderWrapper = styled(Wrapper)`
   position: relative;
-  max-height: max-content;
 `;
 
 const OrderPage = ({ items, orderingStarted }) => {
