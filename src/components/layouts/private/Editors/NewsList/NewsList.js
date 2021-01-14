@@ -5,6 +5,7 @@ import NewsListItem from './NewsListItem';
 const DisplayedNews = styled.div`
   display: grid;
   grid-auto-rows: 1fr;
+  grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
 
   @media only screen and (min-width: 768px) {
