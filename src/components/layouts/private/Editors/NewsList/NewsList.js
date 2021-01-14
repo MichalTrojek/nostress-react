@@ -3,8 +3,13 @@ import styled from 'styled-components';
 import NewsListItem from './NewsListItem';
 
 const DisplayedNews = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+
+  @media only screen and (min-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
+  }
 `;
 
 const NewsList = ({ items = [], deleteNews }) => {

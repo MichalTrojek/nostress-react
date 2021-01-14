@@ -15,20 +15,11 @@ const StyledNewsListItem = styled.div`
 
   border: 1px solid var(--color-tertiary);
   margin: 0.2rem;
-  min-width: 100%;
+
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media only screen and (min-width: 768px) {
-    --width: calc((98% / 2));
-    max-width: var(--width);
-    min-width: var(--width);
-  }
-
-  @media only screen and (min-width: 1024px) {
-    --width: calc((99% / 2));
-  }
 
   .buttons {
     margin-top: 1rem;
