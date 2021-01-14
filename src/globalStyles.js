@@ -44,7 +44,7 @@ export const GlobalStyle = createGlobalStyle`
 
     html, body{
       height:100%;
-      overflow-x: hidden;
+      /* overflow-x: hidden; */
     }
 
   
@@ -54,6 +54,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Open Sans Condensed', sans-serif;
         color: var(--color-primary);
         text-rendering: optimizeLegibility;
+        
       }
     } 
 

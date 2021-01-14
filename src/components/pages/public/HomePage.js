@@ -30,6 +30,7 @@ const Home = ({ resetOrders, fetchData }) => {
 
   return (
     <PageLayout>
+      <PublicNavBar />
       <CSSTransition
         in={true}
         classNames="homePage-"
@@ -37,7 +38,6 @@ const Home = ({ resetOrders, fetchData }) => {
         appear={true}
       >
         <div className="test">
-          <PublicNavBar />
           <Hero />
           <MealsMenus />
           <FoodAndBeverage />

@@ -19,12 +19,12 @@ const MENU_ITEMS = [
 
 const NavBarBackground = styled.header`
   background: rgba(0, 0, 0, 0.9);
-  width: 100vw;
   min-height: 8rem;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+
   z-index: 9999999999999;
 `;
 
