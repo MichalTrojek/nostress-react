@@ -16,6 +16,9 @@ import Footer from '../../layouts/public/Footer';
 import Hero from '../../layouts/public/Hero';
 import News from '../../layouts/public/News';
 
+import { CSSTransition } from 'react-transition-group';
+import './HomePage.css';
+
 const Home = ({ resetOrders, fetchData }) => {
   useEffect(() => {
     resetOrders();
@@ -27,14 +30,23 @@ const Home = ({ resetOrders, fetchData }) => {
 
   return (
     <PageLayout>
-      <PublicNavBar />
-      <Hero />
-      <MealsMenus />
-      <FoodAndBeverage />
-      <News />
-      <BussinessHours />
-      <Contact />
-      <Footer />
+      <CSSTransition
+        in={true}
+        classNames="homePage-"
+        timeout={1000}
+        appear={true}
+      >
+        <div className="test" style={{ overflowX: 'hidden' }}>
+          <PublicNavBar />
+          <Hero />
+          <MealsMenus />
+          <FoodAndBeverage />
+          <News />
+          <BussinessHours />
+          <Contact />
+          <Footer />
+        </div>
+      </CSSTransition>
     </PageLayout>
   );
 };

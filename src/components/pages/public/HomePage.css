@@ -1,0 +1,12 @@
+.homePage--appear {
+  transform: translateX(100vw);
+}
+
+.homePage--appear-active {
+  transform: translateX(0);
+  transition: transform 1000ms;
+}
+
+.homePage--appear-done {
+  transform: translateX(0);
+}
