@@ -12,17 +12,17 @@ const SideMenuStyled = styled.nav`
   align-items: center;
   background: var(--color-secondary);
   height: 100vh;
-  width: 100vw;
+  width: ${({ open }) => (open ? '100vw' : '0')};
   text-align: left;
   padding: 2rem 1rem 2rem 2rem;
   right: 0;
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(-100%);
-  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+  transition: width 0.5 ease-in-out;
+
   position: fixed;
   top: 77px;
   overflow-x: hidden;
-  z-index: 5;
+
+  z-index: ${({ open }) => (open ? '25' : '-25')};
 `;
 
 const SideMenuItem = styled.li`
