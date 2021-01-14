@@ -12,6 +12,8 @@ const MealsSelectorContainerStyle = styled(CSSTransition)`
   display: flex;
   flex-direction: column;
 
+  overflow-y: hidden;
+
   .heading {
     padding-bottom: 1rem;
   }
