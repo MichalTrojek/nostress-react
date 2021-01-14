@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
 import Form from '../../../../common/Forms/Form';
 import FormGroup from '../../../../common/Forms/FormGroup';
@@ -12,8 +12,6 @@ import saveCustomerInfo from '../../../../../redux/actions/orders/saveCustomerIn
 import createOrder from '../../../../../redux/actions/orders/createOrder';
 
 import { sendOrderSentEmail } from '../../../../../utils/emailUtils';
-
-import { CSSTransition } from 'react-transition-group';
 
 import './Summary.css';
 
@@ -142,7 +140,6 @@ const Summary = ({
       saveCustomerInfo(order);
       createOrder(order);
       sendOrderSentEmail(order.email, order);
-      // history.push('/orderConfirmation');
       setShowSummary(false);
       setShowConfirmation(true);
     }
