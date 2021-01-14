@@ -1,6 +1,5 @@
 .homePage--appear {
   transform: translateX(100vw);
-  overflow-x: hidden;
 }
 
 .homePage--appear-active {
