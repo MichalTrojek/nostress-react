@@ -1,4 +1,4 @@
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { GlobalStyle } from '../globalStyles';
 
 import { AuthProvider } from '../contexts/AuthContext';
@@ -19,43 +19,37 @@ import NewsCardPage from './pages/private/NewsCardPage';
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { AnimatePresence } from 'framer-motion';
-
 function App() {
-  const location = useLocation();
-
   return (
     <>
       <GlobalStyle />
-      <AnimatePresence exitBeforeEnter>
-        <Switch location={location} key={location.key}>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/order" component={OrderPage} />
 
-          <AuthProvider>
-            <Route exact path="/login" component={LoginPage} />
-            <PrivateRoute exact path="/dashboard/" component={DashboardPage} />
-            <PrivateRoute
-              exact
-              path="/dashboard/orders"
-              component={CustomersOrdersPage}
-            />
-            <PrivateRoute exact path="/dashboard/meals" component={MealsPage} />
-            <PrivateRoute exact path="/dashboard/soups" component={SoupsPage} />
-            <PrivateRoute
-              exact
-              path="/dashboard/hours"
-              component={BusinessHoursPage}
-            />
-            <PrivateRoute exact path="/dashboard/news" component={NewsPage} />
-            <PrivateRoute
-              exact
-              path="/dashboard/cards"
-              component={NewsCardPage}
-            />
-          </AuthProvider>
-        </Switch>
-      </AnimatePresence>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/order" component={OrderPage} />
+        <AuthProvider>
+          <Route exact path="/login" component={LoginPage} />
+          <PrivateRoute exact path="/dashboard/" component={DashboardPage} />
+          <PrivateRoute
+            exact
+            path="/dashboard/orders"
+            component={CustomersOrdersPage}
+          />
+          <PrivateRoute exact path="/dashboard/meals" component={MealsPage} />
+          <PrivateRoute exact path="/dashboard/soups" component={SoupsPage} />
+          <PrivateRoute
+            exact
+            path="/dashboard/hours"
+            component={BusinessHoursPage}
+          />
+          <PrivateRoute exact path="/dashboard/news" component={NewsPage} />
+          <PrivateRoute
+            exact
+            path="/dashboard/cards"
+            component={NewsCardPage}
+          />
+        </AuthProvider>
+      </Switch>
       <ToastContainer
         autoClose={2000}
         transition={Zoom}

@@ -13,9 +13,7 @@ import {
   showSuccessToast,
 } from '../../../../../notifications/toast';
 
-import { motion } from 'framer-motion';
-
-const OrderedItemContainer = styled(motion.div)`
+const OrderedItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
   display: grid;
@@ -86,9 +84,6 @@ const OrderedItemContainer = styled(motion.div)`
     }
 
     .confirmButton {
-      /* background-color: transparent;
-      color: white;
-      border: 1px solid forestgreen; */
     }
   }
 `;
@@ -97,27 +92,8 @@ const OrderedItem = ({ order }) => {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const variants = {
-    hidden: {
-      opacity: 0,
-      transitionEnd: {
-        display: 'none',
-      },
-    },
-
-    visible: {
-      opacity: 1,
-      display: 'grid',
-    },
-  };
-
   return (
-    <OrderedItemContainer
-      initial="hidden"
-      animate="visible"
-      variants={variants}
-      isConfirmed={order.isConfirmed}
-    >
+    <OrderedItemContainer isConfirmed={order.isConfirmed}>
       <div className="header">
         <p className="orderNumber">
           {!order.isConfirmed

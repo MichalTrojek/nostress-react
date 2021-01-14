@@ -16,8 +16,6 @@ import Footer from '../../layouts/public/Footer';
 import Hero from '../../layouts/public/Hero';
 import News from '../../layouts/public/News';
 
-import { motion } from 'framer-motion';
-
 const Home = ({ resetOrders, fetchData }) => {
   useEffect(() => {
     resetOrders();
@@ -27,37 +25,16 @@ const Home = ({ resetOrders, fetchData }) => {
     fetchData();
   }, [fetchData]);
 
-  const containerVariants = {
-    hidden: { y: '100vh' },
-    visible: {
-      y: 0,
-      transition: { delay: 0, duration: 0.5 },
-    },
-
-    exit: {
-      y: '100vw',
-      transition: { delay: 0, duration: 0.5 },
-    },
-  };
-
   return (
     <PageLayout>
       <PublicNavBar />
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        key="mainpage"
-        exit="exit"
-      >
-        <Hero />
-        <MealsMenus />
-        <FoodAndBeverage />
-        <News />
-        <BussinessHours />
-        <Contact />
-        <Footer />
-      </motion.div>
+      <Hero />
+      <MealsMenus />
+      <FoodAndBeverage />
+      <News />
+      <BussinessHours />
+      <Contact />
+      <Footer />
     </PageLayout>
   );
 };

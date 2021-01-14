@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 import Wrapper from '../../common/Wrapper';
@@ -36,34 +35,14 @@ const OrderPage = ({ items, orderingStarted }) => {
     }
   }, [items, orderingStarted.status, history]);
 
-  const containerVariants = {
-    hidden: { x: '100vw' },
-    visible: {
-      x: 0,
-      transition: { delay: 0, duration: 0.5 },
-    },
-    exit: {
-      x: '100vw',
-      transition: { delay: 0, duration: 0.5 },
-    },
-  };
-
   return (
     <OrderPageBackground>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        key="orderpage"
-        exit="exit"
-      >
-        <OrderWrapper>
-          <OrderNavBar />
-          {renderSummary()}
-          {renderMealsSelector()}
-          {renderConfirmation()}
-        </OrderWrapper>
-      </motion.div>
+      <OrderWrapper>
+        <OrderNavBar />
+        {renderSummary()}
+        {renderMealsSelector()}
+        {renderConfirmation()}
+      </OrderWrapper>
     </OrderPageBackground>
   );
 
