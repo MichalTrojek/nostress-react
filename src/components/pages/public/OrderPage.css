@@ -1,0 +1,12 @@
+.orderPage--appear {
+  transform: translateX(-100vw);
+}
+
+.orderPage--appear-active {
+  transform: translateX(0);
+  transition: transform 1000ms;
+}
+
+.orderPage--appear-done {
+  transform: translateX(0);
+}

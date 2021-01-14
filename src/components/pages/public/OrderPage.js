@@ -10,6 +10,10 @@ import Confirmation from '../../layouts/public/Confirmation';
 import OrderNavBar from '../../layouts/public/Orders/OrderNavBar';
 import Summary from '../../layouts/public/Orders/Summary';
 
+import { CSSTransition } from 'react-transition-group';
+
+import './OrderPage.css';
+
 const OrderPageBackground = styled.section`
   background-color: black;
   overflow-x: hidden;
@@ -38,10 +42,19 @@ const OrderPage = ({ items, orderingStarted }) => {
   return (
     <OrderPageBackground>
       <OrderWrapper>
-        <OrderNavBar />
-        {renderSummary()}
-        {renderMealsSelector()}
-        {renderConfirmation()}
+        <CSSTransition
+          in={true}
+          classNames="orderPage-"
+          timeout={1000}
+          appear={true}
+        >
+          <div>
+            <OrderNavBar />
+            {renderSummary()}
+            {renderMealsSelector()}
+            {renderConfirmation()}
+          </div>
+        </CSSTransition>
       </OrderWrapper>
     </OrderPageBackground>
   );
