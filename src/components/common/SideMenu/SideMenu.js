@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
+
 import startOrdering from '../../../redux/actions/orders/startOrdering';
 
 const SideMenuStyled = styled.nav`
@@ -12,10 +13,10 @@ const SideMenuStyled = styled.nav`
   align-items: center;
   background: var(--color-secondary);
   height: 100vh;
-  width: ${({ open }) => (open ? '100vw' : '0')};
+  width: 100%;
   text-align: left;
   padding: 2rem 1rem 2rem 2rem;
-  right: 0;
+  left: 0;
   transition: width 0.5 ease-in-out;
 
   position: fixed;
