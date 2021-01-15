@@ -3,11 +3,8 @@ import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 const StickyCartStyle = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: red;
-  padding: 2rem 1rem 2rem 1rem;
+  padding: 1.5rem 1rem 0rem 1rem;
   height: 5rem;
   position: fixed;
   left: 0;
