@@ -15,6 +15,8 @@ const StickyCartStyle = styled.div`
   bottom: 0;
   z-index: 3;
 
+  cursor: pointer;
+
   font-size: 1.6rem;
   font-weight: bold;
 `;
@@ -32,7 +34,9 @@ const StickyCart = ({ setShowSummary, totalPrice, items }) => {
   return (
     <StickyCartStyle onClick={handleClick}>
       <span className="sticky-cart__amount">{amount} ks.</span>
-      <span className="sticky-cart__button">Pokračovat k objednávce</span>
+      <span className="sticky-cart__button">
+        Pokračovat k objednávce &#8594;
+      </span>
       <span className="sticky-cart__total-price">{totalPrice} Kč</span>
     </StickyCartStyle>
   );
