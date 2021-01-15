@@ -45,7 +45,7 @@ export const GlobalStyle = createGlobalStyle`
     html, body{
     
       overflow-x: hidden;
-      
+      touch-action: manipulation;
       /* overflow-y:hidden; */
       
       
