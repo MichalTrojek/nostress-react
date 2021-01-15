@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import CartFooter from './styles/CartFooter';
 import CartHeader from './styles/CartHeader';
 import CartItem from './styles/CartItem';
-import CartRadioGroup from './CartRadioGroup';
 
 import setTotalPrice from '../../../../../../redux/actions/orders/setTotalPrice';
 
@@ -50,7 +49,6 @@ const Cart = ({ items = [], totalPrice, setTotalPrice }) => {
         <p>Celkem kusů: {totalAmount}</p>
         <p className="totalPrice">Celkem: {totalPrice},- Kč </p>
       </CartFooter>
-      <CartRadioGroup />
     </CartContainer>
   );
 

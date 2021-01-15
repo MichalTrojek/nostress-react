@@ -17,7 +17,7 @@ const CardRadioGroupContainer = styled(RadioGroup)`
     border-left: 0;
     border-right: 0;
     padding: 0.1rem 0;
-
+    border: 1px solid var(--color-tertiary);
     @media only screen and (min-width: 931px) {
       width: 50%;
     }
@@ -25,10 +25,12 @@ const CardRadioGroupContainer = styled(RadioGroup)`
     &:nth-child(2) {
       @media only screen and (min-width: 931px) {
         border-bottom-left-radius: 7px;
+        border-right: none;
       }
     }
 
     &:last-child {
+      border-left: none;
       border-bottom-left-radius: 7px;
       border-bottom-right-radius: 7px;
       @media only screen and (min-width: 931px) {
