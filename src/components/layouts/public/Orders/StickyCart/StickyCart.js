@@ -31,7 +31,7 @@ const StickyCart = ({ setShowSummary, totalPrice, items }) => {
 
   return (
     <StickyCartStyle onClick={handleClick}>
-      <span className="sticky-cart__amount">{amount}</span>
+      <span className="sticky-cart__amount">{amount} ks.</span>
       <span className="sticky-cart__button">Pokračovat k objednávce</span>
       <span className="sticky-cart__total-price">{totalPrice} Kč</span>
     </StickyCartStyle>
