@@ -1,0 +1,27 @@
+.sticky-cart--enter {
+  opacity: 0.00001;
+  transform: translateY(5rem);
+}
+.sticky-cart--enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1000ms;
+}
+.sticky-cart--enter-done {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sticky-cart--exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sticky-cart--exit-active {
+  opacity: 0;
+  transform: translateY(5rem);
+  transition: all 1000ms;
+}
+.sticky-cart--exit-done {
+  opacity: 0;
+  transform: translateY(5rem);
+}

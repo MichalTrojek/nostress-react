@@ -10,14 +10,17 @@ import Confirmation from '../../layouts/public/Confirmation';
 import OrderNavBar from '../../layouts/public/Orders/OrderNavBar';
 import Summary from '../../layouts/public/Orders/Summary';
 
+import StickyCart from '../../layouts/public/Orders/StickyCart';
+
 import { CSSTransition } from 'react-transition-group';
 
 import './OrderPage.css';
+import '../../layouts/public/Orders/StickyCart/StickyCart.css';
 
 const OrderPageBackground = styled.section`
   background-color: black;
   overflow-x: hidden;
-  padding-bottom: 5rem;
+  padding-bottom: 8rem;
   min-height: 100vh;
 `;
 
@@ -29,6 +32,7 @@ const OrderPage = ({ items, orderingStarted }) => {
   const [isOrderingAllowed, setIsOrderingAllowed] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
+  const [showStickyCart, setShowStickyCart] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -36,6 +40,7 @@ const OrderPage = ({ items, orderingStarted }) => {
       history.push('/');
     } else {
       setIsOrderingAllowed(items.length > 0);
+      setShowStickyCart(items.length > 0);
     }
   }, [items, orderingStarted.status, history]);
 
@@ -53,6 +58,14 @@ const OrderPage = ({ items, orderingStarted }) => {
           {renderMealsSelector()}
           {renderConfirmation()}
         </OrderWrapper>
+      </CSSTransition>
+      <CSSTransition
+        in={showStickyCart}
+        classNames="sticky-cart-"
+        timeout={1000}
+        unmountOnExit={true}
+      >
+        <StickyCart setShowSummary={setShowSummary} />
       </CSSTransition>
     </OrderPageBackground>
   );
