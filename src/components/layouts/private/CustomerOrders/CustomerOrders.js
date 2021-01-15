@@ -7,8 +7,6 @@ import { showInfoToast } from '../../../../notifications/toast';
 
 import { sortByOrderNumber } from '../../../../utils/orderUtils';
 
-import { TransitionGroup } from 'react-transition-group';
-
 const CustomerOrdersContainer = styled.div`
   position: relative;
 `;
@@ -119,11 +117,7 @@ const CustomerOrders = ({ orders = [] }) => {
             : 'ŽÁDNÉ K ZOBRAZENÍ'}
         </label>
       </CustomerOrdersRadioGroup>
-      <OrdersContainer>
-        <TransitionGroup component={null}>
-          {renderOrderedItems()}
-        </TransitionGroup>
-      </OrdersContainer>
+      <OrdersContainer>{renderOrderedItems()}</OrdersContainer>
     </CustomerOrdersContainer>
   );
 
