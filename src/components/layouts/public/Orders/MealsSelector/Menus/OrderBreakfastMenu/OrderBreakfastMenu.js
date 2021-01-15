@@ -13,7 +13,7 @@ const OrderBreakfastMenu = ({ breakfastMeals = [] }) => {
   return (
     <CSSTransition in={true} classNames="menu-" timeout={1000} appear={true}>
       <div>
-        <h1>Snídaně</h1>
+        <h1 style={{ padding: '1rem 0rem' }}>Snídaně</h1>
         <MealListContainer>{renderBreakfast()}</MealListContainer>
       </div>
     </CSSTransition>
