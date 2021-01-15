@@ -53,6 +53,10 @@ const OrderPage = ({ items, orderingStarted }) => {
     }
   }, [showSummary]);
 
+  useEffect(() => {
+    setShowStickyCart(false);
+  }, [showConfirmation]);
+
   return (
     <OrderPageBackground>
       <CSSTransition
