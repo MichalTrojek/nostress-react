@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 
 const StickyCartStyle = styled.div`
   display: flex;
@@ -11,25 +13,40 @@ const StickyCartStyle = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 3;
 
   font-size: 1.6rem;
   font-weight: bold;
 `;
 
-const StickyCart = ({ setShowSummary }) => {
+const StickyCart = ({ setShowSummary, totalPrice, items }) => {
+  const [amount, setAmount] = useState(55);
+  useEffect(() => {
+    let tempAmount = 0;
+    items.forEach((item) => {
+      tempAmount += item.amount;
+    });
+    setAmount(tempAmount);
+  }, [items]);
+
   return (
     <StickyCartStyle onClick={handleClick}>
-      <span className="sticky-cart__amount">8</span>
+      <span className="sticky-cart__amount">{amount}</span>
       <span className="sticky-cart__button">Pokračovat k objednávce</span>
-      <span className="sticky-cart__total-price">1546,00 Kč</span>
+      <span className="sticky-cart__total-price">{totalPrice} Kč</span>
     </StickyCartStyle>
   );
 
   function handleClick() {
     window.scrollTo(0, 0);
-
     setShowSummary(true);
   }
 };
+function mapStateToProps(state, ownProps) {
+  return {
+    totalPrice: state.order.totalPrice,
+    items: state.order.items,
+  };
+}
 
-export default StickyCart;
+export default connect(mapStateToProps, null)(StickyCart);

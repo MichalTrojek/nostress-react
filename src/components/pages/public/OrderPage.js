@@ -44,6 +44,15 @@ const OrderPage = ({ items, orderingStarted }) => {
     }
   }, [items, orderingStarted.status, history]);
 
+  useEffect(() => {
+    if (!showSummary && items.length > 0) {
+      setShowStickyCart(true);
+      window.scrollTo(0, 0);
+    } else {
+      setShowStickyCart(false);
+    }
+  }, [showSummary]);
+
   return (
     <OrderPageBackground>
       <CSSTransition
