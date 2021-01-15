@@ -2,7 +2,10 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import Button from '../../../../common/Button';
 import { db } from '../../../../../firebase';
-import { sendOrderConfirmedEmail } from '../../../../../utils/emailUtils';
+import {
+  sendOrderConfirmedEmail,
+  sendOrderFinishedEmail,
+} from '../../../../../utils/emailUtils';
 import { toDateTime } from '../../../../../utils/dateUtils';
 
 import Modal from '../../../../common/Modal';
@@ -153,6 +156,8 @@ const OrderedItem = ({ order }) => {
       .catch((error) => {
         console.log(`Error while finishing order: ${error}`);
       });
+
+    sendOrderFinishedEmail(order.mail, order);
   }
 
   function confirmOrder() {

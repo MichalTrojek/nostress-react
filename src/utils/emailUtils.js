@@ -38,3 +38,22 @@ export function sendOrderSentEmail(email, order) {
     })
     .catch((error) => console.log('what error', error));
 }
+
+export function sendOrderFinishedEmail(email, order) {
+  const url = 'https://nostress-email.herokuapp.com/api/sendOrderFinishedEmail';
+  axios({
+    method: 'post',
+    url: url,
+    data: {
+      email: email,
+      order: JSON.stringify(order),
+    },
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((data) => {
+      // console.log(data);
+    })
+    .catch((error) => console.log('what error', error));
+}
