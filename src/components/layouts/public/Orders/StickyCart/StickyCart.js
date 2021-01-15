@@ -19,6 +19,15 @@ const StickyCartStyle = styled.div`
 
   font-size: 1.6rem;
   font-weight: bold;
+
+  .centered-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: auto;
+  }
 `;
 
 const StickyCart = ({ setShowSummary, totalPrice, items }) => {
@@ -33,11 +42,13 @@ const StickyCart = ({ setShowSummary, totalPrice, items }) => {
 
   return (
     <StickyCartStyle onClick={handleClick}>
-      <span className="sticky-cart__amount">{amount} ks.</span>
-      <span className="sticky-cart__button">
-        Pokračovat k objednávce &#8594;
-      </span>
-      <span className="sticky-cart__total-price">{totalPrice} Kč</span>
+      <div className="centered-content">
+        <span className="sticky-cart__amount">{amount} ks.</span>
+        <span className="sticky-cart__button">
+          Pokračovat k objednávce &#8594;
+        </span>
+        <span className="sticky-cart__total-price">{totalPrice} Kč</span>
+      </div>
     </StickyCartStyle>
   );
 

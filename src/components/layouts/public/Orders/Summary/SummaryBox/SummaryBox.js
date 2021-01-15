@@ -52,6 +52,7 @@ const SummaryBox = ({
         </p>
         <CustomerInfoBox name={name} email={email} phoneNumber={phoneNumber} />
         {renderOrderedItems()}
+        {orderMethod === DELIVERY ?? renderContainerPrices()}
         <p className="SummaryBox__totalPrice">Cena celkem: {totalPrice},- Kč</p>
       </SummaryBoxStyle>
       <CartRadioGroup />
@@ -62,6 +63,11 @@ const SummaryBox = ({
     return items.map((item, index) => {
       return <OrderedBox key={index} item={item} />;
     });
+  }
+
+  function renderContainerPrices() {
+    console.log('lol');
+    return <p>Obaly</p>;
   }
 };
 
