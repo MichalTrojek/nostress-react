@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 const Button = styled.button`
   color: ${(props) => (props.primary ? 'black' : 'white')};
-  background-color: ${(props) => (props.primary ? '#f2c48c' : 'red')};
+  background-color: ${(props) => (props.primary ? '#f2c48c' : '#DB1D08')};
   padding: 1rem 2rem 1rem 2rem;
   border-radius: 10px;
   letter-spacing: 0.3rem;

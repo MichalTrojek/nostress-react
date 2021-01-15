@@ -7,6 +7,8 @@ import { showInfoToast } from '../../../../notifications/toast';
 
 import { sortByOrderNumber } from '../../../../utils/orderUtils';
 
+import { TransitionGroup } from 'react-transition-group';
+
 const CustomerOrdersContainer = styled.div`
   position: relative;
 `;
@@ -14,8 +16,8 @@ const CustomerOrdersContainer = styled.div`
 const CustomerOrdersRadioGroup = styled(RadioGroup)`
   label:nth-child(2) {
     background-color: ${(props) =>
-      props.enableNewOrdersButton ? 'forestGreen' : 'transparent'};
-    border: 1px solid forestGreen;
+      props.enableNewOrdersButton ? '#1D741B' : 'transparent'};
+    border: 1px solid #1d741b;
   }
 
   input:checked + label {
@@ -117,7 +119,11 @@ const CustomerOrders = ({ orders = [] }) => {
             : 'ŽÁDNÉ K ZOBRAZENÍ'}
         </label>
       </CustomerOrdersRadioGroup>
-      <OrdersContainer>{renderOrderedItems()}</OrdersContainer>
+      <OrdersContainer>
+        <TransitionGroup component={null}>
+          {renderOrderedItems()}
+        </TransitionGroup>
+      </OrdersContainer>
     </CustomerOrdersContainer>
   );
 

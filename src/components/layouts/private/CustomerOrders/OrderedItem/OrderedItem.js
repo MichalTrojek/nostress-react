@@ -6,6 +6,8 @@ import { sendOrderConfirmedEmail } from '../../../../../utils/emailUtils';
 import { toDateTime } from '../../../../../utils/dateUtils';
 
 import Modal from '../../../../common/Modal';
+import { CSSTransition } from 'react-transition-group';
+import './OrderedItem.css';
 
 import {
   showErrorToast,
@@ -24,13 +26,6 @@ const OrderedItemContainer = styled.div`
   position: relative;
   border-radius: 10px;
   border-top-right-radius: 0;
-
-  /* min-width: 100%; */
-  /* @media only screen and (min-width: 1024px) {
-    --width: calc((99% / 2));
-    max-width: var(--width);
-    min-width: var(--width);
-  } */
 
   .header {
     color: var(--color-tertiary);
@@ -51,7 +46,7 @@ const OrderedItemContainer = styled.div`
     right: -0.5px;
     padding: 0 1rem 0 1rem;
     background-color: ${(props) =>
-      props.isConfirmed ? 'transparent' : 'forestgreen'};
+      props.isConfirmed ? 'transparent' : '#2C5E1A'};
     color: white;
     font-weight: bold;
     border-bottom-left-radius: 5px;
@@ -90,46 +85,52 @@ const OrderedItem = ({ order }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <OrderedItemContainer isConfirmed={order.isConfirmed}>
-      <div className="header">
-        <p className="orderNumber">
-          {!order.isConfirmed
-            ? 'Nová objednávka číslo '
-            : 'Potvrzená objednávka číslo '}
-          {order.orderNumber}
-        </p>
-        {renderOrderMethod(order.orderMethod)}
+    <CSSTransition
+      key={`order-${order.Number}`}
+      timeout={10000}
+      classNames="item-"
+    >
+      <OrderedItemContainer isConfirmed={order.isConfirmed}>
+        <div className="header">
+          <p className="orderNumber">
+            {!order.isConfirmed
+              ? 'Nová objednávka číslo '
+              : 'Potvrzená objednávka číslo '}
+            {order.orderNumber}
+          </p>
+          {renderOrderMethod(order.orderMethod)}
 
-        <p>Vytvořena: {toDateTime(order)} </p>
-        <p>
-          {order.name} ({order.email}, {order.phoneNumber})
-        </p>
-      </div>
-      <div className="items">
-        <p className="bold">Položky</p>
-        {order.items.map((item, index) => {
-          return (
-            <p key={index}>
-              {item.amount} x {item.name}
-            </p>
-          );
-        })}
-      </div>
-      <div className="information">
-        <p className="bold">Ostatní informace</p>
-        <p>{order.text}</p>
-      </div>
-      <div className="buttons">
-        {renderButton()}
-        <Button onClick={() => setShowModal(true)}>Smazat</Button>
-      </div>
-      <Modal
-        text={`Potvrďte vymazání objednávky číslo: ${order.orderNumber}`}
-        confirm={removeOrder}
-        showModal={showModal}
-        setShowModal={setShowModal}
-      />
-    </OrderedItemContainer>
+          <p>Vytvořena: {toDateTime(order)} </p>
+          <p>
+            {order.name} ({order.email}, {order.phoneNumber})
+          </p>
+        </div>
+        <div className="items">
+          <p className="bold">Položky</p>
+          {order.items.map((item, index) => {
+            return (
+              <p key={index}>
+                {item.amount} x {item.name}
+              </p>
+            );
+          })}
+        </div>
+        <div className="information">
+          <p className="bold">Ostatní informace</p>
+          <p>{order.text}</p>
+        </div>
+        <div className="buttons">
+          {renderButton()}
+          <Button onClick={() => setShowModal(true)}>Smazat</Button>
+        </div>
+        <Modal
+          text={`Potvrďte vymazání objednávky číslo: ${order.orderNumber}`}
+          confirm={removeOrder}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+      </OrderedItemContainer>
+    </CSSTransition>
   );
 
   function removeOrder() {
@@ -147,6 +148,7 @@ const OrderedItem = ({ order }) => {
         );
         return false;
       });
+
     showToast(success);
   }
 
