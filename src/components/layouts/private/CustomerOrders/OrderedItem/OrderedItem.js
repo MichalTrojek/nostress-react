@@ -7,8 +7,6 @@ import { toDateTime } from '../../../../../utils/dateUtils';
 
 import Modal from '../../../../common/Modal';
 
-import './OrderedItem.css';
-
 import {
   showErrorToast,
   showInfoToast,
@@ -82,7 +80,9 @@ const OrderedItemContainer = styled.div`
 
 const OrderedItem = ({ order }) => {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [showFinishModal, setShowFinishModal] = useState(false);
 
   return (
     <OrderedItemContainer isConfirmed={order.isConfirmed}>
@@ -116,16 +116,52 @@ const OrderedItem = ({ order }) => {
       </div>
       <div className="buttons">
         {renderButton()}
-        <Button onClick={() => setShowModal(true)}>Smazat</Button>
+        <Button onClick={() => setShowDeleteModal(true)}>Smazat</Button>
       </div>
       <Modal
         text={`Potvrďte vymazání objednávky číslo: ${order.orderNumber}`}
         confirm={removeOrder}
-        showModal={showModal}
-        setShowModal={setShowModal}
+        showModal={showDeleteModal}
+        setShowModal={setShowDeleteModal}
+      />
+      <Modal
+        text={`Potvrďte potvrzení objednávky číslo: ${order.orderNumber}`}
+        confirm={confirmOrder}
+        showModal={showConfirmModal}
+        setShowModal={setShowConfirmModal}
+      />
+      <Modal
+        text={`Potvrďte dokončení objednávky číslo: ${order.orderNumber}`}
+        confirm={finishOrder}
+        showModal={showFinishModal}
+        setShowModal={setShowFinishModal}
       />
     </OrderedItemContainer>
   );
+  function finishOrder() {
+    order.isFinished = true;
+    const batch = db.batch();
+    batch.set(db.collection('orderHistory').doc(order.id), order);
+    batch.delete(db.collection('orders').doc(order.id));
+    batch
+      .commit()
+      .then(() => {
+        showInfoToast(
+          `Objednávka číslo ${order.orderNumber} byla uložena do historie objednávek`
+        );
+      })
+      .catch((error) => {
+        console.log(`Error while finishing order: ${error}`);
+      });
+  }
+
+  function confirmOrder() {
+    setOrderConfirmed(!orderConfirmed);
+    order.isConfirmed = true;
+    db.collection('orders').doc(order.id).update(order);
+    sendOrderConfirmedEmail(order.email, order);
+    showSuccessToast(`Objednávka číslo ${order.orderNumber} byla potvrzena.`);
+  }
 
   function removeOrder() {
     const success = db
@@ -159,39 +195,18 @@ const OrderedItem = ({ order }) => {
 
   function renderButton() {
     return order.isConfirmed ? (
-      <Button primary onClick={handleFinishedButton}>
+      <Button primary onClick={() => setShowFinishModal(true)}>
         Hotovo
       </Button>
     ) : (
-      <Button primary className="confirmButton" onClick={handleConfirmButton}>
+      <Button
+        primary
+        className="confirmButton"
+        onClick={() => setShowConfirmModal(true)}
+      >
         Potvrdit
       </Button>
     );
-  }
-
-  function handleFinishedButton() {
-    order.isFinished = true;
-    const batch = db.batch();
-    batch.set(db.collection('orderHistory').doc(order.id), order);
-    batch.delete(db.collection('orders').doc(order.id));
-    batch
-      .commit()
-      .then(() => {
-        showInfoToast(
-          `Objednávka číslo ${order.orderNumber} byla uložena do historie objednávek`
-        );
-      })
-      .catch((error) => {
-        console.log(`Error while finishing order: ${error}`);
-      });
-  }
-
-  function handleConfirmButton() {
-    setOrderConfirmed(!orderConfirmed);
-    order.isConfirmed = true;
-    db.collection('orders').doc(order.id).update(order);
-    sendOrderConfirmedEmail(order.email, order);
-    showSuccessToast(`Objednávka číslo ${order.orderNumber} byla potvrzena.`);
   }
 };
 
