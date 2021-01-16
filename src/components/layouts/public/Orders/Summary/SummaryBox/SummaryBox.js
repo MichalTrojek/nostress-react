@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
 
 import { DELIVERY } from '../../../../../../utils/constant';
 
@@ -33,6 +34,10 @@ const SummaryBoxStyle = styled.div`
     font-weight: bold;
     justify-self: flex-end;
   }
+
+  .SummaryBox__containers {
+    grid-column: 1 / -1;
+  }
 `;
 
 const SummaryBox = ({
@@ -43,6 +48,27 @@ const SummaryBox = ({
   orderMethod,
   items,
 }) => {
+  const [mealsCount, setMealsCount] = useState(0);
+  const [soupsCount, setSoupsCount] = useState(0);
+
+  const SOUP_BOX_PRICE = 5;
+  const MEAL_BOX_PRICE = 7;
+
+  useEffect(() => {
+    let tempSoupsCount = 0;
+    let tempMealsCount = 0;
+
+    items.forEach((item) => {
+      if (item.isSoup) {
+        tempSoupsCount++;
+      } else {
+        tempMealsCount++;
+      }
+    });
+    setSoupsCount(tempSoupsCount);
+    setMealsCount(tempMealsCount);
+  }, [items]);
+
   return (
     <>
       <SummaryBoxStyle>
@@ -52,7 +78,7 @@ const SummaryBox = ({
         </p>
         <CustomerInfoBox name={name} email={email} phoneNumber={phoneNumber} />
         {renderOrderedItems()}
-        {orderMethod === DELIVERY ?? renderContainerPrices()}
+        {orderMethod === DELIVERY ? renderContainerPrices() : <></>}
         <p className="SummaryBox__totalPrice">Cena celkem: {totalPrice},- Kč</p>
       </SummaryBoxStyle>
       <CartRadioGroup />
@@ -66,8 +92,13 @@ const SummaryBox = ({
   }
 
   function renderContainerPrices() {
-    console.log('lol');
-    return <p>Obaly</p>;
+    return (
+      <div className="SummaryBox__containers">
+        <p>Obaly</p>
+        <p>{mealsCount} x Krabička na jídlo</p>
+        <p>Polívky: {soupsCount} x Obal na polévku</p>
+      </div>
+    );
   }
 };
 

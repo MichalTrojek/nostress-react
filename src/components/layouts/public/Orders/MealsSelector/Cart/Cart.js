@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react';
 
 import CartFooter from './styles/CartFooter';
 import CartHeader from './styles/CartHeader';
+
 import CartItem from './styles/CartItem';
 
 import setTotalPrice from '../../../../../../redux/actions/orders/setTotalPrice';
+import CartRadioGroup from './CartRadioGroup';
 
 const CartContainer = styled.div`
   border: 1px solid var(--color-tertiary);
@@ -49,6 +51,7 @@ const Cart = ({ items = [], totalPrice, setTotalPrice }) => {
         <p>Celkem kusů: {totalAmount}</p>
         <p className="totalPrice">Celkem: {totalPrice},- Kč </p>
       </CartFooter>
+      <CartRadioGroup />
     </CartContainer>
   );
 

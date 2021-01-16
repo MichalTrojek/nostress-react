@@ -25,7 +25,6 @@ const OrderMainMenu = ({
           Dětské menu
         </h1>
         <MealListContainer>{renderChildMenu()}</MealListContainer>
-        <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Polévky</h1>
         <MealListContainer>{renderSoup(soup)}</MealListContainer>
       </div>
     </CSSTransition>
@@ -60,7 +59,10 @@ const OrderMainMenu = ({
 
 function renderSoup(soup) {
   return soup.name.length > 0 ? (
-    <OrderItem name={soup.name} price={soup.price} />
+    <div>
+      <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Polévky</h1>
+      <OrderItem name={soup.name} price={soup.price} isSoup={true} />
+    </div>
   ) : (
     <></>
   );

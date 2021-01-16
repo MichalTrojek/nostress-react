@@ -61,7 +61,14 @@ const OrderItemContainer = styled.div`
   }
 `;
 
-const OrderItem = ({ name, alergens, price, updateOrderToState, items }) => {
+const OrderItem = ({
+  name,
+  alergens,
+  price,
+  updateOrderToState,
+  items = [],
+  isSoup = false,
+}) => {
   const [isOrdered, setIsOrdered] = useState(false);
   const [amount, setAmount] = useState(1);
 
@@ -82,6 +89,7 @@ const OrderItem = ({ name, alergens, price, updateOrderToState, items }) => {
       price: price,
       amount: amount,
       isOrdered: isOrdered,
+      isSoup: isSoup,
     });
   }, [amount, isOrdered, price, name, updateOrderToState]);
 

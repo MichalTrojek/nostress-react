@@ -7,6 +7,7 @@ import FormGroup from '../../../../common/Forms/FormGroup';
 import Button from '../../../../common/Button';
 
 import SummaryBox from './SummaryBox';
+import Cart from '../MealsSelector/Cart';
 
 import saveCustomerInfo from '../../../../../redux/actions/orders/saveCustomerInfo';
 import createOrder from '../../../../../redux/actions/orders/createOrder';
@@ -46,14 +47,15 @@ const Summary = ({
         }}
       >
         <h1 style={{ paddingBottom: '1rem' }}>Souhrn objednávky</h1>
-        <SummaryBox
+        <Cart />
+        {/* <SummaryBox
           name={name}
           email={email}
           phoneNumber={phoneNumber}
           totalPrice={totalPrice}
           orderMethod={orderMethod}
           items={items}
-        />
+        /> */}
 
         <Form onSubmit={handleSubmit}>
           <FormGroup>

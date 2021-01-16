@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import setTotalPrice from '../../../../../redux/actions/orders/setTotalPrice';
 
 const StickyCartStyle = styled.div`
   background-color: red;
@@ -27,20 +28,24 @@ const StickyCartStyle = styled.div`
   }
 `;
 
-const StickyCart = ({ setShowSummary, totalPrice, items }) => {
-  const [amount, setAmount] = useState(55);
+const StickyCart = ({ setShowSummary, totalPrice, items, setTotalPrice }) => {
+  const [totalAmount, setTotalAmount] = useState(0);
+
   useEffect(() => {
+    let tempPrice = 0;
     let tempAmount = 0;
     items.forEach((item) => {
-      tempAmount += item.amount;
+      tempPrice += Number(item.price) * Number(item.amount);
+      tempAmount += Number(item.amount);
     });
-    setAmount(tempAmount);
-  }, [items]);
+    setTotalPrice(tempPrice);
+    setTotalAmount(tempAmount);
+  }, [items, setTotalPrice]);
 
   return (
     <StickyCartStyle onClick={handleClick}>
       <div className="centered-content">
-        <span className="sticky-cart__amount">{amount} ks.</span>
+        <span className="sticky-cart__amount">{totalAmount} ks.</span>
         <span className="sticky-cart__button">
           Pokračovat k objednávce &#8594;
         </span>
@@ -61,4 +66,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps, null)(StickyCart);
+export default connect(mapStateToProps, { setTotalPrice })(StickyCart);

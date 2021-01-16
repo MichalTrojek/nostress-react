@@ -50,24 +50,12 @@ const MealsSelector = ({
   orderingStarted,
   isOrderingAllowed,
 }) => {
-  function renderHeader() {
-    return orderingStarted.menuType === 'MainMenu'
-      ? 'Týdenní menu 11:00 – 16:00'
-      : 'Snídaňové menu 8:00 – 10:30';
-  }
-
   function renderMenu() {
     return orderingStarted.menuType === 'MainMenu' ? (
       <OrderMainMenu />
     ) : (
       <OrderBreakfastMenu />
     );
-  }
-
-  function handleOrder() {
-    if (isOrderingAllowed) {
-      setShowSummary(true);
-    }
   }
 
   return (
@@ -78,19 +66,7 @@ const MealsSelector = ({
       isOrderingAllowed={isOrderingAllowed}
       unmountOnExit={showConfirmation}
     >
-      <div className="mealSelector">
-        <h1 className="heading">{renderHeader()}</h1>
-        <Cart />
-        <Button
-          disabled={!isOrderingAllowed}
-          className="button"
-          primary
-          onClick={handleOrder}
-        >
-          Pokračovat k objednávce
-        </Button>
-        {renderMenu()}
-      </div>
+      <div className="mealSelector">{renderMenu()}</div>
     </MealsSelectorContainerStyle>
   );
 };
