@@ -51,7 +51,7 @@ const OrderPage = ({ items, orderingStarted }) => {
     } else {
       setShowStickyCart(false);
     }
-  }, [showSummary]);
+  }, [showSummary, items]);
 
   useEffect(() => {
     setShowStickyCart(false);

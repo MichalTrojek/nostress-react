@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import logo from '../../../../img/logo.png';
-import startOrdering from '../../../../redux/actions/orders/startOrdering';
 
 import PublicBurger from '../../../common/Burgers/PublicBurger';
 import SideMenuStyled from '../../../common/SideMenu';

@@ -91,7 +91,7 @@ const OrderItem = ({
       isOrdered: isOrdered,
       isSoup: isSoup,
     });
-  }, [amount, isOrdered, price, name, updateOrderToState]);
+  }, [amount, isOrdered, price, name, updateOrderToState, isSoup]);
 
   return (
     <OrderItemContainer isOrdered={isOrdered}>
