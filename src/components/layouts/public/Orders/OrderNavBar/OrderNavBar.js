@@ -17,6 +17,7 @@ const OrderNavBarStyle = styled.nav`
       height: 6rem;
     }
   }
+  background-color: black;
 `;
 
 const OrderNavBarItem = styled.div`

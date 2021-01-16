@@ -106,7 +106,7 @@ const Confirmation = ({
 function mapStateToProps(state, ownProps) {
   return {
     customerInfo: state.order.customerInfo,
-    totalPrice: state.order.totalPrice,
+    totalPrice: state.order.total.totalPrice,
     orderMethod: state.order.orderMethod,
   };
 }

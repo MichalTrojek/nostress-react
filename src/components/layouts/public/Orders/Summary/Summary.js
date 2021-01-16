@@ -6,7 +6,7 @@ import Form from '../../../../common/Forms/Form';
 import FormGroup from '../../../../common/Forms/FormGroup';
 import Button from '../../../../common/Button';
 
-import Cart from '../MealsSelector/Cart';
+import Cart from './Cart';
 
 import saveCustomerInfo from '../../../../../redux/actions/orders/saveCustomerInfo';
 import createOrder from '../../../../../redux/actions/orders/createOrder';
