@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CartFooter = styled.div`
+const CartFooterStyle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -23,5 +23,20 @@ const CartFooter = styled.div`
     }
   }
 `;
+
+const CartFooter = ({ totalAmount, priceForBoxes, totalPrice }) => {
+  return (
+    <CartFooterStyle>
+      <p>Celkem kusů: {totalAmount}</p>
+      <div className="sum">
+        <p className="totalPrice">Obaly: {priceForBoxes},- Kč</p>
+        <p className="totalPrice">Jídlo: {totalPrice},- Kč </p>
+        <p className="totalPrice">
+          Cena celkem: {totalPrice + priceForBoxes},- Kč{' '}
+        </p>
+      </div>
+    </CartFooterStyle>
+  );
+};
 
 export default CartFooter;

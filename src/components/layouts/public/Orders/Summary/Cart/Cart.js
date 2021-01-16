@@ -44,17 +44,11 @@ const Cart = ({ items = [], total }) => {
       </CartHeader>
       <div className="items">{renderItems()}</div>
       {renderBoxes()}
-      <CartFooter>
-        <p>Celkem kusů: {total.totalAmount}</p>
-        <div className="sum">
-          <p className="totalPrice">Obaly: {calculatePriceForBoxes()},- Kč</p>
-          <p className="totalPrice">Jídlo: {total.totalPrice},- Kč </p>
-          <p className="totalPrice">
-            Cena celkem: {total.totalPrice + calculatePriceForBoxes()},- Kč{' '}
-          </p>
-        </div>
-      </CartFooter>
-      <CartRadioGroup />
+      <CartFooter
+        totalAmount={total.totalAmount}
+        priceForBoxes={calculatePriceForBoxes()}
+        totalPrice={total.totalPrice}
+      />
     </CartContainer>
   );
 
