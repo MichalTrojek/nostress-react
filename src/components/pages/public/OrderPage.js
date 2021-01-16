@@ -45,13 +45,13 @@ const OrderPage = ({ items, orderingStarted }) => {
   }, [items, orderingStarted.status, history]);
 
   useEffect(() => {
-    if (!showSummary && items.length > 0) {
+    if (!showSummary) {
       setShowStickyCart(true);
-      // window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
     } else {
       setShowStickyCart(false);
     }
-  }, [showSummary, items]);
+  }, [showSummary]);
 
   useEffect(() => {
     setShowStickyCart(false);
