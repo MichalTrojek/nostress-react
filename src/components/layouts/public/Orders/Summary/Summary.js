@@ -6,7 +6,6 @@ import Form from '../../../../common/Forms/Form';
 import FormGroup from '../../../../common/Forms/FormGroup';
 import Button from '../../../../common/Button';
 
-import SummaryBox from './SummaryBox';
 import Cart from '../MealsSelector/Cart';
 
 import saveCustomerInfo from '../../../../../redux/actions/orders/saveCustomerInfo';
@@ -112,7 +111,6 @@ const Summary = ({
 
   function handleBackButton(e) {
     e.preventDefault();
-
     hideSummary();
   }
 
@@ -142,7 +140,7 @@ const Summary = ({
 
 function mapStateToProps(state, ownProps) {
   return {
-    totalPrice: state.order.totalPrice,
+    totalPrice: state.order.total.totalPrice,
     items: state.order.items,
     menuType: state.order.orderingStarted.menuType,
     orderMethod: state.order.orderMethod,
