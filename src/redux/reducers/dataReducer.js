@@ -5,6 +5,8 @@ import {
   UPDATE_NEWS,
   UPDATE_CARDS,
   UPDATE_MEALS,
+  UPDATE_MEAL_BOX_PRICES,
+  UPDATE_SOUP_BOX_PRICES,
 } from '../actions/types';
 
 const initialState = {
@@ -28,6 +30,10 @@ const initialState = {
     saturday: '',
     sunday: '',
   },
+  boxPrices: {
+    soupBoxPrice: '',
+    mealBoxPrice: '',
+  },
 };
 
 function dataReducer(state = initialState, action) {
@@ -42,6 +48,10 @@ function dataReducer(state = initialState, action) {
       return { ...state, cards: action.payload };
     case UPDATE_MEALS:
       return { ...state, meals: action.payload };
+    case UPDATE_MEAL_BOX_PRICES:
+      return { ...state, boxPrices: action.payload };
+    case UPDATE_SOUP_BOX_PRICES:
+      return { ...state, boxPrices: action.payload };
     case FETCH_DATA:
       return action.payload || state;
     default:

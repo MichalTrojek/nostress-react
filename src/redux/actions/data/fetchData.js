@@ -18,7 +18,8 @@ function dataFetched(data) {
     dataExist(data.menu) ||
     dataExist(data.soups) ||
     dataExist(data.allNews) ||
-    dataExist(data.hours)
+    dataExist(data.hours) ||
+    dataExist(data.boxPrices)
   );
 }
 const dataExist = (array) => {

@@ -6,15 +6,16 @@ import FormGroup from '../../../common/Forms/FormGroup';
 import Button from '../../../../components/common/Button';
 
 import updateSoups from '../../../../redux/actions/data/soups/updateSoups';
+import updateSoupBoxPrice from '../../../../redux/actions/data/boxPrices/updateSoupBoxPrice';
 
-const SoupsForm = ({ updateSoups, soups }) => {
+const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
   const [monday, setMonday] = useState('');
   const [tuesday, setTuesday] = useState('');
   const [wednesday, setWednesday] = useState('');
   const [thursday, setThursday] = useState('');
   const [friday, setFriday] = useState('');
   const [price, setPrice] = useState('');
-  const [boxPrice, setBoxPrice] = useState('');
+  const [soupBoxPrice, setSoupBoxPrice] = useState('');
 
   useEffect(() => {
     if (soups) {
@@ -24,9 +25,12 @@ const SoupsForm = ({ updateSoups, soups }) => {
       setThursday(soups.thursday);
       setFriday(soups.friday);
       setPrice(soups.price);
-      setBoxPrice(soups.boxPrice);
     }
-  }, [soups]);
+
+    if (boxPrice) {
+      setSoupBoxPrice(boxPrice);
+    }
+  }, [soups, boxPrice]);
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -98,8 +102,8 @@ const SoupsForm = ({ updateSoups, soups }) => {
         <input
           type="text"
           placeholder="Cena obalu"
-          value={boxPrice}
-          onChange={(event) => setBoxPrice(event.target.value)}
+          value={soupBoxPrice}
+          onChange={(event) => setSoupBoxPrice(event.target.value)}
           id="soupBoxInput"
         />
         <label htmlFor="soupBoxInput">Cena obalu</label>
@@ -119,12 +123,16 @@ const SoupsForm = ({ updateSoups, soups }) => {
       thursday: thursday,
       friday: friday,
       price: price,
-      boxPrice: boxPrice,
     };
-    updateSoups(soups);
+    if (soups) {
+      updateSoups(soups);
+    }
+
+    updateSoupBoxPrice(soupBoxPrice);
   }
 };
 
 export default connect(null, {
   updateSoups,
+  updateSoupBoxPrice,
 })(SoupsForm);

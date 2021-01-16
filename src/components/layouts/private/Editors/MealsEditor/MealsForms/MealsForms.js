@@ -8,6 +8,7 @@ import Button from '../../../../../common/Button';
 
 import createMeal from '../../../../../../redux/actions/data/meals/createMeal';
 import editMeal from '../../../../../../redux/actions/data/meals/editMeal';
+import updateMealBoxPrice from '../../../../../../redux/actions/data/boxPrices/updateMealBoxPrice';
 import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
 import RadioGroup from '../../../../../common/Forms/RadioGroup';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -45,13 +46,19 @@ const MealsForms = ({
   isEditModeOn,
   setSelectedItem,
   selectedItem,
+  updateMealBoxPrice,
+  boxPrice,
 }) => {
   const [name, setName] = useState('');
   const [alergens, setAlergens] = useState('');
   const [price, setPrice] = useState('');
   const [type, setType] = useState('isWeeklyMeal');
   const [menuNumber, setMenuNumber] = useState('');
-  const [priceBox, setPriceBox] = useState('');
+  const [mealBoxPrice, setMealBoxPrice] = useState('');
+
+  useEffect(() => {
+    setMealBoxPrice(boxPrice);
+  }, [boxPrice, setMealBoxPrice]);
 
   useEffect(() => {
     if (isEditModeOn) {
@@ -60,7 +67,6 @@ const MealsForms = ({
       setPrice(selectedItem.price);
       setType(selectedItem.type);
       setMenuNumber(selectedItem.menuNumber);
-      setPriceBox(selectedItem.priceBox);
     }
   }, [isEditModeOn, selectedItem]);
 
@@ -116,8 +122,8 @@ const MealsForms = ({
           <input
             type="text"
             placeholder="Cena obalu"
-            value={priceBox}
-            onChange={(event) => setPriceBox(event.target.value)}
+            value={mealBoxPrice}
+            onChange={(event) => setMealBoxPrice(event.target.value)}
             id="priceBoxInput"
             required
           />
@@ -168,16 +174,23 @@ const MealsForms = ({
             unmountOnExit
           >
             <MealFormButtons>
-              <Button className="createMealButton" primary type="submit">
+              <Button primary type="submit">
                 Vytvořit
               </Button>
-              <Button className="createMealButton" primary type="submit">
+              <Button onClick={saveMealBoxPrice} primary>
                 Uložit cenu obalu
               </Button>
             </MealFormButtons>
           </CSSTransition>
         </TransitionGroup>
       );
+    }
+  }
+
+  function saveMealBoxPrice(event) {
+    event.preventDefault();
+    if (mealBoxPrice.length !== 0) {
+      updateMealBoxPrice(mealBoxPrice);
     }
   }
 
@@ -191,7 +204,6 @@ const MealsForms = ({
         price,
         type,
         menuNumber,
-        priceBox,
         selectedItemType: 'meal',
       };
 
@@ -265,6 +277,7 @@ function mapStateToProps(state, ownProps) {
   return {
     isEditModeOn: state.editor.isEditModeOn,
     selectedItem: state.editor.selectedItem,
+    boxPrice: state.data.boxPrices.mealBoxPrice,
   };
 }
 
@@ -272,4 +285,5 @@ export default connect(mapStateToProps, {
   createMeal,
   editMeal,
   setSelectedItem,
+  updateMealBoxPrice,
 })(MealsForms);

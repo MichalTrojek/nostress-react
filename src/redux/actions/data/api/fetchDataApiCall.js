@@ -13,6 +13,7 @@ function fetchNewsApiCall() {
           soups: doc.data().soups || {},
           cards: doc.data().cards || [],
           hours: doc.data().hours || {},
+          boxPrices: doc.data().boxPrices || {},
         };
       });
       return data;

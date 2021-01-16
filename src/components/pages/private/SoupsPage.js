@@ -14,7 +14,7 @@ const SoupsPageBackground = styled(Background)`
   min-height: 100vh;
 `;
 
-const SoupsPage = ({ fetchData, soups }) => {
+const SoupsPage = ({ fetchData, soups, soupBoxPrice }) => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
@@ -24,16 +24,16 @@ const SoupsPage = ({ fetchData, soups }) => {
       <Wrapper>
         <PrivateNavBar />
         <h1>Tvorba polévkoho menu</h1>
-        <SoupsForm soups={soups} />
+        <SoupsForm soups={soups} boxPrice={soupBoxPrice} />
       </Wrapper>
     </SoupsPageBackground>
   );
 };
 
 function mapStateToProps(state, ownProps) {
-  const soups = state.data.soups;
   return {
-    soups: soups,
+    soups: state.data.soups,
+    soupBoxPrice: state.data.boxPrices.soupBoxPrice,
   };
 }
 
