@@ -52,7 +52,7 @@ const MealsForms = ({
   const [name, setName] = useState('');
   const [alergens, setAlergens] = useState('');
   const [price, setPrice] = useState('');
-  const [type, setType] = useState('isWeeklyMeal');
+  const [type, setType] = useState('');
   const [menuNumber, setMenuNumber] = useState('');
   const [mealBoxPrice, setMealBoxPrice] = useState('');
 
@@ -120,6 +120,7 @@ const MealsForms = ({
 
         <FormGroup>
           <input
+            disabled={isEditModeOn}
             type="text"
             placeholder="Cena obalu"
             value={mealBoxPrice}
@@ -230,7 +231,6 @@ const MealsForms = ({
           id="weeklyId"
           checked={type === 'isWeeklyMeal'}
           onChange={(event) => setType(event.target.value)}
-          disabled={!isEditModeOn}
         />
         <label htmlFor="weeklyId">Pokrm patří do týdenního menu</label>
 
@@ -241,7 +241,6 @@ const MealsForms = ({
           id="breakfastId"
           checked={type === 'isBreakfastMeal'}
           onChange={(event) => setType(event.target.value)}
-          disabled={!isEditModeOn}
         />
         <label htmlFor="breakfastId">Pokrm patří do snídaňového menu</label>
 
@@ -252,7 +251,6 @@ const MealsForms = ({
           checked={type === 'isChildMeal'}
           onChange={(event) => setType(event.target.value)}
           id="childId"
-          disabled={!isEditModeOn}
         />
         <label htmlFor="childId">Pokrm patří do dětského menu</label>
       </RadioGroup>
@@ -269,7 +267,7 @@ const MealsForms = ({
     setAlergens('');
     setPrice('');
     setMenuNumber('');
-    setType('isWeeklyMeal');
+    setType('');
   }
 };
 
