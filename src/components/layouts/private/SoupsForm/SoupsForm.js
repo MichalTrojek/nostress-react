@@ -14,6 +14,7 @@ const SoupsForm = ({ updateSoups, soups }) => {
   const [thursday, setThursday] = useState('');
   const [friday, setFriday] = useState('');
   const [price, setPrice] = useState('');
+  const [boxPrice, setBoxPrice] = useState('');
 
   useEffect(() => {
     if (soups) {
@@ -23,6 +24,7 @@ const SoupsForm = ({ updateSoups, soups }) => {
       setThursday(soups.thursday);
       setFriday(soups.friday);
       setPrice(soups.price);
+      setBoxPrice(soups.boxPrice);
     }
   }, [soups]);
 
@@ -92,6 +94,16 @@ const SoupsForm = ({ updateSoups, soups }) => {
         />
         <label htmlFor="priceInput">Jednotná cena</label>
       </FormGroup>
+      <FormGroup>
+        <input
+          type="text"
+          placeholder="Cena obalu"
+          value={boxPrice}
+          onChange={(event) => setBoxPrice(event.target.value)}
+          id="soupBoxInput"
+        />
+        <label htmlFor="soupBoxInput">Cena obalu</label>
+      </FormGroup>
       <Button primary type="submit">
         aktualizovat
       </Button>
@@ -107,6 +119,7 @@ const SoupsForm = ({ updateSoups, soups }) => {
       thursday: thursday,
       friday: friday,
       price: price,
+      boxPrice: boxPrice,
     };
     updateSoups(soups);
   }
