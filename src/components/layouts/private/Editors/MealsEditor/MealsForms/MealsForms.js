@@ -16,42 +16,26 @@ import { v4 as uuidv4 } from 'uuid';
 import './styles/animations.css';
 
 const MealForm = styled(Form)`
-  .createMealButton {
-    width: 100%;
+  .mealform__inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(48%, 1fr));
+    grid-column-gap: 1rem;
   }
-  @media only screen and (min-width: 1024px) {
-    .inputs {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 1rem;
-      .alergens {
-        grid-column: 1 / span 1;
-      }
 
-      .menuNumber {
-        grid-column: 2 / span 1;
-      }
-
-      .price {
-        grid-column: 3 / span 1;
-      }
+  @media only screen and (min-width: 768px) {
+    .mealform__inputs {
+      grid-template-columns: repeat(auto-fill, minmax(24%, 1fr));
     }
   }
 `;
 
 const MealFormButtons = styled.div`
-  display: flex;
-  justify-content: center;
-  Button {
-    width: 50%;
-  }
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
 
-  Button:first-child {
-    margin-right: 0.5rem;
-  }
-
-  Button:last-child {
-    margin-left: 0.5rem;
+  @media only screen and (min-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
   }
 `;
 
@@ -67,6 +51,7 @@ const MealsForms = ({
   const [price, setPrice] = useState('');
   const [type, setType] = useState('isWeeklyMeal');
   const [menuNumber, setMenuNumber] = useState('');
+  const [priceBox, setPriceBox] = useState('');
 
   useEffect(() => {
     if (isEditModeOn) {
@@ -75,6 +60,7 @@ const MealsForms = ({
       setPrice(selectedItem.price);
       setType(selectedItem.type);
       setMenuNumber(selectedItem.menuNumber);
+      setPriceBox(selectedItem.priceBox);
     }
   }, [isEditModeOn, selectedItem]);
 
@@ -91,8 +77,8 @@ const MealsForms = ({
         />
         <label htmlFor="nameInput">Název</label>
       </FormGroup>
-      <div className="inputs">
-        <FormGroup className="alergens">
+      <div className="mealform__inputs">
+        <FormGroup>
           <input
             type="text"
             placeholder="Alergeny"
@@ -102,7 +88,7 @@ const MealsForms = ({
           />
           <label htmlFor="alergenInput">Alergeny</label>
         </FormGroup>
-        <FormGroup className="menuNumber">
+        <FormGroup>
           <input
             type="text"
             placeholder="Číslo menu"
@@ -114,7 +100,7 @@ const MealsForms = ({
           <label htmlFor="menuNumberInput">Číslo menu</label>
         </FormGroup>
 
-        <FormGroup className="price">
+        <FormGroup>
           <input
             type="text"
             placeholder="Cena"
@@ -124,6 +110,18 @@ const MealsForms = ({
             required
           />
           <label htmlFor="priceInput">Cena</label>
+        </FormGroup>
+
+        <FormGroup>
+          <input
+            type="text"
+            placeholder="Cena obalu"
+            value={priceBox}
+            onChange={(event) => setPriceBox(event.target.value)}
+            id="priceBoxInput"
+            required
+          />
+          <label htmlFor="priceInput">Cena obalu</label>
         </FormGroup>
       </div>
       {renderRadioGroup()}
@@ -169,9 +167,14 @@ const MealsForms = ({
             classNames="fade"
             unmountOnExit
           >
-            <Button className="createMealButton" primary type="submit">
-              Vytvořit
-            </Button>
+            <MealFormButtons>
+              <Button className="createMealButton" primary type="submit">
+                Vytvořit
+              </Button>
+              <Button className="createMealButton" primary type="submit">
+                Uložit cenu obalu
+              </Button>
+            </MealFormButtons>
           </CSSTransition>
         </TransitionGroup>
       );
@@ -188,6 +191,7 @@ const MealsForms = ({
         price,
         type,
         menuNumber,
+        priceBox,
         selectedItemType: 'meal',
       };
 
