@@ -39,7 +39,7 @@ const CardRadioGroupContainer = styled(RadioGroup)`
 `;
 
 const CartRadioGroup = ({ orderMethod }) => {
-  const [selectedMethod, setSelectedMethod] = useState(DELIVERY);
+  const [selectedMethod, setSelectedMethod] = useState(PICKUP);
 
   useEffect(() => {
     orderMethod(selectedMethod);
@@ -47,16 +47,6 @@ const CartRadioGroup = ({ orderMethod }) => {
 
   return (
     <CardRadioGroupContainer>
-      <input
-        id="deliveryId"
-        type="radio"
-        value={DELIVERY}
-        name="deliveryGroup"
-        checked={selectedMethod === DELIVERY}
-        onChange={(event) => setSelectedMethod(event.target.value)}
-      />
-      <label htmlFor="deliveryId">Doručit na adresu</label>
-
       <input
         id="pickupId"
         type="radio"
@@ -66,6 +56,15 @@ const CartRadioGroup = ({ orderMethod }) => {
         onChange={(event) => setSelectedMethod(event.target.value)}
       />
       <label htmlFor="pickupId">Vyzvednu osobně</label>
+      <input
+        id="deliveryId"
+        type="radio"
+        value={DELIVERY}
+        name="deliveryGroup"
+        checked={selectedMethod === DELIVERY}
+        onChange={(event) => setSelectedMethod(event.target.value)}
+      />
+      <label htmlFor="deliveryId">Doručit na adresu</label>
     </CardRadioGroupContainer>
   );
 };

@@ -47,7 +47,6 @@ const Summary = ({
       >
         <h1 style={{ paddingBottom: '1rem' }}>Souhrn objednávky</h1>
         <Cart />
-
         <Form onSubmit={handleSubmit}>
           <FormGroup>
             <input
