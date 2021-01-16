@@ -1,16 +1,16 @@
 import {
   UPDATE_ORDER,
   ORDER_METHOD,
-  SET_TOTAL_PRICE,
   SAVE_CUSTOMER_INFO,
   CREATE_ORDER,
   START_ORDERING,
   RESET_ORDERS,
+  SET_TOTAL,
 } from '../actions/types';
 
 const initialState = {
   id: '',
-  totalPrice: 0,
+  total: {},
   orderMethod: '',
   items: [],
   customerInfo: { name: '', phoneNumber: '', email: '', text: '' },
@@ -22,8 +22,8 @@ function orderReducer(state = initialState, action) {
       return { ...state, items: action.payload };
     case ORDER_METHOD:
       return { ...state, orderMethod: action.payload };
-    case SET_TOTAL_PRICE:
-      return { ...state, totalPrice: action.payload };
+    case SET_TOTAL:
+      return { ...state, total: action.payload };
     case SAVE_CUSTOMER_INFO:
       return { ...state, customerInfo: action.payload };
     case CREATE_ORDER:

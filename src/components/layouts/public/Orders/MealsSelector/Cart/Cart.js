@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { useEffect, useState } from 'react';
 
 import CartFooter from './styles/CartFooter';
 import CartHeader from './styles/CartHeader';
@@ -23,20 +22,7 @@ const CartContainer = styled.div`
   }
 `;
 
-const Cart = ({ items = [], totalPrice, setTotalPrice }) => {
-  const [totalAmount, setTotalAmount] = useState(0);
-
-  useEffect(() => {
-    let tempPrice = 0;
-    let tempAmount = 0;
-    items.forEach((item) => {
-      tempPrice += Number(item.price) * Number(item.amount);
-      tempAmount += Number(item.amount);
-    });
-    setTotalPrice(tempPrice);
-    setTotalAmount(tempAmount);
-  }, [items, setTotalPrice]);
-
+const Cart = ({ items = [], totalPrice, totalAmount }) => {
   return (
     <CartContainer>
       <CartHeader>
@@ -44,9 +30,7 @@ const Cart = ({ items = [], totalPrice, setTotalPrice }) => {
         <p className="name">Název</p>
         <p className="price">Cena/kus</p>
       </CartHeader>
-      <div className="items">
-        {items.length > 0 ? renderItems() : renderEmptyItem()}
-      </div>
+      <div className="items">{renderItems()}</div>
       <CartFooter>
         <p>Celkem kusů: {totalAmount}</p>
         <p className="totalPrice">Celkem: {totalPrice},- Kč </p>
@@ -66,22 +50,13 @@ const Cart = ({ items = [], totalPrice, setTotalPrice }) => {
       );
     });
   }
-
-  function renderEmptyItem() {
-    return (
-      <CartItem>
-        <p className="name">...</p>
-        <p className="amount">...</p>
-        <p className="price">...</p>
-      </CartItem>
-    );
-  }
 };
 
 function mapStateToProps(state, ownProps) {
   return {
     items: state.order.items,
-    totalPrice: state.order.totalPrice,
+    totalPrice: state.order.total.totalPrice,
+    totalAmount: state.order.total.totalAmount,
   };
 }
 

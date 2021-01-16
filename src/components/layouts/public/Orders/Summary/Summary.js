@@ -48,14 +48,6 @@ const Summary = ({
       >
         <h1 style={{ paddingBottom: '1rem' }}>Souhrn objednávky</h1>
         <Cart />
-        {/* <SummaryBox
-          name={name}
-          email={email}
-          phoneNumber={phoneNumber}
-          totalPrice={totalPrice}
-          orderMethod={orderMethod}
-          items={items}
-        /> */}
 
         <Form onSubmit={handleSubmit}>
           <FormGroup>

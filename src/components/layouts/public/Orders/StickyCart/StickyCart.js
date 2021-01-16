@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import setTotalPrice from '../../../../../redux/actions/orders/setTotalPrice';
+import setTotal from '../../../../../redux/actions/orders/setTotal';
 
 const StickyCartStyle = styled.div`
   background-color: red;
@@ -28,9 +28,13 @@ const StickyCartStyle = styled.div`
   }
 `;
 
-const StickyCart = ({ setShowSummary, totalPrice, items, setTotalPrice }) => {
-  const [totalAmount, setTotalAmount] = useState(0);
-
+const StickyCart = ({
+  setShowSummary,
+  totalPrice,
+  totalAmount,
+  items,
+  setTotal,
+}) => {
   useEffect(() => {
     let tempPrice = 0;
     let tempAmount = 0;
@@ -38,9 +42,8 @@ const StickyCart = ({ setShowSummary, totalPrice, items, setTotalPrice }) => {
       tempPrice += Number(item.price) * Number(item.amount);
       tempAmount += Number(item.amount);
     });
-    setTotalPrice(tempPrice);
-    setTotalAmount(tempAmount);
-  }, [items, setTotalPrice]);
+    setTotal({ totalPrice: tempPrice, totalAmount: tempAmount });
+  }, [items, setTotal]);
 
   return (
     <StickyCartStyle onClick={handleClick}>
@@ -61,9 +64,10 @@ const StickyCart = ({ setShowSummary, totalPrice, items, setTotalPrice }) => {
 };
 function mapStateToProps(state, ownProps) {
   return {
-    totalPrice: state.order.totalPrice,
+    totalPrice: state.order.total.totalPrice,
+    totalAmount: state.order.total.totalAmount,
     items: state.order.items,
   };
 }
 
-export default connect(mapStateToProps, { setTotalPrice })(StickyCart);
+export default connect(mapStateToProps, { setTotal })(StickyCart);

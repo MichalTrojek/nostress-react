@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 import OrderBreakfastMenu from './Menus/OrderBreakfastMenu';
 import OrderMainMenu from './Menus/OrderMainMenu';
-import Button from '../../../../common/Button';
-import Cart from './Cart';
 
 import { CSSTransition } from 'react-transition-group';
 import './MealSelector.css';
@@ -46,7 +44,7 @@ const MealsSelectorContainerStyle = styled(CSSTransition)`
 const MealsSelector = ({
   showConfirmation,
   showSummary,
-  setShowSummary,
+
   orderingStarted,
   isOrderingAllowed,
 }) => {
