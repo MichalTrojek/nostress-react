@@ -38,11 +38,23 @@ const StickyCart = ({
   useEffect(() => {
     let tempPrice = 0;
     let tempAmount = 0;
+    let tempSoupBoxes = 0;
+    let tempMealBoxes = 0;
     items.forEach((item) => {
       tempPrice += Number(item.price) * Number(item.amount);
       tempAmount += Number(item.amount);
+      if (item.isSoup) {
+        tempSoupBoxes += Number(item.amount);
+      } else {
+        tempMealBoxes += Number(item.amount);
+      }
     });
-    setTotal({ totalPrice: tempPrice, totalAmount: tempAmount });
+    setTotal({
+      totalPrice: tempPrice,
+      totalAmount: tempAmount,
+      soupBoxes: tempSoupBoxes,
+      mealBoxes: tempMealBoxes,
+    });
   }, [items, setTotal]);
 
   return (

@@ -5,17 +5,17 @@ const CartHeader = styled.div`
   padding: 0.2rem 1rem;
   border-bottom: 1px solid var(--color-tertiary);
 
-  .name {
+  .cart-header__name {
     grid-row: 1 / span 1;
     grid-column: 2 / span 10;
   }
 
-  .amount {
+  .cart-header__amount {
     grid-row: 1 / span 1;
     grid-column: 1 / span 1;
   }
 
-  .price {
+  .cart-header__price {
     grid-row: 1 / span 1;
     grid-column: 12 / span 1;
   }
