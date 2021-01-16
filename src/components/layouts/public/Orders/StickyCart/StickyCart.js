@@ -52,7 +52,7 @@ const StickyCart = ({
     });
     setTotal({
       totalPriceWithBoxes: tempPrice + calculatePriceForBoxes() || 0,
-      priceOfBoxes: calculatePriceForBoxes || 0,
+      priceOfBoxes: calculatePriceForBoxes() || 0,
       totalPrice: tempPrice,
       totalAmount: tempAmount,
       soupBoxes: tempSoupBoxes,
@@ -64,7 +64,7 @@ const StickyCart = ({
       const meals = boxPrices.mealBoxPrice * tempMealBoxes;
       return soups + meals;
     }
-  }, [items, setTotal]);
+  }, [items, setTotal, boxPrices]);
 
   return (
     <StickyCartStyle onClick={handleClick}>

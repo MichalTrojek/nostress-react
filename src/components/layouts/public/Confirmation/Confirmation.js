@@ -59,6 +59,7 @@ const Confirmation = ({
   totalPrice,
   orderMethod,
   showConfirmation,
+  totalPriceWithBoxes,
 }) => {
   return (
     <CSSTransition
@@ -69,36 +70,43 @@ const Confirmation = ({
     >
       <ConfirmationContainer>
         <Logo src={logo} alt="No Stress Logo" />
-        <h1>Děkujeme Vám za Vaší objednávku.</h1>
-        <p className="ready">Vaše objednávka se již připravuje.</p>
         {orderMethod === DELIVERY ? renderDelivery() : renderPickUp()}
-        <p className="price">
-          Při převzetí budete platit <span>{totalPrice},-</span> Kč.{' '}
-        </p>
-        {orderMethod === DELIVERY ? (
-          <p className="payment">(Lze platit pouze hotově)</p>
-        ) : (
-          <p className="payment">(Lze platit hotově i kartou)</p>
-        )}
       </ConfirmationContainer>
     </CSSTransition>
   );
 
   function renderDelivery() {
     return (
-      <p className="name">
-        Objednávka na jméno <span>{customerInfo.name}</span>
-        bude doručena na Vámi zadanou adresu.
-      </p>
+      <>
+        <h1>Děkujeme Vám za Vaší objednávku.</h1>
+        <p className="ready">Vaše objednávka se již připravuje.</p>
+        <p className="name">
+          Objednávka na jméno <span>{customerInfo.name}</span>
+          bude doručena na Vámi zadanou adresu.
+        </p>
+        <p className="price">
+          Při převzetí budete platit <span>{totalPriceWithBoxes},-</span> Kč.{' '}
+        </p>
+        <p className="payment">(Lze platit pouze hotově)</p>
+      </>
     );
   }
 
   function renderPickUp() {
     return (
-      <p className="name">
-        Objednávka na jméno <span>{customerInfo.name}</span>
-        pro Vás bude připravena do 15 minut k vyzvednutí u výdejního okna.
-      </p>
+      <>
+        <h1>Děkujeme Vám za Vaší objednávku.</h1>
+        <p className="ready">Vaše objednávka se již připravuje.</p>
+        <p className="name">
+          Objednávka na jméno <span>{customerInfo.name}</span>
+          pro Vás bude připravena do 15 minut k vyzvednutí u výdejního okna.
+        </p>
+        <p className="price">
+          Při převzetí budete platit <span>{totalPrice},-</span> Kč.
+        </p>
+
+        <p className="payment">(Lze platit hotově i kartou)</p>
+      </>
     );
   }
 };
@@ -107,6 +115,7 @@ function mapStateToProps(state, ownProps) {
   return {
     customerInfo: state.order.customerInfo,
     totalPrice: state.order.total.totalPrice,
+    totalPriceWithBoxes: state.order.total.totalPriceWithBoxes,
     orderMethod: state.order.orderMethod,
   };
 }

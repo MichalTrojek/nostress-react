@@ -62,18 +62,13 @@ const Cart = ({
       <CartFooter
         showBoxes={showBoxes}
         totalAmount={total.totalAmount}
-        priceForBoxes={calculatePriceForBoxes()}
+        priceForBoxes={total.priceOfBoxes}
         totalPrice={total.totalPrice}
+        totalPriceWithBoxes={total.totalPriceWithBoxes}
       />
       <CartRadioGroup />
     </CartContainer>
   );
-
-  function calculatePriceForBoxes() {
-    const soups = soupBoxPrice * total.soupBoxes;
-    const meal = mealBoxPrice * total.mealBoxes;
-    return soups + meal;
-  }
 
   function renderItems() {
     return items.map((item, index) => {

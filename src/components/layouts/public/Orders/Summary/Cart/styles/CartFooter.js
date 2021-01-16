@@ -24,7 +24,13 @@ const CartFooterStyle = styled.div`
   }
 `;
 
-const CartFooter = ({ totalAmount, priceForBoxes, totalPrice, showBoxes }) => {
+const CartFooter = ({
+  totalAmount,
+  priceForBoxes,
+  totalPrice,
+  showBoxes,
+  totalPriceWithBoxes,
+}) => {
   return (
     <CartFooterStyle>
       <p>Celkem kusů: {totalAmount}</p>
@@ -39,9 +45,7 @@ const CartFooter = ({ totalAmount, priceForBoxes, totalPrice, showBoxes }) => {
       <>
         <p className="totalPrice">Obaly: {priceForBoxes},- Kč</p>
         <p className="totalPrice">Jídlo: {totalPrice},- Kč </p>
-        <p className="totalPrice">
-          Cena celkem: {totalPrice + priceForBoxes},- Kč{' '}
-        </p>
+        <p className="totalPrice">Cena celkem: {totalPriceWithBoxes},- Kč </p>
       </>
     );
   }
