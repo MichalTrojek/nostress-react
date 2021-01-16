@@ -34,8 +34,7 @@ const CartContainer = styled.div`
   }
 `;
 
-const Cart = ({ items = [], total, orderMethod }) => {
-  const PRICE_SOUP_BOX = 5;
+const Cart = ({ items = [], total, orderMethod, soupBoxPrice }) => {
   const PRICE_MEAL_BOX = 7;
   const [showBoxes, setShowBoxes] = useState(false);
   const [showSoupBoxes, setShowSoupBoxes] = useState(false);
@@ -66,7 +65,7 @@ const Cart = ({ items = [], total, orderMethod }) => {
   );
 
   function calculatePriceForBoxes() {
-    const soups = PRICE_SOUP_BOX * total.soupBoxes;
+    const soups = soupBoxPrice * total.soupBoxes;
     const meal = PRICE_MEAL_BOX * total.mealBoxes;
     return soups + meal;
   }
@@ -95,7 +94,7 @@ const Cart = ({ items = [], total, orderMethod }) => {
           <CartItem className="boxes">
             <p className="name">Obal na polevku</p>
             <p className="amount">{total.soupBoxes} x</p>
-            <p className="price"> {PRICE_SOUP_BOX},-</p>
+            <p className="price"> {soupBoxPrice},-</p>
           </CartItem>
         )}
       </div>
@@ -108,6 +107,7 @@ function mapStateToProps(state, ownProps) {
     items: state.order.items,
     total: state.order.total,
     orderMethod: state.order.orderMethod,
+    soupBoxPrice: state.data.soups.boxPrice,
   };
 }
 
