@@ -10,7 +10,14 @@ import {
 
 const initialState = {
   id: '',
-  total: { totalPrice: 0, totalAmount: 0, soupBoxes: 0, mealBoxes: 0 },
+  total: {
+    totalPrice: 0,
+    totalAmount: 0,
+    soupBoxes: 0,
+    mealBoxes: 0,
+    totalPriceWithBoxes: 0,
+    priceOfBoxes: 0,
+  },
   orderMethod: '',
   items: [],
   customerInfo: { name: '', phoneNumber: '', email: '', text: '' },

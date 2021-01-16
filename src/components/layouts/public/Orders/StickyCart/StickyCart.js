@@ -34,6 +34,7 @@ const StickyCart = ({
   totalAmount,
   items,
   setTotal,
+  boxPrices,
 }) => {
   useEffect(() => {
     let tempPrice = 0;
@@ -50,11 +51,19 @@ const StickyCart = ({
       }
     });
     setTotal({
+      totalPriceWithBoxes: tempPrice + calculatePriceForBoxes() || 0,
+      priceOfBoxes: calculatePriceForBoxes || 0,
       totalPrice: tempPrice,
       totalAmount: tempAmount,
       soupBoxes: tempSoupBoxes,
       mealBoxes: tempMealBoxes,
     });
+
+    function calculatePriceForBoxes() {
+      const soups = boxPrices.soupBoxPrice * tempSoupBoxes;
+      const meals = boxPrices.mealBoxPrice * tempMealBoxes;
+      return soups + meals;
+    }
   }, [items, setTotal]);
 
   return (
@@ -78,6 +87,7 @@ function mapStateToProps(state, ownProps) {
   return {
     totalPrice: state.order.total.totalPrice,
     totalAmount: state.order.total.totalAmount,
+    boxPrices: state.data.boxPrices,
     items: state.order.items,
   };
 }
