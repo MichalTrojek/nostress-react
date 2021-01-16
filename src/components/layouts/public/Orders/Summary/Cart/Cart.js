@@ -49,6 +49,7 @@ const Cart = ({ items = [], total }) => {
         priceForBoxes={calculatePriceForBoxes()}
         totalPrice={total.totalPrice}
       />
+      <CartRadioGroup />
     </CartContainer>
   );
 
