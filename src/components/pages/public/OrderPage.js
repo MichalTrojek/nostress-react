@@ -47,7 +47,7 @@ const OrderPage = ({ items, orderingStarted }) => {
   useEffect(() => {
     if (!showSummary && items.length > 0) {
       setShowStickyCart(true);
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
     } else {
       setShowStickyCart(false);
     }
