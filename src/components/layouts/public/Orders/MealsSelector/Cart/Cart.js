@@ -6,7 +6,6 @@ import CartHeader from './styles/CartHeader';
 
 import CartItem from './styles/CartItem';
 
-import setTotalPrice from '../../../../../../redux/actions/orders/setTotalPrice';
 import CartRadioGroup from './CartRadioGroup';
 
 const CartContainer = styled.div`
@@ -60,4 +59,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps, { setTotalPrice })(Cart);
+export default connect(mapStateToProps, {})(Cart);
