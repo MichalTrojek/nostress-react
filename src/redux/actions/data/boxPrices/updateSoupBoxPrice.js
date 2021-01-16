@@ -12,7 +12,7 @@ function updateSoupBoxPrice(soupBoxPrice) {
       ...getState().data.boxPrices,
       ...{ soupBoxPrice: soupBoxPrice },
     };
-    console.log(allBoxPrices);
+
     const success = await updateDataApiCall({ boxPrices: allBoxPrices });
     if (success) {
       dispatch({

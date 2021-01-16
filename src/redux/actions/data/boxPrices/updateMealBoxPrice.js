@@ -11,7 +11,7 @@ function updateMealBoxPrice(mealBoxPrice) {
       ...getState().data.boxPrices,
       ...{ mealBoxPrice: mealBoxPrice },
     };
-    console.log(allBoxPrices);
+
     const success = await updateDataApiCall({ boxPrices: allBoxPrices });
     if (success) {
       dispatch({
