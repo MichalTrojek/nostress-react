@@ -12,7 +12,7 @@ const OrderNavBarStyle = styled.nav`
   .GoBackNavBar__logo {
     height: 5rem;
     max-width: 100%;
-    transition: height 1s;
+    transition: all 1s;
     @media only screen and (min-width: 360px) {
       height: 6rem;
     }
