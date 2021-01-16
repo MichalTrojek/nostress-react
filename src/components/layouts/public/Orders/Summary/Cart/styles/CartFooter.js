@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
 
 const CartFooterStyle = styled.div`
   display: flex;
@@ -24,19 +25,31 @@ const CartFooterStyle = styled.div`
   }
 `;
 
-const CartFooter = ({ totalAmount, priceForBoxes, totalPrice }) => {
+const CartFooter = ({ totalAmount, priceForBoxes, totalPrice, showBoxes }) => {
   return (
     <CartFooterStyle>
       <p>Celkem kusů: {totalAmount}</p>
       <div className="sum">
+        {showBoxes ? renderWithDelivery() : renderWithoutDelivery()}
+      </div>
+    </CartFooterStyle>
+  );
+
+  function renderWithDelivery() {
+    return (
+      <>
         <p className="totalPrice">Obaly: {priceForBoxes},- Kč</p>
         <p className="totalPrice">Jídlo: {totalPrice},- Kč </p>
         <p className="totalPrice">
           Cena celkem: {totalPrice + priceForBoxes},- Kč{' '}
         </p>
-      </div>
-    </CartFooterStyle>
-  );
+      </>
+    );
+  }
+
+  function renderWithoutDelivery() {
+    return <p className="totalPrice">Cena celkem: {totalPrice},- Kč </p>;
+  }
 };
 
 export default CartFooter;

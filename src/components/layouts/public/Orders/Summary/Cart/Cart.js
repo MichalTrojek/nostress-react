@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { useState, useEffect } from 'react';
 
 import CartFooter from './styles/CartFooter';
 import CartHeader from './styles/CartHeader';
@@ -7,6 +8,7 @@ import CartHeader from './styles/CartHeader';
 import CartItem from './styles/CartItem';
 
 import CartRadioGroup from './CartRadioGroup';
+import { DELIVERY } from '../../../../../../utils/constant';
 
 const CartContainer = styled.div`
   border: 1px solid var(--color-tertiary);
@@ -18,7 +20,8 @@ const CartContainer = styled.div`
   }
   .items {
     min-height: 10rem;
-    border-bottom: 1px solid var(--color-tertiary);
+    border-bottom: ${(props) =>
+      props.showBoxes ? '1px solid var(--color-tertiary)' : 'none'};
     padding: 1rem 0;
   }
 
@@ -31,20 +34,29 @@ const CartContainer = styled.div`
   }
 `;
 
-const Cart = ({ items = [], total }) => {
+const Cart = ({ items = [], total, orderMethod }) => {
   const PRICE_SOUP_BOX = 5;
   const PRICE_MEAL_BOX = 7;
+  const [showBoxes, setShowBoxes] = useState(false);
+  const [showSoupBoxes, setShowSoupBoxes] = useState(false);
+
+  useEffect(() => {
+    setShowBoxes(orderMethod === DELIVERY);
+
+    setShowSoupBoxes(total.soupBoxes > 0);
+  }, [orderMethod, setShowBoxes, setShowSoupBoxes, total.soupBoxes]);
 
   return (
-    <CartContainer>
+    <CartContainer showBoxes={showBoxes}>
       <CartHeader>
         <p className="cart-header__amount">ks</p>
         <p className="cart-header__name">Název</p>
         <p className="cart-header__price">Cena/kus</p>
       </CartHeader>
       <div className="items">{renderItems()}</div>
-      {renderBoxes()}
+      {showBoxes && renderBoxes()}
       <CartFooter
+        showBoxes={showBoxes}
         totalAmount={total.totalAmount}
         priceForBoxes={calculatePriceForBoxes()}
         totalPrice={total.totalPrice}
@@ -79,11 +91,13 @@ const Cart = ({ items = [], total }) => {
           <p className="amount">{total.mealBoxes} x</p>
           <p className="price"> {PRICE_MEAL_BOX},-</p>
         </CartItem>
-        <CartItem className="boxes">
-          <p className="name">Obal na polevku</p>
-          <p className="amount">{total.soupBoxes} x</p>
-          <p className="price"> {PRICE_SOUP_BOX},-</p>
-        </CartItem>
+        {showSoupBoxes && (
+          <CartItem className="boxes">
+            <p className="name">Obal na polevku</p>
+            <p className="amount">{total.soupBoxes} x</p>
+            <p className="price"> {PRICE_SOUP_BOX},-</p>
+          </CartItem>
+        )}
       </div>
     );
   }
@@ -93,6 +107,7 @@ function mapStateToProps(state, ownProps) {
   return {
     items: state.order.items,
     total: state.order.total,
+    orderMethod: state.order.orderMethod,
   };
 }
 
