@@ -104,7 +104,7 @@ const OrderPage = ({ items, orderingStarted }) => {
         showSummary={showSummary}
         setShowSummary={setShowSummary}
         orderingStarted={orderingStarted}
-        isOrderingAllowed={isOrderingAllowed}
+        isorderingallowed={isOrderingAllowed}
       />
     );
   }
