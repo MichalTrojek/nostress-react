@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function sendOrderConfirmedEmail(email, order) {
   const url =
-    'https://nostress-email.herokuapp.com/api/sendEmailOrderConfirmed';
+    'http://nostressemailsender-env.eba-ievtm2sf.eu-central-1.elasticbeanstalk.com/api/sendEmailOrderConfirmed';
   axios({
     method: 'post',
     url: url,
@@ -21,7 +21,8 @@ export function sendOrderConfirmedEmail(email, order) {
 }
 
 export function sendOrderSentEmail(email, order) {
-  const url = 'https://nostress-email.herokuapp.com/api/sendEmailOrderSent';
+  const url =
+    'http://nostressemailsender-env.eba-ievtm2sf.eu-central-1.elasticbeanstalk.com/api/sendEmailOrderSent';
   axios({
     method: 'post',
     url: url,
@@ -40,7 +41,8 @@ export function sendOrderSentEmail(email, order) {
 }
 
 export function sendOrderFinishedEmail(email, order) {
-  const url = 'https://nostress-email.herokuapp.com/api/sendOrderFinishedEmail';
+  const url =
+    'http://nostressemailsender-env.eba-ievtm2sf.eu-central-1.elasticbeanstalk.com/api/sendOrderFinishedEmail';
   axios({
     method: 'post',
     url: url,
