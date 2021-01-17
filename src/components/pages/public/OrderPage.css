@@ -1,21 +1,21 @@
 .orderPage--appear {
   opacity: 0;
-  transform: translateX(-100vw);
+  /* transform: translateX(-100vw); */
 }
 
 .orderPage--appear-active {
-  transform: translateX(0);
+  /* transform: translateX(0); */
   opacity: 1;
   transition: opacity 1000ms;
-  transition: transform 1000ms;
+  /* transition: transform 1000ms; */
 }
 
 .orderPage--appear-done {
   opacity: 1;
-  transform: translateX(0);
+  /* transform: translateX(0); */
 }
 
-.orderPage--exit {
+/* .orderPage--exit {
   transform: translateX(0);
 }
 
@@ -26,4 +26,4 @@
 
 .orderPage--exit-done {
   transform: translateX(-100vw);
-}
+} */
