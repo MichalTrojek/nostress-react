@@ -26,7 +26,7 @@ const WeeklyMenu = ({ meals, childMeals, startOrdering }) => {
   return (
     <MealsMenuContainer id="menu">
       <h1>Týdenní menu 11:00 – 16:00</h1>
-      <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
+      <p>{weeklyData.text}</p>
       <div className="row">
         <Label text={getDateText()} />
         <Button primary onClick={handleStartingOrder}>

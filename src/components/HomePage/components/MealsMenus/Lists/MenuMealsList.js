@@ -32,9 +32,9 @@ const MenuMealList = ({ header, info, icon, items = [] }) => {
           <span style={{ color: 'var(--color-tertiary)', padding: '1rem' }}>
             {`${item.price},-`}
           </span>
-          <span style={{ whiteSpace: 'nowrap' }}>
+          <small style={{ whiteSpace: 'nowrap' }}>
             {item.alergens.length !== 0 ? `(${item.alergens})` : ``}
-          </span>
+          </small>
         </li>
       );
     });

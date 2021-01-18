@@ -4,7 +4,7 @@ const MealsMenuContent = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1400px) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
   }
@@ -17,7 +17,6 @@ const MealsMenuContent = styled.div`
   .rightside {
     grid-column: 8 /-1;
     display: grid;
-    /* grid-template-rows: max-content 1fr; */
   }
 
   .rightside-breakfast {

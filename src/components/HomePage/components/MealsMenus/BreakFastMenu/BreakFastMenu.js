@@ -34,7 +34,7 @@ const BreakFastRow = styled.div`
 `;
 
 const BreakFastMenuContainer = styled(MealsMenuContainer)`
-  padding-bottom: 3rem;
+  padding-top: 3rem;
 `;
 
 const BreakFastMenu = ({ breakfast, startOrdering }) => {
@@ -48,7 +48,7 @@ const BreakFastMenu = ({ breakfast, startOrdering }) => {
   return (
     <BreakFastMenuContainer id="Breakfastmenu">
       <h1>Snídaňové menu 8:00 – 10:30</h1>
-      <p style={{ padding: '1rem 0rem' }}>{weeklyData.text}</p>
+      <p>{weeklyData.text}</p>
       <BreakFastRow>
         <Label text="KÁVA ZDARMA ke každé snídani" />
         <Button primary onClick={handleStartingOrder}>

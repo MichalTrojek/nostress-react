@@ -9,6 +9,7 @@ import sortOutMenusByType from '../../../../utils/mealUtils';
 
 const MealsMenusBackground = styled.div`
   background-color: black;
+  padding: 4rem 0 6rem 0;
 `;
 
 const MealsMenus = ({ weeklyMeals, childMeals, breakfastMeals }) => {
