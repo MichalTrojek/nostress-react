@@ -43,7 +43,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html, body{
-    
+
       overflow-x: hidden;
       touch-action: manipulation;
       /* overflow-y:hidden; */
@@ -55,7 +55,10 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
       > * {
-        font-family: 'Open Sans Condensed', sans-serif;
+        /* font-family: 'Open Sans Condensed', sans-serif; */
+        /* font-family: 'Roboto', sans-serif; */
+        font-family: 'Lato', sans-serif;
+
         color: var(--color-primary);
         text-rendering: optimizeLegibility;
         

@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 const OpenHoursContainer = styled.div`
-  max-width: 27rem;
-  width: 27rem;
+  max-width: 30rem;
+  width: 30rem;
   font-weight: bold;
   .hours {
     color: var(--color-tertiary);

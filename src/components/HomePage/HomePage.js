@@ -37,7 +37,7 @@ const Home = ({ resetOrders, fetchData }) => {
         timeout={1000}
         appear={true}
       >
-        <div className="test">
+        <div>
           <Hero />
           <MealsMenus />
           <FoodAndBeverage />

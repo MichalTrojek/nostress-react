@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
+import styled from 'styled-components';
 
-import Wrapper from '../../../../common/Wrapper';
 import OpenHours from '../../../../common/OpenHours';
 import Button from '../../../../common/Button';
 
@@ -15,6 +15,25 @@ import { connect } from 'react-redux';
 import startOrdering from '../../../../OrderingSystem/redux/actions/startOrdering';
 import { useHistory } from 'react-router-dom';
 
+const SlideContent = styled.div`
+  min-height: 75vh;
+  max-height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 1rem 5rem 1rem;
+
+  .slideContent__text {
+    padding: 1rem 0;
+  }
+
+  .sliderContent__button {
+  }
+
+  @media only screen and (min-width: 411px) {
+  }
+`;
+
 const SliderNews = ({ items = [], startOrdering }) => {
   const history = useHistory();
 
@@ -25,26 +44,26 @@ const SliderNews = ({ items = [], startOrdering }) => {
     slidesToShow: 1,
     slidesToSrroll: 1,
     dotsClass: 'button__bar',
+
     arrows: false,
     autoplay: true,
     autoplaySpeed: 5000,
+    switpeToSlide: true,
   };
 
-  return (
-    <Wrapper>
-      <Slider {...settings}>{renderNewsSlides()}</Slider>
-    </Wrapper>
-  );
+  return <Slider {...settings}>{renderNewsSlides()}</Slider>;
 
   function renderNewsSlides() {
     const pages = createNewsSlide();
     pages.unshift(
       <SlideNews key={654646}>
-        <h1>Máme otevřeno. Těšíme se na Vás.</h1>
-        <OpenHours />
-        <Button primary onClick={() => handleStartingOrder('MainMenu')}>
-          Objednat
-        </Button>
+        <SlideContent>
+          <h1>Máme otevřeno. Těšíme se na Vás.</h1>
+          <OpenHours />
+          <Button primary onClick={() => handleStartingOrder('MainMenu')}>
+            Objednat
+          </Button>
+        </SlideContent>
       </SlideNews>
     );
     return pages;
@@ -53,14 +72,17 @@ const SliderNews = ({ items = [], startOrdering }) => {
   function createNewsSlide() {
     return items.map((item, index) => {
       return (
-        <SlideNews key={index}>
-          <h1>{item.heading}</h1>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: item.content,
-            }}
-          ></div>
-          {renderButton(item)}
+        <SlideNews index={index} key={index}>
+          <SlideContent>
+            <h1>{item.heading}</h1>
+            <div
+              className="slideContent__text"
+              dangerouslySetInnerHTML={{
+                __html: item.content,
+              }}
+            ></div>
+            {renderButton(item)}
+          </SlideContent>
         </SlideNews>
       );
     });
@@ -69,19 +91,31 @@ const SliderNews = ({ items = [], startOrdering }) => {
   function renderButton(item) {
     if (item.buttonPath === 'MainMenu') {
       return (
-        <Button primary onClick={() => handleStartingOrder(item.buttonPath)}>
+        <Button
+          className="sliderContent__button"
+          primary
+          onClick={() => handleStartingOrder(item.buttonPath)}
+        >
           {item.button}
         </Button>
       );
     } else if (item.buttonPath === 'BreakfastMenu') {
       return (
-        <Button primary onClick={() => handleStartingOrder(item.buttonPath)}>
+        <Button
+          className="sliderContent__button"
+          primary
+          onClick={() => handleStartingOrder(item.buttonPath)}
+        >
           {item.button}
         </Button>
       );
     } else if (item.buttonPath === 'website') {
       return (
-        <Button primary onClick={() => openInNewTab(item.websiteLink)}>
+        <Button
+          className="sliderContent__button"
+          primary
+          onClick={() => openInNewTab(item.websiteLink)}
+        >
           {item.button}
         </Button>
       );
