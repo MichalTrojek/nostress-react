@@ -4,32 +4,58 @@ import menuIcon from '../../../../../img/soups-logo.png';
 import MenuList from './MenuList';
 import styled from 'styled-components';
 
-const SoupRow = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-
-  .day {
-    grid-column: 1 / span 4;
-  }
-
-  .name {
-    grid-column: 5 / -1;
-  }
-`;
-
 const SoupsMenuList = styled(MenuList)`
   position: relative;
-  padding-bottom: 4rem;
-  padding-left: 2rem;
+  padding-left: 1rem;
+  padding-bottom: 3rem;
+  @media only screen and (min-width: 768px) {
+    padding-left: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  .days {
+    @media only screen and (min-width: 1400px) {
+      position: absolute;
+      top: 25%;
+    }
+  }
 
   .row {
     display: flex;
     justify-content: space-between;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
   }
   .price {
     position: absolute;
-    left: 4px;
-    bottom: 0;
+
+    left: 0.5rem;
+    bottom: 0.5rem;
+    @media only screen and (min-width: 768px) {
+      left: 0.75rem;
+      bottom: 0.75rem;
+    }
+    @media only screen and (min-width: 1400px) {
+      left: 1rem;
+      bottom: 1rem;
+    }
+  }
+`;
+
+const SoupRow = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-bottom: 1.5rem;
+  align-items: center;
+  justify-content: flex-start;
+
+  align-items: flex-start;
+  .day {
+    grid-column: 1 / span 1;
+  }
+
+  .name {
+    grid-column: 2 / -1;
   }
 `;
 
@@ -40,11 +66,13 @@ const MenuSoupsList = ({ soups = [] }) => {
         <h2>Polévka k menu zdarma*</h2>
         <img src={menuIcon} alt="menu-icon" />
       </div>
-      {renderDayAndSoup('Pondělí', soups.monday)}
-      {renderDayAndSoup('Úterý', soups.tuesday)}
-      {renderDayAndSoup('Středa', soups.wednesday)}
-      {renderDayAndSoup('Čtvrtek', soups.thursday)}
-      {renderDayAndSoup('Pátek', soups.friday)}
+      <div className="days">
+        {renderDayAndSoup('Pondělí', soups.monday)}
+        {renderDayAndSoup('Úterý', soups.tuesday)}
+        {renderDayAndSoup('Středa', soups.wednesday)}
+        {renderDayAndSoup('Čtvrtek', soups.thursday)}
+        {renderDayAndSoup('Pátek', soups.friday)}
+      </div>
 
       <p className="price">
         *Cena samostatné polévky
