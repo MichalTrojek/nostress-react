@@ -6,7 +6,15 @@ const MealsMenuContainer = styled.section`
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1rem;
+  .menu__header {
+    @media only screen and (min-width: 1024px) {
+      padding: 2rem 0;
+    }
 
+    @media only screen and (min-width: 1400px) {
+      padding: 3rem 0;
+    }
+  }
   .menu__text {
     line-height: 2.5rem;
 
