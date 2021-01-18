@@ -4,7 +4,7 @@ import { GlobalStyle } from '../globalStyles';
 import { AuthProvider } from '../contexts/AuthContext';
 import PrivateRoute from './PrivateRoute';
 
-import Home from './pages/public/HomePage';
+import Home from '../HomePage/HomePage';
 import OrderPage from '../OrderingSystem/public/OrderPage';
 import LoginPage from './pages/public/LoginPage';
 
