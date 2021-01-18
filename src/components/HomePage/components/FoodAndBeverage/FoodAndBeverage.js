@@ -27,12 +27,22 @@ const FoodAndBeverageBackground = styled.section`
     background-image: url(${backgroundImage1024});
     height: 1220px;
   }
+
+  @media only screen and (min-width: 1400px) {
+    max-height: 75vh;
+  }
 `;
 
 const FoodAndBeverageWrapper = styled(Wrapper)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+
+  @media only screen and (min-width: 768px) {
+    padding-top: 8rem;
+  }
+
   .colored {
     color: var(--color-tertiary);
   }
@@ -73,19 +83,21 @@ const FoodAndBeverageWrapper = styled(Wrapper)`
     }
   }
 
-  /* .cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 25rem;
-    padding: 2rem;
-    border-radius: 5px;
-    background-color: var(--color-tertiary);
+  @media only screen and (min-width: 1400px) {
+    padding-top: 0rem;
+    .colored {
+      color: var(--color-tertiary);
+      padding-bottom: 1rem;
+    }
 
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-  } */
+    .first-heading {
+      padding-bottom: 2rem;
+    }
+
+    .second-heading {
+      padding: 3rem 0;
+    }
+  }
 `;
 
 const FoodAndBeverage = () => {
@@ -100,9 +112,6 @@ const FoodAndBeverage = () => {
         <p className="colored">Kofolu</p>
         <p className="colored">Luxusni snídaně</p>
         <p className="colored">Rozličné týdenní menu</p>
-        {/* <a href="" target="_blank" className="cta">
-          <img src={buttonIcon} alt="jidelni listek" /> Otevřít jídelní lístek
-        </a> */}
       </FoodAndBeverageWrapper>
     </FoodAndBeverageBackground>
   );
