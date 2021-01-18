@@ -6,8 +6,15 @@ import SliderNews from './SliderNews/SliderNews';
 const HeroBackground = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(${backgroundImage});
+
   background-size: cover;
-  background-position: center center;
+  background-position: bottom center;
+
+  @media only screen and (min-width: 2144px) {
+    /* background-size: contain; */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
 `;
 
 const HeroWrapper = styled.section`
