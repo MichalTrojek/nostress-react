@@ -46,6 +46,7 @@ const NewsSlider = ({ cards }) => {
     arrows: false,
     autoplay: true,
     autoplaySpeed: 5000,
+    switpeToSlide: true,
     // variableWidth: true,
   };
 
