@@ -4,16 +4,16 @@ import { GlobalStyle } from '../globalStyles';
 import { AuthProvider } from '../contexts/AuthContext';
 import PrivateRoute from './PrivateRoute';
 
-import Home from '../HomePage/HomePage';
-import OrderPage from '../OrderingSystem/public/OrderPage';
-import LoginPage from './pages/public/LoginPage';
+import Home from '../components/HomePage';
+import OrderPage from './OrderingSystem/public/OrderPage';
+import LoginPage from '../components/LoginPage';
 
 import DashboardPage from './pages/private/DashboardPage';
 import NewsPage from './pages/private/NewsPage';
 import MealsPage from './pages/private/MealsPage';
 import SoupsPage from './pages/private/SoupsPage';
 import BusinessHoursPage from './pages/private/BusinessHoursPage';
-import CustomersOrdersPage from '../OrderingSystem/private/CustomersOrdersPage';
+import CustomersOrdersPage from '../components/OrderingSystem/private/CustomersOrdersPage';
 import NewsCardPage from './pages/private/NewsCardPage';
 
 import { ToastContainer, Zoom } from 'react-toastify';
