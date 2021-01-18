@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import logo from '../../../../../img/logo.png';
+import logo from '../../../../img/logo.png';
 
 import { useHistory } from 'react-router-dom';
 

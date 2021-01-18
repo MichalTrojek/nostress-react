@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import setTotal from '../../../../../redux/actions/orders/setTotal';
+import setTotal from '../../../redux/actions/setTotal';
 
 const StickyCartStyle = styled.div`
   background-color: red;

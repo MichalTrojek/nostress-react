@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { fadeInDown, fadeInLeft, fadeInRight } from 'react-animations';
 
-import Button from '../../../../../../../common/Button';
+import Button from '../../../../../../../components/common/Button';
 
 const fadeInDownAnimation = keyframes`${fadeInDown}`;
 const fadeInLeftAnimation = keyframes`${fadeInLeft}`;

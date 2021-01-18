@@ -12,7 +12,7 @@ import MealsMenuContainer from '../MealsMenuContainer';
 import MealsMenuContent from '../MealsMenuContent';
 
 import { connect } from 'react-redux';
-import startOrdering from '../../../../../redux/actions/orders/startOrdering';
+import startOrdering from '../../../../../OrderingSystem/redux/actions/startOrdering';
 
 import { useHistory } from 'react-router-dom';
 

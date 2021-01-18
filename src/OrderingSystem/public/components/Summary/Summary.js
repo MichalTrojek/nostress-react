@@ -2,16 +2,16 @@ import { connect } from 'react-redux';
 import { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-import Form from '../../../../common/Forms/Form';
-import FormGroup from '../../../../common/Forms/FormGroup';
-import Button from '../../../../common/Button';
+import Form from '../../../../components/common/Forms/Form';
+import FormGroup from '../../../../components/common/Forms/FormGroup';
+import Button from '../../../../components/common/Button';
 
 import Cart from './Cart';
 
-import saveCustomerInfo from '../../../../../redux/actions/orders/saveCustomerInfo';
-import createOrder from '../../../../../redux/actions/orders/createOrder';
+import saveCustomerInfo from '../../../redux/actions/saveCustomerInfo';
+import createOrder from '../../../redux/actions/createOrder';
 
-import { sendOrderSentEmail } from '../../../../../utils/emailUtils';
+import { sendOrderSentEmail } from '../../../../utils/emailUtils';
 
 import './Summary.css';
 

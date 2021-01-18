@@ -12,7 +12,7 @@ import SlideNews from './SlideNews';
 import Wrapper from '../../../../common/Wrapper';
 
 import { connect } from 'react-redux';
-import startOrdering from '../../../../../redux/actions/orders/startOrdering';
+import startOrdering from '../../../../../OrderingSystem/redux/actions/startOrdering';
 import { useHistory } from 'react-router-dom';
 
 const SliderNews = ({ items = [], startOrdering }) => {

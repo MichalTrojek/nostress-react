@@ -3,19 +3,19 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import Wrapper from '../../common/Wrapper';
+import Wrapper from '../../components/common/Wrapper';
 
-import MealsSelector from '../../layouts/public/Orders/MealsSelector';
-import Confirmation from '../../layouts/public/Confirmation';
-import OrderNavBar from '../../layouts/public/Orders/OrderNavBar';
-import Summary from '../../layouts/public/Orders/Summary';
+import MealsSelector from './components/MealsSelector';
+import Confirmation from './components/Confirmation';
+import OrderNavBar from './components/OrderNavBar';
+import Summary from './components/Summary';
 
-import StickyCart from '../../layouts/public/Orders/StickyCart';
+import StickyCart from './components/StickyCart';
 
 import { CSSTransition } from 'react-transition-group';
 
 import './OrderPage.css';
-import '../../layouts/public/Orders/StickyCart/StickyCart.css';
+import './components/StickyCart/StickyCart.css';
 
 const OrderPageBackground = styled.section`
   background-color: black;

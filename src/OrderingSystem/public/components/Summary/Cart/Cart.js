@@ -8,7 +8,7 @@ import CartHeader from './styles/CartHeader';
 import CartItem from './styles/CartItem';
 
 import CartRadioGroup from './CartRadioGroup';
-import { DELIVERY } from '../../../../../../utils/constant';
+import { DELIVERY } from '../../../../../utils/constant';
 
 const CartContainer = styled.div`
   border: 1px solid var(--color-tertiary);

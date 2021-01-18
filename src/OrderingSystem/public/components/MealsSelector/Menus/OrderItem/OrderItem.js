@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
 import OrderedAmount from './OrderedAmount';
-import Button from '../../../../../../common/Button';
+import Button from '../../../../../../components/common/Button';
 
 import { connect } from 'react-redux';
 
-import updateOrderToState from '../../../../../../../redux/actions/orders/updateOrderToState';
+import updateOrderToState from '../../../../../../OrderingSystem/redux/actions/updateOrderToState';
 
 import styled, { keyframes } from 'styled-components';
 

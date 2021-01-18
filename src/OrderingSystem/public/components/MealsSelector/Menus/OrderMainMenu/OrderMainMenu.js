@@ -4,7 +4,7 @@ import OrderItem from '../OrderItem';
 
 import MealListContainer from '../MealListContainer';
 
-import sortOutMenusByType from '../../../../../../../utils/mealUtils';
+import sortOutMenusByType from '../../../../../../utils/mealUtils';
 
 import { CSSTransition } from 'react-transition-group';
 import '../menu.css';

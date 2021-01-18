@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
 
-import resetOrders from '../../../redux/actions/orders/resetOrders';
+import resetOrders from '../../../OrderingSystem/redux/actions/resetOrders';
 import fetchData from '../../../redux/actions/data/fetchData';
 
 import PageLayout from '../../PageLayout';

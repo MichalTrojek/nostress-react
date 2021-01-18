@@ -1,0 +1,17 @@
+export const ORDERS_INCREMENT = 'ORDERS_INCREMENT';
+export const ORDERS_DECREMENT = 'ORDERS_DECREMENT';
+
+export const UPDATE_ORDER = 'UPDATE_ORDER';
+export const SET_TOTAL = 'SET_TOTAL';
+export const SET_TOTAL_PRICE = 'SET_TOTAL_PRICE';
+export const SAVE_CUSTOMER_INFO = 'SAVE_CUSTOMER_INFO';
+export const RESET_ORDERS = 'RESET_ORDERS';
+
+export const FETCH_ORDERS = 'FETCH_ORDERS';
+export const CREATE_ORDER = 'CREATE_ORDER';
+
+export const GET_ALL_ORDERS = 'GET_ALL_ORDERS';
+
+export const START_ORDERING = 'START_ORDERING';
+
+export const ORDER_METHOD = 'ORDER_METHOD';

@@ -6,7 +6,7 @@ import {
   START_ORDERING,
   RESET_ORDERS,
   SET_TOTAL,
-} from '../actions/types';
+} from '../types';
 
 const initialState = {
   id: '',

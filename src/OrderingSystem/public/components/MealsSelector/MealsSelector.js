@@ -17,7 +17,6 @@ const MealsSelectorContainerStyle = styled(CSSTransition)`
 const MealsSelector = ({
   showConfirmation,
   showSummary,
-
   orderingStarted,
   isOrderingAllowed,
 }) => {
@@ -34,7 +33,6 @@ const MealsSelector = ({
       in={!showSummary && !showConfirmation}
       timeout={1000}
       classNames="mealSelector-"
-      isOrderingAllowed={isOrderingAllowed}
       unmountOnExit={showConfirmation}
     >
       <div className="mealSelector">{renderMenu()}</div>

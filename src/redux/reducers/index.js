@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import editorReducer from './editorReducer';
-import orderReducer from './orderReducer';
+import orderReducer from '../../OrderingSystem/redux/reducer/orderReducer';
 import dataReducer from './dataReducer';
 
 const allReducers = combineReducers({

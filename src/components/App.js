@@ -5,7 +5,7 @@ import { AuthProvider } from '../contexts/AuthContext';
 import PrivateRoute from './PrivateRoute';
 
 import Home from './pages/public/HomePage';
-import OrderPage from './pages/public/OrderPage';
+import OrderPage from '../OrderingSystem/public/OrderPage';
 import LoginPage from './pages/public/LoginPage';
 
 import DashboardPage from './pages/private/DashboardPage';
