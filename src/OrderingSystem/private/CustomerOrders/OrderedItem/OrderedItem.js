@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import Button from '../../../../common/Button';
-import { db } from '../../../../../firebase';
+import Button from '../../../../components/common/Button';
+import { db } from '../../../../firebase';
 import {
   sendOrderConfirmedEmail,
   sendOrderFinishedEmail,
-} from '../../../../../utils/emailUtils';
-import { toDateTime } from '../../../../../utils/dateUtils';
+} from '../../../../utils/emailUtils';
+import { toDateTime } from '../../../../utils/dateUtils';
 
-import Modal from '../../../../common/Modal';
+import Modal from '../../../../components/common/Modal';
 
 import {
   showErrorToast,
   showInfoToast,
   showSuccessToast,
-} from '../../../../../notifications/toast';
+} from '../../../../notifications/toast';
 
 const OrderedItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);

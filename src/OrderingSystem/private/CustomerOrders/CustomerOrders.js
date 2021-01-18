@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 
-import OrderedItem from '../CustomerOrders/OrderedItem';
-import RadioGroup from '../../../common/Forms/RadioGroup';
-import { showInfoToast } from '../../../../notifications/toast';
+import OrderedItem from './OrderedItem';
+import RadioGroup from '../../../components/common/Forms/RadioGroup';
+import { showInfoToast } from '../../../notifications/toast';
 
-import { sortByOrderNumber } from '../../../../utils/orderUtils';
+import { sortByOrderNumber } from '../../../utils/orderUtils';
 
 const CustomerOrdersContainer = styled.div`
   position: relative;

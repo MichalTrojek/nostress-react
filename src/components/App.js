@@ -13,7 +13,7 @@ import NewsPage from './pages/private/NewsPage';
 import MealsPage from './pages/private/MealsPage';
 import SoupsPage from './pages/private/SoupsPage';
 import BusinessHoursPage from './pages/private/BusinessHoursPage';
-import CustomersOrdersPage from './pages/private/CustomersOrdersPage';
+import CustomersOrdersPage from '../OrderingSystem/private/CustomersOrdersPage';
 import NewsCardPage from './pages/private/NewsCardPage';
 
 import { ToastContainer, Zoom } from 'react-toastify';

@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import PageLayout from '../../PageLayout';
-import PrivateNavBar from '../../layouts/private/PrivateNavBar';
+import PageLayout from '../../components/PageLayout';
+import PrivateNavBar from '../../components/layouts/private/PrivateNavBar';
 
-import OrdersContainer from '../../layouts/private/CustomerOrders';
-import Wrapper from '../../common/Wrapper';
-import Background from '../../common/Background';
+import OrdersContainer from '../private/CustomerOrders';
+import Wrapper from '../../components/common/Wrapper';
+import Background from '../../components/common/Background';
 
-import { sortByOrderNumber } from '../../../utils/orderUtils';
+import { sortByOrderNumber } from '../../utils/orderUtils';
 
-import { db } from '../../../firebase';
+import { db } from '../../firebase';
 
 const CustomersOrdersPageBackground = styled(Background)`
   background-color: black;
