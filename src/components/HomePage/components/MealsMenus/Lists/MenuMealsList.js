@@ -8,6 +8,7 @@ const MenuMealList = ({ header, info, icon, items = [] }) => {
           <h2>
             {header}
             <span
+              className="menu-info"
               style={{ color: 'var(--color-tertiary)', padding: '0 .3rem' }}
             >
               {renderInfo()}

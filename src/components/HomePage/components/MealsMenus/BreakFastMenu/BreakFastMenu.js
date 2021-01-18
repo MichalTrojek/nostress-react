@@ -48,7 +48,7 @@ const BreakFastMenu = ({ breakfast, startOrdering }) => {
   return (
     <BreakFastMenuContainer id="Breakfastmenu">
       <h1>Snídaňové menu 8:00 – 10:30</h1>
-      <p>{weeklyData.text}</p>
+      <p className="menu__text">{weeklyData.text}</p>
       <BreakFastRow>
         <Label text="KÁVA ZDARMA ke každé snídani" />
         <Button primary onClick={handleStartingOrder}>

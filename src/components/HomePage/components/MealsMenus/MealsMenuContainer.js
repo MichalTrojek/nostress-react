@@ -7,6 +7,17 @@ const MealsMenuContainer = styled.section`
   margin: 0 auto;
   padding: 0 1rem;
 
+  .menu__text {
+    line-height: 2.5rem;
+
+    @media only screen and (min-width: 768px) {
+      line-height: 3rem;
+    }
+    @media only screen and (min-width: 1024px) {
+      line-height: 3.5rem;
+    }
+  }
+
   .row {
     display: flex;
     justify-content: space-between;

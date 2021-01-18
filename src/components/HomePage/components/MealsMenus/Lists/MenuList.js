@@ -12,6 +12,10 @@ const MenuList = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 0 1rem 0 1rem;
+
+    .menu-info {
+      margin-left: 1.5rem;
+    }
   }
 
   ol {
