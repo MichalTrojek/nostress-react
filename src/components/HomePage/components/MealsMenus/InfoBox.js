@@ -11,10 +11,23 @@ const InfoBoxBorder = styled.div`
   border: 1px solid var(--color-primary);
   position: relative;
 
+  p:not(:last-child) {
+    padding-bottom: 1rem;
+  }
+
   .notice {
     position: absolute;
-    left: 0.4rem;
-    bottom: 0;
+
+    left: 0.5rem;
+    bottom: 0.5rem;
+    @media only screen and (min-width: 768px) {
+      left: 0.75rem;
+      bottom: 0.75rem;
+    }
+    @media only screen and (min-width: 1400px) {
+      left: 1rem;
+      bottom: 1rem;
+    }
   }
 
   a,
@@ -32,7 +45,7 @@ const InfoBox = ({ time, text }) => {
         <p>Výdej s sebou nebo rozvoz</p>
         <p>{time}</p>
         <p>{text}</p>
-        <p className="notice">*Seznam alergenů na vyžádání u obsluhy.</p>
+
         <p>
           Více informací na našem{' '}
           <a href="https://www.facebook.com/NoStressCafeRestaurant/">
@@ -40,6 +53,7 @@ const InfoBox = ({ time, text }) => {
             facebooku
           </a>
         </p>
+        <p className="notice">*Seznam alergenů na vyžádání u obsluhy.</p>
       </InfoBoxBorder>
     </>
   );
