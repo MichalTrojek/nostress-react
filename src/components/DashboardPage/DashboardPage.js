@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import PageLayout from '../../PageLayout';
-import PrivateNavBar from '../../common/PrivateNavBar';
-import Wrapper from '../../common/Wrapper';
+import PageLayout from '../PageLayout';
+import PrivateNavBar from '../common/PrivateNavBar';
+import Wrapper from '../common/Wrapper';
 
 import { useHistory } from 'react-router-dom';
 
-import { useAuth } from '../../../contexts/AuthContext';
+import { useAuth } from '../../contexts/AuthContext';
 
-import Button from '../../../components/common/Button';
-import { showErrorToast } from '../../../notifications/toast';
+import Button from '../common/Button';
+import { showErrorToast } from '../../notifications/toast';
 
 const DashboardPageBackground = styled.div`
   background-color: black;
