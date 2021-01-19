@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import Form from '../../../common/Forms/Form';
-import FormGroup from '../../../common/Forms/FormGroup';
-import Button from '../../../../components/common/Button';
+import Form from '../../common/Forms/Form';
+import FormGroup from '../../common/Forms/FormGroup';
+import Button from '../../../components/common/Button';
 
-import updateSoups from '../../../../redux/actions/data/soups/updateSoups';
-import updateSoupBoxPrice from '../../../../redux/actions/data/boxPrices/updateSoupBoxPrice';
+import updateSoups from '../../../redux/actions/data/soups/updateSoups';
+import updateSoupBoxPrice from '../../../redux/actions/data/boxPrices/updateSoupBoxPrice';
 
 const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
   const [monday, setMonday] = useState('');

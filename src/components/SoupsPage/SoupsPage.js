@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import Wrapper from '../../common/Wrapper';
-import SoupsForm from '../../layouts/private/SoupsForm';
+import Wrapper from '../common/Wrapper';
+import SoupsForm from './SoupsForm';
 
-import fetchData from '../../../redux/actions/data/fetchData';
+import fetchData from '../../redux/actions/data/fetchData';
 
-import PrivateNavBar from '../../common/PrivateNavBar';
+import PrivateNavBar from '../common/PrivateNavBar';
 
 const SoupsPageBackground = styled.div`
   background-color: black;

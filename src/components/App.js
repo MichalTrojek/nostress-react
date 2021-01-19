@@ -11,7 +11,7 @@ import LoginPage from '../components/LoginPage';
 import DashboardPage from './DashboardPage';
 import NewsPage from './pages/private/NewsPage';
 import MealsPage from './pages/private/MealsPage';
-import SoupsPage from './pages/private/SoupsPage';
+import SoupsPage from './SoupsPage';
 import BusinessHoursPage from './BusinessHoursPage';
 import CustomersOrdersPage from '../components/OrderingSystem/private/CustomersOrdersPage';
 import NewsCardPage from './pages/private/NewsCardPage';
