@@ -2,15 +2,15 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import Wrapper from '../../common/Wrapper';
+import Wrapper from '../common/Wrapper';
 
-import NewsCardsEditor from '../../layouts/private/Editors/NewsCardsEditor';
-import NewsList from '../../layouts/private/Editors/NewsList';
+import NewsCardsEditor from '../layouts/private/Editors/NewsCardsEditor';
+import NewsList from '../layouts/private/Editors/NewsList';
 
-import fetchData from '../../../redux/actions/data/fetchData';
-import deleteCard from '../../../redux/actions/data/cards/deleteCard';
+import fetchData from '../../redux/actions/data/fetchData';
+import deleteCard from '../../redux/actions/data/cards/deleteCard';
 
-import PrivateNavBar from '../../common/PrivateNavBar';
+import PrivateNavBar from '../common/PrivateNavBar';
 
 const BackgroundNewsCards = styled.div`
   min-height: 100vh;

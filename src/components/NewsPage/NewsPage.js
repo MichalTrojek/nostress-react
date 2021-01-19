@@ -1,14 +1,14 @@
-import NewsEditor from '../../layouts/private/Editors/NewsEditor';
+import NewsEditor from '../layouts/private/Editors/NewsEditor';
 import NewsList from '../../layouts/private/Editors/NewsList';
 import styled from 'styled-components';
 
-import Wrapper from '../../common/Wrapper';
+import Wrapper from '../common/Wrapper';
 
-import PrivateNavBar from '../../common/PrivateNavBar';
+import PrivateNavBar from '../common/PrivateNavBar';
 
-import deleteNews from '../../../redux/actions/data/news/deleteNews';
+import deleteNews from '../../redux/actions/data/news/deleteNews';
 
-import fetchData from '../../../redux/actions/data/fetchData';
+import fetchData from '../../redux/actions/data/fetchData';
 
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
