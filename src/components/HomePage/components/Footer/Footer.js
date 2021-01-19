@@ -5,6 +5,7 @@ import productivv from '../../../../img/productivv.png';
 
 const FooterBackground = styled.section`
   background-color: var(--color-quaternary);
+  padding: 1% 0;
 `;
 const FooterWrapper = styled(Wrapper)`
   display: flex;

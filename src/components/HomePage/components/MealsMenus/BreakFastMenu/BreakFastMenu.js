@@ -34,7 +34,7 @@ const BreakFastRow = styled.div`
 `;
 
 const BreakFastMenuContainer = styled(MealsMenuContainer)`
-  padding-top: 3rem;
+  padding: 3% 1rem;
 `;
 
 const BreakFastMenu = ({ breakfast, startOrdering }) => {

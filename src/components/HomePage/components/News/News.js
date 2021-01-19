@@ -8,6 +8,7 @@ const NewsBackground = styled.section`
   background-image: url(${backgroundImg});
   background-position: center;
   background-size: cover;
+  padding: 1% 0;
 `;
 
 const NewsWrapper = styled(Wrapper)`

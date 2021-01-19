@@ -5,7 +5,8 @@ const MealsMenuContainer = styled.section`
   row-gap: 2rem;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 2% 1rem;
+
   .menu__header {
     @media only screen and (min-width: 1024px) {
       padding: 2rem 0;
