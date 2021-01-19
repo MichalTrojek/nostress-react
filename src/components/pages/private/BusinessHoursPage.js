@@ -11,7 +11,8 @@ import fetchData from '../../../redux/actions/data/fetchData';
 
 import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 
-const SoupsPageBackground = styled(Background)`
+const SoupsPageBackground = styled.div`
+  background-color: black;
   min-height: 100vh;
 `;
 

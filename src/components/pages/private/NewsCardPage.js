@@ -13,8 +13,9 @@ import deleteCard from '../../../redux/actions/data/cards/deleteCard';
 
 import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 
-const BackgroundNewsCards = styled(Background)`
+const BackgroundNewsCards = styled.div`
   min-height: 100vh;
+  background-color: black;
 `;
 
 const NewsCardPage = ({ cards, fetchData, deleteCard }) => {

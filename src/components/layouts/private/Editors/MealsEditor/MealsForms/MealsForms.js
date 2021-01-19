@@ -223,7 +223,7 @@ const MealsForms = ({
 
   function renderRadioGroup() {
     return (
-      <RadioGroup className="animate__backInRight">
+      <RadioGroup>
         <input
           type="radio"
           value="isWeeklyMeal"

@@ -20,7 +20,7 @@ const OrderedItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
   padding: 1rem;
   display: grid;
-  grid-row-gap: 1rem;
+  grid-row-gap: 2rem;
   grid-template-rows: max-content 1fr;
 
   margin: 0.2rem;
@@ -37,8 +37,9 @@ const OrderedItemContainer = styled.div`
   }
 
   .items > p {
-    padding-left: 1.5rem;
+    padding-left: 2rem;
     text-indent: -1.8rem;
+    padding-top: 1rem;
   }
 
   .orderNumber {
@@ -107,7 +108,7 @@ const OrderedItem = ({ order }) => {
         <p className="bold">Položky</p>
         {order.items.map((item, index) => {
           return (
-            <p key={index}>
+            <p className="item" key={index}>
               {item.amount} x {item.name}
             </p>
           );

@@ -5,8 +5,9 @@ import MealsForms from '../../layouts/private/Editors/MealsEditor/MealsForms';
 import MealsList from '../../layouts/private/Editors/MealsEditor/MealsList';
 import PrivateNavBar from '../../layouts/private/PrivateNavBar';
 
-const MealsPageBackground = styled(Background)`
+const MealsPageBackground = styled.div`
   min-height: 100vh;
+  background-color: black;
 `;
 
 const MealsPage = () => {

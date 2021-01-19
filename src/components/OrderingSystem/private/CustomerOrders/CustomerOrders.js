@@ -12,6 +12,7 @@ const CustomerOrdersContainer = styled.div`
 `;
 
 const CustomerOrdersRadioGroup = styled(RadioGroup)`
+  padding-bottom: 3rem;
   label:nth-child(2) {
     background-color: ${(props) =>
       props.enableNewOrdersButton ? '#1D741B' : 'transparent'};

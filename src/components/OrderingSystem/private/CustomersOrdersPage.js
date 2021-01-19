@@ -12,7 +12,7 @@ import { sortByOrderNumber } from '../../../utils/orderUtils';
 
 import { db } from '../../../firebase';
 
-const CustomersOrdersPageBackground = styled(Background)`
+const CustomersOrdersPageBackground = styled.div`
   background-color: black;
   min-height: 100vh;
 `;
@@ -39,7 +39,7 @@ const CustomersOrdersPage = () => {
       <CustomersOrdersPageBackground>
         <Wrapper>
           <PrivateNavBar />
-          <h1>Objednávky</h1>
+          <h1 style={{ padding: '2% 0rem' }}>Objednávky</h1>
           <OrdersContainer orders={sortByOrderNumber(orders)}></OrdersContainer>
         </Wrapper>
       </CustomersOrdersPageBackground>
