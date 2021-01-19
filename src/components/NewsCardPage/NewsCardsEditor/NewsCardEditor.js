@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-import FormGroup from '../../../../common/Forms/FormGroup';
-import Button from '../../../../common/Button';
+import FormGroup from '../../common/Forms/FormGroup';
+import Button from '../../common/Button';
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-import '../styles/NewsEditor.css';
-import EditorContainer from '../styles/EditorContainer';
-import UploaderContainer from '../styles/UploaderContainer';
+import '../../common/styles/NewsEditor.css';
+import EditorContainer from '../../common/styles/EditorContainer';
+import UploaderContainer from '../../common/styles/UploaderContainer';
 
-import Loader from '../../../../common/Loader';
+import Loader from '../../common/Loader';
 
-import UploadIcon from '../../../../../img/upload.png';
+import UploadIcon from '../../../img/upload.png';
 
-import editCard from '../../../../../redux/actions/data/cards/editCard';
-import createCard from '../../../../../redux/actions/data/cards/createCard';
+import editCard from '../../../redux/actions/data/cards/editCard';
+import createCard from '../../../redux/actions/data/cards/createCard';
 
-import setSelectedItem from '../../../../../redux/actions/editor/setSelectedItem';
+import setSelectedItem from '../../../redux/actions/editor/setSelectedItem';
 
-import { uploadImage } from '../../../../../utils/imageUtils';
+import { uploadImage } from '../../../utils/imageUtils';
 
 import { v4 as uuidv4 } from 'uuid';
 

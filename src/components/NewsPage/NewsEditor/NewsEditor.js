@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-import FormGroup from '../../../../common/Forms/FormGroup';
-import Button from '../../../../common/Button';
+import FormGroup from '../../common/Forms/FormGroup';
+import Button from '../../common/Button';
 
 import ReactQuill from 'react-quill';
 
-import editNews from '../../../../../redux/actions/data/news/editNews';
-import createNews from '../../../../../redux/actions/data/news/createNews';
+import editNews from '../../../redux/actions/data/news/editNews';
+import createNews from '../../../redux/actions/data/news/createNews';
 
-import setSelectedItem from '../../../../../redux/actions/editor/setSelectedItem';
+import setSelectedItem from '../../../redux/actions/editor/setSelectedItem';
 
 import 'react-quill/dist/quill.snow.css';
 
-import '../styles/NewsEditor.css';
+import '../../common/styles/NewsEditor.css';
 
-import EditorContainer from '../styles/EditorContainer';
+import EditorContainer from '../../common/styles/EditorContainer';
 
 import { v4 as uuidv4 } from 'uuid';
 

@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import Wrapper from '../common/Wrapper';
 
-import NewsCardsEditor from '../layouts/private/Editors/NewsCardsEditor';
-import NewsList from '../layouts/private/Editors/NewsList';
+import NewsCardsEditor from './NewsCardsEditor';
+import NewsList from '../common/NewsList';
 
 import fetchData from '../../redux/actions/data/fetchData';
 import deleteCard from '../../redux/actions/data/cards/deleteCard';

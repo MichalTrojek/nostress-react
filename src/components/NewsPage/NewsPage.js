@@ -1,5 +1,5 @@
-import NewsEditor from '../layouts/private/Editors/NewsEditor';
-import NewsList from '../../layouts/private/Editors/NewsList';
+import NewsEditor from './NewsEditor';
+import NewsList from '../common/NewsList';
 import styled from 'styled-components';
 
 import Wrapper from '../common/Wrapper';

@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 
-import { showWarningToast } from '../../../../../../notifications/toast';
-import Button from '../../../../../common/Button';
+import { showWarningToast } from '../../../../notifications/toast';
+import Button from '../../../common/Button';
 
-import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
+import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
 
-import Modal from '../../../../../common/Modal';
+import Modal from '../../../common/Modal';
 
 const StyledNewsListItem = styled.div`
   position: relative;
