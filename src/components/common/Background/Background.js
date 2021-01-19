@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Background = styled.section`
   background-color: black;
-  padding: 1% 0;
+  padding: 2% 0;
 `;
 
 export default Background;
