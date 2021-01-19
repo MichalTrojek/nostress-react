@@ -12,7 +12,7 @@ import DashboardPage from './pages/private/DashboardPage';
 import NewsPage from './pages/private/NewsPage';
 import MealsPage from './pages/private/MealsPage';
 import SoupsPage from './pages/private/SoupsPage';
-import BusinessHoursPage from './pages/private/BusinessHoursPage';
+import BusinessHoursPage from './BusinessHoursPage';
 import CustomersOrdersPage from '../components/OrderingSystem/private/CustomersOrdersPage';
 import NewsCardPage from './pages/private/NewsCardPage';
 

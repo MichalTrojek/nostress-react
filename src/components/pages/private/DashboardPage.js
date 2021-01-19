@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import PageLayout from '../../PageLayout';
-import PrivateNavBar from '../../layouts/private/PrivateNavBar';
+import PrivateNavBar from '../../common/PrivateNavBar';
 import Wrapper from '../../common/Wrapper';
-import Background from '../../common/Background';
 
 import { useHistory } from 'react-router-dom';
 
@@ -11,7 +10,7 @@ import { useAuth } from '../../../contexts/AuthContext';
 import Button from '../../../components/common/Button';
 import { showErrorToast } from '../../../notifications/toast';
 
-const DashboardPageBackground = styled(Background)`
+const DashboardPageBackground = styled.div`
   background-color: black;
   min-height: 100vh;
 `;

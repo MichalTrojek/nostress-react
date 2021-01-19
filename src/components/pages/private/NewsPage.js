@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Wrapper from '../../common/Wrapper';
 
-import PrivateNavBar from '../../layouts/private/PrivateNavBar';
+import PrivateNavBar from '../../common/PrivateNavBar';
 
 import deleteNews from '../../../redux/actions/data/news/deleteNews';
 

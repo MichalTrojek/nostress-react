@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import Background from '../../common/Background';
 import Wrapper from '../../common/Wrapper';
 import MealsForms from '../../layouts/private/Editors/MealsEditor/MealsForms';
 import MealsList from '../../layouts/private/Editors/MealsEditor/MealsList';
-import PrivateNavBar from '../../layouts/private/PrivateNavBar';
+import PrivateNavBar from '../../common/PrivateNavBar';
 
 const MealsPageBackground = styled.div`
   min-height: 100vh;

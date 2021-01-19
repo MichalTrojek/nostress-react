@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { useAuth } from '../../../../contexts/AuthContext';
+import { useAuth } from '../../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
-import { showErrorToast } from '../../../../notifications/toast';
+import { showErrorToast } from '../../../notifications/toast';
 
-import logo from '../../../../img/logo.png';
+import logo from '../../../img/logo.png';
 
-import PrivateBurger from '../../../common/Burgers/PrivateBurger';
-import SideMenuStyled from '../../../common/SideMenu';
+import PrivateBurger from '../Burgers/PrivateBurger';
+import SideMenuStyled from '../SideMenu';
 import PrivateNavBarMenu from './PrivateNavBarMenu';
 
 const MENU_ITEMS = [

@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import PageLayout from '../../../components/PageLayout';
-import PrivateNavBar from '../../layouts/private/PrivateNavBar';
+import PrivateNavBar from '../../common/PrivateNavBar';
 
 import OrdersContainer from '../private/CustomerOrders';
 import Wrapper from '../../common/Wrapper';
-import Background from '../../common/Background';
 
 import { sortByOrderNumber } from '../../../utils/orderUtils';
 
