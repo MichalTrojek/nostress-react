@@ -10,7 +10,7 @@ const FormGroup = styled.div`
     color: transparent;
     font-size: var(--form-group-form-size);
     transition: all 0.2s;
-    transform: translateY(-4.1rem) translateX(1rem);
+    transform: translateY(-4rem) translateX(1rem);
     pointer-events: none;
     font-weight: bold;
   }
@@ -22,7 +22,8 @@ const FormGroup = styled.div`
     --input-border-width: 0.7rem;
     border-bottom: var(--input-border-width) solid transparent;
     border-top: var(--input-border-width) solid transparent;
-    padding: 0.3rem;
+    padding: 0.2rem;
+    margin-top: 1rem;
 
     &:focus {
       border-color: var(--color-tertiary);
@@ -30,7 +31,7 @@ const FormGroup = styled.div`
     }
 
     &:not(:placeholder-shown) + label {
-      transform: translateY(-7.1rem);
+      transform: translateY(-6.9rem);
       color: var(--color-tertiary);
     }
   }
