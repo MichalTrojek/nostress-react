@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-import RadioGroup from '../../../../../common/Forms/RadioGroup';
+import RadioGroup from '../../../common/Forms/RadioGroup';
 
 import MealListItem from './MealListItem';
 
-import fetchData from '../../../../../../redux/actions/data/fetchData';
+import fetchData from '../../../../redux/actions/data/fetchData';
 
-import sortOutMenusByType from '../../../../../../utils/mealUtils';
+import sortOutMenusByType from '../../../../utils/mealUtils';
 
 import styled from 'styled-components';
 

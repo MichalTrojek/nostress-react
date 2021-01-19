@@ -3,12 +3,12 @@ import { useState } from 'react';
 
 import { connect } from 'react-redux';
 
-import Button from '../../../../../common/Button';
-import Modal from '../../../../../common/Modal';
+import Button from '../../../common/Button';
+import Modal from '../../../common/Modal';
 
-import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
-import deleteMeal from '../../../../../../redux/actions/data/meals/deleteMeal';
-import { showInfoToast } from '../../../../../../notifications/toast';
+import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
+import deleteMeal from '../../../../redux/actions/data/meals/deleteMeal';
+import { showInfoToast } from '../../../../notifications/toast';
 
 const MealListItemContainer = styled.div`
   border: 1px solid var(--color-tertiary);
@@ -22,17 +22,6 @@ const MealListItemContainer = styled.div`
 
   border-radius: 10px;
   border-top-right-radius: 0px;
-
-  /* min-width: 100%;
-  @media only screen and (min-width: 768px) {
-    --width: calc((98% / 2));
-    max-width: var(--width);
-    min-width: var(--width);
-  }
-
-  @media only screen and (min-width: 1024px) {
-    --width: calc((98% / 3));
-  } */
 
   .menuNumber {
     position: absolute;

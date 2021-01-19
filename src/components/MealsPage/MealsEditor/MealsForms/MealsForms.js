@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import Form from '../../../../../common/Forms/Form';
-import FormGroup from '../../../../../common/Forms/FormGroup';
-import Button from '../../../../../common/Button';
+import Form from '../../../common/Forms/Form';
+import FormGroup from '../../../common/Forms/FormGroup';
+import Button from '../../../common/Button';
 
-import createMeal from '../../../../../../redux/actions/data/meals/createMeal';
-import editMeal from '../../../../../../redux/actions/data/meals/editMeal';
-import updateMealBoxPrice from '../../../../../../redux/actions/data/boxPrices/updateMealBoxPrice';
-import setSelectedItem from '../../../../../../redux/actions/editor/setSelectedItem';
-import RadioGroup from '../../../../../common/Forms/RadioGroup';
+import createMeal from '../../../../redux/actions/data/meals/createMeal';
+import editMeal from '../../../../redux/actions/data/meals/editMeal';
+import updateMealBoxPrice from '../../../../redux/actions/data/boxPrices/updateMealBoxPrice';
+import setSelectedItem from '../../../../redux/actions/editor/setSelectedItem';
+import RadioGroup from '../../../common/Forms/RadioGroup';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import { v4 as uuidv4 } from 'uuid';
