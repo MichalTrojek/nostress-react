@@ -181,7 +181,7 @@ const SoupsForm = ({ texts, updateTexts }) => {
       mainMenu: {
         heading: mmHeading,
         mainText: mmMainText,
-        dateText: mmDateText || getDateText(),
+        dateText: mmDateText,
         menuInfoText: mmMenuInfoText,
         childMenuInfoText: mmMainChildMenuInfoText,
         deliveryTime: mmDeliveryTime,
@@ -189,24 +189,13 @@ const SoupsForm = ({ texts, updateTexts }) => {
       breakfastMenu: {
         heading: bfHeading,
         mainText: bfMainText,
-        dateText: bfDateText || getDateText(),
+        dateText: bfDateText,
         menuInfoText: bfMenuInfoText,
         deliveryTime: bfDeliveryTime,
       },
     };
 
     updateTexts(texts);
-  }
-
-  function getDateText() {
-    const curr = new Date();
-    const first = curr.getDate() - curr.getDay() + 1;
-    const last = first + 4;
-    const monday = new Date(curr.setDate(first))
-      .toLocaleDateString()
-      .slice(0, 7);
-    const friday = new Date(curr.setDate(last)).toLocaleDateString();
-    return `${monday} - ${friday}`;
   }
 };
 

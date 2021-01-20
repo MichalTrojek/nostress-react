@@ -15,6 +15,8 @@ import startOrdering from '../../../../OrderingSystem/redux/actions/startOrderin
 
 import { useHistory } from 'react-router-dom';
 
+import { getDateText } from '../../../../../utils/dateUtils';
+
 const WeeklyMenu = ({ meals, childMeals, startOrdering, texts }) => {
   const history = useHistory();
 
@@ -23,7 +25,7 @@ const WeeklyMenu = ({ meals, childMeals, startOrdering, texts }) => {
       <h1 className="menu__header">{texts.heading}</h1>
       <p className="menu__text">{texts.mainText}</p>
       <div className="row">
-        <Label text={texts.dateText} />
+        <Label text={texts.dateText ? texts.dateText : getDateText()} />
         <Button primary onClick={handleStartingOrder}>
           Objednat
         </Button>

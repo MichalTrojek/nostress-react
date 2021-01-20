@@ -16,6 +16,8 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import startOrdering from '../../../../OrderingSystem/redux/actions/startOrdering';
 
+import { getDateText } from '../../../../../utils/dateUtils';
+
 const BreakFastRow = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,7 +47,7 @@ const BreakFastMenu = ({ breakfast, startOrdering, texts }) => {
       <h1 className="menu__header">{texts.heading}</h1>
       <p className="menu__text">{texts.mainText}</p>
       <BreakFastRow>
-        <Label text={texts.dateText} />
+        <Label text={texts.dateText ? texts.dateText : getDateText()} />
         <Button primary onClick={handleStartingOrder}>
           Objednat snídani
         </Button>
