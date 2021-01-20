@@ -24,7 +24,7 @@ const MenuList = styled.div`
     padding-left: 1.7rem;
 
     @media only screen and (min-width: 375px) {
-      padding-left: 2rem;
+      padding-left: 2.5rem;
     }
 
     @media only screen and (min-width: 768px) {
