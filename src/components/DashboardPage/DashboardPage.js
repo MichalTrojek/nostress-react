@@ -21,7 +21,7 @@ const DashBoardButtons = styled.nav`
   grid-row-gap: 3rem;
   justify-content: center;
 
-  @media only screen and (min-width: 1262px) {
+  @media only screen and (min-width: 1348px) {
     display: none;
   }
 
@@ -44,6 +44,9 @@ const DashboardPage = () => {
             </Button>
             <Button primary onClick={() => history.push('/dashboard/hours')}>
               Otevíraci doba
+            </Button>
+            <Button primary onClick={() => history.push('/dashboard/texts')}>
+              editovat texty
             </Button>
             <Button primary onClick={() => history.push('/dashboard/news')}>
               editovat novinky
