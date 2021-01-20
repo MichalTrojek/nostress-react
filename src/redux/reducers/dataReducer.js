@@ -43,6 +43,13 @@ const initialState = {
       menuInfoText: '',
       childMenuInfoText: '',
     },
+    breakfastMenu: {
+      heading: '',
+      mainText: '',
+      dateText: '',
+      menuInfoText: '',
+      deliveryTime: '',
+    },
   },
 };
 

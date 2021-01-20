@@ -23,7 +23,7 @@ const WeeklyMenu = ({ meals, childMeals, startOrdering, texts }) => {
       <h1 className="menu__header">{texts.heading}</h1>
       <p className="menu__text">{texts.mainText}</p>
       <div className="row">
-        <Label text={getDateText()} />
+        <Label text={texts.dateText} />
         <Button primary onClick={handleStartingOrder}>
           Objednat
         </Button>
@@ -57,14 +57,5 @@ const WeeklyMenu = ({ meals, childMeals, startOrdering, texts }) => {
     startOrdering({ status: true, menuType: 'MainMenu' });
   }
 };
-
-function getDateText() {
-  const curr = new Date();
-  const first = curr.getDate() - curr.getDay() + 1;
-  const last = first + 4;
-  const monday = new Date(curr.setDate(first)).toLocaleDateString().slice(0, 7);
-  const friday = new Date(curr.setDate(last)).toLocaleDateString();
-  return `${monday} - ${friday}`;
-}
 
 export default connect(null, { startOrdering })(WeeklyMenu);

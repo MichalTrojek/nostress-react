@@ -13,6 +13,13 @@ const SoupsForm = ({ texts, updateTexts }) => {
   const [mmDateText, setMmDateText] = useState('');
   const [mmMenuInfoText, setMmMenuInfoText] = useState('');
   const [mmMainChildMenuInfoText, setMmChildMenuInfoText] = useState('');
+  const [mmDeliveryTime, setMmDeliveryTime] = useState('');
+
+  const [bfHeading, setBfHeading] = useState('');
+  const [bfMainText, setBfMainText] = useState('');
+  const [bfDateText, setBfDateText] = useState('');
+  const [bfMenuInfoText, setBfMenuInfoText] = useState('');
+  const [bfDeliveryTime, setBfDeliveryTime] = useState('');
 
   useEffect(() => {
     if (texts) {
@@ -21,68 +28,151 @@ const SoupsForm = ({ texts, updateTexts }) => {
       setMmDateText(texts.mainMenu.dateText);
       setMmMenuInfoText(texts.mainMenu.menuInfoText);
       setMmChildMenuInfoText(texts.mainMenu.childMenuInfoText);
+      setMmDeliveryTime(texts.mainMenu.deliveryTime);
+
+      setBfHeading(texts.breakfastMenu.heading);
+      setBfMainText(texts.breakfastMenu.mainText);
+      setBfDateText(texts.breakfastMenu.dateText);
+      setBfMenuInfoText(texts.breakfastMenu.menuInfoText);
+      setBfDeliveryTime(texts.breakfastMenu.deliveryTime);
     }
   }, []);
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 style={{ marginBottom: '2.5rem' }}>Hlavní menu</h2>
-      <FormGroup>
-        <input
-          type="text"
-          placeholder="Nadpis"
-          value={mmHeading}
-          onChange={(event) => setMmHeading(event.target.value)}
-          id="mondayInput"
-        />
-        <label htmlFor="mondayInput">Nadpis</label>
-      </FormGroup>
-      <FormGroup>
-        <input
-          type="text"
-          placeholder="Hlavní text"
-          value={mmMainText}
-          onChange={(event) => setMmMainText(event.target.value)}
-          id="mondayInput"
-        />
-        <label htmlFor="mondayInput">Hlavni text</label>
-      </FormGroup>
-      <FormGroup>
-        <input
-          type="text"
-          placeholder="Datum / Text"
-          value={mmDateText}
-          onChange={(event) => setMmDateText(event.target.value)}
-          id="mondayInput"
-        />
-        <label htmlFor="mondayInput">Datum / Text</label>
-      </FormGroup>
-      <FormGroup>
-        <input
-          type="text"
-          placeholder="Menu - info"
-          value={mmMenuInfoText}
-          onChange={(event) => setMmMenuInfoText(event.target.value)}
-          id="mondayInput"
-        />
-        <label htmlFor="mondayInput">Menu - info</label>
-      </FormGroup>
-      <FormGroup>
-        <input
-          type="text"
-          placeholder="Dětské menu - info"
-          value={mmMainChildMenuInfoText}
-          onChange={(event) => setMmChildMenuInfoText(event.target.value)}
-          id="mondayInput"
-        />
-        <label htmlFor="mondayInput">Dětské menu - info</label>
-      </FormGroup>
-
+      {renderMainMenuInputs()}
+      {renderBreakfastInputs()}
       <Button primary type="submit">
         aktualizovat
       </Button>
     </Form>
   );
+
+  function renderMainMenuInputs() {
+    return (
+      <>
+        <h2 style={{ marginBottom: '2.5rem' }}>Hlavní menu</h2>
+        <FormGroup>
+          <input
+            type="text"
+            placeholder="Nadpis"
+            value={mmHeading}
+            onChange={(event) => setMmHeading(event.target.value)}
+            id="mondayInput"
+          />
+          <label htmlFor="mondayInput">Nadpis</label>
+        </FormGroup>
+        <FormGroup>
+          <input
+            type="text"
+            placeholder="Hlavní text"
+            value={mmMainText}
+            onChange={(event) => setMmMainText(event.target.value)}
+            id="mondayInput"
+          />
+          <label htmlFor="mondayInput">Hlavni text</label>
+        </FormGroup>
+        <FormGroup>
+          <input
+            type="text"
+            placeholder="Datum / Text"
+            value={mmDateText}
+            onChange={(event) => setMmDateText(event.target.value)}
+            id="mondayInput"
+          />
+          <label htmlFor="mondayInput">Datum / Text</label>
+        </FormGroup>
+        <FormGroup>
+          <input
+            type="text"
+            placeholder="Menu - info"
+            value={mmMenuInfoText}
+            onChange={(event) => setMmMenuInfoText(event.target.value)}
+            id="mondayInput"
+          />
+          <label htmlFor="mondayInput">Menu - info</label>
+        </FormGroup>
+        <FormGroup>
+          <input
+            type="text"
+            placeholder="Dětské menu - info"
+            value={mmMainChildMenuInfoText}
+            onChange={(event) => setMmChildMenuInfoText(event.target.value)}
+            id="mondayInput"
+          />
+          <label htmlFor="mondayInput">Dětské menu - info</label>
+        </FormGroup>
+        <FormGroup>
+          <input
+            type="text"
+            placeholder="Čas rozvozu"
+            value={mmDeliveryTime}
+            onChange={(event) => setMmDeliveryTime(event.target.value)}
+            id="mondayInput"
+          />
+          <label htmlFor="mondayInput">Čas rozvozu</label>
+        </FormGroup>
+      </>
+    );
+  }
+
+  function renderBreakfastInputs() {
+    return (
+      <>
+        <h2 style={{ marginBottom: '2.5rem' }}>Snídaňové menu</h2>
+        <FormGroup>
+          <input
+            type="text"
+            placeholder="Nadpis"
+            value={bfHeading}
+            onChange={(event) => setBfHeading(event.target.value)}
+            id="mondayInput"
+          />
+          <label htmlFor="mondayInput">Nadpis</label>
+        </FormGroup>
+        <FormGroup>
+          <input
+            type="text"
+            placeholder="Hlavní text"
+            value={bfMainText}
+            onChange={(event) => setBfMainText(event.target.value)}
+            id="mondayInput"
+          />
+          <label htmlFor="mondayInput">Hlavni text</label>
+        </FormGroup>
+        <FormGroup>
+          <input
+            type="text"
+            placeholder="Datum / Text"
+            value={bfDateText}
+            onChange={(event) => setBfDateText(event.target.value)}
+            id="mondayInput"
+          />
+          <label htmlFor="mondayInput">Datum / Text</label>
+        </FormGroup>
+        <FormGroup>
+          <input
+            type="text"
+            placeholder="Menu - info"
+            value={bfMenuInfoText}
+            onChange={(event) => setBfMenuInfoText(event.target.value)}
+            id="mondayInput"
+          />
+          <label htmlFor="mondayInput">Menu - info</label>
+        </FormGroup>
+        <FormGroup>
+          <input
+            type="text"
+            placeholder="Čas rozvozu"
+            value={bfDeliveryTime}
+            onChange={(event) => setBfDeliveryTime(event.target.value)}
+            id="mondayInput"
+          />
+          <label htmlFor="mondayInput">Čas rozvozu</label>
+        </FormGroup>
+      </>
+    );
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -94,6 +184,14 @@ const SoupsForm = ({ texts, updateTexts }) => {
         dateText: mmDateText || getDateText(),
         menuInfoText: mmMenuInfoText,
         childMenuInfoText: mmMainChildMenuInfoText,
+        deliveryTime: mmDeliveryTime,
+      },
+      breakfastMenu: {
+        heading: bfHeading,
+        mainText: bfMainText,
+        dateText: bfDateText || getDateText(),
+        menuInfoText: bfMenuInfoText,
+        deliveryTime: bfDeliveryTime,
       },
     };
 
