@@ -5,18 +5,24 @@ import setTotal from '../../../redux/actions/setTotal';
 
 const StickyCartStyle = styled.div`
   background-color: red;
-  padding: 1.5rem 1rem 0rem 1rem;
-  height: 5rem;
+
+  padding: 2rem 1rem;
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 3;
-
   cursor: pointer;
-
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: bold;
+
+  @media only screen and (min-width: 414px) {
+    font-size: 1.8rem;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 2.4rem;
+  }
 
   .centered-content {
     width: 100%;

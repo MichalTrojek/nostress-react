@@ -14,12 +14,7 @@ const MealsSelectorContainerStyle = styled(CSSTransition)`
   min-height: 100vh;
 `;
 
-const MealsSelector = ({
-  showConfirmation,
-  showSummary,
-  orderingStarted,
-  isOrderingAllowed,
-}) => {
+const MealsSelector = ({ showConfirmation, showSummary, orderingStarted }) => {
   function renderMenu() {
     return orderingStarted.menuType === 'MainMenu' ? (
       <OrderMainMenu />
