@@ -37,20 +37,15 @@ const BreakFastMenuContainer = styled(MealsMenuContainer)`
   padding: 1% 1rem;
 `;
 
-const BreakFastMenu = ({ breakfast, startOrdering }) => {
+const BreakFastMenu = ({ breakfast, startOrdering, texts }) => {
   const history = useHistory();
-
-  const weeklyData = {
-    text:
-      'Nově nabízíme výborné snídaně nebo svačiny za super ceny. K dispozici také na objednání rozvozu až domů nebo „take away“ z výdejního okénka. Objednej si domů nebo do kanceláře čerstvou snídani nebo svačinu!',
-  };
 
   return (
     <BreakFastMenuContainer id="Breakfastmenu">
-      <h1 className="menu__header">Snídaňové menu 8:00 – 10:30</h1>
-      <p className="menu__text">{weeklyData.text}</p>
+      <h1 className="menu__header">{texts.heading}</h1>
+      <p className="menu__text">{texts.mainText}</p>
       <BreakFastRow>
-        <Label text="KÁVA ZDARMA ke každé snídani" />
+        <Label text={texts.dateText} />
         <Button primary onClick={handleStartingOrder}>
           Objednat snídani
         </Button>
@@ -59,13 +54,13 @@ const BreakFastMenu = ({ breakfast, startOrdering }) => {
         <div className="leftside">
           <MealsList
             header="Nabídka"
-            info="ZAVÁDĚCÍ CENY"
+            info={texts.menuInfoText}
             icon={menuIcon}
             items={breakfast}
           />
         </div>
         <div className="rightside-breakfast">
-          <InfoBox time="11:00 – 16:00" text="V sobotu speciální menu" />
+          <InfoBox time={texts.deliveryTime} text="V sobotu speciální menu" />
         </div>
       </MealsMenuContent>
     </BreakFastMenuContainer>

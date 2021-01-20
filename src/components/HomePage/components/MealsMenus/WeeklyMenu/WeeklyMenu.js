@@ -45,7 +45,7 @@ const WeeklyMenu = ({ meals, childMeals, startOrdering, texts }) => {
         </div>
         <div className="rightside">
           <MenuSoupsList />
-          <InfoBox time="8:00 – 10:30" text="" />
+          <InfoBox time={texts.deliveryTime} text="" />
         </div>
       </MealsMenuContent>
     </MealsMenuContainer>
