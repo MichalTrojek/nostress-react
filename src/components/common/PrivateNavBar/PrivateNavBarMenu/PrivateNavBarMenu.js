@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const NavBarMenuList = styled.ul`
   display: none;
-  grid-template-columns: repeat(7, max-content);
+  grid-template-columns: repeat(8, max-content);
   column-gap: 1rem;
   list-style-type: none;
 
-  @media only screen and (min-width: 1262px) {
+  @media only screen and (min-width: 1348px) {
     display: grid;
   }
 `;
