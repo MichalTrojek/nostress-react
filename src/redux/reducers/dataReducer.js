@@ -5,6 +5,7 @@ import {
   UPDATE_NEWS,
   UPDATE_CARDS,
   UPDATE_MEALS,
+  UPDATE_TEXTS,
   UPDATE_MEAL_BOX_PRICES,
   UPDATE_SOUP_BOX_PRICES,
 } from '../actions/types';
@@ -34,6 +35,15 @@ const initialState = {
     soupBoxPrice: '',
     mealBoxPrice: '',
   },
+  texts: {
+    mainMenu: {
+      heading: '',
+      mainText: '',
+      dateText: '',
+      menuInfoText: '',
+      childMenuInfoText: '',
+    },
+  },
 };
 
 function dataReducer(state = initialState, action) {
@@ -52,6 +62,8 @@ function dataReducer(state = initialState, action) {
       return { ...state, boxPrices: action.payload };
     case UPDATE_SOUP_BOX_PRICES:
       return { ...state, boxPrices: action.payload };
+    case UPDATE_TEXTS:
+      return { ...state, texts: action.payload };
     case FETCH_DATA:
       return action.payload || state;
     default:

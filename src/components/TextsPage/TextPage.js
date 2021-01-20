@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import PrivateNavBar from '../common/PrivateNavBar';
+import TextForm from './TextsForm';
 
 import Wrapper from '../common/Wrapper';
 
@@ -13,7 +14,8 @@ const TextPage = () => {
     <TextPageBackground>
       <Wrapper>
         <PrivateNavBar />
-        <h1>textPage</h1>
+        <h1>Editace textů</h1>
+        <TextForm />
       </Wrapper>
     </TextPageBackground>
   );
