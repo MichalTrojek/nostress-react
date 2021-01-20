@@ -17,10 +17,10 @@ const SideMenuStyled = styled.nav`
   text-align: left;
   padding: 2rem 1rem 2rem 2rem;
   transition: width 0.5 ease-in-out;
+
   position: fixed;
   top: 77px;
   left: 0;
-  /* overflow-x: hidden; */
 
   z-index: 25;
 `;
