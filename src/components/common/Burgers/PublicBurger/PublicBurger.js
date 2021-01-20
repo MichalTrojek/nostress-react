@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Burger from '../Burger';
 
 const PublicBurgerStyled = styled(Burger)`
-  @media only screen and (min-width: 1168px) {
+  @media only screen and (min-width: 1297px) {
     display: none;
   }
 `;
