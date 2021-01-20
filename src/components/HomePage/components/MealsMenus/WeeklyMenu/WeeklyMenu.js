@@ -15,18 +15,13 @@ import startOrdering from '../../../../OrderingSystem/redux/actions/startOrderin
 
 import { useHistory } from 'react-router-dom';
 
-const WeeklyMenu = ({ meals, childMeals, startOrdering }) => {
+const WeeklyMenu = ({ meals, childMeals, startOrdering, texts }) => {
   const history = useHistory();
-
-  const weeklyData = {
-    text:
-      'Polední Menu se sklada z hlavního chodu a polévky a je možné si ho objednat předem k vyzvednutí na restauraci nebo rozvozem k Vám domů. Jídlo Vám rádi dovezeme domů vždy čerstvé. Objednejte si!',
-  };
 
   return (
     <MealsMenuContainer id="menu">
-      <h1 className="menu__header">Týdenní menu 11:00 – 16:00</h1>
-      <p className="menu__text">{weeklyData.text}</p>
+      <h1 className="menu__header">{texts.heading}</h1>
+      <p className="menu__text">{texts.mainText}</p>
       <div className="row">
         <Label text={getDateText()} />
         <Button primary onClick={handleStartingOrder}>
@@ -35,10 +30,15 @@ const WeeklyMenu = ({ meals, childMeals, startOrdering }) => {
       </div>
       <MealsMenuContent>
         <div className="leftside">
-          <MenuMealsList header="Menu" info="" icon={menuIcon} items={meals} />
+          <MenuMealsList
+            header="Menu"
+            info={texts.menuInfoText}
+            icon={menuIcon}
+            items={meals}
+          />
           <MenuMealsList
             header="Dětské menu"
-            info=""
+            info={texts.childMenuInfoText}
             icon={menuIcon}
             items={childMeals}
           />

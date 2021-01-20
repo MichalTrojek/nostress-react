@@ -14,6 +14,7 @@ function fetchNewsApiCall() {
           cards: doc.data().cards || [],
           hours: doc.data().hours || {},
           boxPrices: doc.data().boxPrices || {},
+          texts: doc.data().texts || {},
         };
       });
       return data;

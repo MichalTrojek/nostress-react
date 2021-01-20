@@ -19,7 +19,8 @@ function dataFetched(data) {
     dataExist(data.soups) ||
     dataExist(data.allNews) ||
     dataExist(data.hours) ||
-    dataExist(data.boxPrices)
+    dataExist(data.boxPrices) ||
+    dataExist(data.texts)
   );
 }
 const dataExist = (array) => {

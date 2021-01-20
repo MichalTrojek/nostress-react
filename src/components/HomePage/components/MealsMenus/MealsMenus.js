@@ -16,10 +16,14 @@ const MealsMenusBackground = styled.div`
   }
 `;
 
-const MealsMenus = ({ weeklyMeals, childMeals, breakfastMeals }) => {
+const MealsMenus = ({ weeklyMeals, childMeals, breakfastMeals, mainTexts }) => {
   return (
     <MealsMenusBackground>
-      <WeeklyMenu meals={weeklyMeals} childMeals={childMeals} />
+      <WeeklyMenu
+        meals={weeklyMeals}
+        childMeals={childMeals}
+        texts={mainTexts}
+      />
       <BreakFastMenu breakfast={breakfastMeals} />
     </MealsMenusBackground>
   );
@@ -33,6 +37,7 @@ function mapStateToProps(state, ownProps) {
     weeklyMeals: weeklyMeals,
     childMeals: childMeals,
     breakfastMeals: breakfastMeals,
+    mainTexts: state.data.texts.mainMenu,
   };
 }
 export default connect(mapStateToProps, {})(MealsMenus);

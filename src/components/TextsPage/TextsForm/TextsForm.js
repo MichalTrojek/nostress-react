@@ -7,12 +7,22 @@ import Button from '../../common/Button';
 
 import updateTexts from '../../../redux/actions/data/texts/updateTexts';
 
-const SoupsForm = ({ updateTexts }) => {
+const SoupsForm = ({ texts, updateTexts }) => {
   const [mmHeading, setMmHeading] = useState('');
   const [mmMainText, setMmMainText] = useState('');
   const [mmDateText, setMmDateText] = useState('');
   const [mmMenuInfoText, setMmMenuInfoText] = useState('');
   const [mmMainChildMenuInfoText, setMmChildMenuInfoText] = useState('');
+
+  useEffect(() => {
+    if (texts) {
+      setMmHeading(texts.mainMenu.heading);
+      setMmMainText(texts.mainMenu.mainText);
+      setMmDateText(texts.mainMenu.dateText);
+      setMmMenuInfoText(texts.mainMenu.menuInfoText);
+      setMmChildMenuInfoText(texts.mainMenu.childMenuInfoText);
+    }
+  }, []);
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -81,13 +91,24 @@ const SoupsForm = ({ updateTexts }) => {
       mainMenu: {
         heading: mmHeading,
         mainText: mmMainText,
-        dateText: mmDateText,
+        dateText: mmDateText || getDateText(),
         menuInfoText: mmMenuInfoText,
         childMenuInfoText: mmMainChildMenuInfoText,
       },
     };
 
     updateTexts(texts);
+  }
+
+  function getDateText() {
+    const curr = new Date();
+    const first = curr.getDate() - curr.getDay() + 1;
+    const last = first + 4;
+    const monday = new Date(curr.setDate(first))
+      .toLocaleDateString()
+      .slice(0, 7);
+    const friday = new Date(curr.setDate(last)).toLocaleDateString();
+    return `${monday} - ${friday}`;
   }
 };
 
