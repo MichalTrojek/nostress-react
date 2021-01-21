@@ -44,11 +44,17 @@ const OpenHours = ({ hours }) => {
           </div>
           <div className="openhours-row">
             <p>Sobota</p>
-            <p className="hours"> {hours.saturday || <Skeleton />}</p>
+            <p className="hours">
+              {' '}
+              {hours.saturday || <Skeleton duration={2} />}
+            </p>
           </div>
           <div className="openhours-row">
             <p>Neděle</p>
-            <p className="hours"> {hours.sunday || <Skeleton />}</p>
+            <p className="hours">
+              {' '}
+              {hours.sunday || <Skeleton duration={2} />}
+            </p>
           </div>
         </>
       )}

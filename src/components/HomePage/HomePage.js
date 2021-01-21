@@ -16,6 +16,8 @@ import Footer from './components/Footer';
 import Hero from './components/Hero';
 import News from './components/News';
 
+import { SkeletonTheme } from 'react-loading-skeleton';
+
 import { CSSTransition } from 'react-transition-group';
 import './HomePage.css';
 
@@ -38,13 +40,15 @@ const Home = ({ resetOrders, fetchData }) => {
         appear={true}
       >
         <div>
-          <Hero />
-          <MealsMenus />
-          <FoodAndBeverage />
-          <News />
-          <BussinessHours />
-          <Contact />
-          <Footer />
+          <SkeletonTheme color="black" highlightColor="var(--color-tertiary)">
+            <Hero />
+            <MealsMenus />
+            <FoodAndBeverage />
+            <News />
+            <BussinessHours />
+            <Contact />
+            <Footer />
+          </SkeletonTheme>
         </div>
       </CSSTransition>
     </PageLayout>
