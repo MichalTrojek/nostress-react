@@ -16,17 +16,20 @@ import startOrdering from '../../../../OrderingSystem/redux/actions/startOrderin
 import { useHistory } from 'react-router-dom';
 
 import { getDateText } from '../../../../../utils/dateUtils';
+import Skeleton from 'react-loading-skeleton';
 
 const WeeklyMenu = ({ meals, childMeals, startOrdering, texts }) => {
   const history = useHistory();
 
   return (
     <MealsMenuContainer id="menu">
-      <h1 className="menu__header">{texts.heading}</h1>
-      <p className="menu__text">{texts.mainText}</p>
+      <h1 className="menu__header">
+        {texts.heading || <Skeleton width={'30%'} />}
+      </h1>
+      <p className="menu__text">{texts.mainText || <Skeleton count={2} />}</p>
       <div className="row">
         <Label text={texts.dateText ? texts.dateText : getDateText()} />
-        <Button primary onClick={handleStartingOrder}>
+        <Button primary onClick={handleStartingOrder || <Skeleton />}>
           Objednat
         </Button>
       </div>
