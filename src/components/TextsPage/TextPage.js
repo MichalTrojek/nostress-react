@@ -14,7 +14,7 @@ const TextPageBackground = styled.div`
   background-color: black;
 `;
 
-const TextPage = ({ texts }) => {
+const TextPage = ({ fetchData, texts }) => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);

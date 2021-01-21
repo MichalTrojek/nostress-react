@@ -36,7 +36,7 @@ const SoupsForm = ({ texts, updateTexts }) => {
       setBfMenuInfoText(texts.breakfastMenu.menuInfoText);
       setBfDeliveryTime(texts.breakfastMenu.deliveryTime);
     }
-  }, []);
+  }, [texts]);
 
   return (
     <Form onSubmit={handleSubmit}>
