@@ -40,7 +40,7 @@ const Home = ({ resetOrders, fetchData }) => {
         appear={true}
       >
         <div>
-          <SkeletonTheme color="black" highlightColor="var(--color-tertiary)">
+          <SkeletonTheme color="#202020" highlightColor="#444">
             <Hero />
             <MealsMenus />
             <FoodAndBeverage />
