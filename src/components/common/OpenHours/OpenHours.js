@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import Skeleton from 'react-loading-skeleton';
 
 const OpenHoursContainer = styled.div`
   max-width: 30rem;
@@ -22,31 +23,32 @@ const OpenHours = ({ hours }) => {
         <>
           <div className="openhours-row">
             <p>Pondělí</p>
-            <p className="hours"> {hours.monday}</p>
+
+            <p className="hours"> {hours.monday || <Skeleton />}</p>
           </div>
           <div className="openhours-row">
             <p>Úterý</p>
-            <p className="hours"> {hours.tuesday}</p>
+            <p className="hours"> {hours.tuesday || <Skeleton />}</p>
           </div>
           <div className="openhours-row">
             <p>Středa</p>
-            <p className="hours"> {hours.wednesday}</p>
+            <p className="hours"> {hours.wednesday || <Skeleton />}</p>
           </div>
           <div className="openhours-row">
             <p>Čtvrtek</p>
-            <p className="hours"> {hours.thursday}</p>
+            <p className="hours"> {hours.thursday || <Skeleton />}</p>
           </div>
           <div className="openhours-row">
             <p>Pátek</p>
-            <p className="hours"> {hours.friday}</p>
+            <p className="hours"> {hours.friday || <Skeleton />}</p>
           </div>
           <div className="openhours-row">
             <p>Sobota</p>
-            <p className="hours"> {hours.saturday}</p>
+            <p className="hours"> {hours.saturday || <Skeleton />}</p>
           </div>
           <div className="openhours-row">
             <p>Neděle</p>
-            <p className="hours"> {hours.sunday}</p>
+            <p className="hours"> {hours.sunday || <Skeleton />}</p>
           </div>
         </>
       )}
