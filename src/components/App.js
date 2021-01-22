@@ -25,12 +25,11 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <AuthProvider>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/order" component={OrderPage} />
 
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/order" component={OrderPage} />
-
-        <AuthProvider>
           <Route exact path="/login" component={LoginPage} />
           <PrivateRoute exact path="/dashboard/" component={DashboardPage} />
           <PrivateRoute
@@ -52,9 +51,10 @@ function App() {
             path="/dashboard/cards"
             component={NewsCardPage}
           />
-          <Route exact path="*" component={NotFound} />
-        </AuthProvider>
-      </Switch>
+
+          <Route component={NotFound} />
+        </Switch>
+      </AuthProvider>
       <ToastContainer
         autoClose={2000}
         transition={Zoom}
