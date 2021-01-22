@@ -29,7 +29,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/order" component={OrderPage} />
-        <Route exact path="*" component={NotFound} />
+
         <AuthProvider>
           <Route exact path="/login" component={LoginPage} />
           <PrivateRoute exact path="/dashboard/" component={DashboardPage} />
@@ -52,6 +52,7 @@ function App() {
             path="/dashboard/cards"
             component={NewsCardPage}
           />
+          <Route exact path="*" component={NotFound} />
         </AuthProvider>
       </Switch>
       <ToastContainer

@@ -9,8 +9,12 @@ const NotFoundBackground = styled.section`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+
   align-items: center;
+
+  .NotFound__button {
+    margin-top: 10%;
+  }
 `;
 
 const NotFound = () => {
@@ -19,8 +23,12 @@ const NotFound = () => {
   return (
     <NotFoundBackground>
       <h1>Stránka neexistuje</h1>
-      <p>Vrattě se zpět na hlavní stránku.</p>
-      <Button primary onClick={() => history.push('/')}>
+
+      <Button
+        className="NotFound__button"
+        primary
+        onClick={() => history.push('/')}
+      >
         Zpět na hlavní stránku
       </Button>
     </NotFoundBackground>
