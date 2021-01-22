@@ -14,6 +14,7 @@ import MealsPage from './MealsPage';
 import SoupsPage from './SoupsPage';
 import TextsPage from './TextsPage';
 import BusinessHoursPage from './BusinessHoursPage';
+import NotFound from './NotFoundPage';
 import CustomersOrdersPage from './OrderingSystem/private/CustomersOrdersPage';
 import NewsCardPage from './NewsCardPage';
 
@@ -28,6 +29,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/order" component={OrderPage} />
+        <Route exact path="*" component={NotFound} />
         <AuthProvider>
           <Route exact path="/login" component={LoginPage} />
           <PrivateRoute exact path="/dashboard/" component={DashboardPage} />
