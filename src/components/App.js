@@ -51,7 +51,6 @@ function App() {
             path="/dashboard/cards"
             component={NewsCardPage}
           />
-
           <Route component={NotFound} />
         </Switch>
       </AuthProvider>
