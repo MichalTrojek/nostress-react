@@ -43,8 +43,8 @@ function mapStateToProps(state, ownProps) {
     weeklyMeals: weeklyMeals,
     childMeals: childMeals,
     breakfastMeals: breakfastMeals,
-    mainTexts: state.data.texts.mainMenu,
-    breakfastTexts: state.data.texts.breakfastMenu,
+    mainTexts: state.data.texts.mainMenu || '',
+    breakfastTexts: state.data.texts.breakfastMenu || '',
   };
 }
 export default connect(mapStateToProps, {})(MealsMenus);
