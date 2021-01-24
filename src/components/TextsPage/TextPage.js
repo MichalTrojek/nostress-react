@@ -31,7 +31,7 @@ const TextPage = ({ fetchData, texts }) => {
 
 function mapStateToProps(state, ownProps) {
   return {
-    texts: state.data.texts,
+    texts: state.data.texts || {},
   };
 }
 

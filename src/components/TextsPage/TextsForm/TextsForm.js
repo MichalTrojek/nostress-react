@@ -22,14 +22,15 @@ const SoupsForm = ({ texts, updateTexts }) => {
   const [bfDeliveryTime, setBfDeliveryTime] = useState('');
 
   useEffect(() => {
-    if (texts) {
+    if (texts.mainMenu) {
       setMmHeading(texts.mainMenu.heading);
       setMmMainText(texts.mainMenu.mainText);
       setMmDateText(texts.mainMenu.dateText);
       setMmMenuInfoText(texts.mainMenu.menuInfoText);
       setMmChildMenuInfoText(texts.mainMenu.childMenuInfoText);
       setMmDeliveryTime(texts.mainMenu.deliveryTime);
-
+    }
+    if (texts.breakfastMenu) {
       setBfHeading(texts.breakfastMenu.heading);
       setBfMainText(texts.breakfastMenu.mainText);
       setBfDateText(texts.breakfastMenu.dateText);
@@ -179,19 +180,19 @@ const SoupsForm = ({ texts, updateTexts }) => {
 
     const texts = {
       mainMenu: {
-        heading: mmHeading,
-        mainText: mmMainText,
-        dateText: mmDateText,
-        menuInfoText: mmMenuInfoText,
-        childMenuInfoText: mmMainChildMenuInfoText,
-        deliveryTime: mmDeliveryTime,
+        heading: mmHeading || '',
+        mainText: mmMainText || '',
+        dateText: mmDateText || '',
+        menuInfoText: mmMenuInfoText || '',
+        childMenuInfoText: mmMainChildMenuInfoText || '',
+        deliveryTime: mmDeliveryTime || '',
       },
       breakfastMenu: {
-        heading: bfHeading,
-        mainText: bfMainText,
-        dateText: bfDateText,
-        menuInfoText: bfMenuInfoText,
-        deliveryTime: bfDeliveryTime,
+        heading: bfHeading || '',
+        mainText: bfMainText || '',
+        dateText: bfDateText || '',
+        menuInfoText: bfMenuInfoText || '',
+        deliveryTime: bfDeliveryTime || '',
       },
     };
 
