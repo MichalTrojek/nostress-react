@@ -3,6 +3,7 @@ import menuIcon from '../../../../../img/soups-logo.png';
 
 import MenuList from './MenuList';
 import styled from 'styled-components';
+import Skeleton from 'react-loading-skeleton';
 
 const SoupsMenuList = styled(MenuList)`
   position: relative;
@@ -15,7 +16,7 @@ const SoupsMenuList = styled(MenuList)`
 
   .days {
     @media only screen and (min-width: 1400px) {
-      position: absolute;
+      /* position: absolute; */
       top: 25%;
     }
   }
@@ -86,8 +87,8 @@ const MenuSoupsList = ({ soups = [] }) => {
   function renderDayAndSoup(day, name) {
     return (
       <SoupRow>
-        <p className="day">{day}</p>
-        <p className="name">{name}</p>
+        <p className="day">{day || <Skeleton />}</p>
+        <p className="name">{name || <Skeleton />}</p>
       </SoupRow>
     );
   }
