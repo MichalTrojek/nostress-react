@@ -26,7 +26,7 @@ const OrderRadioButton = ({ orderingStarted, startOrdering }) => {
   const [menu, setMenu] = useState(orderingStarted.menuType);
 
   function handleClick(event) {
-    setMenu(setMenu(event.target.value));
+    setMenu(event.target.value);
     startOrdering({ status: true, menuType: event.target.value });
   }
 
