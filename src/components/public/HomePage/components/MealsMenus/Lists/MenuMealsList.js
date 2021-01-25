@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import MenuList from './MenuList';
+import Alergens from '../../../../../common/Alergens';
 
 const MenuMealList = ({ header, info, icon, items = [] }) => {
   return (
@@ -30,12 +32,12 @@ const MenuMealList = ({ header, info, icon, items = [] }) => {
       return (
         <li key={item.id}>
           {`${item.name}`}
-          <span style={{ color: 'var(--color-tertiary)', padding: '1rem' }}>
+          <span
+            style={{ color: 'var(--color-tertiary)', paddingLeft: '.5rem' }}
+          >
             {`${item.price},-`}
           </span>
-          <small style={{ whiteSpace: 'nowrap' }}>
-            {item.alergens.length !== 0 ? `(${item.alergens})` : ``}
-          </small>
+          <Alergens alergens={item.alergens} />
         </li>
       );
     });

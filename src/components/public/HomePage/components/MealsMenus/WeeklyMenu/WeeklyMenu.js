@@ -14,8 +14,8 @@ import { connect } from 'react-redux';
 import startOrdering from '../../../../../../redux/actions/order/startOrdering';
 
 import { useHistory } from 'react-router-dom';
-
 import { getDateText } from '../../../../../../utils/dateUtils';
+
 import Skeleton from 'react-loading-skeleton';
 
 const WeeklyMenu = ({ meals, childMeals, startOrdering, texts }) => {
