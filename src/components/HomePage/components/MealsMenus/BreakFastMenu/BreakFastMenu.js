@@ -14,7 +14,7 @@ import MealsMenuContent from '../MealsMenuContent';
 import { useHistory } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import startOrdering from '../../../../OrderingSystem/redux/actions/startOrdering';
+import startOrdering from '../../../../../redux/actions/orders/startOrdering';
 
 import { getDateText } from '../../../../../utils/dateUtils';
 

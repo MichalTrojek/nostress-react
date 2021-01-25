@@ -4,7 +4,7 @@ import { Link } from 'react-scroll';
 import { useHistory } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import startOrdering from '../../../../OrderingSystem/redux/actions/startOrdering';
+import startOrdering from '../../../../../redux/actions/orders/startOrdering';
 
 const NavBarMenuList = styled.ul`
   display: none;

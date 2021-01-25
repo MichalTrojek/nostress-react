@@ -12,7 +12,7 @@ import './sliderNews.css';
 import SlideNews from './SlideNews';
 
 import { connect } from 'react-redux';
-import startOrdering from '../../../../OrderingSystem/redux/actions/startOrdering';
+import startOrdering from '../../../../../redux/actions/orders/startOrdering';
 import { useHistory } from 'react-router-dom';
 
 const SlideContent = styled.div`

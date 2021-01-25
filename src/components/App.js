@@ -5,18 +5,19 @@ import { AuthProvider } from '../contexts/AuthContext';
 import PrivateRoute from './PrivateRoute';
 
 import Home from './HomePage';
-import OrderPage from './OrderingSystem/public/OrderPage';
+import OrderPage from './public/OrderPage';
 import LoginPage from './LoginPage';
 
-import DashboardPage from './DashboardPage';
-import NewsPage from './NewsPage';
-import MealsPage from './MealsPage';
-import SoupsPage from './SoupsPage';
-import TextsPage from './TextsPage';
-import BusinessHoursPage from './BusinessHoursPage';
-import NotFound from './NotFoundPage';
-import CustomersOrdersPage from './OrderingSystem/private/CustomersOrdersPage';
-import NewsCardPage from './NewsCardPage';
+import NewsPage from './private/NewsPage';
+import MealsPage from './private/MealsPage';
+import SoupsPage from './private/SoupsPage';
+import TextsPage from './private/TextsPage';
+import NotFound from './private/NotFoundPage';
+import NewsCardPage from './private/NewsCardPage';
+import DashboardPage from './private/DashboardPage';
+import BusinessHoursPage from './private/BusinessHoursPage';
+
+import CustomersOrdersPage from './private/CustomersOrdersPage';
 
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
