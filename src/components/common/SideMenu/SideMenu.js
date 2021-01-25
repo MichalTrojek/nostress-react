@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 
-import startOrdering from '../../../redux/actions/orders/startOrdering';
+import startOrdering from '../../../redux/actions/order/startOrdering';
 
 const SideMenuStyled = styled.nav`
   display: ${({ open }) => (open ? 'flex' : 'none')};

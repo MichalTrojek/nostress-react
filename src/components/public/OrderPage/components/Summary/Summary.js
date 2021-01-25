@@ -8,8 +8,8 @@ import Button from '../../../../common/Button';
 
 import Cart from './Cart';
 
-import saveCustomerInfo from '../../../../../redux/actions/orders/saveCustomerInfo';
-import createOrder from '../../../../../redux/actions/orders/createOrder';
+import saveCustomerInfo from '../../../../../redux/actions/order/saveCustomerInfo';
+import createOrder from '../../../../../redux/actions/order/createOrder';
 
 import { sendOrderSentEmail } from '../../../../../utils/emailUtils';
 

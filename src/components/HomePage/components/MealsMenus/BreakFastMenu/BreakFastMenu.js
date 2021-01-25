@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import Button from '../../../../../common/Button';
-import Label from '../../../../../common/Label';
+import Button from '../../../../common/Button';
+import Label from '../../../../common/Label';
 
 import MealsList from '../Lists/MenuMealsList';
 
-import menuIcon from '../../../../../../img/menu-icon.png';
+import menuIcon from '../../../../../img/menu-icon.png';
 import InfoBox from '../InfoBox';
 
 import MealsMenuContainer from '../MealsMenuContainer';
@@ -14,9 +14,9 @@ import MealsMenuContent from '../MealsMenuContent';
 import { useHistory } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import startOrdering from '../../../../../../redux/actions/order/startOrdering';
+import startOrdering from '../../../../../redux/actions/order/startOrdering';
 
-import { getDateText } from '../../../../../../utils/dateUtils';
+import { getDateText } from '../../../../../utils/dateUtils';
 
 const BreakFastRow = styled.div`
   display: flex;

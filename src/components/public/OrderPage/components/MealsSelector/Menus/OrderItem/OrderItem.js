@@ -5,7 +5,7 @@ import Button from '../../../../../../common/Button';
 
 import { connect } from 'react-redux';
 
-import updateOrderToState from '../../../../../../../redux/actions/orders/updateOrderToState';
+import updateOrderToState from '../../../../../../../redux/actions/order/updateOrderToState';
 
 import styled, { keyframes } from 'styled-components';
 

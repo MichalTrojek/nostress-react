@@ -2,8 +2,8 @@ import React from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
-import OpenHours from '../../../../../common/OpenHours';
-import Button from '../../../../../common/Button';
+import OpenHours from '../../../../common/OpenHours';
+import Button from '../../../../common/Button';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -12,7 +12,7 @@ import './sliderNews.css';
 import SlideNews from './SlideNews';
 
 import { connect } from 'react-redux';
-import startOrdering from '../../../../../../redux/actions/order/startOrdering';
+import startOrdering from '../../../../../redux/actions/order/startOrdering';
 import { useHistory } from 'react-router-dom';
 
 const SlideContent = styled.div`

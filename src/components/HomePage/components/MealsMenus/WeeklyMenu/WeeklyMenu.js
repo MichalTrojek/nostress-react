@@ -1,21 +1,21 @@
-import Button from '../../../../../common/Button';
-import Label from '../../../../../common/Label';
+import Button from '../../../../common/Button';
+import Label from '../../../../common/Label';
 
 import MenuMealsList from '../Lists/MenuMealsList';
 import MenuSoupsList from '../Lists/MenuSoupsList';
 
-import menuIcon from '../../../../../../img/menu-icon.png';
+import menuIcon from '../../../../../img/menu-icon.png';
 import InfoBox from '../InfoBox';
 
 import MealsMenuContainer from '../MealsMenuContainer';
 import MealsMenuContent from '../MealsMenuContent';
 
 import { connect } from 'react-redux';
-import startOrdering from '../../../../../../redux/actions/order/startOrdering';
+import startOrdering from '../../../../../redux/actions/order/startOrdering';
 
 import { useHistory } from 'react-router-dom';
 
-import { getDateText } from '../../../../../../utils/dateUtils';
+import { getDateText } from '../../../../../utils/dateUtils';
 import Skeleton from 'react-loading-skeleton';
 
 const WeeklyMenu = ({ meals, childMeals, startOrdering, texts }) => {

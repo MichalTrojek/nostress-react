@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
 
-import resetOrders from '../../../redux/actions/order/resetOrders';
-import fetchData from '../../../redux/actions/data/fetchData';
+import resetOrders from '../../redux/actions/order/resetOrders';
+import fetchData from '../../redux/actions/data/fetchData';
 
-import PageLayout from '../../PageLayout';
+import PageLayout from '../PageLayout';
 
 import FoodAndBeverage from './components/FoodAndBeverage';
 import BussinessHours from './components/BussinessHours';
