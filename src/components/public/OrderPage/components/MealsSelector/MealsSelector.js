@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import OrderBreakfastMenu from './Menus/OrderBreakfastMenu';
 import OrderMainMenu from './Menus/OrderMainMenu';
 
+import OrderRadioButton from './OrderRadioButton';
+
 import { CSSTransition } from 'react-transition-group';
 import './MealSelector.css';
 
@@ -17,9 +19,15 @@ const MealsSelectorContainerStyle = styled(CSSTransition)`
 const MealsSelector = ({ showConfirmation, showSummary, orderingStarted }) => {
   function renderMenu() {
     return orderingStarted.menuType === 'MainMenu' ? (
-      <OrderMainMenu />
+      <>
+        <OrderRadioButton />
+        <OrderMainMenu />
+      </>
     ) : (
-      <OrderBreakfastMenu />
+      <>
+        <OrderRadioButton />
+        <OrderBreakfastMenu />
+      </>
     );
   }
 

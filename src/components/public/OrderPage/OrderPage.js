@@ -13,8 +13,6 @@ import OrderNavBar from './components/OrderNavBar';
 import StickyCart from './components/StickyCart';
 import Summary from './components/Summary';
 
-import OrderRadioButton from './components/OrderRadioButton';
-
 import './OrderPage.css';
 import './components/StickyCart/StickyCart.css';
 
@@ -34,7 +32,6 @@ const OrderPage = ({ items, orderingStarted }) => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
   const [showStickyCart, setShowStickyCart] = useState(false);
-  const [showBreakfastMenu, setShowBreakfastMenu] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -69,7 +66,6 @@ const OrderPage = ({ items, orderingStarted }) => {
       >
         <OrderWrapper>
           <OrderNavBar />
-          <OrderRadioButton />
           {renderSummary()}
           {renderMealsSelector()}
           {renderConfirmation()}
