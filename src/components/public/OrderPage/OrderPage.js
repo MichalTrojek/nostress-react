@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+
 import styled from 'styled-components';
 
 import Wrapper from '../../common/Wrapper';
@@ -8,11 +10,10 @@ import Wrapper from '../../common/Wrapper';
 import MealsSelector from './components/MealsSelector';
 import Confirmation from './components/Confirmation';
 import OrderNavBar from './components/OrderNavBar';
+import StickyCart from './components/StickyCart';
 import Summary from './components/Summary';
 
-import StickyCart from './components/StickyCart';
-
-import { CSSTransition } from 'react-transition-group';
+import OrderRadioButton from './components/OrderRadioButton';
 
 import './OrderPage.css';
 import './components/StickyCart/StickyCart.css';
@@ -33,6 +34,7 @@ const OrderPage = ({ items, orderingStarted }) => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
   const [showStickyCart, setShowStickyCart] = useState(false);
+  const [showBreakfastMenu, setShowBreakfastMenu] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -67,6 +69,7 @@ const OrderPage = ({ items, orderingStarted }) => {
       >
         <OrderWrapper>
           <OrderNavBar />
+          <OrderRadioButton />
           {renderSummary()}
           {renderMealsSelector()}
           {renderConfirmation()}
