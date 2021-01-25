@@ -1,8 +1,8 @@
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 import OrderBreakfastMenu from './Menus/OrderBreakfastMenu';
 import OrderMainMenu from './Menus/OrderMainMenu';
-
 import OrderRadioButton from './OrderRadioButton';
 
 import { CSSTransition } from 'react-transition-group';
@@ -17,20 +17,6 @@ const MealsSelectorContainerStyle = styled(CSSTransition)`
 `;
 
 const MealsSelector = ({ showConfirmation, showSummary, orderingStarted }) => {
-  function renderMenu() {
-    return orderingStarted.menuType === 'MainMenu' ? (
-      <>
-        <OrderRadioButton />
-        <OrderMainMenu />
-      </>
-    ) : (
-      <>
-        <OrderRadioButton />
-        <OrderBreakfastMenu />
-      </>
-    );
-  }
-
   return (
     <MealsSelectorContainerStyle
       in={!showSummary && !showConfirmation}
@@ -38,9 +24,26 @@ const MealsSelector = ({ showConfirmation, showSummary, orderingStarted }) => {
       classNames="mealSelector-"
       unmountOnExit={showConfirmation}
     >
-      <div className="mealSelector">{renderMenu()}</div>
+      <div className="mealSelector">
+        <OrderRadioButton />
+        {renderMenu()}
+      </div>
     </MealsSelectorContainerStyle>
   );
+
+  function renderMenu() {
+    return orderingStarted.menuType === 'MainMenu' ? (
+      <OrderMainMenu />
+    ) : (
+      <OrderBreakfastMenu />
+    );
+  }
 };
 
-export default MealsSelector;
+function mapStateToProps(state, ownProps) {
+  return {
+    orderingStarted: state.order.orderingStarted,
+  };
+}
+
+export default connect(mapStateToProps, {})(MealsSelector);

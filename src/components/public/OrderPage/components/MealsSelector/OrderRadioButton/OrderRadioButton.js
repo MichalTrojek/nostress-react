@@ -20,7 +20,7 @@ const RadioGroupOrderMenu = styled(RadioGroup)`
 `;
 
 const OrderRadioButton = () => {
-  const [menu, setMenu] = useState('mainMenu');
+  const [menu, setMenu] = useState('');
 
   return (
     <RadioGroupOrderMenu>
