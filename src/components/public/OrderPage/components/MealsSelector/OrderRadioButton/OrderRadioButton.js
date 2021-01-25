@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import RadioGroup from '../../../../../common/Forms/RadioGroup';
 import { connect } from 'react-redux';
@@ -36,7 +36,7 @@ const OrderRadioButton = ({ orderingStarted, startOrdering }) => {
         id="mainMenu"
         type="radio"
         value={MainMenu}
-        name="deliveryGroup"
+        name="OrderMenuGroup"
         checked={menu === MainMenu}
         onChange={(event) => handleClick(event)}
       />
@@ -45,7 +45,7 @@ const OrderRadioButton = ({ orderingStarted, startOrdering }) => {
         id="breakfastMenu"
         type="radio"
         value={BreakfastMenu}
-        name="deliveryGroup"
+        name="OrderMenuGroup"
         checked={menu === BreakfastMenu}
         onChange={(event) => handleClick(event)}
       />

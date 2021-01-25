@@ -46,6 +46,11 @@ const CartRadioGroup = ({ orderMethod }) => {
     orderMethod(selectedMethod);
   }, [selectedMethod, orderMethod]);
 
+  function handleClick(event) {
+    setSelectedMethod(event.target.value);
+    console.log('clicked ' + event.target.value);
+  }
+
   return (
     <CardRadioGroupContainer>
       <input
@@ -54,7 +59,7 @@ const CartRadioGroup = ({ orderMethod }) => {
         value={PICKUP}
         name="deliveryGroup"
         checked={selectedMethod === PICKUP}
-        onChange={(event) => setSelectedMethod(event.target.value)}
+        onChange={(event) => handleClick(event)}
       />
       <label htmlFor="pickupId">Vyzvednu osobně</label>
       <input
@@ -63,7 +68,7 @@ const CartRadioGroup = ({ orderMethod }) => {
         value={DELIVERY}
         name="deliveryGroup"
         checked={selectedMethod === DELIVERY}
-        onChange={(event) => setSelectedMethod(event.target.value)}
+        onChange={(event) => handleClick(event)}
       />
       <label htmlFor="deliveryId">Doručit na adresu</label>
     </CardRadioGroupContainer>
