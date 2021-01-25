@@ -40,8 +40,14 @@ const Alergens = ({ alergens }) => {
     setContent(alergens.split(','));
   }, [alergens]);
 
-  return (
-    <>
+  return <>{renderAlergens()}</>;
+
+  function renderAlergens() {
+    return alergens.length > 0 ? showText() : '';
+  }
+
+  function showText() {
+    return (
       <small
         onClick={() => setShowAlergens(!showAlergens)}
         style={{
@@ -51,21 +57,24 @@ const Alergens = ({ alergens }) => {
           position: 'relative',
         }}
       >
-        ({alergens})
-        {showAlergens && (
-          <AlergensContainer showAlergens={showAlergens}>
-            <h3>Seznam alergenů</h3>
-            {content.map((item, index) => {
-              const { number, name } = alergensList[
-                Number(item.replaceAll(' ', ''))
-              ];
-              return <p>{`${number}: ${name}`} </p>;
-            })}
-          </AlergensContainer>
-        )}
+        ({alergens}){showAlergens && showListOfAlergens()}
       </small>
-    </>
-  );
+    );
+  }
+
+  function showListOfAlergens() {
+    return (
+      <AlergensContainer showAlergens={showAlergens}>
+        <h3>Seznam alergenů</h3>
+        {content.map((item, index) => {
+          const { number, name } = alergensList[
+            Number(item.replaceAll(' ', '')) - 1
+          ];
+          return <p key={index}>{`${number}: ${name}`} </p>;
+        })}
+      </AlergensContainer>
+    );
+  }
 };
 
 export default Alergens;
