@@ -48,7 +48,6 @@ const CartRadioGroup = ({ orderMethod }) => {
 
   function handleClick(event) {
     setSelectedMethod(event.target.value);
-    console.log('clicked ' + event.target.value);
   }
 
   return (
