@@ -4,9 +4,9 @@ import { GlobalStyle } from '../globalStyles';
 import { AuthProvider } from '../contexts/AuthContext';
 import PrivateRoute from './PrivateRoute';
 
-import Home from './HomePage';
+import Home from './public/HomePage';
 import OrderPage from './public/OrderPage';
-import LoginPage from './LoginPage';
+import LoginPage from './public/LoginPage';
 
 import NewsPage from './private/NewsPage';
 import MealsPage from './private/MealsPage';
