@@ -4,6 +4,7 @@ import RadioGroup from '../../../../../common/Forms/RadioGroup';
 import { connect } from 'react-redux';
 
 import { BreakfastMenu, MainMenu } from '../../../../../../utils/constant';
+import startOrdering from '../../../../../../redux/actions/order/startOrdering';
 
 const RadioGroupOrderMenu = styled(RadioGroup)`
   padding-bottom: 0;
@@ -21,8 +22,13 @@ const RadioGroupOrderMenu = styled(RadioGroup)`
   }
 `;
 
-const OrderRadioButton = ({ orderingStarted }) => {
+const OrderRadioButton = ({ orderingStarted, startOrdering }) => {
   const [menu, setMenu] = useState(orderingStarted.menuType);
+
+  function handleClick(event) {
+    setMenu(setMenu(event.target.value));
+    startOrdering({ status: true, menuType: event.target.value });
+  }
 
   return (
     <RadioGroupOrderMenu>
@@ -32,7 +38,7 @@ const OrderRadioButton = ({ orderingStarted }) => {
         value={MainMenu}
         name="deliveryGroup"
         checked={menu === MainMenu}
-        onChange={(event) => setMenu(event.target.value)}
+        onChange={(event) => handleClick(event)}
       />
       <label htmlFor="mainMenu">Hlavní menu</label>
       <input
@@ -41,11 +47,11 @@ const OrderRadioButton = ({ orderingStarted }) => {
         value={BreakfastMenu}
         name="deliveryGroup"
         checked={menu === BreakfastMenu}
-        onChange={(event) => setMenu(event.target.value)}
+        onChange={(event) => handleClick(event)}
       />
       <label htmlFor="breakfastMenu">Snídaně</label>
     </RadioGroupOrderMenu>
   );
 };
 
-export default connect()(OrderRadioButton);
+export default connect(null, { startOrdering })(OrderRadioButton);

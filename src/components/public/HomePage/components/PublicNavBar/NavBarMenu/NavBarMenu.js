@@ -6,6 +6,8 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import startOrdering from '../../../../../../redux/actions/order/startOrdering';
 
+import { MainMenu } from '../../../../../../utils/constant';
+
 const NavBarMenuList = styled.ul`
   display: none;
   grid-template-columns: repeat(7, max-content);
@@ -82,7 +84,7 @@ const NavBarMenu = ({ menuItems, startOrdering }) => {
   function handleStartingOrder() {
     window.scrollTo(0, 0);
     history.push('/order');
-    startOrdering({ status: true, menuType: 'MainMenu' });
+    startOrdering({ status: true, menuType: MainMenu });
   }
 };
 
