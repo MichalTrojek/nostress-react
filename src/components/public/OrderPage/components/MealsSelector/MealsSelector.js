@@ -25,7 +25,7 @@ const MealsSelector = ({ showConfirmation, showSummary, orderingStarted }) => {
       unmountOnExit={showConfirmation}
     >
       <div className="mealSelector">
-        <OrderRadioButton />
+        <OrderRadioButton orderingStarted={orderingStarted} />
         {renderMenu()}
       </div>
     </MealsSelectorContainerStyle>

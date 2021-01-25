@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import RadioGroup from '../../../../../common/Forms/RadioGroup';
 import { connect } from 'react-redux';
 
+import { BreakfastMenu, MainMenu } from '../../../../../../utils/constant';
+
 const RadioGroupOrderMenu = styled(RadioGroup)`
   padding-bottom: 0;
   label {
@@ -19,26 +21,26 @@ const RadioGroupOrderMenu = styled(RadioGroup)`
   }
 `;
 
-const OrderRadioButton = () => {
-  const [menu, setMenu] = useState('');
+const OrderRadioButton = ({ orderingStarted }) => {
+  const [menu, setMenu] = useState(orderingStarted.menuType);
 
   return (
     <RadioGroupOrderMenu>
       <input
         id="mainMenu"
         type="radio"
-        value={'mainMenu'}
+        value={MainMenu}
         name="deliveryGroup"
-        checked={menu === 'mainMenu'}
+        checked={menu === MainMenu}
         onChange={(event) => setMenu(event.target.value)}
       />
       <label htmlFor="mainMenu">Hlavní menu</label>
       <input
         id="breakfastMenu"
         type="radio"
-        value={'breakfastMenu'}
+        value={BreakfastMenu}
         name="deliveryGroup"
-        checked={menu === 'breakfastMenu'}
+        checked={menu === BreakfastMenu}
         onChange={(event) => setMenu(event.target.value)}
       />
       <label htmlFor="breakfastMenu">Snídaně</label>
