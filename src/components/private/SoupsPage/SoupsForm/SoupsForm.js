@@ -25,7 +25,6 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
   const [soupBoxPrice, setSoupBoxPrice] = useState('');
 
   useEffect(() => {
-    console.log(soups);
     if (soups) {
       setMonday(soups.monday);
       setTuesday(soups.tuesday);
@@ -218,7 +217,6 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
       price: price,
     };
 
-    console.log('test', soups);
     if (soups) {
       updateSoups(soups);
     }
