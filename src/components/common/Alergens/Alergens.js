@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
+
+import '../Modal/styles/modal.css';
+
 const alergensList = [
   { number: 1, name: 'Lepek' },
   { number: 2, name: 'Korýši' },
@@ -30,20 +33,17 @@ const Overlay = styled.div`
   top: 0;
   left: 0;
   position: absolute;
+  cursor: pointer;
 `;
 
 const AlergensContainer = styled.div`
   background-color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 2rem;
   border: 1px solid var(--color-tertiary);
 
   color: white;
 
-  h3 {
+  h2 {
     padding-bottom: 1rem;
   }
 `;
@@ -52,8 +52,7 @@ const Alergens = ({ alergens, showModal, setShowModal }) => {
   const [content, setContent] = useState([]);
 
   useEffect(() => {
-    console.log('alergens ', alergens);
-    setContent(alergens.split(','));
+    setContent(alergens);
   }, [alergens]);
 
   function handleCloseButton() {
@@ -69,13 +68,10 @@ const Alergens = ({ alergens, showModal, setShowModal }) => {
         unmountOnExit
       >
         <AlergensContainer>
-          <h3>Seznam alergenů</h3>
+          <h2>Seznam alergenů</h2>
           {content.map((item, index) => {
-            console.log(item);
-            // const { number, name } = alergensList[
-            //   Number(item.replaceAll(' ', '')) - 1
-            // ];
-            // return <p key={index}>{`${number}: ${name}`} </p>;
+            const { number, name } = alergensList[Number(item) - 1];
+            return <p key={index}>{`${number}: ${name}`} </p>;
           })}
         </AlergensContainer>
       </CSSTransition>

@@ -5,7 +5,7 @@ import Modal from '../../../../../common/Modal';
 
 const MenuMealList = ({ header, info, icon, items = [] }) => {
   const [showModal, setShowModal] = useState(false);
-  const [alergens, setAlergens] = useState('');
+  const [alergens, setAlergens] = useState([]);
 
   useEffect(() => {
     console.log('test ', alergens);
@@ -57,7 +57,7 @@ const MenuMealList = ({ header, info, icon, items = [] }) => {
               cursor: 'pointer',
             }}
           >
-            ({item.alergens})
+            ({item.alergens.join(', ')})
           </small>
         </li>
       );
