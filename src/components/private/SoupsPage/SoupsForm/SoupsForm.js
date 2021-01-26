@@ -252,7 +252,6 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
     if (alergens[0] === '') {
       return alergens;
     } else {
-      console.log(alergens);
       return alergens.split(' ');
     }
   }

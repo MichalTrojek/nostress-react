@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
+import { useState } from 'react';
 import menuIcon from '../../../../../../img/soups-logo.png';
 
 import MenuList from './MenuList';
 import styled from 'styled-components';
 import Skeleton from 'react-loading-skeleton';
+
+import Alergens from '../../../../../common/Alergens';
 
 const SoupsMenuList = styled(MenuList)`
   position: relative;
@@ -69,10 +72,13 @@ const SoupRow = styled.div`
     white-space: nowrap;
     font-size: 2rem;
     padding-left: 1rem;
+    cursor: pointer;
   }
 `;
 
 const MenuSoupsList = ({ soups = [] }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [alergens, setAlergens] = useState([]);
   return (
     <SoupsMenuList>
       <div className="row">
@@ -93,6 +99,11 @@ const MenuSoupsList = ({ soups = [] }) => {
           {soups.price},-
         </span>
       </p>
+      <Alergens
+        alergens={alergens}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </SoupsMenuList>
   );
 
@@ -101,11 +112,16 @@ const MenuSoupsList = ({ soups = [] }) => {
       <SoupRow>
         <p className="day">{day || <Skeleton />}</p>
         <p className="name">{`${soup.name}` || <Skeleton />}</p>
-        <p className="alergens">
+        <p className="alergens" onClick={() => handleClick(soup.alergens)}>
           {`(${soup.alergens.join(', ')})` || <Skeleton />}
         </p>
       </SoupRow>
     );
+  }
+
+  function handleClick(alergens) {
+    setAlergens(alergens);
+    setShowModal(true);
   }
 };
 
