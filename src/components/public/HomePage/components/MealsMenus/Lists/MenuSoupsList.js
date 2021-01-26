@@ -45,18 +45,23 @@ const SoupsMenuList = styled(MenuList)`
 
 const SoupRow = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   padding-bottom: 1.5rem;
   align-items: center;
-  justify-content: flex-start;
 
-  align-items: flex-start;
   .day {
     grid-column: 1 / span 1;
   }
 
   .name {
-    grid-column: 2 / -1;
+    grid-column: 2 / 5;
+  }
+
+  .alergens {
+    grid-column: 5 / span 1;
+    white-space: nowrap;
+    font-size: 2rem;
+    padding-left: 1rem;
   }
 `;
 
@@ -84,14 +89,24 @@ const MenuSoupsList = ({ soups = [] }) => {
     </SoupsMenuList>
   );
 
-  function renderDayAndSoup(day, name) {
+  function renderDayAndSoup(day, soup) {
     return (
       <SoupRow>
         <p className="day">{day || <Skeleton />}</p>
-        <p className="name">{name || <Skeleton />}</p>
+        <p className="name">{`${soup.name}` || <Skeleton />}</p>
+        <p className="alergens">{`(${soup.alergens})` || <Skeleton />}</p>
       </SoupRow>
     );
   }
+
+  // function renderDayAndSoup(day, name) {
+  //   return (
+  //     <SoupRow>
+  //       <p className="day">{day || <Skeleton />}</p>
+  //       <p className="name">{name || <Skeleton />}</p>
+  //     </SoupRow>
+  //   );
+  // }
 };
 
 function mapStateToProps(state, ownProps) {
