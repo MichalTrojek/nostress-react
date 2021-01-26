@@ -97,24 +97,16 @@ const MenuSoupsList = ({ soups = [] }) => {
   );
 
   function renderDayAndSoup(day, soup) {
-    console.log(soup);
     return (
       <SoupRow>
         <p className="day">{day || <Skeleton />}</p>
         <p className="name">{`${soup.name}` || <Skeleton />}</p>
-        <p className="alergens">{`(${soup.alergens})` || <Skeleton />}</p>
+        <p className="alergens">
+          {`(${soup.alergens.join(', ')})` || <Skeleton />}
+        </p>
       </SoupRow>
     );
   }
-
-  // function renderDayAndSoup(day, name) {
-  //   return (
-  //     <SoupRow>
-  //       <p className="day">{day || <Skeleton />}</p>
-  //       <p className="name">{name || <Skeleton />}</p>
-  //     </SoupRow>
-  //   );
-  // }
 };
 
 function mapStateToProps(state, ownProps) {

@@ -15,11 +15,11 @@ const initialState = {
   meals: [],
   cards: [],
   soups: {
-    monday: '',
-    tuesday: '',
-    wednesday: '',
-    thursday: '',
-    friday: '',
+    monday: { name: '', alergens: [''] },
+    tuesday: { name: '', alergens: [''] },
+    wednesday: { name: '', alergens: [''] },
+    thursday: { name: '', alergens: [''] },
+    friday: { name: '', alergens: [''] },
     price: '',
   },
   hours: {
@@ -32,8 +32,8 @@ const initialState = {
     sunday: '',
   },
   boxPrices: {
-    soupBoxPrice: '',
-    mealBoxPrice: '',
+    soupBoxPrice: '0',
+    mealBoxPrice: '0',
   },
   texts: {
     mainMenu: {

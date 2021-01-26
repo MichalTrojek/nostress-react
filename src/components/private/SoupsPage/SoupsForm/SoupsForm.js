@@ -16,22 +16,37 @@ const SoupsRow = styled.div`
 `;
 
 const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
-  const [monday, setMonday] = useState({ name: '', alergens: '' });
-  const [tuesday, setTuesday] = useState({ name: '', alergens: '' });
-  const [wednesday, setWednesday] = useState({ name: '', alergens: '' });
-  const [thursday, setThursday] = useState({ name: '', alergens: '' });
-  const [friday, setFriday] = useState({ name: '', alergens: '' });
+  const [monday, setMonday] = useState({ name: '', alergens: [''] });
+  const [tuesday, setTuesday] = useState({ name: '', alergens: [''] });
+  const [wednesday, setWednesday] = useState({ name: '', alergens: [''] });
+  const [thursday, setThursday] = useState({ name: '', alergens: [''] });
+  const [friday, setFriday] = useState({ name: '', alergens: [''] });
   const [price, setPrice] = useState('');
   const [soupBoxPrice, setSoupBoxPrice] = useState('');
 
   useEffect(() => {
-    if (soups) {
-      setMonday(soups.monday);
-      setTuesday(soups.tuesday);
-      setWednesday(soups.wednesday);
-      setThursday(soups.thursday);
-      setFriday(soups.friday);
-      setPrice(soups.price);
+    if (Object.keys(soups).length > 0) {
+      setMonday({
+        name: soups.monday.name,
+        alergens: soups.monday.alergens.join(' '),
+      });
+      setTuesday({
+        name: soups.tuesday.name,
+        alergens: soups.tuesday.alergens.join(' '),
+      });
+      setWednesday({
+        name: soups.wednesday.name,
+        alergens: soups.wednesday.alergens.join(' '),
+      });
+      setThursday({
+        name: soups.thursday.name,
+        alergens: soups.thursday.alergens.join(' '),
+      });
+      setFriday({
+        name: soups.friday.name,
+        alergens: soups.friday.alergens.join(' '),
+      });
+      setPrice(soups.price || '');
     }
 
     if (boxPrice) {
@@ -58,7 +73,7 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
           <input
             type="text"
             placeholder="Alergeny"
-            value={monday.alergens.join(' ')}
+            value={monday.alergens}
             onChange={(event) =>
               setMonday({ ...monday, alergens: event.target.value })
             }
@@ -85,7 +100,7 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
           <input
             type="text"
             placeholder="Alergens"
-            value={tuesday.alergens.join(' ')}
+            value={tuesday.alergens}
             onChange={(event) =>
               setTuesday({ ...tuesday, alergens: event.target.value })
             }
@@ -112,7 +127,7 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
           <input
             type="text"
             placeholder="Alergeny"
-            value={wednesday.alergens.join(' ')}
+            value={wednesday.alergens}
             onChange={(event) =>
               setWednesday({ ...wednesday, alergens: event.target.value })
             }
@@ -139,7 +154,7 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
           <input
             type="text"
             placeholder="Alergeny"
-            value={thursday.alergens.join(' ')}
+            value={thursday.alergens}
             onChange={(event) =>
               setThursday({ ...thursday, alergens: event.target.value })
             }
@@ -166,7 +181,7 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
           <input
             type="text"
             placeholder="Úterý"
-            value={friday.alergens.join(' ')}
+            value={friday.alergens}
             onChange={(event) =>
               setFriday({ ...friday, alergens: event.target.value })
             }
@@ -208,23 +223,38 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
+
     const soups = {
-      monday: { name: monday.name, alergens: monday.alergens },
-      tuesday: { name: tuesday.name, alergens: tuesday.alergens },
+      monday: { name: monday.name, alergens: hasMoreThanOne(monday.alergens) },
+      tuesday: {
+        name: tuesday.name,
+        alergens: hasMoreThanOne(tuesday.alergens),
+      },
       wednesday: {
         name: wednesday.name,
-        alergens: wednesday.alergens,
+        alergens: hasMoreThanOne(wednesday.alergens),
       },
-      thursday: { name: thursday.name, alergens: thursday.alergens },
-      friday: { name: friday.name, alergens: friday.alergens },
+      thursday: {
+        name: thursday.name,
+        alergens: hasMoreThanOne(thursday.alergens),
+      },
+      friday: { name: friday.name, alergens: hasMoreThanOne(friday.alergens) },
       price: price,
     };
-
     if (soups) {
       updateSoups(soups);
     }
 
     updateSoupBoxPrice(soupBoxPrice);
+  }
+
+  function hasMoreThanOne(alergens) {
+    if (alergens[0] === '') {
+      return alergens;
+    } else {
+      console.log(alergens);
+      return alergens.split(' ');
+    }
   }
 };
 
