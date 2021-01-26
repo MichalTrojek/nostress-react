@@ -73,7 +73,7 @@ const MealListItem = ({ meal, isEditModeOn, setSelectedItem, deleteMeal }) => {
       <p className="menuNumber">{meal.menuNumber} </p>
       {renderMealType()}
       <p>Název: {meal.name}</p>
-      <p>Alergeny: ({meal.alergens})</p>
+      <p>Alergeny: ({meal.alergens.join(', ')})</p>
       <p className="price">Cena: {meal.price},-</p>
 
       <div className="buttons">

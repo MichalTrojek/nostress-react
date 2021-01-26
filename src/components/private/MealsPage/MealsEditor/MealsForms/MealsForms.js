@@ -63,6 +63,7 @@ const MealsForms = ({
   useEffect(() => {
     if (isEditModeOn) {
       setName(selectedItem.name);
+      console.log(selectedItem.alergens);
       setAlergens(selectedItem.alergens);
       setPrice(selectedItem.price);
       setType(selectedItem.type);
@@ -201,7 +202,7 @@ const MealsForms = ({
       let meal = {
         id: uuidv4(),
         name,
-        alergens,
+        alergens: alergens.split(' '),
         price,
         type,
         menuNumber,
