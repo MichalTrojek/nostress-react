@@ -58,7 +58,7 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
           <input
             type="text"
             placeholder="Alergeny"
-            value={monday.alergens}
+            value={monday.alergens.join(' ')}
             onChange={(event) =>
               setMonday({ ...monday, alergens: event.target.value })
             }
@@ -85,7 +85,7 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
           <input
             type="text"
             placeholder="Alergens"
-            value={tuesday.alergens}
+            value={tuesday.alergens.join(' ')}
             onChange={(event) =>
               setTuesday({ ...tuesday, alergens: event.target.value })
             }
@@ -112,7 +112,7 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
           <input
             type="text"
             placeholder="Alergeny"
-            value={wednesday.alergens}
+            value={wednesday.alergens.join(' ')}
             onChange={(event) =>
               setWednesday({ ...wednesday, alergens: event.target.value })
             }
@@ -139,7 +139,7 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
           <input
             type="text"
             placeholder="Alergeny"
-            value={thursday.alergens}
+            value={thursday.alergens.join(' ')}
             onChange={(event) =>
               setThursday({ ...thursday, alergens: event.target.value })
             }
@@ -166,7 +166,7 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
           <input
             type="text"
             placeholder="Úterý"
-            value={friday.alergens}
+            value={friday.alergens.join(' ')}
             onChange={(event) =>
               setFriday({ ...friday, alergens: event.target.value })
             }
@@ -211,7 +211,10 @@ const SoupsForm = ({ updateSoups, soups, boxPrice, updateSoupBoxPrice }) => {
     const soups = {
       monday: { name: monday.name, alergens: monday.alergens },
       tuesday: { name: tuesday.name, alergens: tuesday.alergens },
-      wednesday: { name: wednesday.name, alergens: wednesday.alergens },
+      wednesday: {
+        name: wednesday.name,
+        alergens: wednesday.alergens,
+      },
       thursday: { name: thursday.name, alergens: thursday.alergens },
       friday: { name: friday.name, alergens: friday.alergens },
       price: price,
