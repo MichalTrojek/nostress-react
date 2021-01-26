@@ -22,8 +22,8 @@ const AlergensContainer = styled.div`
   position: absolute;
   border: 1px solid var(--color-tertiary);
   padding: 2rem;
-  top: -200%;
-  right: 0;
+  top: 0;
+
   z-index: ${(props) => (props.showAlergens ? 8995544 : -55)};
   color: white;
 
