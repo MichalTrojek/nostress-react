@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const MenuList = styled.div`
   padding: 1.5rem 1.3rem 1.5rem 1.5rem;
   border: 1px solid var(--color-primary);
+  position: relative;
 
   @media only screen and (min-width: 1400px) {
     padding: 2rem 2rem 2rem 2rem;

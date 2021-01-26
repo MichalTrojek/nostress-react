@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
+import { CSSTransition } from 'react-transition-group';
 const alergensList = [
   { number: 1, name: 'Lepek' },
   { number: 2, name: 'Korýši' },
@@ -17,14 +18,29 @@ const alergensList = [
   { number: 14, name: 'Měkkýši' },
 ];
 
+const Overlay = styled.div`
+  background: rgba(0, 0, 0, 0.8);
+  display: ${(props) => (props.showModal ? 'flex' : 'none')};
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  min-height: 100%;
+  border-radius: 10px;
+  max-width: var(--max-width);
+  top: 0;
+  left: 0;
+  position: absolute;
+`;
+
 const AlergensContainer = styled.div`
   background-color: black;
-  position: absolute;
-  border: 1px solid var(--color-tertiary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
-  top: 0;
+  border: 1px solid var(--color-tertiary);
 
-  z-index: ${(props) => (props.showAlergens ? 8995544 : -55)};
   color: white;
 
   h3 {
@@ -32,49 +48,39 @@ const AlergensContainer = styled.div`
   }
 `;
 
-const Alergens = ({ alergens }) => {
+const Alergens = ({ alergens, showModal, setShowModal }) => {
   const [content, setContent] = useState([]);
-  const [showAlergens, setShowAlergens] = useState(false);
 
   useEffect(() => {
+    console.log('alergens ', alergens);
     setContent(alergens.split(','));
   }, [alergens]);
 
-  return <>{renderAlergens()}</>;
-
-  function renderAlergens() {
-    return alergens.length > 0 ? showText() : '';
+  function handleCloseButton() {
+    setShowModal(false);
   }
 
-  function showText() {
-    return (
-      <small
-        onClick={() => setShowAlergens(!showAlergens)}
-        style={{
-          whiteSpace: 'nowrap',
-          paddingLeft: '1rem',
-          cursor: 'pointer',
-          position: 'relative',
-        }}
+  return (
+    <Overlay showModal={showModal} onClick={handleCloseButton}>
+      <CSSTransition
+        in={showModal}
+        timeout={300}
+        classNames="modal"
+        unmountOnExit
       >
-        ({alergens}){showAlergens && showListOfAlergens()}
-      </small>
-    );
-  }
-
-  function showListOfAlergens() {
-    return (
-      <AlergensContainer showAlergens={showAlergens}>
-        <h3>Seznam alergenů</h3>
-        {content.map((item, index) => {
-          const { number, name } = alergensList[
-            Number(item.replaceAll(' ', '')) - 1
-          ];
-          return <p key={index}>{`${number}: ${name}`} </p>;
-        })}
-      </AlergensContainer>
-    );
-  }
+        <AlergensContainer>
+          <h3>Seznam alergenů</h3>
+          {content.map((item, index) => {
+            console.log(item);
+            // const { number, name } = alergensList[
+            //   Number(item.replaceAll(' ', '')) - 1
+            // ];
+            // return <p key={index}>{`${number}: ${name}`} </p>;
+          })}
+        </AlergensContainer>
+      </CSSTransition>
+    </Overlay>
+  );
 };
 
 export default Alergens;

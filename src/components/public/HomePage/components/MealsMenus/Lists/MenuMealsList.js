@@ -1,8 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MenuList from './MenuList';
 import Alergens from '../../../../../common/Alergens';
+import Modal from '../../../../../common/Modal';
 
 const MenuMealList = ({ header, info, icon, items = [] }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [alergens, setAlergens] = useState('');
+
+  useEffect(() => {
+    console.log('test ', alergens);
+  }, [alergens]);
   return (
     <>
       <MenuList>
@@ -19,6 +26,11 @@ const MenuMealList = ({ header, info, icon, items = [] }) => {
           <img src={icon} alt="menu-icon" />
         </div>
         <ol>{renderList()}</ol>
+        <Alergens
+          alergens={alergens}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
       </MenuList>
     </>
   );
@@ -30,17 +42,31 @@ const MenuMealList = ({ header, info, icon, items = [] }) => {
   function renderList() {
     return items.map((item, index) => {
       return (
-        <li key={item.id}>
+        <li key={index}>
           {`${item.name}`}
           <span
             style={{ color: 'var(--color-tertiary)', paddingLeft: '.5rem' }}
           >
             {`${item.price},-`}
           </span>
-          <Alergens alergens={item.alergens} />
+          <small
+            onClick={() => handleClick(item.alergens)}
+            style={{
+              whiteSpace: 'nowrap',
+              paddingLeft: '1rem',
+              cursor: 'pointer',
+            }}
+          >
+            ({item.alergens})
+          </small>
         </li>
       );
     });
+  }
+
+  function handleClick(alergens) {
+    setAlergens(alergens);
+    setShowModal(true);
   }
 };
 
