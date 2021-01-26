@@ -9,6 +9,9 @@ const SoupsMenuList = styled(MenuList)`
   position: relative;
   padding-left: 1rem;
   padding-bottom: 3rem;
+
+  display: grid;
+
   @media only screen and (min-width: 768px) {
     padding-left: 2rem;
     padding-bottom: 4rem;
@@ -26,6 +29,10 @@ const SoupsMenuList = styled(MenuList)`
     justify-content: space-between;
     padding-right: 1rem;
     padding-bottom: 2rem;
+    .row__icon {
+      height: 3.7rem;
+      width: 3.7rem;
+    }
   }
   .price {
     position: absolute;
@@ -70,7 +77,7 @@ const MenuSoupsList = ({ soups = [] }) => {
     <SoupsMenuList>
       <div className="row">
         <h2>Polévka k menu zdarma*</h2>
-        <img src={menuIcon} alt="menu-icon" />
+        <img className="row__icon" src={menuIcon} alt="menu-icon" />
       </div>
       <div className="days">
         {renderDayAndSoup('Pondělí', soups.monday)}
@@ -90,6 +97,7 @@ const MenuSoupsList = ({ soups = [] }) => {
   );
 
   function renderDayAndSoup(day, soup) {
+    console.log(soup);
     return (
       <SoupRow>
         <p className="day">{day || <Skeleton />}</p>
