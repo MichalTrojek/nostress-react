@@ -19,7 +19,7 @@ function updateSoupBoxPrice(soupBoxPrice) {
         type: UPDATE_SOUP_BOX_PRICES,
         payload: allBoxPrices,
       });
-      showSuccessToast('Cena obalu byla úspěšně uloženo.');
+      // showSuccessToast('Cena obalu byla úspěšně uloženo.');
     } else {
       showErrorToast('Cenu obalu se nepodařilo uložit.');
     }
