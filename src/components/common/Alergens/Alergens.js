@@ -70,8 +70,10 @@ const Alergens = ({ alergens, showModal, setShowModal }) => {
         <AlergensContainer>
           <h2>Seznam alergenů</h2>
           {content.map((item, index) => {
-            const { number, name } = alergensList[Number(item) - 1];
-            return <p key={index}>{`${number}: ${name}`} </p>;
+            try {
+              const { number, name } = alergensList[Number(item) - 1];
+              return <p key={index}>{`${number}: ${name}`} </p>;
+            } catch (error) {}
           })}
         </AlergensContainer>
       </CSSTransition>

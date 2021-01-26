@@ -1,15 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import MenuList from './MenuList';
 import Alergens from '../../../../../common/Alergens';
-import Modal from '../../../../../common/Modal';
 
 const MenuMealList = ({ header, info, icon, items = [] }) => {
   const [showModal, setShowModal] = useState(false);
   const [alergens, setAlergens] = useState([]);
 
-  useEffect(() => {
-    console.log('test ', alergens);
-  }, [alergens]);
   return (
     <>
       <MenuList>
@@ -57,11 +53,14 @@ const MenuMealList = ({ header, info, icon, items = [] }) => {
               cursor: 'pointer',
             }}
           >
-            ({item.alergens.join(', ')})
+            {renderAlergens(item)}
           </small>
         </li>
       );
     });
+  }
+  function renderAlergens(item) {
+    return item.alergens[0] === '' ? '' : `(${item.alergens.join(', ')})`;
   }
 
   function handleClick(alergens) {
