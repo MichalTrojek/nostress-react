@@ -50,7 +50,7 @@ const MealsForms = ({
   boxPrice,
 }) => {
   const [name, setName] = useState('');
-  const [alergens, setAlergens] = useState('');
+  const [alergens, setAlergens] = useState([]);
   const [price, setPrice] = useState('');
   const [type, setType] = useState('');
   const [menuNumber, setMenuNumber] = useState('');
@@ -63,8 +63,7 @@ const MealsForms = ({
   useEffect(() => {
     if (isEditModeOn) {
       setName(selectedItem.name);
-      console.log(selectedItem.alergens);
-      setAlergens(selectedItem.alergens);
+      setAlergens(selectedItem.alergens.join(' '));
       setPrice(selectedItem.price);
       setType(selectedItem.type);
       setMenuNumber(selectedItem.menuNumber);
@@ -265,7 +264,7 @@ const MealsForms = ({
 
   function clearStates() {
     setName('');
-    setAlergens('');
+    setAlergens([]);
     setPrice('');
     setMenuNumber('');
     setType('');
