@@ -99,7 +99,7 @@ const OrderItem = ({
 
       <div className="priceAndAlergens">
         {alergens ? (
-          <p className="alergens">Alergeny: ({alergens})</p>
+          <p className="alergens">Alergeny: ({alergens.join(', ')})</p>
         ) : (
           <p></p>
         )}
