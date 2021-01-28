@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function sendOrderConfirmedEmail(email, order) {
   const url =
-    'https://nostress-email-sender.azurewebsites.net/api/sendEmailOrderConfirmed';
+    'https://nostress-email.herokuapp.com/api/sendEmailOrderConfirmed';
 
   axios({
     method: 'post',
@@ -22,8 +22,7 @@ export function sendOrderConfirmedEmail(email, order) {
 }
 
 export function sendOrderSentEmail(email, order) {
-  const url =
-    'https://nostress-email-sender.azurewebsites.net/api/sendEmailOrderSent';
+  const url = 'https://nostress-email.herokuapp.com/api/sendEmailOrderSent';
 
   axios({
     method: 'post',
@@ -43,8 +42,7 @@ export function sendOrderSentEmail(email, order) {
 }
 
 export function sendOrderFinishedEmail(email, order) {
-  const url =
-    'https://nostress-email-sender.azurewebsites.net/api/sendOrderFinishedEmail';
+  const url = 'https://nostress-email.herokuapp.com/api/sendOrderFinishedEmail';
   axios({
     method: 'post',
     url: url,
