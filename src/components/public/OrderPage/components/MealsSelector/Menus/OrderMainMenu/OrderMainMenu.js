@@ -71,15 +71,15 @@ function renderSoup(soup) {
 function selectSoupByDay(day, soups) {
   switch (day) {
     case 1:
-      return soups.monday;
+      return { name: soups.monday.name, alergens: soups.monday.alergens };
     case 2:
-      return soups.tuesday;
+      return { name: soups.tuesday.name, alergens: soups.tuesday.alergens };
     case 3:
-      return soups.wednesday;
+      return { name: soups.wednesday.name, alergens: soups.wednesday.alergens };
     case 4:
-      return soups.thursday;
+      return { name: soups.thursday.name, alergens: soups.thursday.alergens };
     case 5:
-      return soups.friday;
+      return { name: soups.friday.name, alergens: soups.friday.alergens };
     default:
       return '';
   }
@@ -88,10 +88,13 @@ function selectSoupByDay(day, soups) {
 function mapStateToProps(state, ownProps) {
   const { weeklyMeals, childMeals } = sortOutMenusByType(state.data.meals);
   const soups = state.data.soups;
+  const { name, alergens } = selectSoupByDay(new Date().getDay(), soups);
   const soup = {
-    name: selectSoupByDay(new Date().getDay(), soups),
+    name: name,
+    alergens: alergens,
     price: soups.price,
   };
+
   return {
     weeklyMeals: weeklyMeals,
     childMeals: childMeals,
