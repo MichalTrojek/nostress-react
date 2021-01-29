@@ -43,6 +43,7 @@ export function sendOrderSentEmail(email, order) {
 
 export function sendOrderFinishedEmail(email, order) {
   const url = 'https://nostress-email.herokuapp.com/api/sendOrderFinishedEmail';
+
   axios({
     method: 'post',
     url: url,
