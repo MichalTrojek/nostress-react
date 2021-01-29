@@ -61,7 +61,12 @@ function renderSoup(soup) {
   return soup.name.length > 0 ? (
     <div>
       <h1 style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>Polévky</h1>
-      <OrderItem name={soup.name} price={soup.price} isSoup={true} />
+      <OrderItem
+        name={soup.name}
+        price={soup.price}
+        alergens={soup.alergens}
+        isSoup={true}
+      />
     </div>
   ) : (
     <></>
