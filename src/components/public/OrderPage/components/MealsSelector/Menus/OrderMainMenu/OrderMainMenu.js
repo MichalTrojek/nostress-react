@@ -86,7 +86,7 @@ function selectSoupByDay(day, soups) {
     case 5:
       return { name: soups.friday.name, alergens: soups.friday.alergens };
     default:
-      return '';
+      return { name: '', alergens: '' };
   }
 }
 
