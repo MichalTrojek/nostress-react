@@ -73,7 +73,10 @@ const Alergens = ({ alergens, showModal, setShowModal }) => {
             try {
               const { number, name } = alergensList[Number(item) - 1];
               return <p key={index}>{`${number}: ${name}`} </p>;
-            } catch (error) {}
+            } catch (error) {
+              console.log(error);
+            }
+            return <p></p>;
           })}
         </AlergensContainer>
       </CSSTransition>

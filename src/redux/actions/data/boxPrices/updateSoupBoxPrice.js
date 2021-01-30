@@ -1,8 +1,5 @@
 import { UPDATE_SOUP_BOX_PRICES } from '../../types';
-import {
-  showErrorToast,
-  showSuccessToast,
-} from '../../../../notifications/toast';
+import { showErrorToast } from '../../../../notifications/toast';
 
 import updateDataApiCall from '../api/updateDataApiCall';
 
