@@ -158,7 +158,22 @@ const OrderedItem = ({ order }) => {
         console.log(`Error while finishing order: ${error}`);
       });
 
-    sendOrderFinishedEmail(order.mail, order);
+    db.collection('pendingEmails')
+      .add({
+        id: order.id,
+        email: order.email,
+        order: order,
+      })
+      .then((docRef) => {
+        console.log(`PendingEmail with id ${docRef.id} was created`);
+      })
+      .catch((error) => {
+        console.log(
+          `Error while saving pending email to firestore. Error: ${error}`
+        );
+      });
+
+    // sendOrderFinishedEmail(order.mail, order);
   }
 
   function confirmOrder() {
