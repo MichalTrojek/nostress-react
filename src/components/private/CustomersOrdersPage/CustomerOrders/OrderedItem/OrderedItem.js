@@ -2,10 +2,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import Button from '../../../../common/Button';
 import { db, timeStamp } from '../../../../../firebase';
-import {
-  sendOrderConfirmedEmail,
-  sendOrderFinishedEmail,
-} from '../../../../../utils/emailUtils';
+import { sendOrderConfirmedEmail } from '../../../../../utils/emailUtils';
 import { toDateTime } from '../../../../../utils/dateUtils';
 
 import Modal from '../../../../common/Modal';
