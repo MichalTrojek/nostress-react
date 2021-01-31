@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import Button from '../../../../common/Button';
-import { db } from '../../../../../firebase';
+import { db, timeStamp } from '../../../../../firebase';
 import {
   sendOrderConfirmedEmail,
   sendOrderFinishedEmail,
@@ -161,6 +161,7 @@ const OrderedItem = ({ order }) => {
     db.collection('pendingEmails')
       .add({
         id: order.id,
+        created: timeStamp,
         email: order.email,
         order: order,
       })
@@ -172,8 +173,6 @@ const OrderedItem = ({ order }) => {
           `Error while saving pending email to firestore. Error: ${error}`
         );
       });
-
-    // sendOrderFinishedEmail(order.mail, order);
   }
 
   function confirmOrder() {
