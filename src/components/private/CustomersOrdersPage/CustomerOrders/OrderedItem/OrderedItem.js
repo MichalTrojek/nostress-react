@@ -143,6 +143,13 @@ const OrderedItem = ({ order }) => {
     order.isFinished = true;
     const batch = db.batch();
     batch.set(db.collection('orderHistory').doc(order.id), order);
+    batch.set(db.collection('pendingEmails').doc(order.id), {
+      id: order.id,
+      created: timeStamp,
+      email: order.email,
+      order: order,
+    });
+
     batch.delete(db.collection('orders').doc(order.id));
     batch
       .commit()
@@ -153,22 +160,6 @@ const OrderedItem = ({ order }) => {
       })
       .catch((error) => {
         console.log(`Error while finishing order: ${error}`);
-      });
-
-    db.collection('pendingEmails')
-      .add({
-        id: order.id,
-        created: timeStamp,
-        email: order.email,
-        order: order,
-      })
-      .then((docRef) => {
-        console.log(`PendingEmail with id ${docRef.id} was created`);
-      })
-      .catch((error) => {
-        console.log(
-          `Error while saving pending email to firestore. Error: ${error}`
-        );
       });
   }
 
