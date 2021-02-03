@@ -7,6 +7,8 @@ import Wrapper from '../../common/Wrapper';
 
 import CustomerOrders from './CustomerOrders';
 
+import AllowOrderingRadioGroup from './AllowOrderingRadioGroup';
+
 import { sortByOrderNumber } from '../../../utils/orderUtils';
 
 import { db } from '../../../firebase';
@@ -39,6 +41,7 @@ const CustomersOrdersPage = () => {
         <Wrapper>
           <PrivateNavBar />
           <h1 style={{ padding: '2% 0rem' }}>Objednávky</h1>
+          <AllowOrderingRadioGroup />
           <CustomerOrders orders={sortByOrderNumber(orders)}></CustomerOrders>
         </Wrapper>
       </CustomersOrdersPageBackground>

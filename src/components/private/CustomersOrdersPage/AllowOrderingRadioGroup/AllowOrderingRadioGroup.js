@@ -2,31 +2,29 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import RadioGroup from '../../../common/Forms/RadioGroup';
 
-const AllowOrderingRadioGroup = styled(RadioGroup)`
-  justify-content: center;
+const AllowOrderingContainer = styled(RadioGroup)`
+  /* justify-content: center; */
 `;
 
 const AllowOrderingRadioGroup = () => {
   return (
-    <AllowOrderingRadioGroup>
+    <AllowOrderingContainer>
       <input
         type="radio"
-        name="orderRadioGroup"
-        id="showNewId"
-        onClick={handleShowNew}
-        disabled={!enableNewOrdersButton}
+        name="allowOrdering"
+        id="turnOffOrdering"
+        // onClick={handleShowNew}
       />
       <label htmlFor="showNewId">Zakázat objednávání</label>
 
       <input
         type="radio"
-        name="orderRadioGroup"
-        id="showConfirmedId"
-        disabled={!enableConfirmedButton}
-        onClick={handleShowConfirmed}
+        name="allowOrdering"
+        id="turnOnOrdering"
+        // onClick={handleShowConfirmed}
       />
       <label htmlFor="showConfirmedId">Povolit objednávání</label>
-    </AllowOrderingRadioGroup>
+    </AllowOrderingContainer>
   );
 };
 

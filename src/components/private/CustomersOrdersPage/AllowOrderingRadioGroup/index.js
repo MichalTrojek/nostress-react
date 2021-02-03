@@ -1,2 +1,2 @@
-import AllowOrderingRadioGroup from './AllowOrderingRadioGroup';
-export default AllowOrderingRadioGroup;
+import AllowOrderingContainer from './AllowOrderingRadioGroup';
+export default AllowOrderingContainer;
