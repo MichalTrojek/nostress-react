@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { db } from '../../../../firebase';
+import { connect } from 'react-redux';
 import RadioGroup from '../../../common/Forms/RadioGroup';
-
+import getOrderingStatus from '../../../../redux/actions/ordering/getOrderingStatus';
+import setOrderingStatus from '../../../../redux/actions/ordering/setOrderingStatus';
 const AllowOrderingContainer = styled(RadioGroup)`
   label {
     @media only screen and (min-width: 931px) {
@@ -12,12 +14,11 @@ const AllowOrderingContainer = styled(RadioGroup)`
   }
 `;
 
-const AllowOrderingRadioGroup = () => {
+const AllowOrderingRadioGroup = ({ getOrderingStatus, setOrderingStatus }) => {
   const [orderingAllowed, setOrderingAllowed] = useState(false);
 
   useEffect(() => {
-    // console.log(db.collection('systemstatus').doc('ordering'));
-    // setOrderingAllowed()
+    getOrderingStatus();
   }, [setOrderingAllowed]);
 
   return (
@@ -41,12 +42,15 @@ const AllowOrderingRadioGroup = () => {
   );
 
   function handleTurningOnOrdering() {
-    db.collection('systemstatus').doc('ordering').update({ status: true });
+    setOrderingStatus(true);
   }
 
   function handleTurningOffOrdering() {
-    db.collection('systemstatus').doc('ordering').update({ status: false });
+    setOrderingStatus(false);
+    // db.collection('systemstatus').doc('ordering').update({ status: false });
   }
 };
 
-export default AllowOrderingRadioGroup;
+export default connect(null, { setOrderingStatus, getOrderingStatus })(
+  AllowOrderingRadioGroup
+);
