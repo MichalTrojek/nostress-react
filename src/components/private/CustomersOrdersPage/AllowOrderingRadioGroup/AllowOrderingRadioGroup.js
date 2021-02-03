@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
 import { db } from '../../../../firebase';
 import RadioGroup from '../../../common/Forms/RadioGroup';
 
@@ -12,6 +13,13 @@ const AllowOrderingContainer = styled(RadioGroup)`
 `;
 
 const AllowOrderingRadioGroup = () => {
+  const [orderingAllowed, setOrderingAllowed] = useState(false);
+
+  useEffect(() => {
+    // console.log(db.collection('systemstatus').doc('ordering'));
+    // setOrderingAllowed()
+  }, [setOrderingAllowed]);
+
   return (
     <AllowOrderingContainer>
       <input
