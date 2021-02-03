@@ -3,7 +3,12 @@ import { useState } from 'react';
 import RadioGroup from '../../../common/Forms/RadioGroup';
 
 const AllowOrderingContainer = styled(RadioGroup)`
-  /* justify-content: center; */
+  label {
+    @media only screen and (min-width: 931px) {
+      margin-bottom: 0;
+      width: 49.8%;
+    }
+  }
 `;
 
 const AllowOrderingRadioGroup = () => {
@@ -15,7 +20,7 @@ const AllowOrderingRadioGroup = () => {
         id="turnOffOrdering"
         // onClick={handleShowNew}
       />
-      <label htmlFor="showNewId">Zakázat objednávání</label>
+      <label htmlFor="turnOffOrdering">Zakázat objednávání</label>
 
       <input
         type="radio"
@@ -23,7 +28,7 @@ const AllowOrderingRadioGroup = () => {
         id="turnOnOrdering"
         // onClick={handleShowConfirmed}
       />
-      <label htmlFor="showConfirmedId">Povolit objednávání</label>
+      <label htmlFor="turnOnOrdering">Povolit objednávání</label>
     </AllowOrderingContainer>
   );
 };
