@@ -7,9 +7,11 @@ function setOrderingStatusApiCall(status) {
     .update({ status: status })
     .then(() => {
       console.log(`Ordering status was update to ${status}`);
+      return true;
     })
     .catch((error) => {
-      console.log(`Error while saving ordering status`);
+      console.log(`Error while saving ordering status. Erorr: ${error}`);
+      return false;
     });
 }
 
