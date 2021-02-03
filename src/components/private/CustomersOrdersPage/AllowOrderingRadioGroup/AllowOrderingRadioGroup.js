@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { db } from '../../../../firebase';
 import RadioGroup from '../../../common/Forms/RadioGroup';
 
 const AllowOrderingContainer = styled(RadioGroup)`
@@ -18,7 +18,7 @@ const AllowOrderingRadioGroup = () => {
         type="radio"
         name="allowOrdering"
         id="turnOffOrdering"
-        // onClick={handleShowNew}
+        onClick={handleTurningOffOrdering}
       />
       <label htmlFor="turnOffOrdering">Zakázat objednávání</label>
 
@@ -26,11 +26,19 @@ const AllowOrderingRadioGroup = () => {
         type="radio"
         name="allowOrdering"
         id="turnOnOrdering"
-        // onClick={handleShowConfirmed}
+        onClick={handleTurningOnOrdering}
       />
       <label htmlFor="turnOnOrdering">Povolit objednávání</label>
     </AllowOrderingContainer>
   );
+
+  function handleTurningOnOrdering() {
+    db.collection('systemstatus').doc('ordering').update({ status: true });
+  }
+
+  function handleTurningOffOrdering() {
+    db.collection('systemstatus').doc('ordering').update({ status: false });
+  }
 };
 
 export default AllowOrderingRadioGroup;
