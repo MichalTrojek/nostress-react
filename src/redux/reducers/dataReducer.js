@@ -8,6 +8,7 @@ import {
   UPDATE_TEXTS,
   UPDATE_MEAL_BOX_PRICES,
   UPDATE_SOUP_BOX_PRICES,
+  UPDATE_ORDERING_STATUS,
 } from '../actions/types';
 
 const initialState = {
