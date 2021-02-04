@@ -24,13 +24,18 @@ const AllowOrderingRadioGroup = ({
     fetchData();
   }, []);
 
+  useEffect(() => {
+    console.log('Ordering status: ' + orderingStatus);
+  }, [orderingStatus]);
+
   return (
     <AllowOrderingContainer>
       <input
         type="radio"
         name="allowOrdering"
         id="turnOffOrdering"
-        onClick={handleTurningOffOrdering}
+        onChange={handleTurningOffOrdering}
+        defaultChecked={orderingStatus}
       />
       <label htmlFor="turnOffOrdering">Zakázat objednávání</label>
 
@@ -38,7 +43,8 @@ const AllowOrderingRadioGroup = ({
         type="radio"
         name="allowOrdering"
         id="turnOnOrdering"
-        onClick={handleTurningOnOrdering}
+        onChange={handleTurningOnOrdering}
+        defaultChecked={!orderingStatus}
       />
       <label htmlFor="turnOnOrdering">Povolit objednávání</label>
     </AllowOrderingContainer>
