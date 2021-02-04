@@ -51,4 +51,12 @@ const AllowOrderingRadioGroup = ({ setOrderingStatus }) => {
   }
 };
 
-export default connect(null, { setOrderingStatus })(AllowOrderingRadioGroup);
+function mapStateToProps(state, ownProps) {
+  return {
+    orderingStatus: state.data.orderingStatus,
+  };
+}
+
+export default connect(mapStateToProps, { setOrderingStatus })(
+  AllowOrderingRadioGroup
+);
