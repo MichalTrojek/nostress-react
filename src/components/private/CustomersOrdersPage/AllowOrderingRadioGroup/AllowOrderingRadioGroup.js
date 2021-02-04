@@ -24,10 +24,6 @@ const AllowOrderingRadioGroup = ({
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log('Ordering status: ' + orderingStatus);
-  }, [orderingStatus]);
-
   return (
     <AllowOrderingContainer>
       <input
