@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import RadioGroup from '../../../common/Forms/RadioGroup';
 
-import setOrderingStatus from '../../../../redux/actions/data/setOrderingStatus';
+import setOrderingStatus from '../../../../redux/actions/data/orderingStatus/setOrderingStatus';
 import fetchData from '../../../../redux/actions/data/fetchData';
 const AllowOrderingContainer = styled(RadioGroup)`
   label {

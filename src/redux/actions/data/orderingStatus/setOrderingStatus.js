@@ -1,11 +1,12 @@
-import { UPDATE_ORDERING_STATUS } from '../types';
-import { showErrorToast } from '../../../notifications/toast';
+import { UPDATE_ORDERING_STATUS } from '../../types';
+import { showErrorToast } from '../../../../notifications/toast';
 
-import setOrderingStatusApiCall from './api/setOrderingStatusApiCall';
+import updateDataApiCall from '../api/updateDataApiCall';
 
 function setOrderingStatus(status) {
   return async (dispatch, getState) => {
-    const success = await setOrderingStatusApiCall(status);
+    const success = await updateDataApiCall({ orderingStatus: status });
+
     if (success) {
       dispatch({
         type: UPDATE_ORDERING_STATUS,
