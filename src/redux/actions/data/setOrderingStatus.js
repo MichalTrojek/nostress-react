@@ -1,4 +1,4 @@
-import { SET_ORDERING_STATUS } from '../types';
+import { UPDATE_ORDERING_STATUS } from '../types';
 import { showErrorToast } from '../../../notifications/toast';
 
 import setOrderingStatusApiCall from './api/setOrderingStatusApiCall';
@@ -8,7 +8,7 @@ function setOrderingStatus(status) {
     const success = await setOrderingStatusApiCall(status);
     if (success) {
       dispatch({
-        type: SET_ORDERING_STATUS,
+        type: UPDATE_ORDERING_STATUS,
         payload: { status: status },
       });
     } else {
