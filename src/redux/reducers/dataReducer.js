@@ -51,6 +51,7 @@ const initialState = {
       deliveryTime: '',
     },
   },
+  orderingStatus: false,
 };
 
 function dataReducer(state = initialState, action) {
@@ -71,8 +72,11 @@ function dataReducer(state = initialState, action) {
       return { ...state, boxPrices: action.payload };
     case UPDATE_TEXTS:
       return { ...state, texts: action.payload };
+    case UPDATE_ORDERING_STATUS:
+      return { ...state, orderingStatus: action.payload };
     case FETCH_DATA:
       return action.payload || state;
+
     default:
       return state;
   }
