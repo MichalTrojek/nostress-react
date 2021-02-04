@@ -77,7 +77,6 @@ function dataReducer(state = initialState, action) {
       return { ...state, orderingStatus: action.payload };
     case FETCH_DATA:
       return action.payload || state;
-
     default:
       return state;
   }

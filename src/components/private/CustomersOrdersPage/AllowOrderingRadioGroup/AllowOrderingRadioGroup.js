@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import RadioGroup from '../../../common/Forms/RadioGroup';
 
 import setOrderingStatus from '../../../../redux/actions/data/setOrderingStatus';
+import fetchData from '../../../../redux/actions/data/fetchData';
 const AllowOrderingContainer = styled(RadioGroup)`
   label {
     @media only screen and (min-width: 931px) {
@@ -14,12 +15,12 @@ const AllowOrderingContainer = styled(RadioGroup)`
   }
 `;
 
-const AllowOrderingRadioGroup = ({ setOrderingStatus }) => {
+const AllowOrderingRadioGroup = ({ fetchData, setOrderingStatus }) => {
   const [orderingAllowed, setOrderingAllowed] = useState(false);
 
   useEffect(() => {
-    getOrderingStatus();
-  }, [setOrderingAllowed]);
+    fetchData();
+  }, []);
 
   return (
     <AllowOrderingContainer>
@@ -57,6 +58,6 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps, { setOrderingStatus })(
+export default connect(mapStateToProps, { setOrderingStatus, fetchData })(
   AllowOrderingRadioGroup
 );
