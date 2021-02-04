@@ -35,7 +35,7 @@ const AllowOrderingRadioGroup = ({
         name="allowOrdering"
         id="turnOffOrdering"
         onChange={handleTurningOffOrdering}
-        defaultChecked={orderingStatus}
+        checked={!orderingStatus}
       />
       <label htmlFor="turnOffOrdering">Zakázat objednávání</label>
 
@@ -44,7 +44,7 @@ const AllowOrderingRadioGroup = ({
         name="allowOrdering"
         id="turnOnOrdering"
         onChange={handleTurningOnOrdering}
-        defaultChecked={!orderingStatus}
+        checked={orderingStatus}
       />
       <label htmlFor="turnOnOrdering">Povolit objednávání</label>
     </AllowOrderingContainer>

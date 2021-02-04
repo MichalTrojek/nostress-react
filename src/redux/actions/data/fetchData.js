@@ -20,7 +20,8 @@ function dataFetched(data) {
     dataExist(data.allNews) ||
     dataExist(data.hours) ||
     dataExist(data.boxPrices) ||
-    dataExist(data.texts)
+    dataExist(data.texts) ||
+    dataExist(data.orderingStatus)
   );
 }
 const dataExist = (array) => {
