@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import RadioGroup from '../../../common/Forms/RadioGroup';
 
-import setOrderingStatus from '../../../../redux/actions/ordering/setOrderingStatus';
+import setOrderingStatus from '../../../../redux/actions/data/setOrderingStatus';
 const AllowOrderingContainer = styled(RadioGroup)`
   label {
     @media only screen and (min-width: 931px) {
