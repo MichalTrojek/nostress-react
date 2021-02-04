@@ -15,9 +15,11 @@ const AllowOrderingContainer = styled(RadioGroup)`
   }
 `;
 
-const AllowOrderingRadioGroup = ({ fetchData, setOrderingStatus }) => {
-  const [orderingAllowed, setOrderingAllowed] = useState(false);
-
+const AllowOrderingRadioGroup = ({
+  orderingStatus,
+  fetchData,
+  setOrderingStatus,
+}) => {
   useEffect(() => {
     fetchData();
   }, []);
