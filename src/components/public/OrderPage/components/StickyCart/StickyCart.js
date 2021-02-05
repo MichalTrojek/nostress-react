@@ -48,10 +48,6 @@ const StickyCart = ({
   orderingStatus,
 }) => {
   useEffect(() => {
-    console.log(orderingStatus);
-  }, [orderingStatus]);
-
-  useEffect(() => {
     let tempPrice = 0;
     let tempAmount = 0;
     let tempSoupBoxes = 0;
