@@ -32,6 +32,10 @@ const StickyCartStyle = styled.div`
     max-width: var(--max-width);
     margin: auto;
   }
+
+  .center-text {
+    margin: auto;
+  }
 `;
 
 const StickyCart = ({
@@ -41,6 +45,7 @@ const StickyCart = ({
   items,
   setTotal,
   boxPrices,
+  orderingStatus,
 }) => {
   useEffect(() => {
     let tempPrice = 0;
@@ -72,8 +77,18 @@ const StickyCart = ({
     }
   }, [items, setTotal, boxPrices]);
 
+  useEffect(() => {
+    console.log(orderingStatus);
+  }, [orderingStatus]);
+
   return (
     <StickyCartStyle onClick={handleClick}>
+      {orderingStatus ? renderOrderingAllowed() : renderOrderingNotAllowed()}
+    </StickyCartStyle>
+  );
+
+  function renderOrderingAllowed() {
+    return (
       <div className="centered-content">
         <span className="sticky-cart__amount">{totalAmount} ks.</span>
         <span className="sticky-cart__button">
@@ -81,8 +96,18 @@ const StickyCart = ({
         </span>
         <span className="sticky-cart__total-price">{totalPrice} Kč</span>
       </div>
-    </StickyCartStyle>
-  );
+    );
+  }
+
+  function renderOrderingNotAllowed() {
+    return (
+      <div className="centered-content">
+        <span className="center-text">
+          Online objednávky jsou dočasně pozasteveny.
+        </span>
+      </div>
+    );
+  }
 
   function handleClick() {
     window.scrollTo(0, 0);
@@ -94,6 +119,7 @@ function mapStateToProps(state, ownProps) {
     totalPrice: state.order.total.totalPrice,
     totalAmount: state.order.total.totalAmount,
     boxPrices: state.data.boxPrices,
+    orderingStatus: state.data.orderingStatus,
     items: state.order.items,
   };
 }
