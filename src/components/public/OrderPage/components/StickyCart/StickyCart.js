@@ -48,6 +48,10 @@ const StickyCart = ({
   orderingStatus,
 }) => {
   useEffect(() => {
+    console.log(orderingStatus);
+  }, [orderingStatus]);
+
+  useEffect(() => {
     let tempPrice = 0;
     let tempAmount = 0;
     let tempSoupBoxes = 0;
@@ -76,10 +80,6 @@ const StickyCart = ({
       return soups + meals;
     }
   }, [items, setTotal, boxPrices]);
-
-  useEffect(() => {
-    console.log(orderingStatus);
-  }, [orderingStatus]);
 
   return (
     <StickyCartStyle onClick={handleClick}>
@@ -110,8 +110,10 @@ const StickyCart = ({
   }
 
   function handleClick() {
-    window.scrollTo(0, 0);
-    setShowSummary(true);
+    if (orderingStatus) {
+      window.scrollTo(0, 0);
+      setShowSummary(true);
+    }
   }
 };
 function mapStateToProps(state, ownProps) {
