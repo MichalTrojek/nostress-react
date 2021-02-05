@@ -1,8 +1,8 @@
-# Demo stránka, můžete objednávat.
+# Odkaz na demo stránku.
 
-https://nostress.skladovypomocnik.cz
+https://www.nostress.skladovypomocnik.cz/
 
-# Hlavni Stránka
+# Hlavni stránka
 ![page](https://user-images.githubusercontent.com/26610601/107053434-17caf400-67cf-11eb-90bc-e60d40d2f69c.gif)
 
 ![objednat](https://user-images.githubusercontent.com/26610601/107052642-3381ca80-67ce-11eb-9f01-0cce02be9514.gif)
