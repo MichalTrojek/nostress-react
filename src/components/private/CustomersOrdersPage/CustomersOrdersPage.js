@@ -55,7 +55,8 @@ const CustomersOrdersPage = () => {
         <Wrapper>
           <PrivateNavBar />
           <OrderHeader>
-            <h1>Objednávky</h1> <Button primary>Zobrazit historii</Button>
+            <h1>Objednávky</h1>{' '}
+            <Button primary>Zobrazit historii objednávek</Button>
           </OrderHeader>
           <AllowOrderingRadioGroup />
           <CustomerOrders orders={sortByOrderNumber(orders)}></CustomerOrders>
