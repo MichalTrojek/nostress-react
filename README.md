@@ -8,7 +8,7 @@ https://www.nostress.skladovypomocnik.cz/
 ![objednat](https://user-images.githubusercontent.com/26610601/107052642-3381ca80-67ce-11eb-9f01-0cce02be9514.gif)
 
 
-# Za přihlášení
+# Po přihlášení
 
 ![afterLogin](https://user-images.githubusercontent.com/26610601/107052638-32e93400-67ce-11eb-9453-1f286edbd303.gif)
 
