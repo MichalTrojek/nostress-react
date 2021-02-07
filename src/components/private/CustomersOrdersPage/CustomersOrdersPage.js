@@ -7,6 +7,7 @@ import Wrapper from '../../common/Wrapper';
 
 import CustomerOrders from './CustomerOrders';
 
+import Button from '../../common/Button';
 import AllowOrderingRadioGroup from './AllowOrderingRadioGroup';
 
 import { sortByOrderNumber } from '../../../utils/orderUtils';
@@ -16,6 +17,19 @@ import { db } from '../../../firebase';
 const CustomersOrdersPageBackground = styled.div`
   background-color: black;
   min-height: 100vh;
+`;
+
+const OrderHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  /* padding: 2% 0rem; */
+  margin-bottom: 2%;
+
+  Button {
+    text-transform: none;
+    align-self: flex-end;
+  }
 `;
 
 const CustomersOrdersPage = () => {
@@ -40,7 +54,9 @@ const CustomersOrdersPage = () => {
       <CustomersOrdersPageBackground>
         <Wrapper>
           <PrivateNavBar />
-          <h1 style={{ padding: '2% 0rem' }}>Objednávky</h1>
+          <OrderHeader>
+            <h1>Objednávky</h1> <Button primary>Zobrazit historii</Button>
+          </OrderHeader>
           <AllowOrderingRadioGroup />
           <CustomerOrders orders={sortByOrderNumber(orders)}></CustomerOrders>
         </Wrapper>
