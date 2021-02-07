@@ -1,5 +1,5 @@
-import Background from '../../common/Background';
-import Wrapper from '../../common/Wrapper';
+import Background from '../../../common/Background';
+import Wrapper from '../../../common/Wrapper';
 
 const OrderHistory = () => {
   return (
