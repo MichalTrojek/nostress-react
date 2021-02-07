@@ -9,6 +9,7 @@ import CustomerOrders from './CustomerOrders';
 
 import Button from '../../common/Button';
 import AllowOrderingRadioGroup from './AllowOrderingRadioGroup';
+import OrderHistory from './OrdersHistory';
 
 import { sortByOrderNumber } from '../../../utils/orderUtils';
 
@@ -34,6 +35,7 @@ const OrderHeader = styled.div`
 
 const CustomersOrdersPage = () => {
   const [orders, setOrders] = useState([]);
+  const [showHistory, setShowHistory] = useState(false);
 
   useEffect(() => {
     const unsubscribe = db.collection('orders').onSnapshot((onSnapshot) => {
@@ -55,15 +57,28 @@ const CustomersOrdersPage = () => {
         <Wrapper>
           <PrivateNavBar />
           <OrderHeader>
-            <h1>Objednávky</h1>{' '}
-            <Button primary>Zobrazit historii objednávek</Button>
+            <h1>{showHistory ? 'Historie objednávek' : 'Objednávky'}</h1>
+            <Button primary onClick={() => setShowHistory(!showHistory)}>
+              {showHistory
+                ? 'Zobrazit objednávky'
+                : 'Zobrazit historii objednávek'}
+            </Button>
           </OrderHeader>
-          <AllowOrderingRadioGroup />
-          <CustomerOrders orders={sortByOrderNumber(orders)}></CustomerOrders>
+
+          {showHistory ? <OrderHistory /> : renderOrders()}
         </Wrapper>
       </CustomersOrdersPageBackground>
     </PageLayout>
   );
+
+  function renderOrders() {
+    return (
+      <div>
+        <AllowOrderingRadioGroup />
+        <CustomerOrders orders={sortByOrderNumber(orders)}></CustomerOrders>
+      </div>
+    );
+  }
 };
 
 export default CustomersOrdersPage;

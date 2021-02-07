@@ -5,7 +5,7 @@ const OrderHistory = () => {
   return (
     <Background>
       <Wrapper>
-        <h1>Historie Objednávek</h1>
+        <p>test</p>
       </Wrapper>
     </Background>
   );
