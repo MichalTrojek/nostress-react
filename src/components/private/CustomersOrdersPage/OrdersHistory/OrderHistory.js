@@ -4,8 +4,8 @@ import Wrapper from '../../../common/Wrapper';
 import OrderHistoryItem from './OrderHistoryItem';
 
 const OrderHistoryItemsList = styled.div`
-  /* display: flex;
-  flex-wrap: auto; */
+  display: flex;
+  flex-direction: column;
 `;
 
 const OrderHistory = () => {
@@ -13,6 +13,9 @@ const OrderHistory = () => {
     <Background>
       <Wrapper>
         <OrderHistoryItemsList>
+          <OrderHistoryItem />
+          <OrderHistoryItem />
+          <OrderHistoryItem />
           <OrderHistoryItem />
         </OrderHistoryItemsList>
       </Wrapper>
