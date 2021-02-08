@@ -6,6 +6,7 @@ const OrderHistoryItemContainer = styled.div`
   padding: 2rem;
   border: 1px solid var(--color-tertiary);
   position: relative;
+  border-bottom-left-radius: 10px;
 
   .detailButton {
     top: 0;
@@ -15,7 +16,7 @@ const OrderHistoryItemContainer = styled.div`
     height: 100%;
 
     &:hover {
-      color: red;
+      transform: translateY(0);
     }
   }
 `;
