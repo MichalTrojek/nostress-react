@@ -45,8 +45,6 @@ const OrderHistory = () => {
       <Wrapper>
         <OrderHistoryItemsList>
           {page.map((order) => {
-            console.log('orders ' + order);
-            console.log(order);
             return <OrderHistoryItem key={order.id} order={order} />;
           })}
         </OrderHistoryItemsList>
