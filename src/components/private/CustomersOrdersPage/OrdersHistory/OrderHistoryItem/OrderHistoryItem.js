@@ -21,6 +21,9 @@ const OrderHistoryItemContainer = styled.div`
   .OrderhistoryItem__info {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1rem 0;
+    line-height: 2.9rem;
   }
 
   .OrderhistoryItem_detailButton {
