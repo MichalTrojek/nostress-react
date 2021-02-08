@@ -6,16 +6,21 @@ const OrderHistoryItemContainer = styled.div`
   justify-content: space-between;
 
   border: 1px solid var(--color-tertiary);
-  position: relative;
+
   border-bottom-left-radius: 10px;
 
   .OrderhistoryItem__number {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 0 1rem;
+    padding: 1rem 1rem;
     border-bottom-left-radius: 7px;
     background-color: var(--color-tertiary);
     color: black;
+
+    p:nth-child(2) {
+      margin-top: 1.5rem;
+    }
   }
 
   .OrderhistoryItem__info {
@@ -39,7 +44,8 @@ const OrderHistoryItem = () => {
   return (
     <OrderHistoryItemContainer>
       <div className="OrderhistoryItem__number">
-        <p> Objednávka: 3548</p>
+        <p> Číslo objednávky</p>
+        <p> 548</p>
       </div>
       <div className="OrderhistoryItem__info">
         <p>Michal Trojek</p>
