@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import RadioGroup from '../../../common/Forms/RadioGroup';
@@ -22,7 +22,7 @@ const AllowOrderingRadioGroup = ({
 }) => {
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   return (
     <AllowOrderingContainer>
