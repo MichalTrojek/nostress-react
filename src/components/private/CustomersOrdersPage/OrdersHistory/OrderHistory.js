@@ -43,17 +43,15 @@ const OrderHistory = () => {
   return (
     <Background>
       <Wrapper>
-        <OrderHistoryItemsList>
-          {page.map((order) => {
-            return <OrderHistoryItem key={order.id} order={order} />;
-          })}
-        </OrderHistoryItemsList>
+        <OrderHistoryItemsList>{renderPage()}</OrderHistoryItemsList>
       </Wrapper>
     </Background>
   );
 
-  function renderItems() {
-    //
+  function renderPage() {
+    return page.map((order) => {
+      return <OrderHistoryItem key={order.id} order={order} />;
+    });
   }
 };
 
