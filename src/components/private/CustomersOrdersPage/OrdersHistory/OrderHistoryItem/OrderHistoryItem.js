@@ -22,6 +22,7 @@ const OrderHistoryItemContainer = styled.div`
     align-items: center;
     justify-content: center;
     padding: 1rem 1rem;
+    font-weight: bold;
 
     background-color: var(--color-tertiary);
     color: black;
@@ -34,10 +35,15 @@ const OrderHistoryItemContainer = styled.div`
   .OrderhistoryItem__info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
+    align-items: center;
     padding: 1rem 1rem;
     line-height: 2.9rem;
+
+    @media only screen and (min-width: 768px) {
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+    }
   }
 
   .OrderhistoryItem_detailButton {
