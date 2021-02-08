@@ -27,7 +27,7 @@ const HistoryButtonsContainer = styled.div`
 const OrderHistory = () => {
   const [page, setPage] = useState([]);
 
-  useEffect(async () => {
+  useEffect(() => {
     fetchPage();
 
     async function fetchPage() {
