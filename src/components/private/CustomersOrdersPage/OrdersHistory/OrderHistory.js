@@ -28,27 +28,23 @@ const OrderHistory = () => {
   const [page, setPage] = useState([]);
 
   useEffect(async () => {
-    const first = db.collection('orderHistory').orderBy('orderNumber').limit(2);
-    const orders = await first.get().then((documentSnapshots) => {
-      const data = [];
+    fetchPage();
 
-      documentSnapshots.forEach((doc) => {
-        data.push(doc.data());
+    async function fetchPage() {
+      const first = db
+        .collection('orderHistory')
+        .orderBy('orderNumber')
+        .limit(2);
+      const orders = await first.get().then((documentSnapshots) => {
+        const data = [];
+
+        documentSnapshots.forEach((doc) => {
+          data.push(doc.data());
+        });
+        return data;
       });
-      return data;
-      // let lastVisible =
-      //   documentSnapshots.docs[documentSnapshots.docs.length - 1];
-
-      // console.log('last ' + lastVisible);
-
-      // const next = db
-      //   .collection('orderHistory')
-      //   .orderBy('orderNumber')
-      //   .startAfter(lastVisible)
-      //   .limit(2);
-    });
-
-    setPage(orders);
+      setPage(orders);
+    }
   }, []);
 
   return (
