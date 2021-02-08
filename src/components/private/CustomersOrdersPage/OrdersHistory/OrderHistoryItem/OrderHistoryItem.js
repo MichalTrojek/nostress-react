@@ -12,11 +12,9 @@ const OrderHistoryItemContainer = styled.div`
   border-bottom-left-radius: 10px;
 
   .OrderhistoryItem__number {
-    /* position: absolute; */
-    /* left: 0; */
-    /* top: 0; */
-    padding: 1rem;
-
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
     border-bottom-left-radius: 7px;
     background-color: var(--color-tertiary);
     color: black;
@@ -25,14 +23,9 @@ const OrderHistoryItemContainer = styled.div`
   .OrderhistoryItem__info {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 
   .OrderhistoryItem_detailButton {
-    /* top: 0; */
-    /* right: 0; */
-    /* position: absolute; */
     border-radius: 0;
 
     &:hover {
@@ -50,6 +43,7 @@ const OrderHistoryItem = () => {
       <div className="OrderhistoryItem__info">
         <p>Michal Trojek</p>
         <p>MichalTrojek1@gmail.com</p>
+        <p>605 244 847</p>
       </div>
 
       <Button className="OrderhistoryItem_detailButton" primary>
