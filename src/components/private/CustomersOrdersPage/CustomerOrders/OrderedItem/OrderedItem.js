@@ -197,7 +197,7 @@ const OrderedItem = ({ order }) => {
   }
 
   function renderOrderMethod(method) {
-    const text = method === 'PICKUP' ? 'Výdejní okenko' : 'Rozvoz';
+    const text = method === 'PICKUP' ? 'Výdej' : 'Rozvoz';
     return <p className="bold">{text}</p>;
   }
 
