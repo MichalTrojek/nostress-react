@@ -88,8 +88,8 @@ const CustomerOrders = ({ orders = [] }) => {
         />
         <label htmlFor="showNewId">
           {enableNewOrdersButton
-            ? `ZOBRAZIT NOVÉ ${renderCount(newOrders)}`
-            : 'ŽÁDNÉ NOVÉ'}
+            ? `Zobrazovat nové ${renderCount(newOrders)}`
+            : 'Žádné nové'}
         </label>
 
         <input
@@ -101,8 +101,8 @@ const CustomerOrders = ({ orders = [] }) => {
         />
         <label htmlFor="showConfirmedId">
           {enableConfirmedButton
-            ? `ZOBRAZIT POTVRZENÉ ${renderCount(confirmedOrders)}`
-            : 'ŽÁDNÉ POTVRZENÉ'}
+            ? `Zobrazit potvrzené ${renderCount(confirmedOrders)}`
+            : 'Žádné potvrzené'}
         </label>
 
         <input
@@ -114,8 +114,8 @@ const CustomerOrders = ({ orders = [] }) => {
         />
         <label htmlFor="showAllId">
           {enableAllButton
-            ? `ZOBRAZIT VŠECHNY ${renderCount(orders)}`
-            : 'ŽÁDNÉ K ZOBRAZENÍ'}
+            ? `Zobrazit všechny ${renderCount(orders)}`
+            : 'Žádné k zobrazení'}
         </label>
       </CustomerOrdersRadioGroup>
       <OrdersContainer>{renderOrderedItems()}</OrdersContainer>
