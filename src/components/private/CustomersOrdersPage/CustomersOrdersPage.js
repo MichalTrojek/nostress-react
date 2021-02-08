@@ -59,9 +59,7 @@ const CustomersOrdersPage = () => {
           <OrderHeader>
             <h1>{showHistory ? 'Historie objednávek' : 'Objednávky'}</h1>
             <Button primary onClick={() => setShowHistory(!showHistory)}>
-              {showHistory
-                ? 'Zobrazit objednávky'
-                : 'Zobrazit historii objednávek'}
+              {showHistory ? 'Objednávky' : 'Historie'}
             </Button>
           </OrderHeader>
 
