@@ -3,10 +3,18 @@ import Button from '../../../../common/Button';
 
 const OrderHistoryItemContainer = styled.div`
   display: flex;
+
+  flex-direction: column;
+
   justify-content: space-between;
   border: 1px solid var(--color-tertiary);
-  border-bottom-left-radius: 10px;
+
   margin-bottom: 1rem;
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    border-bottom-left-radius: 10px;
+  }
 
   .OrderhistoryItem__number {
     display: flex;
@@ -14,9 +22,13 @@ const OrderHistoryItemContainer = styled.div`
     align-items: center;
     justify-content: center;
     padding: 1rem 1rem;
-    border-bottom-left-radius: 7px;
+
     background-color: var(--color-tertiary);
     color: black;
+
+    @media only screen and (min-width: 768px) {
+      border-bottom-left-radius: 7px;
+    }
   }
 
   .OrderhistoryItem__info {
@@ -24,7 +36,7 @@ const OrderHistoryItemContainer = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    padding: 1rem 0;
+    padding: 1rem 1rem;
     line-height: 2.9rem;
   }
 
