@@ -49,16 +49,16 @@ const OrderHistoryItemContainer = styled.div`
   }
 `;
 
-const OrderHistoryItem = () => {
+const OrderHistoryItem = ({ order }) => {
   return (
     <OrderHistoryItemContainer>
       <div className="OrderhistoryItem__number">
-        <p> 548</p>
+        <p>{order.orderNumber}</p>
       </div>
       <div className="OrderhistoryItem__info">
-        <p>Michal Trojek</p>
-        <p>MichalTrojek1@gmail.com</p>
-        <p>605 244 847</p>
+        <p>{order.name}</p>
+        <p>{order.email}</p>
+        <p>{order.phoneNumber}</p>
       </div>
 
       <Button className="OrderhistoryItem_detailButton" primary>
