@@ -1,2 +1,2 @@
-import OrderHistoryItem from './OrderHistory';
+import OrderHistoryItem from './OrderHistoryItem';
 export default OrderHistoryItem;

@@ -1,11 +1,20 @@
+import styled from 'styled-components';
 import Background from '../../../common/Background';
 import Wrapper from '../../../common/Wrapper';
+import OrderHistoryItem from './OrderHistoryItem';
+
+const OrderHistoryItemsList = styled.div`
+  /* display: flex;
+  flex-wrap: auto; */
+`;
 
 const OrderHistory = () => {
   return (
     <Background>
       <Wrapper>
-        <p>test</p>
+        <OrderHistoryItemsList>
+          <OrderHistoryItem />
+        </OrderHistoryItemsList>
       </Wrapper>
     </Background>
   );
