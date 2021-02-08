@@ -4,9 +4,7 @@ import Button from '../../../../common/Button';
 const OrderHistoryItemContainer = styled.div`
   display: flex;
   justify-content: space-between;
-
   border: 1px solid var(--color-tertiary);
-
   border-bottom-left-radius: 10px;
 
   .OrderhistoryItem__number {
