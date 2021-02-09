@@ -27,13 +27,14 @@ const HistoryButtonsContainer = styled.div`
 const OrderHistory = () => {
   const [page, setPage] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const PAGE_SIZE = 5;
+  const PAGE_SIZE = 10;
 
   useEffect(() => {
     fetchFirst();
   }, []);
 
   useEffect(() => {
+    console.log(currentIndex);
     fetchPage();
   }, [currentIndex]);
 
@@ -67,9 +68,13 @@ const OrderHistory = () => {
       documentSnapshots.forEach((doc) => {
         data.push(doc.data());
       });
+
       return data;
     });
-    setPage(orders);
+    if (orders.length !== 0) {
+      setPage(orders);
+      setCurrentIndex(currentIndex);
+    }
   }
 
   return (
@@ -89,11 +94,15 @@ const OrderHistory = () => {
   );
 
   function handlePrevButton() {
-    setCurrentIndex(currentIndex - PAGE_SIZE);
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - PAGE_SIZE);
+    }
   }
 
   function handleNextButton() {
-    setCurrentIndex(currentIndex + PAGE_SIZE);
+    if (page.length === PAGE_SIZE) {
+      setCurrentIndex(currentIndex + PAGE_SIZE);
+    }
   }
 
   function renderPage() {
