@@ -26,25 +26,51 @@ const HistoryButtonsContainer = styled.div`
 
 const OrderHistory = () => {
   const [page, setPage] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const PAGE_SIZE = 5;
+
+  useEffect(() => {
+    fetchFirst();
+  }, []);
 
   useEffect(() => {
     fetchPage();
+  }, [currentIndex]);
 
-    async function fetchPage() {
-      const first = db
-        .collection('orderHistory')
-        .orderBy('orderNumber')
-        .limit(2);
-      const orders = await first.get().then((documentSnapshots) => {
-        const data = [];
-        documentSnapshots.forEach((doc) => {
-          data.push(doc.data());
-        });
-        return data;
+  async function fetchFirst() {
+    const first = db
+      .collection('orderHistory')
+      .orderBy('orderNumber')
+      .startAt(0)
+      .endAt(PAGE_SIZE);
+
+    const orders = await first.get().then((documentSnapshots) => {
+      const data = [];
+      documentSnapshots.forEach((doc) => {
+        data.push(doc.data());
       });
-      setPage(orders);
-    }
-  }, []);
+
+      return data;
+    });
+    setPage(orders);
+  }
+
+  async function fetchPage() {
+    const first = db
+      .collection('orderHistory')
+      .orderBy('orderNumber')
+      .startAt(currentIndex + 1)
+      .endAt(currentIndex + PAGE_SIZE);
+
+    const orders = await first.get().then((documentSnapshots) => {
+      const data = [];
+      documentSnapshots.forEach((doc) => {
+        data.push(doc.data());
+      });
+      return data;
+    });
+    setPage(orders);
+  }
 
   return (
     <Background>
@@ -63,11 +89,11 @@ const OrderHistory = () => {
   );
 
   function handlePrevButton() {
-    console.log('prev');
+    setCurrentIndex(currentIndex - PAGE_SIZE);
   }
 
   function handleNextButton() {
-    console.log('next');
+    setCurrentIndex(currentIndex + PAGE_SIZE);
   }
 
   function renderPage() {
