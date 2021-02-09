@@ -37,7 +37,6 @@ const OrderHistory = () => {
         .limit(2);
       const orders = await first.get().then((documentSnapshots) => {
         const data = [];
-
         documentSnapshots.forEach((doc) => {
           data.push(doc.data());
         });
@@ -51,13 +50,25 @@ const OrderHistory = () => {
     <Background>
       <Wrapper>
         <HistoryButtonsContainer>
-          <Button primary>Předchozí</Button>
-          <Button primary>Další</Button>
+          <Button primary onClick={handlePrevButton}>
+            Předchozí
+          </Button>
+          <Button primary onClick={handleNextButton}>
+            Další
+          </Button>
         </HistoryButtonsContainer>
         <OrderHistoryItemsList>{renderPage()}</OrderHistoryItemsList>
       </Wrapper>
     </Background>
   );
+
+  function handlePrevButton() {
+    console.log('prev');
+  }
+
+  function handleNextButton() {
+    console.log('next');
+  }
 
   function renderPage() {
     return page.map((order) => {
