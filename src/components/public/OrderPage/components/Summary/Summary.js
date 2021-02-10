@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
@@ -14,6 +15,12 @@ import createOrder from '../../../../../redux/actions/order/createOrder';
 import { sendOrderSentEmail } from '../../../../../utils/emailUtils';
 
 import './Summary.css';
+
+const NameConainer = styled.div`
+  display: grid;
+  column-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
+`;
 
 const Summary = ({
   items = [],
@@ -49,28 +56,30 @@ const Summary = ({
         <h1 style={{ paddingBottom: '1rem' }}>Souhrn objednávky</h1>
         <Cart />
         <Form onSubmit={handleSubmit}>
-          <FormGroup>
-            <input
-              type="text"
-              placeholder="Jméno"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-              id="nameInput"
-              required
-            />
-            <label htmlFor="nameInput">Jméno</label>
-          </FormGroup>
-          <FormGroup>
-            <input
-              type="text"
-              placeholder="Příjmení"
-              value={surname}
-              onChange={(event) => setSurname(event.target.value)}
-              id="surnameInput"
-              required
-            />
-            <label htmlFor="surnameInput">Příjmení</label>
-          </FormGroup>
+          <NameConainer>
+            <FormGroup>
+              <input
+                type="text"
+                placeholder="Jméno"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                id="nameInput"
+                required
+              />
+              <label htmlFor="nameInput">Jméno</label>
+            </FormGroup>
+            <FormGroup>
+              <input
+                type="text"
+                placeholder="Příjmení"
+                value={surname}
+                onChange={(event) => setSurname(event.target.value)}
+                id="surnameInput"
+                required
+              />
+              <label htmlFor="surnameInput">Příjmení</label>
+            </FormGroup>
+          </NameConainer>
           <FormGroup>
             <input
               type="email"
