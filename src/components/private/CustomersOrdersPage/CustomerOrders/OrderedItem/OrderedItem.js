@@ -98,8 +98,7 @@ const OrderedItem = ({ order }) => {
 
         <p>Vytvořena: {toDateTime(order)} </p>
         <p>
-          <p>{`${order.name} ${order.surname}`}</p> ({order.email},{' '}
-          {order.phoneNumber})
+          {`${order.name} ${order.surname} (${order.email}, ${order.phoneNumber})`}
         </p>
       </div>
       <div className="items">
