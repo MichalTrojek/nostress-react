@@ -17,11 +17,9 @@ const HistoryButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
-
   Button {
     width: 49%;
     text-transform: none;
-
     @media only screen and (min-width: 768px) {
       width: 25%;
     }
