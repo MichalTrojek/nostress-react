@@ -16,7 +16,7 @@ import { sendOrderSentEmail } from '../../../../../utils/emailUtils';
 
 import './Summary.css';
 
-const NameConainer = styled.div`
+const RowContainer = styled.div`
   display: grid;
   column-gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
@@ -56,7 +56,7 @@ const Summary = ({
         <h1 style={{ paddingBottom: '1rem' }}>Souhrn objednávky</h1>
         <Cart />
         <Form onSubmit={handleSubmit}>
-          <NameConainer>
+          <RowContainer>
             <FormGroup>
               <input
                 type="text"
@@ -79,32 +79,35 @@ const Summary = ({
               />
               <label htmlFor="surnameInput">Příjmení</label>
             </FormGroup>
-          </NameConainer>
-          <FormGroup>
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              id="emailInput"
-              required
-            />
-            <label htmlFor="emailInput">Email</label>
-          </FormGroup>
-          <FormGroup>
-            <input
-              type="text"
-              placeholder="Telefon"
-              value={phoneNumber}
-              onChange={(event) => setPhoneNumber(event.target.value)}
-              id="phoneInput"
-              required
-            />
-            <label htmlFor="phoneInput">Telefon</label>
-          </FormGroup>
-          <label htmlFor="textInput">
-            Ostatní informace (Vaše adresa, upřesnění objednávky)
-          </label>
+          </RowContainer>
+
+          <RowContainer>
+            <FormGroup>
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                id="emailInput"
+                required
+              />
+              <label htmlFor="emailInput">Email</label>
+            </FormGroup>
+            <FormGroup>
+              <input
+                type="text"
+                placeholder="Telefon"
+                value={phoneNumber}
+                onChange={(event) => setPhoneNumber(event.target.value)}
+                id="phoneInput"
+                required
+              />
+              <label htmlFor="phoneInput">Telefon</label>
+            </FormGroup>
+            <label htmlFor="textInput">
+              Ostatní informace (Vaše adresa, upřesnění objednávky)
+            </label>
+          </RowContainer>
           <textarea
             className="textArea"
             rows="10"
