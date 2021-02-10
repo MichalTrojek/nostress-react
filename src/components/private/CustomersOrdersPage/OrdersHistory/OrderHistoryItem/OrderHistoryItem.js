@@ -80,6 +80,10 @@ const OrderDetailContainer = styled.div`
 
   .OrderDetail__detailButton {
     border-radius: 0;
+
+    &:hover {
+      transform: translateY(0);
+    }
   }
 
   .items {
