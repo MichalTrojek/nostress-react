@@ -1,4 +1,4 @@
-# Odkaz na demo stránku.
+# Odkaz na rozpracovanou demo stránku.
 
 https://www.nostress.skladovypomocnik.cz/
 
