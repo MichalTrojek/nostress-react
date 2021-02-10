@@ -23,6 +23,7 @@ const OrderHistoryItemContainer = styled.div`
     justify-content: center;
     padding: 1rem 1rem;
     font-weight: bold;
+    min-width: 3%;
 
     background-color: var(--color-tertiary);
     color: black;
