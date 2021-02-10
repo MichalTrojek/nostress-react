@@ -62,7 +62,7 @@ const OrderHistoryItem = ({ order }) => {
         <p>{order.orderNumber}</p>
       </div>
       <div className="OrderhistoryItem__info">
-        <p>{order.name}</p>
+        <p>{`${order.name} ${order.surname}`}</p>
         <p>{order.email}</p>
         <p>{order.phoneNumber}</p>
       </div>
