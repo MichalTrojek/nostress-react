@@ -6,7 +6,7 @@ import OrderHistoryItem from './OrderHistoryItem';
 
 import Button from '../../../common/Button';
 
-import { fetchFirst, fetchPage } from './api/pagination';
+import { fetchLastOrderNumber, fetchPage } from './api/pagination';
 
 const OrderHistoryItemsList = styled.div`
   display: flex;
@@ -34,7 +34,7 @@ const OrderHistory = () => {
   const PAGE_SIZE = 10;
 
   useEffect(() => {
-    fetchFirst(setPage, PAGE_SIZE);
+    fetchLastOrderNumber(setCurrentIndex);
   }, []);
 
   useEffect(() => {
@@ -45,11 +45,11 @@ const OrderHistory = () => {
     <Background>
       <Wrapper>
         <HistoryButtonsContainer>
-          <Button primary onClick={handlePrevButton}>
-            Předchozí
+          <Button primary onClick={handleNewerButton}>
+            Novější
           </Button>
-          <Button primary onClick={handleNextButton}>
-            Další
+          <Button primary onClick={handleOlderButton}>
+            Starší
           </Button>
         </HistoryButtonsContainer>
         <OrderHistoryItemsList>{renderPage()}</OrderHistoryItemsList>
@@ -57,15 +57,15 @@ const OrderHistory = () => {
     </Background>
   );
 
-  function handlePrevButton() {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - PAGE_SIZE);
+  function handleNewerButton() {
+    if (page.length !== PAGE_SIZE) {
+      setCurrentIndex(currentIndex + PAGE_SIZE);
     }
   }
 
-  function handleNextButton() {
+  function handleOlderButton() {
     if (page.length === PAGE_SIZE) {
-      setCurrentIndex(currentIndex + PAGE_SIZE);
+      setCurrentIndex(currentIndex - PAGE_SIZE);
     }
   }
 

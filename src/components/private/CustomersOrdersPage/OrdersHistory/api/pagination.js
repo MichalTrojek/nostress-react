@@ -1,21 +1,19 @@
 import { db } from '../../../../../firebase';
 
-export async function fetchFirst(setPage, PAGE_SIZE) {
+export async function fetchLastOrderNumber(setCurrentIndex) {
   const first = db
     .collection('orderHistory')
-    .orderBy('orderNumber')
-    .startAt(0)
-    .endAt(PAGE_SIZE);
+    .orderBy('orderNumber', 'desc')
+    .limit(1);
 
-  const orders = await first.get().then((documentSnapshots) => {
-    const data = [];
+  const orderNumber = await first.get().then((documentSnapshots) => {
+    let lastOrderNumber;
     documentSnapshots.forEach((doc) => {
-      data.push(doc.data());
+      lastOrderNumber = doc.data().orderNumber;
     });
-
-    return data;
+    return lastOrderNumber;
   });
-  setPage(orders);
+  setCurrentIndex(orderNumber);
 }
 
 export async function fetchPage(
@@ -26,9 +24,9 @@ export async function fetchPage(
 ) {
   const first = db
     .collection('orderHistory')
-    .orderBy('orderNumber')
-    .startAt(currentIndex + 1)
-    .endAt(currentIndex + PAGE_SIZE);
+    .orderBy('orderNumber', 'desc')
+    .startAt(currentIndex)
+    .endAt(currentIndex - PAGE_SIZE + 1);
 
   const orders = await first.get().then((documentSnapshots) => {
     const data = [];
