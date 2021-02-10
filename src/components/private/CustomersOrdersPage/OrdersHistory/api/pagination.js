@@ -1,6 +1,6 @@
 import { db } from '../../../../../firebase';
 
-export async function fetchLastOrderNumber(setCurrentIndex) {
+export async function fetchLastOrderNumber(setCurrentIndex, setMaxSize) {
   const first = db
     .collection('orderHistory')
     .orderBy('orderNumber', 'desc')
@@ -13,6 +13,7 @@ export async function fetchLastOrderNumber(setCurrentIndex) {
     });
     return lastOrderNumber;
   });
+  setMaxSize(orderNumber);
   setCurrentIndex(orderNumber);
 }
 
@@ -34,10 +35,12 @@ export async function fetchPage(
       data.push(doc.data());
     });
 
+    console.log('data', data);
     return data;
   });
   if (orders.length !== 0) {
     setPage(orders);
+    console.log('curr', currentIndex);
     setCurrentIndex(currentIndex);
   }
 }

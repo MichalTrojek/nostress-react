@@ -29,10 +29,11 @@ const HistoryButtonsContainer = styled.div`
 const OrderHistory = () => {
   const [page, setPage] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [maxSize, setMaxSize] = useState(0);
   const PAGE_SIZE = 10;
 
   useEffect(() => {
-    fetchLastOrderNumber(setCurrentIndex);
+    fetchLastOrderNumber(setCurrentIndex, setMaxSize);
   }, []);
 
   useEffect(() => {
@@ -56,7 +57,7 @@ const OrderHistory = () => {
   );
 
   function handleNewerButton() {
-    if (page.length !== PAGE_SIZE) {
+    if (currentIndex !== maxSize) {
       setCurrentIndex(currentIndex + PAGE_SIZE);
     }
   }
