@@ -19,8 +19,12 @@ const HistoryButtonsContainer = styled.div`
   margin-bottom: 1rem;
 
   Button {
-    width: 25%;
+    width: 49%;
     text-transform: none;
+
+    @media only screen and (min-width: 768px) {
+      width: 25%;
+    }
   }
 `;
 
