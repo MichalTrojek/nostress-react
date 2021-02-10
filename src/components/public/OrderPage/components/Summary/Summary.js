@@ -28,6 +28,7 @@ const Summary = ({
   setShowSummary,
 }) => {
   const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [text, setText] = useState('');
@@ -58,6 +59,17 @@ const Summary = ({
               required
             />
             <label htmlFor="nameInput">Jméno</label>
+          </FormGroup>
+          <FormGroup>
+            <input
+              type="text"
+              placeholder="Příjmení"
+              value={surname}
+              onChange={(event) => setSurname(event.target.value)}
+              id="surnameInput"
+              required
+            />
+            <label htmlFor="surnameInput">Příjmení</label>
           </FormGroup>
           <FormGroup>
             <input
@@ -118,6 +130,7 @@ const Summary = ({
     if (items.length > 0) {
       const order = {
         name: name,
+        surname: surname,
         phoneNumber: phoneNumber,
         email: email,
         text: text,
