@@ -34,13 +34,10 @@ export async function fetchPage(
     documentSnapshots.forEach((doc) => {
       data.push(doc.data());
     });
-
-    console.log('data', data);
     return data;
   });
   if (orders.length !== 0) {
     setPage(orders);
-    console.log('curr', currentIndex);
     setCurrentIndex(currentIndex);
   }
 }
