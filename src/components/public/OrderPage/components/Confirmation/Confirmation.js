@@ -81,7 +81,8 @@ const Confirmation = ({
         <h1>Děkujeme Vám za Vaší objednávku.</h1>
         <p className="ready">Vaše objednávka se již připravuje.</p>
         <p className="name">
-          Objednávka na jméno <span>{customerInfo.name}</span>
+          Objednávka na jméno{' '}
+          <span>{`${customerInfo.name} ${customerInfo.surname}`}</span>
           bude doručena na Vámi zadanou adresu.
         </p>
         <p className="price">
@@ -98,7 +99,8 @@ const Confirmation = ({
         <h1>Děkujeme Vám za Vaší objednávku.</h1>
         <p className="ready">Vaše objednávka se již připravuje.</p>
         <p className="name">
-          Objednávka na jméno <span>{customerInfo.name}</span>
+          Objednávka na jméno{' '}
+          <span>{`${customerInfo.name} ${customerInfo.surname}`}</span>
           pro Vás bude připravena do 15 minut k vyzvednutí u výdejního okna.
         </p>
         <p className="price">
