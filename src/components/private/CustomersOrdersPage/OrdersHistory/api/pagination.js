@@ -23,6 +23,7 @@ export async function fetchPage(
   currentIndex,
   PAGE_SIZE
 ) {
+  console.log('fetchPage');
   const first = db
     .collection('orderHistory')
     .orderBy('orderNumber', 'desc')
