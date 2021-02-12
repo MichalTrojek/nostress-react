@@ -6,7 +6,7 @@ import NewsCard from '../NewsCard';
 
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-// import './slideview.css';
+import './slideview.css';
 
 import { connect } from 'react-redux';
 
@@ -42,7 +42,7 @@ const NewsSlider = ({ cards }) => {
     speed: 500,
     slidesToShow: numberOfSlidesShown,
     slidesToSrroll: 1,
-    dotsClass: 'button__bar',
+    dotsClass: 'button__bar2',
     arrows: false,
     autoplay: true,
     autoplaySpeed: 5000,

@@ -1,4 +1,4 @@
-.button__bar {
+.button__bar2 {
   display: block;
   margin: auto;
   padding: 0.5rem;
@@ -7,17 +7,18 @@
   width: max-content;
   text-align: center;
   z-index: 0;
+  margin-top: 2rem;
   transform: translateY(-1rem);
 }
 
-.button__bar li {
+.button__bar2 li {
   list-style: none;
   cursor: pointer;
   display: inline-block;
   margin: 0 3px;
 }
 
-.button__bar li button {
+.button__bar2 li button {
   border: none;
   background-color: var(--color-primary);
   color: transparent;
@@ -28,17 +29,20 @@
   border-radius: 7.5px;
 }
 
-.button__bar li.slick-active button {
+.button__bar2 li.slick-active button {
   background-color: var(--color-tertiary);
 }
 
-/* .slick-slide {
-  max-width: 30%;
-} */
-/* .slick-track {
+/* Velikost slidu */
+
+.slick-track {
   display: flex !important;
 }
 
 .slick-slide {
   height: inherit !important;
-} */
+}
+
+.slick-slide > div {
+  height: 99%;
+}
