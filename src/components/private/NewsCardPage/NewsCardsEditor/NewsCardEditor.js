@@ -116,9 +116,11 @@ const NewsCardsEditor = ({
     const file = event.target.files[0];
 
     var binaryData = [];
+
     binaryData.push(file);
     window.URL.createObjectURL(new Blob(binaryData, { type: 'image' }));
     setFileUrl(URL.createObjectURL(file));
+
     setFile(file);
   }
 
@@ -142,13 +144,8 @@ const NewsCardsEditor = ({
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (
-      heading.length === 0 ||
-      content === 0 ||
-      fileUrl === 0 ||
-      loading ||
-      !file
-    ) {
+    if (heading.length === 0 || content === 0 || fileUrl === 0 || loading) {
+      console.log('return');
       return;
     }
 
