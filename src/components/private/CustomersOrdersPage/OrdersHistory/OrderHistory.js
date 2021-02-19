@@ -29,6 +29,7 @@ const HistoryButtonsContainer = styled.div`
 const OrderHistory = () => {
   const [page, setPage] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showSearch, setShowSearch] = useState(0);
   const [maxSize, setMaxSize] = useState(0);
   const PAGE_SIZE = 10;
 
@@ -47,6 +48,9 @@ const OrderHistory = () => {
           <Button primary onClick={handleNewerButton}>
             Novější
           </Button>
+          <Button primary onClick={handleSearchButton}>
+            Vyhledavaní
+          </Button>
           <Button primary onClick={handleOlderButton}>
             Starší
           </Button>
@@ -55,6 +59,10 @@ const OrderHistory = () => {
       </Wrapper>
     </Background>
   );
+
+  function handleSearchButton() {
+    setShowSearch(!showSearch);
+  }
 
   function handleNewerButton() {
     if (currentIndex !== maxSize) {
