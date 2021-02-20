@@ -113,7 +113,9 @@ const OrderHistory = () => {
   }
 
   function handleSearching() {
-    searchOrdersByEmail(setPage, email);
+    if (email.length !== 0) {
+      searchOrdersByEmail(setPage, email);
+    }
   }
 
   function handleGoBackButton() {
