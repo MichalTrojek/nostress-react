@@ -119,7 +119,7 @@ const OrderHistory = () => {
         <Button primary onClick={handleNewerButton}>
           Novější
         </Button>
-        <Button primary onClick={handleSearchButton}>
+        <Button primary onClick={handleShowSearchButton}>
           Vyhledavaní
         </Button>
         <Button primary onClick={handleOlderButton}>
@@ -129,8 +129,9 @@ const OrderHistory = () => {
     );
   }
 
-  function handleSearchButton() {
+  function handleShowSearchButton() {
     setShowSearch(!showSearch);
+    setPage([]);
   }
 
   function handleNewerButton() {
