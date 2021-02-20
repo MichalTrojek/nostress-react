@@ -112,6 +112,7 @@ const OrderHistory = () => {
   function handleGoBackButton() {
     fetchPage(setPage, setCurrentIndex, currentIndex, PAGE_SIZE);
     setShowSearch(!showSearch);
+    setEmail('');
   }
 
   function renderHistoryButtons() {
