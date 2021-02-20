@@ -18,7 +18,7 @@ const OrderHistoryItemsList = styled.div`
 `;
 
 const HistoryButtonsContainer = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
   Button {
@@ -27,6 +27,15 @@ const HistoryButtonsContainer = styled.div`
     @media only screen and (min-width: 768px) {
       width: 25%;
     }
+  } */
+
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  margin-bottom: 1rem;
+
+  @media only screen and (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fill, minmax(32%, 1fr));
   }
 `;
 
