@@ -46,8 +46,8 @@ export async function fetchPage(
 export async function fetchByEmail(setPage, email) {
   const orders = await db
     .collection('orderHistory')
-    .orderBy('orderNumber', 'desc')
     .where('email', '==', email)
+    .orderBy('orderNumber', 'desc')
     .get()
     .then((querySnapshot) => {
       const data = [];

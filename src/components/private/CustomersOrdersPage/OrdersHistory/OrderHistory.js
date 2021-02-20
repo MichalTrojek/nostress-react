@@ -33,18 +33,22 @@ const HistoryButtonsContainer = styled.div`
 `;
 
 const SearchContainer = styled.div`
-  display: flex;
-  /* flex-direction: column; */
-  align-items: center;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+
+  @media only screen and (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fill, minmax(32%, 1fr));
+  }
 
   .emailSearchFormGroup {
-    width: 50%;
-    margin-right: 2rem;
   }
 
   .emailSearchButton {
+    align-self: center;
+    height: 4rem;
+    margin-bottom: 1.5rem;
     text-transform: none;
-    margin-bottom: 1.3rem;
   }
 `;
 
@@ -86,23 +90,28 @@ const OrderHistory = () => {
           />
           <label htmlFor="searchEmailInput">Hledat email</label>
         </FormGroup>
-        <Button
-          className="emailSearchButton"
-          primary
-          onClick={() => setShowSearch(!showSearch)}
-        >
+        <Button className="emailSearchButton" primary onClick={handleSearching}>
           Vyhledat
         </Button>
 
         <Button
           className="emailSearchButton"
           primary
-          onClick={() => setShowSearch(!showSearch)}
+          onClick={handleGoBackButton}
         >
           Zpět
         </Button>
       </SearchContainer>
     );
+  }
+
+  function handleSearching() {
+    fetchByEmail(setPage, email);
+  }
+
+  function handleGoBackButton() {
+    fetchPage(setPage, setCurrentIndex, currentIndex, PAGE_SIZE);
+    setShowSearch(!showSearch);
   }
 
   function renderHistoryButtons() {
