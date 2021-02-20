@@ -8,7 +8,11 @@ import FormGroup from '../../../common/Forms/FormGroup';
 
 import Button from '../../../common/Button';
 
-import { fetchLastOrderNumber, fetchPage } from './api/pagination';
+import {
+  fetchLastOrderNumber,
+  fetchPage,
+  fetchByEmail,
+} from './api/pagination';
 
 const OrderHistoryItemsList = styled.div`
   display: flex;
@@ -96,7 +100,7 @@ const OrderHistory = () => {
   }
 
   function handleSearchEmailButton() {
-    console.log('TET');
+    fetchByEmail(setPage, email);
   }
 
   function renderHistoryButtons() {
