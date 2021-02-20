@@ -30,7 +30,18 @@ const HistoryButtonsContainer = styled.div`
 
 const SearchContainer = styled.div`
   display: flex;
+  /* flex-direction: column; */
   align-items: center;
+
+  .emailSearchFormGroup {
+    width: 50%;
+    margin-right: 2rem;
+  }
+
+  .emailSearchButton {
+    text-transform: none;
+    margin-bottom: 1.3rem;
+  }
 `;
 
 const OrderHistory = () => {
@@ -61,7 +72,7 @@ const OrderHistory = () => {
   function renderSearch() {
     return (
       <SearchContainer>
-        <FormGroup>
+        <FormGroup className="emailSearchFormGroup">
           <input
             type="text"
             placeholder="Hledat email"
@@ -71,7 +82,13 @@ const OrderHistory = () => {
           />
           <label htmlFor="searchEmailInput">Hledat email</label>
         </FormGroup>
-        <Button primary onClick={handleSearchEmailButton} Vyhledat email>
+        <Button
+          className="emailSearchButton"
+          primary
+          onClick={handleSearchEmailButton}
+          Vyhledat
+          email
+        >
           Vyhledat
         </Button>
       </SearchContainer>
