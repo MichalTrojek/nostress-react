@@ -89,18 +89,20 @@ const OrderHistory = () => {
         <Button
           className="emailSearchButton"
           primary
-          onClick={handleSearchEmailButton}
-          Vyhledat
-          email
+          onClick={() => setShowSearch(!showSearch)}
         >
           Vyhledat
         </Button>
+
+        <Button
+          className="emailSearchButton"
+          primary
+          onClick={() => setShowSearch(!showSearch)}
+        >
+          Zpět
+        </Button>
       </SearchContainer>
     );
-  }
-
-  function handleSearchEmailButton() {
-    fetchByEmail(setPage, email);
   }
 
   function renderHistoryButtons() {
