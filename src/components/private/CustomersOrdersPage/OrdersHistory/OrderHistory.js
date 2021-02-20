@@ -8,11 +8,9 @@ import FormGroup from '../../../common/Forms/FormGroup';
 
 import Button from '../../../common/Button';
 
-import {
-  fetchLastOrderNumber,
-  fetchPage,
-  fetchByEmail,
-} from './api/pagination';
+import { fetchLastOrderNumber, fetchPage } from './api/pagination';
+
+import { searchOrdersByEmail } from './api/searchOrdersByEmail';
 
 const OrderHistoryItemsList = styled.div`
   display: flex;
@@ -106,7 +104,7 @@ const OrderHistory = () => {
   }
 
   function handleSearching() {
-    fetchByEmail(setPage, email);
+    searchOrdersByEmail(setPage, email);
   }
 
   function handleGoBackButton() {

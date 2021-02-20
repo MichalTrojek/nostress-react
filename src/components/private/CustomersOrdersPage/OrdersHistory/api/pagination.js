@@ -42,20 +42,3 @@ export async function fetchPage(
     setCurrentIndex(currentIndex);
   }
 }
-
-export async function fetchByEmail(setPage, email) {
-  const orders = await db
-    .collection('orderHistory')
-    .where('email', '==', email)
-    .orderBy('orderNumber', 'desc')
-    .get()
-    .then((querySnapshot) => {
-      const data = [];
-      querySnapshot.forEach((doc) => {
-        data.push(doc.data());
-      });
-      return data;
-    });
-
-  setPage(orders);
-}
