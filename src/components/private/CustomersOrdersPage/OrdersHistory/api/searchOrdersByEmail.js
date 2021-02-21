@@ -1,6 +1,7 @@
 import { db } from '../../../../../firebase';
 
 export async function searchOrdersByEmail(setPage, email) {
+  console.log(email);
   const orders = await db
     .collection('orderHistory')
     .where('email', '==', email)

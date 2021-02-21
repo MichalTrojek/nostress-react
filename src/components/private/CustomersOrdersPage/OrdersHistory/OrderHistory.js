@@ -114,7 +114,7 @@ const OrderHistory = () => {
 
   function handleSearching() {
     if (email.length !== 0) {
-      searchOrdersByEmail(setPage, email);
+      searchOrdersByEmail(setPage, email.toLowerCase());
     }
   }
 
