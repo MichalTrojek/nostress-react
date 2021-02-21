@@ -18,17 +18,6 @@ const OrderHistoryItemsList = styled.div`
 `;
 
 const HistoryButtonsContainer = styled.div`
-  /* display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  Button {
-    width: 49%;
-    text-transform: none;
-    @media only screen and (min-width: 768px) {
-      width: 25%;
-    }
-  } */
-
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
@@ -72,7 +61,11 @@ const OrderHistory = () => {
   }, []);
 
   useEffect(() => {
-    fetchPage(setPage, setCurrentIndex, currentIndex, PAGE_SIZE);
+    try {
+      fetchPage(setPage, setCurrentIndex, currentIndex, PAGE_SIZE);
+    } catch (error) {
+      console.log(`error `, error);
+    }
   }, [currentIndex]);
 
   return (

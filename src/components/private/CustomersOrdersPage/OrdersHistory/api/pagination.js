@@ -23,22 +23,25 @@ export async function fetchPage(
   currentIndex,
   PAGE_SIZE
 ) {
-  console.log('fetchPage');
-  const first = db
-    .collection('orderHistory')
-    .orderBy('orderNumber', 'desc')
-    .startAt(currentIndex)
-    .endAt(currentIndex - PAGE_SIZE + 1);
+  try {
+    const first = db
+      .collection('orderHistory')
+      .orderBy('orderNumber', 'desc')
+      .startAt(currentIndex)
+      .endAt(currentIndex - PAGE_SIZE + 1);
 
-  const orders = await first.get().then((documentSnapshots) => {
-    const data = [];
-    documentSnapshots.forEach((doc) => {
-      data.push(doc.data());
+    const orders = await first.get().then((documentSnapshots) => {
+      const data = [];
+      documentSnapshots.forEach((doc) => {
+        data.push(doc.data());
+      });
+      return data;
     });
-    return data;
-  });
-  if (orders.length !== 0) {
-    setPage(orders);
-    setCurrentIndex(currentIndex);
+    if (orders.length !== 0) {
+      setPage(orders);
+      setCurrentIndex(currentIndex);
+    }
+  } catch (error) {
+    console.log(`currentIndex is probably undefined:  ${currentIndex}`);
   }
 }
