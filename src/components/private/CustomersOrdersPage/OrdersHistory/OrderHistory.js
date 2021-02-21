@@ -61,11 +61,7 @@ const OrderHistory = () => {
   }, []);
 
   useEffect(() => {
-    try {
-      fetchPage(setPage, setCurrentIndex, currentIndex, PAGE_SIZE);
-    } catch (error) {
-      console.log(`error `, error);
-    }
+    fetchPage(setPage, setCurrentIndex, currentIndex, PAGE_SIZE);
   }, [currentIndex]);
 
   return (

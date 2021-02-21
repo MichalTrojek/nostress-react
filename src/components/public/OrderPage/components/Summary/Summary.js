@@ -144,7 +144,7 @@ const Summary = ({
         name: name,
         surname: surname,
         phoneNumber: phoneNumber,
-        email: email,
+        email: email.toLowerCase(),
         text: text,
         items: items,
         menuType: menuType,
