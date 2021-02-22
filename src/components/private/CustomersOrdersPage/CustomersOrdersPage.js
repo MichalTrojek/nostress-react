@@ -12,8 +12,7 @@ import AllowOrderingRadioGroup from './AllowOrderingRadioGroup';
 import OrderHistory from './OrdersHistory';
 
 import { sortByOrderNumber } from '../../../utils/orderUtils';
-
-import { db } from '../../../firebase';
+import { subscribeToOrders } from './api/subscribeToOrders';
 
 const CustomersOrdersPageBackground = styled.div`
   background-color: black;
@@ -36,14 +35,7 @@ const CustomersOrdersPage = () => {
   const [showHistory, setShowHistory] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = db.collection('orders').onSnapshot((onSnapshot) => {
-      const tempOrders = [];
-      onSnapshot.forEach((doc) => {
-        const order = { ...doc.data(), id: doc.id };
-        tempOrders.push(order);
-      });
-      setOrders(tempOrders);
-    });
+    const unsubscribe = subscribeToOrders(setOrders);
     return () => {
       unsubscribe();
     };
