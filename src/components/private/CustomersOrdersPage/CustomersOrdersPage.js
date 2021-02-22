@@ -23,8 +23,6 @@ const CustomersOrdersPageBackground = styled.div`
 const OrderHeader = styled.div`
   display: flex;
   justify-content: space-between;
-
-  /* padding: 2% 0rem; */
   margin-bottom: 2%;
 
   Button {
