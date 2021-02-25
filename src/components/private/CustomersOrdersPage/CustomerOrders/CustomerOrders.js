@@ -158,11 +158,11 @@ const CustomerOrders = ({ orders = [] }) => {
   function renderOrderedItems() {
     let items = [];
     if (showAll) {
-      items = orders;
+      items = orders.reverse();
     } else if (showConfirmed) {
-      items = confirmedOrders;
+      items = confirmedOrders.reverse();
     } else if (showNew) {
-      items = newOrders;
+      items = newOrders.reverse();
     }
 
     return items.map((order, index) => {
