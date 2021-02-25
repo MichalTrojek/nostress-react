@@ -56,11 +56,12 @@ const CustomerOrders = ({ playAlarm, setPlayAlarm, orders = [], isMuted }) => {
 
   const [play, { stop }] = useSound(AlertSound);
 
-  // useEffect(() => {
-  //   if (isMuted) {
-  //     stop();
-  //   }
-  // }, [isMuted]);
+  useEffect(() => {
+    console.log('isMuted', isMuted);
+    if (isMuted) {
+      stop();
+    }
+  }, [isMuted]);
 
   useEffect(() => {
     if (playAlarm && !isMuted) {

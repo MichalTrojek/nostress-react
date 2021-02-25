@@ -10,6 +10,7 @@ export function subscribeToOrders(setOrders, setPlayAlarm) {
 
     snapshot.docChanges().forEach((change) => {
       if (change.type === 'added') {
+        console.log('setPlayLarm');
         setPlayAlarm(true);
       }
     });

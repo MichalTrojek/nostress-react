@@ -52,10 +52,6 @@ const CustomersOrdersPage = () => {
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
-    console.log(isMuted);
-  }, [isMuted]);
-
-  useEffect(() => {
     const unsubscribe = subscribeToOrders(setOrders, setPlayAlarm);
     return () => {
       unsubscribe();
