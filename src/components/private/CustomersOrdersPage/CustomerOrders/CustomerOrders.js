@@ -6,7 +6,9 @@ import RadioGroup from '../../../common/Forms/RadioGroup';
 import { showInfoToast } from '../../../../notifications/toast';
 
 import { sortByOrderNumber } from '../../../../utils/orderUtils';
-
+import useSound from 'use-sound';
+import AlertSound from '../../../../sound/alert.mp3';
+import PageLayout from '../../../PageLayout';
 const CustomerOrdersContainer = styled.div`
   position: relative;
 `;
@@ -40,7 +42,7 @@ const OrdersContainer = styled.div`
   }
 `;
 
-const CustomerOrders = ({ orders = [] }) => {
+const CustomerOrders = ({ playAlarm, setPlayAlarm, orders = [] }) => {
   const [enableNewOrdersButton, setEnableNewOrdersButton] = useState(false);
   const [enableConfirmedButton, setEnableConfirmedButton] = useState(false);
   const [enableAllButton, setEnableAllButton] = useState(false);
@@ -51,6 +53,15 @@ const CustomerOrders = ({ orders = [] }) => {
   const [showAll, setShowAll] = useState(false);
   const [showNew, setShowNew] = useState(false);
   const [showConfirmed, setShowConfirmed] = useState(false);
+
+  const [play, { stop }] = useSound(AlertSound);
+
+  useEffect(() => {
+    if (playAlarm) {
+      play();
+      setPlayAlarm(false);
+    }
+  }, [newOrders]);
 
   useEffect(() => {
     const tempNewOrders = [];
@@ -118,9 +129,18 @@ const CustomerOrders = ({ orders = [] }) => {
             : 'Žádné k zobrazení'}
         </label>
       </CustomerOrdersRadioGroup>
+
       <OrdersContainer>{renderOrderedItems()}</OrdersContainer>
     </CustomerOrdersContainer>
   );
+
+  // function playSound() {
+  //   return newOrders.length > 0 ? (
+  //     <ReactHowler src={AlertSound} playing={true} />
+  //   ) : (
+  //     <></>
+  //   );
+  // }
 
   function handleShowNew() {
     if (enableNewOrdersButton) {

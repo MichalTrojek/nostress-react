@@ -33,9 +33,10 @@ const OrderHeader = styled.div`
 const CustomersOrdersPage = () => {
   const [orders, setOrders] = useState([]);
   const [showHistory, setShowHistory] = useState(false);
+  const [playAlarm, setPlayAlarm] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = subscribeToOrders(setOrders);
+    const unsubscribe = subscribeToOrders(setOrders, setPlayAlarm);
     return () => {
       unsubscribe();
     };
@@ -52,7 +53,6 @@ const CustomersOrdersPage = () => {
               {showHistory ? 'Objednávky' : 'Historie'}
             </Button>
           </OrderHeader>
-
           {showHistory ? <OrderHistory /> : renderOrders()}
         </Wrapper>
       </CustomersOrdersPageBackground>
@@ -63,7 +63,11 @@ const CustomersOrdersPage = () => {
     return (
       <div>
         <AllowOrderingRadioGroup />
-        <CustomerOrders orders={sortByOrderNumber(orders)}></CustomerOrders>
+        <CustomerOrders
+          playAlarm={playAlarm}
+          setPlayAlarm={setPlayAlarm}
+          orders={sortByOrderNumber(orders)}
+        ></CustomerOrders>
       </div>
     );
   }
