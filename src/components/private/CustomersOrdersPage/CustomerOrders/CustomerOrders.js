@@ -42,7 +42,7 @@ const OrdersContainer = styled.div`
   }
 `;
 
-const CustomerOrders = ({ playAlarm, setPlayAlarm, orders = [] }) => {
+const CustomerOrders = ({ playAlarm, setPlayAlarm, orders = [], isMuted }) => {
   const [enableNewOrdersButton, setEnableNewOrdersButton] = useState(false);
   const [enableConfirmedButton, setEnableConfirmedButton] = useState(false);
   const [enableAllButton, setEnableAllButton] = useState(false);
@@ -56,12 +56,18 @@ const CustomerOrders = ({ playAlarm, setPlayAlarm, orders = [] }) => {
 
   const [play, { stop }] = useSound(AlertSound);
 
+  // useEffect(() => {
+  //   if (isMuted) {
+  //     stop();
+  //   }
+  // }, [isMuted]);
+
   useEffect(() => {
-    if (playAlarm) {
+    if (playAlarm && !isMuted) {
       play();
       setPlayAlarm(false);
     }
-  }, [newOrders]);
+  }, [newOrders, play, playAlarm]);
 
   useEffect(() => {
     const tempNewOrders = [];
@@ -135,6 +141,7 @@ const CustomerOrders = ({ playAlarm, setPlayAlarm, orders = [] }) => {
   );
 
   function handleShowNew() {
+    stop();
     if (enableNewOrdersButton) {
       setShowNew(true);
       setShowConfirmed(false);
@@ -144,6 +151,7 @@ const CustomerOrders = ({ playAlarm, setPlayAlarm, orders = [] }) => {
     }
   }
   function handleShowConfirmed() {
+    stop();
     if (enableConfirmedButton) {
       setShowNew(false);
       setShowConfirmed(true);
@@ -154,6 +162,7 @@ const CustomerOrders = ({ playAlarm, setPlayAlarm, orders = [] }) => {
   }
 
   function handleShowAll() {
+    stop();
     if (enableAllButton) {
       setShowNew(false);
       setShowConfirmed(false);
