@@ -63,9 +63,7 @@ const CustomersOrdersPage = () => {
     return (
       <div>
         <AllowOrderingRadioGroup />
-        <CustomerOrders
-          orders={sortByOrderNumber(orders.reverse())}
-        ></CustomerOrders>
+        <CustomerOrders orders={sortByOrderNumber(orders)}></CustomerOrders>
       </div>
     );
   }

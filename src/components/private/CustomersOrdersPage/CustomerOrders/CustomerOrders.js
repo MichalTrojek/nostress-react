@@ -158,17 +158,27 @@ const CustomerOrders = ({ orders = [] }) => {
   function renderOrderedItems() {
     let items = [];
     if (showAll) {
-      items = orders.reverse();
+      items = orders;
     } else if (showConfirmed) {
-      items = confirmedOrders.reverse();
+      items = confirmedOrders;
     } else if (showNew) {
-      items = newOrders.reverse();
+      items = newOrders;
     }
 
+    items.sort(compare);
     return items.map((order, index) => {
       return <OrderedItem key={index} order={order} />;
     });
   }
 };
+function compare(a, b) {
+  if (a.orderNumber > b.orderNumber) {
+    return -1;
+  }
+  if (a.orderNumber < b.orderNumber) {
+    return 1;
+  }
+  return 0;
+}
 
 export default CustomerOrders;
