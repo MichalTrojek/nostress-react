@@ -8,7 +8,7 @@ import { showInfoToast } from '../../../../notifications/toast';
 import { sortByOrderNumber } from '../../../../utils/orderUtils';
 import useSound from 'use-sound';
 import AlertSound from '../../../../sound/alert.mp3';
-import PageLayout from '../../../PageLayout';
+
 const CustomerOrdersContainer = styled.div`
   position: relative;
 `;
@@ -133,14 +133,6 @@ const CustomerOrders = ({ playAlarm, setPlayAlarm, orders = [] }) => {
       <OrdersContainer>{renderOrderedItems()}</OrdersContainer>
     </CustomerOrdersContainer>
   );
-
-  // function playSound() {
-  //   return newOrders.length > 0 ? (
-  //     <ReactHowler src={AlertSound} playing={true} />
-  //   ) : (
-  //     <></>
-  //   );
-  // }
 
   function handleShowNew() {
     if (enableNewOrdersButton) {

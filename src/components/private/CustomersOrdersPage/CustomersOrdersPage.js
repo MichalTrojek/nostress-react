@@ -40,7 +40,7 @@ const CustomersOrdersPage = () => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [setOrders, setPlayAlarm]);
 
   return (
     <PageLayout>
