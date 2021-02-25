@@ -88,7 +88,7 @@ const CustomerOrders = ({ orders = [] }) => {
         />
         <label htmlFor="showNewId">
           {enableNewOrdersButton
-            ? `Zobrazovat nové ${renderCount(newOrders)}`
+            ? `Zobrazit nové ${renderCount(newOrders)}`
             : 'Žádné nové'}
         </label>
 
