@@ -84,6 +84,7 @@ const CustomersOrdersPage = () => {
       <img
         onClick={(event) => setIsMuted(!isMuted)}
         src={isMuted ? mute : unmute}
+        alt="mute icon"
       ></img>
     );
   }

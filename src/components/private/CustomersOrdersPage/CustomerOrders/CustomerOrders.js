@@ -57,18 +57,17 @@ const CustomerOrders = ({ playAlarm, setPlayAlarm, orders = [], isMuted }) => {
   const [play, { stop }] = useSound(AlertSound);
 
   useEffect(() => {
-    console.log('isMuted', isMuted);
     if (isMuted) {
       stop();
     }
-  }, [isMuted]);
+  }, [isMuted, stop]);
 
   useEffect(() => {
     if (playAlarm && !isMuted) {
       play();
       setPlayAlarm(false);
     }
-  }, [newOrders, play, playAlarm]);
+  }, [newOrders, play, playAlarm, isMuted, setPlayAlarm]);
 
   useEffect(() => {
     const tempNewOrders = [];
